@@ -185,6 +185,12 @@
 
     // Init
     function init() {
+        // Validate critical DOM elements exist
+        if (!clickArea) {
+            console.error('Critical error: click-area element not found in DOM');
+            return;
+        }
+
         loadState();
         recalculateAutoIncome();
         spawnMonster();
@@ -599,11 +605,11 @@
 
     // Click
     function handleClick(e) {
-        if (monsterDying) return;
+        if (monsterDying || monsterHP <= 0) return;
 
         const baseClick = clickValue * clickMultiplier;
         const autoBonus = autoIncomePerSec * goldenTouchBonus;
-        const damage = baseClick + autoBonus;
+        const damage = Math.max(1, baseClick + autoBonus);
 
         totalClicks++;
         if (sfx) sfx.hit();
@@ -619,9 +625,11 @@
             lastTickTime = now;
 
             // Auto DPS damages monster
-            if (autoIncomePerSec > 0 && !monsterDying) {
+            if (autoIncomePerSec > 0 && !monsterDying && monsterHP > 0) {
                 const autoDamage = autoIncomePerSec * dt * speedMultiplier;
-                damageMonster(autoDamage, false);
+                if (autoDamage > 0) {
+                    damageMonster(autoDamage, false);
+                }
             }
 
             updateDisplay();
@@ -978,8 +986,15 @@
 
     // Events
     function setupEvents() {
-        clickArea.addEventListener('click', handleClick);
-        clickArea.addEventListener('touchstart', (e) => {
+        // Ensure clickArea is available before binding
+        const clickAreaElement = document.getElementById('click-area');
+        if (!clickAreaElement) {
+            console.error('click-area element not found');
+            return;
+        }
+
+        clickAreaElement.addEventListener('click', handleClick);
+        clickAreaElement.addEventListener('touchstart', (e) => {
             e.preventDefault();
             handleClick(e);
         }, { passive: false });
@@ -1017,9 +1032,22 @@
         window._buySkill = buySkill;
     }
 
+    // Ensure all init happens after DOM is loaded
+    function safeInit() {
+        try {
+            init();
+        } catch (e) {
+            console.error('Initialization error:', e);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', safeInit);
+    } else {
+        safeInit();
+    }
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js').catch(() => {});
     }
-
-    init();
 })();
