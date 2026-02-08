@@ -354,6 +354,16 @@
         // Death particles (use monster color)
         spawnDeathParticles(monster.color);
 
+        // Play sound effects
+        if (sfx) {
+            if (isBoss) {
+                sfx.levelUp();
+            } else {
+                sfx.explosion();
+            }
+            sfx.coin();
+        }
+
         // Boss defeat flash
         if (isBoss) {
             const flash = document.createElement('div');
@@ -480,6 +490,7 @@
         const damage = baseClick + autoBonus;
 
         totalClicks++;
+        if (sfx) sfx.hit();
         damageMonster(damage, true);
         updateDisplay();
     }
@@ -533,6 +544,7 @@
 
         gold -= cost;
         ownedEquipment[equipId] = (ownedEquipment[equipId] || 0) + 1;
+        if (sfx) sfx.place();
         recalculateAutoIncome();
         renderEquipment();
         updateDisplay();
@@ -570,6 +582,8 @@
 
         gold -= skill.cost;
         purchasedSkills[skillId] = true;
+
+        if (sfx) sfx.levelUp();
 
         switch (skill.type) {
             case 'click':
@@ -659,9 +673,10 @@
     // Offline
     function calculateOfflineEarnings() {
         const savedTime = localStorage.getItem('dungeonClicker_lastTime');
-        if (!savedTime) return;
+        if (!savedTime || isNaN(parseInt(savedTime))) return;
 
         const offlineSeconds = Math.min((Date.now() - parseInt(savedTime)) / 1000, 43200);
+        if (isNaN(offlineSeconds) || offlineSeconds < 0) return;
         if (offlineSeconds > 10 && autoIncomePerSec > 0) {
             const dps = autoIncomePerSec * speedMultiplier;
             const offlineDamageTotal = dps * offlineSeconds * 0.5;
@@ -735,6 +750,7 @@
     }
 
     // Interstitial
+    let _adInterval = null;
     function showInterstitialAd() {
         return new Promise(resolve => {
             const overlay = document.getElementById('interstitial-overlay');
@@ -747,16 +763,19 @@
             if (countdownEl) countdownEl.textContent = count;
             if (closeBtn) closeBtn.classList.add('hidden');
 
-            const interval = setInterval(() => {
+            if (_adInterval) clearInterval(_adInterval);
+            _adInterval = setInterval(() => {
                 count--;
                 if (countdownEl) countdownEl.textContent = count;
                 if (count <= 0) {
-                    clearInterval(interval);
+                    clearInterval(_adInterval);
+                    _adInterval = null;
                     if (closeBtn) closeBtn.classList.remove('hidden');
                 }
             }, 1000);
 
             const close = () => {
+                if (_adInterval) { clearInterval(_adInterval); _adInterval = null; }
                 overlay.classList.add('hidden');
                 resolve();
             };
