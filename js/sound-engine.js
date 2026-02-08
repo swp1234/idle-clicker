@@ -243,7 +243,14 @@ class SoundEngine {
 
 // Global instance
 const sfx = new SoundEngine();
+window.sfx = sfx;
 
 // Auto-initialize on user interaction
 document.addEventListener('click', () => sfx.init(), { once: true });
 document.addEventListener('touchstart', () => sfx.init(), { once: true });
+
+// Sync button icon with stored preference
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('sound-toggle');
+    if (btn) btn.textContent = sfx.enabled ? '🔊' : '🔇';
+});
