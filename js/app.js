@@ -458,7 +458,7 @@
 
         document.getElementById('btn-share').addEventListener('click', () => {
             const titleInfo = getTitleForMoney(totalEarned);
-            const text = `Idle Clicker Empire\n등급: ${titleInfo.icon} ${titleInfo.title}\n총 수익: ${formatMoney(totalEarned)}\n자동 수익: ${formatMoneyShort(autoIncomePerSec)}/초\n\nhttps://swp1234.github.io/idle-clicker/`;
+            const text = `Idle Clicker Empire\n등급: ${titleInfo.icon} ${titleInfo.title}\n총 수익: ${formatMoney(totalEarned)}\n자동 수익: ${formatMoneyShort(autoIncomePerSec)}/초\n\nhttps://dopabrain.com/idle-clicker/`;
             if (navigator.share) {
                 navigator.share({ title: 'Idle Clicker Empire', text });
             } else if (navigator.clipboard) {
