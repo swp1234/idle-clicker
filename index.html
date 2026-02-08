@@ -11,25 +11,25 @@
     <meta name="description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! 클릭으로 시작하는 RPG 모험. 무료 방치형 클리커 게임!">
     <meta name="keywords" content="클리커 게임, 방치형 게임, RPG 게임, 던전 게임, idle clicker, 무료 게임, 브라우저 게임, 캐주얼 게임">
     <meta name="author" content="DopaBrain">
-    <link rel="canonical" href="https://dopabrain.com/dungeon-clicker/">
+    <link rel="canonical" href="https://dopabrain.com/idle-clicker/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="던전 클리커 - 방치형 RPG 클리커 게임 ⚔️">
     <meta property="og:description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! RPG 모험을 시작하세요!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dopabrain.com/dungeon-clicker/">
-    <meta property="og:image" content="https://dopabrain.com/dungeon-clicker/icon-512.svg">
+    <meta property="og:url" content="https://dopabrain.com/idle-clicker/">
+    <meta property="og:image" content="https://dopabrain.com/idle-clicker/icon-512.svg">
     <meta property="og:locale" content="ko_KR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="던전 클리커 - 방치형 RPG 클리커 게임 ⚔️">
     <meta name="twitter:description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! RPG 모험!">
-    <meta name="twitter:image" content="https://dopabrain.com/dungeon-clicker/icon-512.svg">
+    <meta name="twitter:image" content="https://dopabrain.com/idle-clicker/icon-512.svg">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0a0f1a">
+    <meta name="theme-color" content="#8b5cf6">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
@@ -42,7 +42,7 @@
         "@type": "VideoGame",
         "name": "던전 클리커",
         "description": "클릭으로 던전을 탐험하고 몬스터를 무찌르는 방치형 RPG 클리커 게임",
-        "url": "https://dopabrain.com/dungeon-clicker/",
+        "url": "https://dopabrain.com/idle-clicker/",
         "genre": "RPG",
         "gamePlatform": "Web Browser",
         "operatingSystem": "Any",
@@ -84,11 +84,27 @@
             </div>
         </section>
 
-        <!-- Click Area -->
-        <section class="click-section">
-            <div class="click-area" id="click-area">
-                <span class="click-emoji" id="click-emoji">⚔️</span>
-                <span class="click-label">ATTACK!</span>
+        <!-- Monster Battle Area -->
+        <section class="battle-section">
+            <div class="monster-info">
+                <span class="monster-name" id="monster-name">슬라임</span>
+                <span class="monster-level" id="monster-level">Lv.1</span>
+            </div>
+
+            <div class="hp-bar-container">
+                <div class="hp-bar" id="hp-bar">
+                    <div class="hp-fill" id="hp-fill" style="width:100%"></div>
+                </div>
+                <span class="hp-text" id="hp-text">10 / 10</span>
+            </div>
+
+            <div class="monster-area" id="click-area">
+                <div class="monster-emoji" id="monster-emoji">🟢</div>
+                <div class="monster-shadow"></div>
+            </div>
+
+            <div class="kill-counter">
+                <span id="kill-count">0</span> 처치
             </div>
         </section>
 
@@ -100,17 +116,17 @@
         </div>
 
         <!-- Tab: Equipment -->
-        <div class="tab-content" id="panel-equipment">
+        <div class="tab-panel active" id="panel-equipment">
             <div id="equipment-list"></div>
         </div>
 
         <!-- Tab: Skills -->
-        <div class="tab-content hidden" id="panel-skill">
+        <div class="tab-panel" id="panel-skill">
             <div id="skill-list"></div>
         </div>
 
         <!-- Tab: Stats -->
-        <div class="tab-content hidden" id="panel-stats">
+        <div class="tab-panel" id="panel-stats">
             <div class="stats-grid">
                 <div class="stat-card">
                     <span class="stat-val" id="stat-total-earned">0</span>
@@ -152,8 +168,9 @@
         <div class="interstitial-overlay hidden" id="interstitial-overlay">
             <div class="overlay-content">
                 <p class="ad-notice">광고</p>
+                <div class="countdown-number">5</div>
                 <div class="ad-placeholder-large">AD</div>
-                <button class="ad-close-btn" id="btn-close-ad" disabled>닫기 (5)</button>
+                <button class="close-ad-btn hidden">닫기</button>
             </div>
         </div>
 
