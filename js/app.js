@@ -1,104 +1,505 @@
-// Idle Clicker Empire - Main Engine
-(function() {
+// Dungeon Clicker - Main Engine
+(async function() {
     'use strict';
 
+    // Initialize i18n
+    await i18n.loadTranslations(i18n.getCurrentLanguage());
+    i18n.updateUI();
+
+    const langToggle = document.getElementById('lang-toggle');
+    const langMenu = document.getElementById('lang-menu');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    document.querySelector(`[data-lang="${i18n.getCurrentLanguage()}"]`)?.classList.add('active');
+
+    langToggle?.addEventListener('click', () => langMenu.classList.toggle('hidden'));
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.language-selector')) langMenu?.classList.add('hidden');
+    });
+
+    langOptions.forEach(opt => {
+        opt.addEventListener('click', async () => {
+            await i18n.setLanguage(opt.getAttribute('data-lang'));
+            langOptions.forEach(o => o.classList.remove('active'));
+            opt.classList.add('active');
+            langMenu.classList.add('hidden');
+        });
+    });
+
     // Game state
-    let money = 0;
+    let gold = 0;
     let totalEarned = 0;
     let totalClicks = 0;
-    let clickValue = 1;
+    let clickValue = 3;
     let clickMultiplier = 1;
     let autoMultiplier = 1;
     let speedMultiplier = 1;
-    let goldenTouchRate = 0;
-    let ownedBusinesses = {};
-    let purchasedUpgrades = {};
+    let goldenTouchBonus = 0;
+    let autoIncomePerSec = 0;
+    let ownedEquipment = {};
+    let purchasedSkills = {};
     let lastSaveTime = Date.now();
     let lastTickTime = Date.now();
-    let passedMilestones = {};
-    let autoIncomePerSec = 0;
+    let milestoneIndex = 0;
+    let activeTab = 'equipment';
 
-    // DOM refs
-    const moneyDisplay = document.getElementById('money-display');
+    // Monster state
+    let currentMonsterIndex = 0;
+    let monsterHP = 0;
+    let monsterMaxHP = 0;
+    let killCount = 0;
+    let isBoss = false;
+    let monsterDying = false;
+    let currentTier = 1;
+    let ambientInterval = null;
+
+    // DOM
+    const goldDisplay = document.getElementById('gold-display');
     const perSecDisplay = document.getElementById('per-sec-display');
     const titleDisplay = document.getElementById('title-display');
-    const titleIcon = document.getElementById('title-icon');
     const clickArea = document.getElementById('click-area');
-    const clickEmoji = document.getElementById('click-emoji');
-    const businessList = document.getElementById('business-list');
-    const upgradeList = document.getElementById('upgrade-list');
-    const totalEarnedEl = document.getElementById('stat-earned');
-    const totalClicksEl = document.getElementById('stat-clicks');
-    const clickValueEl = document.getElementById('stat-click-value');
-    const businessCountEl = document.getElementById('stat-businesses');
+    const monsterEmojiEl = document.getElementById('monster-emoji');
+    const monsterNameEl = document.getElementById('monster-name');
+    const monsterLevelEl = document.getElementById('monster-level');
+    const monsterAuraEl = document.getElementById('monster-aura');
+    const hpBar = document.getElementById('hp-bar');
+    const hpFill = document.getElementById('hp-fill');
+    const hpText = document.getElementById('hp-text');
+    const killCountEl = document.getElementById('kill-count');
+    const equipmentList = document.getElementById('equipment-list');
+    const skillList = document.getElementById('skill-list');
+    const container = document.querySelector('.container');
+    const dungeonStage = document.getElementById('dungeon-stage');
+    const ambientContainer = document.getElementById('ambient-particles');
+    const tierLabelEl = document.getElementById('tier-label');
+    const tierIconEl = document.getElementById('tier-icon');
+    const tierNameEl = document.getElementById('tier-name');
 
     // Init
     function init() {
         loadState();
+        recalculateAutoIncome();
+        spawnMonster();
         calculateOfflineEarnings();
-        renderBusinesses();
-        renderUpgrades();
         updateDisplay();
+        renderEquipment();
+        renderSkills();
         startGameLoop();
         setupEvents();
     }
 
-    // Click
-    function handleClick(e) {
-        const baseClick = clickValue * clickMultiplier;
-        const goldenBonus = autoIncomePerSec * goldenTouchRate;
-        const earned = baseClick + goldenBonus;
-        money += earned;
-        totalEarned += earned;
-        totalClicks++;
+    // === Monster Visual System ===
 
-        showClickEffect(e, earned);
-        animateClickArea();
-        updateDisplay();
-    }
-
-    function showClickEffect(e, amount) {
-        const popup = document.createElement('div');
-        popup.className = 'click-popup';
-        popup.textContent = '+' + formatMoneyShort(amount);
-
-        const rect = clickArea.getBoundingClientRect();
-        let x, y;
-        if (e.touches) {
-            x = e.touches[0].clientX - rect.left;
-            y = e.touches[0].clientY - rect.top;
-        } else {
-            x = e.clientX - rect.left;
-            y = e.clientY - rect.top;
+    function applyMonsterVisuals(monster) {
+        // Set monster glow
+        if (monsterEmojiEl) {
+            monsterEmojiEl.style.filter = `drop-shadow(0 0 20px ${monster.glow}) drop-shadow(0 0 10px ${monster.glow}) drop-shadow(0 0 4px ${monster.glow})`;
         }
 
-        popup.style.left = x + 'px';
-        popup.style.top = y + 'px';
+        // Monster glow background
+        const glowBg = document.getElementById('monster-glow-bg');
+        if (glowBg) {
+            glowBg.style.background = `radial-gradient(circle, ${monster.glow}, transparent 70%)`;
+            glowBg.style.boxShadow = `0 0 60px ${monster.glow}`;
+        }
+
+        // Monster aura ring
+        if (monsterAuraEl) {
+            monsterAuraEl.style.borderColor = monster.color;
+            monsterAuraEl.style.boxShadow = `0 0 24px ${monster.glow}, inset 0 0 24px ${monster.glow}`;
+        }
+
+        // Inner aura
+        const innerAura = document.querySelector('.monster-aura-inner');
+        if (innerAura) {
+            innerAura.style.borderColor = monster.color;
+        }
+
+        // Monster name color tint
+        if (monsterNameEl && !isBoss) {
+            monsterNameEl.style.color = monster.color;
+            monsterNameEl.style.textShadow = `0 0 10px ${monster.glow}`;
+        }
+
+        // Apply tier theme
+        applyTierTheme(monster.tier);
+
+        // Start ambient particles
+        startAmbientParticles(monster.ambient);
+    }
+
+    function applyTierTheme(tier) {
+        if (tier === currentTier && dungeonStage.className.includes('tier-')) return;
+
+        const tierData = DUNGEON_TIERS.find(t => t.id === tier);
+        if (!tierData) return;
+
+        const oldTier = currentTier;
+        currentTier = tier;
+
+        // Remove all tier classes
+        if (dungeonStage) {
+            dungeonStage.className = 'dungeon-stage tier-' + tierData.theme;
+        }
+
+        // Tier transition flash
+        if (oldTier !== tier && dungeonStage) {
+            const flash = document.createElement('div');
+            flash.className = 'tier-transition-flash';
+            flash.style.background = `radial-gradient(circle, ${MONSTERS.find(m => m.tier === tier)?.glow || 'rgba(255,255,255,0.3)'}, transparent)`;
+            dungeonStage.appendChild(flash);
+            setTimeout(() => flash.remove(), 800);
+        }
+
+        // Update tier label
+        if (tierIconEl) tierIconEl.textContent = tierData.icon;
+        if (tierNameEl) tierNameEl.textContent = tierData.name;
+        if (tierLabelEl) {
+            const m = MONSTERS.find(m => m.tier === tier);
+            if (m) {
+                tierLabelEl.style.borderColor = m.glow;
+                tierLabelEl.style.background = `rgba(${hexToRgb(m.color)}, 0.12)`;
+            }
+        }
+    }
+
+    function hexToRgb(hex) {
+        hex = hex.replace('#', '');
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        return `${r},${g},${b}`;
+    }
+
+    // === Ambient Particle System ===
+
+    function startAmbientParticles(type) {
+        if (ambientInterval) clearInterval(ambientInterval);
+        if (!ambientContainer) return;
+
+        // Clear existing
+        ambientContainer.innerHTML = '';
+
+        // Spawn rate & count vary by type
+        const config = {
+            leaf:      { interval: 800,  count: 1 },
+            spore:     { interval: 600,  count: 1 },
+            ember:     { interval: 400,  count: 2 },
+            soul:      { interval: 700,  count: 1 },
+            lightning: { interval: 1200, count: 1 },
+        };
+        const c = config[type] || config.leaf;
+
+        ambientInterval = setInterval(() => {
+            for (let i = 0; i < c.count; i++) {
+                spawnAmbientParticle(type);
+            }
+        }, c.interval);
+
+        // Spawn initial batch
+        for (let i = 0; i < 4; i++) {
+            spawnAmbientParticle(type);
+        }
+    }
+
+    function spawnAmbientParticle(type) {
+        if (!ambientContainer) return;
+
+        // Limit active particles
+        if (ambientContainer.children.length > 20) return;
+
+        const p = document.createElement('div');
+        p.className = 'ambient-p ' + type;
+
+        const x = Math.random() * 100;
+        const startY = 80 + Math.random() * 20;
+        p.style.left = x + '%';
+        p.style.bottom = '-10px';
+
+        const dur = 3 + Math.random() * 4;
+        const delay = Math.random() * 2;
+        const dx = (Math.random() - 0.5) * 60;
+
+        p.style.setProperty('--dur', dur + 's');
+        p.style.setProperty('--delay', delay + 's');
+        p.style.setProperty('--dx', dx + 'px');
+
+        // Color variations per type
+        if (type === 'ember') {
+            const colors = ['#f97316', '#ef4444', '#fbbf24', '#f59e0b'];
+            p.style.background = colors[Math.floor(Math.random() * colors.length)];
+            p.style.boxShadow = `0 0 8px ${p.style.background}`;
+        } else if (type === 'soul') {
+            const colors = ['rgba(6,182,212,0.6)', 'rgba(124,58,237,0.5)', 'rgba(59,130,246,0.5)'];
+            p.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}, transparent)`;
+        }
+
+        ambientContainer.appendChild(p);
+
+        // Self-cleanup
+        setTimeout(() => p.remove(), (dur + delay) * 1000);
+    }
+
+    // === Monster System ===
+
+    function spawnMonster() {
+        currentMonsterIndex = killCount % MONSTERS.length;
+        isBoss = (killCount > 0 && killCount % 10 === 0);
+
+        const monster = MONSTERS[currentMonsterIndex];
+        monsterMaxHP = getMonsterHP(monster, killCount);
+        if (isBoss) monsterMaxHP *= 3;
+        monsterHP = monsterMaxHP;
+        monsterDying = false;
+
+        // Update DOM
+        if (monsterEmojiEl) {
+            // Use SVG illustration if available, fallback to emoji
+            if (typeof MONSTER_SVG !== 'undefined' && MONSTER_SVG[monster.name]) {
+                monsterEmojiEl.innerHTML = MONSTER_SVG[monster.name];
+            } else {
+                monsterEmojiEl.textContent = monster.emoji;
+            }
+            monsterEmojiEl.className = 'monster-emoji spawning';
+            setTimeout(() => {
+                monsterEmojiEl.classList.remove('spawning');
+            }, 400);
+        }
+
+        const displayName = isBoss ? '[ BOSS ] ' + monster.name : monster.name;
+        if (monsterNameEl) {
+            monsterNameEl.textContent = displayName;
+            monsterNameEl.className = isBoss ? 'monster-name boss-name' : 'monster-name';
+        }
+
+        const level = Math.floor(killCount / MONSTERS.length) + 1;
+        if (monsterLevelEl) monsterLevelEl.textContent = 'Lv.' + level;
+
+        // Boss visual
+        if (clickArea) {
+            clickArea.classList.toggle('boss', isBoss);
+        }
+
+        // Apply visual theme
+        applyMonsterVisuals(monster);
+
+        updateHPBar();
+    }
+
+    function updateHPBar() {
+        if (!hpFill || !hpText || !hpBar) return;
+
+        const pct = Math.max(0, monsterHP / monsterMaxHP * 100);
+        hpFill.style.width = pct + '%';
+
+        // Color based on HP %
+        hpFill.classList.remove('medium', 'low');
+        if (pct <= 30) {
+            hpFill.classList.add('low');
+            hpBar.classList.add('danger');
+        } else if (pct <= 60) {
+            hpFill.classList.add('medium');
+            hpBar.classList.remove('danger');
+        } else {
+            hpBar.classList.remove('danger');
+        }
+
+        hpText.textContent = formatGoldShort(Math.max(0, Math.ceil(monsterHP))) + ' / ' + formatGoldShort(monsterMaxHP);
+    }
+
+    function damageMonster(damage, isClick) {
+        if (monsterDying || monsterHP <= 0) return;
+
+        monsterHP -= damage;
+
+        if (isClick) {
+            showDamageNumber(damage);
+            shakeScreen();
+            flashMonster();
+            spawnHitParticles();
+            showSlashEffect();
+        }
+
+        updateHPBar();
+
+        if (monsterHP <= 0) {
+            monsterHP = 0;
+            onMonsterDeath();
+        }
+    }
+
+    function onMonsterDeath() {
+        monsterDying = true;
+        const monster = MONSTERS[currentMonsterIndex];
+        const reward = getMonsterGoldReward(monster, killCount, isBoss);
+
+        gold += reward;
+        totalEarned += reward;
+
+        // Gold pulse
+        if (goldDisplay) {
+            goldDisplay.classList.add('pulse');
+            setTimeout(() => goldDisplay.classList.remove('pulse'), 300);
+        }
+
+        // Show gold reward float
+        showGoldEarnFloat(reward);
+
+        // Death animation
+        if (monsterEmojiEl) {
+            monsterEmojiEl.className = 'monster-emoji dying';
+        }
+
+        // Death particles (use monster color)
+        spawnDeathParticles(monster.color);
+
+        // Boss defeat flash
+        if (isBoss) {
+            const flash = document.createElement('div');
+            flash.className = 'boss-defeat-flash';
+            document.body.appendChild(flash);
+            setTimeout(() => flash.remove(), 600);
+            showMilestone('BOSS ' + monster.name + ' 처치! +' + formatGoldShort(reward) + ' 골드!');
+        }
+
+        killCount++;
+        if (killCountEl) killCountEl.textContent = killCount;
+
+        // Spawn next monster after delay
+        setTimeout(() => {
+            spawnMonster();
+            updateDisplay();
+        }, 500);
+    }
+
+    // === Hit Effects ===
+
+    function showDamageNumber(damage) {
+        if (!clickArea) return;
+        const popup = document.createElement('div');
+        popup.className = 'damage-float';
+        if (damage >= clickValue * clickMultiplier * 3) popup.classList.add('crit');
+        popup.textContent = '-' + formatGoldShort(damage);
+
+        // Random position around center
+        const offsetX = (Math.random() - 0.5) * 60;
+        popup.style.left = (80 + offsetX) + 'px';
+        popup.style.top = '30px';
         clickArea.appendChild(popup);
         setTimeout(() => popup.remove(), 800);
     }
 
-    function animateClickArea() {
-        clickEmoji.style.transform = 'scale(0.85)';
-        setTimeout(() => { clickEmoji.style.transform = 'scale(1)'; }, 100);
+    function shakeScreen() {
+        if (!container) return;
+        container.classList.remove('shake');
+        void container.offsetWidth;
+        container.classList.add('shake');
+        setTimeout(() => container.classList.remove('shake'), 150);
     }
 
-    // Game Loop (auto income)
+    function flashMonster() {
+        if (!monsterEmojiEl || monsterDying) return;
+        monsterEmojiEl.classList.remove('hit', 'knockback');
+        void monsterEmojiEl.offsetWidth;
+        monsterEmojiEl.classList.add('hit', 'knockback');
+        setTimeout(() => {
+            if (!monsterDying) {
+                monsterEmojiEl.classList.remove('hit', 'knockback');
+            }
+        }, 200);
+    }
+
+    function spawnHitParticles() {
+        if (!clickArea) return;
+        const monster = MONSTERS[currentMonsterIndex];
+        const colors = [monster.color, '#fbbf24', '#fff', monster.color, '#ef4444'];
+        for (let i = 0; i < 8; i++) {
+            const p = document.createElement('div');
+            p.className = 'hit-particle';
+            p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            p.style.left = '50%';
+            p.style.top = '45%';
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 40 + Math.random() * 70;
+            p.style.setProperty('--px', Math.cos(angle) * dist + 'px');
+            p.style.setProperty('--py', Math.sin(angle) * dist + 'px');
+            clickArea.appendChild(p);
+            setTimeout(() => p.remove(), 600);
+        }
+    }
+
+    function spawnDeathParticles(monsterColor) {
+        if (!clickArea) return;
+        const colors = [monsterColor, '#fbbf24', '#ef4444', monsterColor, '#fff'];
+        for (let i = 0; i < 16; i++) {
+            const p = document.createElement('div');
+            p.className = 'death-particle';
+            p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            p.style.left = '50%';
+            p.style.top = '45%';
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 50 + Math.random() * 100;
+            p.style.setProperty('--px', Math.cos(angle) * dist + 'px');
+            p.style.setProperty('--py', Math.sin(angle) * dist + 'px');
+            p.style.width = (4 + Math.random() * 6) + 'px';
+            p.style.height = p.style.width;
+            clickArea.appendChild(p);
+            setTimeout(() => p.remove(), 800);
+        }
+    }
+
+    function showSlashEffect() {
+        if (!clickArea) return;
+        const slash = document.createElement('div');
+        slash.className = 'slash-effect';
+        slash.style.left = '30px';
+        slash.style.top = '25px';
+        clickArea.appendChild(slash);
+        setTimeout(() => slash.remove(), 500);
+    }
+
+    function showGoldEarnFloat(amount) {
+        if (!clickArea) return;
+        const el = document.createElement('div');
+        el.className = 'gold-earn-float';
+        el.textContent = '+' + formatGoldShort(amount) + ' G';
+        el.style.left = '50%';
+        el.style.top = '75%';
+        el.style.transform = 'translateX(-50%)';
+        clickArea.appendChild(el);
+        setTimeout(() => el.remove(), 1000);
+    }
+
+    // Click
+    function handleClick(e) {
+        if (monsterDying) return;
+
+        const baseClick = clickValue * clickMultiplier;
+        const autoBonus = autoIncomePerSec * goldenTouchBonus;
+        const damage = baseClick + autoBonus;
+
+        totalClicks++;
+        damageMonster(damage, true);
+        updateDisplay();
+    }
+
+    // Game Loop
     function startGameLoop() {
         setInterval(() => {
             const now = Date.now();
             const dt = (now - lastTickTime) / 1000;
             lastTickTime = now;
 
-            if (autoIncomePerSec > 0) {
-                const earned = autoIncomePerSec * dt;
-                money += earned;
-                totalEarned += earned;
+            // Auto DPS damages monster
+            if (autoIncomePerSec > 0 && !monsterDying) {
+                const autoDamage = autoIncomePerSec * dt * speedMultiplier;
+                damageMonster(autoDamage, false);
             }
 
             updateDisplay();
+            checkMilestones();
 
-            // Auto save every 5 seconds
             if (now - lastSaveTime > 5000) {
                 saveState();
                 lastSaveTime = now;
@@ -106,189 +507,147 @@
         }, 100);
     }
 
+    // Income
     function recalculateAutoIncome() {
         let total = 0;
-        for (const biz of BUSINESSES) {
-            const count = ownedBusinesses[biz.id] || 0;
+        for (const equip of EQUIPMENT) {
+            const count = ownedEquipment[equip.id] || 0;
             if (count > 0) {
-                total += biz.baseIncome * count;
+                total += equip.baseIncome * count;
             }
         }
-        autoIncomePerSec = total * autoMultiplier * speedMultiplier;
+        autoIncomePerSec = total * autoMultiplier;
     }
 
-    // Business
-    function buyBusiness(bizId) {
-        const biz = BUSINESSES.find(b => b.id === bizId);
-        if (!biz) return;
-
-        const count = ownedBusinesses[biz.id] || 0;
-        const cost = Math.floor(biz.baseCost * Math.pow(biz.costMultiplier, count));
-
-        if (money >= cost) {
-            money -= cost;
-            ownedBusinesses[biz.id] = count + 1;
-            recalculateAutoIncome();
-            renderBusinesses();
-            renderUpgrades();
-            updateDisplay();
-            saveState();
-        }
+    // Equipment
+    function getEquipmentCost(equip) {
+        const count = ownedEquipment[equip.id] || 0;
+        return Math.floor(equip.baseCost * Math.pow(equip.costMultiplier, count));
     }
 
-    function getBusinessCost(biz) {
-        const count = ownedBusinesses[biz.id] || 0;
-        return Math.floor(biz.baseCost * Math.pow(biz.costMultiplier, count));
+    function buyEquipment(equipId) {
+        const equip = EQUIPMENT.find(b => b.id === equipId);
+        if (!equip) return;
+        const cost = getEquipmentCost(equip);
+        if (gold < cost) return;
+
+        gold -= cost;
+        ownedEquipment[equipId] = (ownedEquipment[equipId] || 0) + 1;
+        recalculateAutoIncome();
+        renderEquipment();
+        updateDisplay();
     }
 
-    function renderBusinesses() {
-        businessList.innerHTML = BUSINESSES.map(biz => {
-            const count = ownedBusinesses[biz.id] || 0;
-            const cost = getBusinessCost(biz);
-            const canAfford = money >= cost;
-            const income = biz.baseIncome * autoMultiplier * speedMultiplier;
+    function renderEquipment() {
+        if (!equipmentList) return;
+        equipmentList.innerHTML = EQUIPMENT.map(equip => {
+            const count = ownedEquipment[equip.id] || 0;
+            const cost = getEquipmentCost(equip);
+            const income = equip.baseIncome * autoMultiplier * speedMultiplier;
+            const canBuy = gold >= cost;
             const totalIncome = income * count;
 
             return `
-                <div class="biz-card ${canAfford ? '' : 'locked'}" data-biz="${biz.id}">
-                    <div class="biz-icon">${biz.icon}</div>
-                    <div class="biz-info">
-                        <div class="biz-name">${biz.name} <span class="biz-count">${count > 0 ? '×' + count : ''}</span></div>
-                        <div class="biz-desc">${biz.description}</div>
-                        <div class="biz-income">${count > 0 ? formatMoneyShort(totalIncome) + '/초' : formatMoneyShort(income) + '/초 (개당)'}</div>
+                <div class="equip-card ${canBuy ? 'can-buy' : ''}" onclick="window._buyEquip('${equip.id}')">
+                    <div class="equip-icon">${equip.icon}</div>
+                    <div class="equip-info">
+                        <div class="equip-name">${equip.name} <span class="equip-count">${count > 0 ? 'Lv.' + count : ''}</span></div>
+                        <div class="equip-desc">${equip.description}</div>
+                        <div class="equip-income">+${formatGoldShort(income)} DPS ${count > 0 ? '(합계: ' + formatGoldShort(totalIncome) + ')' : ''}</div>
                     </div>
-                    <div class="biz-action">
-                        <div class="biz-cost">${formatMoneyShort(cost)}</div>
-                        <button class="biz-buy-btn ${canAfford ? '' : 'disabled'}" onclick="buyBiz('${biz.id}')">구매</button>
+                    <div class="equip-cost ${canBuy ? '' : 'expensive'}">
+                        <span>🪙 ${formatGoldShort(cost)}</span>
                     </div>
-                </div>
-            `;
+                </div>`;
         }).join('');
     }
 
-    // Upgrades
-    function buyUpgrade(upgradeId) {
-        if (purchasedUpgrades[upgradeId]) return;
-        const upgrade = UPGRADES.find(u => u.id === upgradeId);
-        if (!upgrade || money < upgrade.cost) return;
+    // Skills
+    function buySkill(skillId) {
+        if (purchasedSkills[skillId]) return;
+        const skill = SKILLS.find(u => u.id === skillId);
+        if (!skill || gold < skill.cost) return;
 
-        money -= upgrade.cost;
-        purchasedUpgrades[upgradeId] = true;
+        gold -= skill.cost;
+        purchasedSkills[skillId] = true;
 
-        switch (upgrade.type) {
+        switch (skill.type) {
             case 'click':
-                clickMultiplier *= upgrade.multiplier;
+                clickMultiplier *= skill.multiplier;
                 break;
             case 'auto':
-                autoMultiplier *= upgrade.multiplier;
+                autoMultiplier *= skill.multiplier;
                 recalculateAutoIncome();
                 break;
             case 'speed':
-                speedMultiplier *= upgrade.multiplier;
-                recalculateAutoIncome();
+                speedMultiplier *= skill.multiplier;
                 break;
             case 'golden':
-                goldenTouchRate = upgrade.multiplier;
+                goldenTouchBonus = skill.multiplier;
                 break;
         }
 
-        renderUpgrades();
-        renderBusinesses();
+        renderSkills();
         updateDisplay();
-        saveState();
     }
 
-    function renderUpgrades() {
-        const available = UPGRADES.filter(u => {
-            if (purchasedUpgrades[u.id]) return false;
-            if (u.requires && totalEarned < u.requires.money) return false;
-            return true;
+    function renderSkills() {
+        if (!skillList) return;
+        const available = SKILLS.filter(s => {
+            if (purchasedSkills[s.id]) return true;
+            return totalEarned >= (s.requires?.gold || 0);
         });
 
-        if (available.length === 0) {
-            upgradeList.innerHTML = '<p class="empty-msg">모든 업그레이드를 구매했습니다!</p>';
-            return;
-        }
+        skillList.innerHTML = available.map(skill => {
+            const purchased = purchasedSkills[skill.id];
+            const canBuy = !purchased && gold >= skill.cost;
 
-        upgradeList.innerHTML = available.map(u => {
-            const canAfford = money >= u.cost;
             return `
-                <div class="upgrade-card ${canAfford ? '' : 'locked'} ${purchasedUpgrades[u.id] ? 'purchased' : ''}" data-upgrade="${u.id}">
-                    <div class="upgrade-icon">${u.icon}</div>
-                    <div class="upgrade-info">
-                        <div class="upgrade-name">${u.name}</div>
-                        <div class="upgrade-desc">${u.desc}</div>
+                <div class="skill-card ${purchased ? 'purchased' : ''} ${canBuy ? 'can-buy' : ''}" onclick="window._buySkill('${skill.id}')">
+                    <div class="skill-icon">${skill.icon}</div>
+                    <div class="skill-info">
+                        <div class="skill-name">${skill.name}</div>
+                        <div class="skill-desc">${skill.desc}</div>
                     </div>
-                    <div class="upgrade-action">
-                        <div class="upgrade-cost">${formatMoneyShort(u.cost)}</div>
-                        <button class="upgrade-buy-btn ${canAfford ? '' : 'disabled'}" onclick="buyUpg('${u.id}')">구매</button>
+                    <div class="skill-cost ${purchased ? 'done' : canBuy ? '' : 'expensive'}">
+                        ${purchased ? '✅ 습득' : '🪙 ' + formatGoldShort(skill.cost)}
                     </div>
-                </div>
-            `;
+                </div>`;
         }).join('');
     }
 
     // Display
     function updateDisplay() {
-        moneyDisplay.textContent = formatMoney(money);
-        perSecDisplay.textContent = formatMoneyShort(autoIncomePerSec) + '/초';
+        if (goldDisplay) goldDisplay.textContent = formatGold(gold);
 
-        const titleInfo = getTitleForMoney(totalEarned);
-        titleDisplay.textContent = titleInfo.title;
-        titleIcon.textContent = titleInfo.icon;
+        const displayIncome = autoIncomePerSec * speedMultiplier;
+        if (perSecDisplay) perSecDisplay.textContent = formatGoldShort(displayIncome) + ' DPS';
 
-        totalEarnedEl.textContent = formatMoneyShort(totalEarned);
-        totalClicksEl.textContent = totalClicks.toLocaleString();
-        clickValueEl.textContent = formatMoneyShort(clickValue * clickMultiplier);
-        businessCountEl.textContent = Object.values(ownedBusinesses).reduce((s, c) => s + c, 0);
+        const rank = getRankForGold(totalEarned);
+        if (titleDisplay) titleDisplay.textContent = rank.icon + ' ' + rank.title;
 
-        // Check milestones
-        checkMilestones();
-
-        // Update buy button states
-        BUSINESSES.forEach(biz => {
-            const cost = getBusinessCost(biz);
-            const card = document.querySelector(`.biz-card[data-biz="${biz.id}"]`);
-            if (card) {
-                const btn = card.querySelector('.biz-buy-btn');
-                if (money >= cost) {
-                    card.classList.remove('locked');
-                    btn.classList.remove('disabled');
-                } else {
-                    card.classList.add('locked');
-                    btn.classList.add('disabled');
-                }
-            }
-        });
-
-        UPGRADES.forEach(u => {
-            const card = document.querySelector(`.upgrade-card[data-upgrade="${u.id}"]`);
-            if (card && !purchasedUpgrades[u.id]) {
-                const btn = card.querySelector('.upgrade-buy-btn');
-                if (money >= u.cost) {
-                    card.classList.remove('locked');
-                    btn.classList.remove('disabled');
-                } else {
-                    card.classList.add('locked');
-                    btn.classList.add('disabled');
-                }
-            }
-        });
+        // Stats
+        const set = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = val; };
+        set('stat-total-earned', formatGold(totalEarned));
+        set('stat-total-clicks', totalClicks.toLocaleString());
+        set('stat-click-power', formatGoldShort(clickValue * clickMultiplier));
+        set('stat-equip-count', Object.values(ownedEquipment).reduce((s, c) => s + c, 0));
+        set('stat-auto-income', formatGoldShort(displayIncome) + '/초');
+        set('stat-rank', rank.icon + ' ' + rank.title);
     }
 
+    // Milestones
     function checkMilestones() {
-        for (const m of MILESTONES) {
-            if (totalEarned >= m.amount && !passedMilestones[m.amount]) {
-                passedMilestones[m.amount] = true;
-                showMilestone(m.message);
-            }
+        while (milestoneIndex < DUNGEON_MILESTONES.length && totalEarned >= DUNGEON_MILESTONES[milestoneIndex].amount) {
+            showMilestone(DUNGEON_MILESTONES[milestoneIndex].message);
+            milestoneIndex++;
         }
     }
 
     function showMilestone(message) {
         const toast = document.createElement('div');
         toast.className = 'milestone-toast';
-        toast.innerHTML = `<span class="milestone-icon">🎉</span><span>${message}</span>`;
+        toast.innerHTML = `<span class="milestone-icon">⚔️</span> ${message}`;
         document.body.appendChild(toast);
         setTimeout(() => toast.classList.add('show'), 10);
         setTimeout(() => {
@@ -297,148 +656,179 @@
         }, 3000);
     }
 
-    // Offline earnings
+    // Offline
     function calculateOfflineEarnings() {
-        try {
-            const savedTime = localStorage.getItem('idleClicker_lastTime');
-            if (savedTime && autoIncomePerSec > 0) {
-                const offlineSeconds = Math.min((Date.now() - parseInt(savedTime)) / 1000, 43200); // max 12h
-                if (offlineSeconds > 10) {
-                    const earned = autoIncomePerSec * offlineSeconds * 0.5; // 50% offline efficiency
-                    money += earned;
-                    totalEarned += earned;
-                    const hours = Math.floor(offlineSeconds / 3600);
-                    const mins = Math.floor((offlineSeconds % 3600) / 60);
-                    const timeStr = hours > 0 ? `${hours}시간 ${mins}분` : `${mins}분`;
-                    setTimeout(() => {
-                        showMilestone(`오프라인 ${timeStr} 동안 ${formatMoney(earned)} 벌었습니다!`);
-                    }, 500);
+        const savedTime = localStorage.getItem('dungeonClicker_lastTime');
+        if (!savedTime) return;
+
+        const offlineSeconds = Math.min((Date.now() - parseInt(savedTime)) / 1000, 43200);
+        if (offlineSeconds > 10 && autoIncomePerSec > 0) {
+            const dps = autoIncomePerSec * speedMultiplier;
+            const offlineDamageTotal = dps * offlineSeconds * 0.5;
+            let remainingDamage = offlineDamageTotal;
+            let offlineGold = 0;
+            let offlineKills = 0;
+
+            while (remainingDamage > 0 && offlineKills < 1000) {
+                const mIdx = (killCount + offlineKills) % MONSTERS.length;
+                const isBossCheck = ((killCount + offlineKills) > 0 && (killCount + offlineKills) % 10 === 0);
+                const monster = MONSTERS[mIdx];
+                let hp = getMonsterHP(monster, killCount + offlineKills);
+                if (isBossCheck) hp *= 3;
+
+                if (remainingDamage >= hp) {
+                    remainingDamage -= hp;
+                    const reward = getMonsterGoldReward(monster, killCount + offlineKills, isBossCheck);
+                    offlineGold += reward;
+                    offlineKills++;
+                } else {
+                    break;
                 }
             }
-        } catch (e) {}
+
+            if (offlineGold > 0) {
+                gold += offlineGold;
+                totalEarned += offlineGold;
+                killCount += offlineKills;
+                if (killCountEl) killCountEl.textContent = killCount;
+
+                const hours = Math.floor(offlineSeconds / 3600);
+                const mins = Math.floor((offlineSeconds % 3600) / 60);
+                const timeStr = hours > 0 ? `${hours}시간 ${mins}분` : `${mins}분`;
+                showMilestone(`오프라인 ${timeStr}: ${offlineKills}마리 처치, ${formatGold(offlineGold)} 골드! (50%)`);
+            }
+        }
     }
 
-    // Persistence
+    // Save/Load
     function saveState() {
         try {
-            localStorage.setItem('idleClicker', JSON.stringify({
-                money, totalEarned, totalClicks, clickValue,
-                clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchRate,
-                ownedBusinesses, purchasedUpgrades, passedMilestones
+            localStorage.setItem('dungeonClicker', JSON.stringify({
+                gold, totalEarned, totalClicks, clickValue,
+                clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
+                ownedEquipment, purchasedSkills, milestoneIndex,
+                killCount, currentMonsterIndex
             }));
-            localStorage.setItem('idleClicker_lastTime', Date.now().toString());
+            localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
         } catch (e) {}
     }
 
     function loadState() {
         try {
-            const saved = localStorage.getItem('idleClicker');
-            if (saved) {
-                const s = JSON.parse(saved);
-                money = s.money || 0;
-                totalEarned = s.totalEarned || 0;
-                totalClicks = s.totalClicks || 0;
-                clickValue = s.clickValue || 1;
-                clickMultiplier = s.clickMultiplier || 1;
-                autoMultiplier = s.autoMultiplier || 1;
-                speedMultiplier = s.speedMultiplier || 1;
-                goldenTouchRate = s.goldenTouchRate || 0;
-                ownedBusinesses = s.ownedBusinesses || {};
-                purchasedUpgrades = s.purchasedUpgrades || {};
-                passedMilestones = s.passedMilestones || {};
-                recalculateAutoIncome();
+            const d = JSON.parse(localStorage.getItem('dungeonClicker'));
+            if (d) {
+                gold = d.gold || 0;
+                totalEarned = d.totalEarned || 0;
+                totalClicks = d.totalClicks || 0;
+                clickValue = d.clickValue || 1;
+                clickMultiplier = d.clickMultiplier || 1;
+                autoMultiplier = d.autoMultiplier || 1;
+                speedMultiplier = d.speedMultiplier || 1;
+                goldenTouchBonus = d.goldenTouchBonus || 0;
+                ownedEquipment = d.ownedEquipment || {};
+                purchasedSkills = d.purchasedSkills || {};
+                milestoneIndex = d.milestoneIndex || 0;
+                killCount = d.killCount || 0;
+                currentMonsterIndex = d.currentMonsterIndex || 0;
             }
         } catch (e) {}
     }
 
-    // Premium
+    // Interstitial
     function showInterstitialAd() {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             const overlay = document.getElementById('interstitial-overlay');
-            const closeBtn = document.getElementById('btn-close-ad');
+            if (!overlay) { resolve(); return; }
             overlay.classList.remove('hidden');
-            closeBtn.disabled = true;
-            let seconds = 5;
-            closeBtn.textContent = `닫기 (${seconds})`;
-            const timer = setInterval(() => {
-                seconds--;
-                closeBtn.textContent = `닫기 (${seconds})`;
-                if (seconds <= 0) {
-                    clearInterval(timer);
-                    closeBtn.disabled = false;
-                    closeBtn.textContent = '닫기';
+
+            let count = 5;
+            const countdownEl = overlay.querySelector('.countdown-number');
+            const closeBtn = overlay.querySelector('.close-ad-btn');
+            if (countdownEl) countdownEl.textContent = count;
+            if (closeBtn) closeBtn.classList.add('hidden');
+
+            const interval = setInterval(() => {
+                count--;
+                if (countdownEl) countdownEl.textContent = count;
+                if (count <= 0) {
+                    clearInterval(interval);
+                    if (closeBtn) closeBtn.classList.remove('hidden');
                 }
             }, 1000);
-            closeBtn.addEventListener('click', function handler() {
-                closeBtn.removeEventListener('click', handler);
+
+            const close = () => {
                 overlay.classList.add('hidden');
                 resolve();
-            });
+            };
+            if (closeBtn) closeBtn.onclick = close;
         });
     }
 
-    function showPremiumAnalysis() {
-        const titleInfo = getTitleForMoney(totalEarned);
-        const bizCount = Object.values(ownedBusinesses).reduce((s, c) => s + c, 0);
-        const topBiz = BUSINESSES.filter(b => (ownedBusinesses[b.id] || 0) > 0)
-            .sort((a, b) => (ownedBusinesses[b.id] * b.baseIncome) - (ownedBusinesses[a.id] * a.baseIncome));
-
-        // Strategy recommendation
-        let strategy = '';
-        if (autoIncomePerSec === 0) {
-            strategy = '아직 자동 수익이 없습니다! 레모네이드 가판대부터 구매하여 수동 수입을 자동화하세요.';
-        } else if (autoIncomePerSec < 100) {
-            strategy = '초반에는 클릭 수익과 저가 사업에 집중하세요. 업그레이드로 클릭 수익을 높이면 빠르게 성장합니다.';
-        } else if (autoIncomePerSec < 10000) {
-            strategy = '자동 수익이 안정되고 있습니다. 효율 개선 업그레이드를 구매하면 모든 사업의 수익이 2배가 됩니다!';
-        } else {
-            strategy = '사업 제국이 잘 성장하고 있습니다. 고급 사업(IT 기업, 항공사, 은행)에 투자하면 기하급수적 성장이 가능합니다.';
+    // Premium
+    async function showPremiumAnalysis() {
+        if (totalEarned === 0 && totalClicks === 0) {
+            alert('먼저 던전을 탐험해주세요!');
+            return;
         }
 
-        // Next milestone
-        const nextMilestone = MILESTONES.find(m => totalEarned < m.amount);
-        const progress = nextMilestone ? Math.min(100, (totalEarned / nextMilestone.amount * 100)).toFixed(1) : 100;
+        await showInterstitialAd();
 
-        const content = document.getElementById('premium-content');
-        content.innerHTML = `
-            <div class="premium-stat-grid">
-                <div class="prem-stat"><span class="prem-val">${titleInfo.icon} ${titleInfo.title}</span><span class="prem-lbl">현재 등급</span></div>
-                <div class="prem-stat"><span class="prem-val">${formatMoneyShort(autoIncomePerSec)}/초</span><span class="prem-lbl">자동 수익</span></div>
-                <div class="prem-stat"><span class="prem-val">${bizCount}개</span><span class="prem-lbl">사업체</span></div>
-                <div class="prem-stat"><span class="prem-val">${formatMoneyShort(totalEarned)}</span><span class="prem-lbl">총 수익</span></div>
-            </div>
-            <div class="prem-section">
-                <h4>📊 사업 포트폴리오</h4>
-                ${topBiz.length > 0 ? topBiz.map(b => {
-                    const count = ownedBusinesses[b.id];
-                    const income = b.baseIncome * count * autoMultiplier * speedMultiplier;
-                    return `<p>${b.icon} ${b.name} ×${count} → ${formatMoneyShort(income)}/초</p>`;
-                }).join('') : '<p>아직 사업체가 없습니다.</p>'}
-            </div>
-            <div class="prem-section">
-                <h4>💡 전략 추천</h4>
-                <p>${strategy}</p>
-            </div>
-            ${nextMilestone ? `
-            <div class="prem-section">
-                <h4>🎯 다음 목표</h4>
-                <p>${nextMilestone.message}</p>
-                <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
-                <p class="progress-text">${progress}% 달성</p>
-            </div>
-            ` : '<div class="prem-section"><h4>🏆 모든 목표 달성!</h4><p>축하합니다! 모든 마일스톤을 클리어했습니다.</p></div>'}
-        `;
+        const rank = getRankForGold(totalEarned);
+        const displayIncome = autoIncomePerSec * speedMultiplier;
+        const clickPower = clickValue * clickMultiplier;
+        const equipCount = Object.values(ownedEquipment).reduce((s, c) => s + c, 0);
 
-        document.getElementById('premium-result').classList.remove('hidden');
-        document.getElementById('premium-result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const topEquip = EQUIPMENT.filter(b => (ownedEquipment[b.id] || 0) > 0)
+            .sort((a, b) => (ownedEquipment[b.id] * b.baseIncome) - (ownedEquipment[a.id] * a.baseIncome));
+        const topEquipHTML = topEquip.slice(0, 3).map(b =>
+            `<div class="pa-item">${b.icon} ${b.name} (Lv.${ownedEquipment[b.id]}): ${formatGoldShort(b.baseIncome * ownedEquipment[b.id] * autoMultiplier)}/초</div>`
+        ).join('');
+
+        const nextEquip = EQUIPMENT.find(b => (ownedEquipment[b.id] || 0) === 0);
+        const suggestion = nextEquip
+            ? `다음 장비 "${nextEquip.name}"을 해금하면 전투력이 크게 상승합니다!`
+            : '모든 장비를 수집했습니다! 레벨을 올려 더 강해지세요!';
+
+        const nextRank = DUNGEON_RANKS.find(t => t.min > totalEarned);
+        const rankProgress = nextRank ? `다음 랭크까지 ${formatGold(nextRank.min - totalEarned)} 골드` : '최고 랭크 달성!';
+
+        const currentMonster = MONSTERS[currentMonsterIndex];
+        const monsterInfo = currentMonster ? `현재 상대: ${currentMonster.emoji} ${currentMonster.name}` : '';
+
+        const premiumContent = document.getElementById('premium-content');
+        if (premiumContent) {
+            premiumContent.innerHTML = `
+                <div class="pa-section">
+                    <h3>⚔️ 전투 분석</h3>
+                    <div class="pa-item">공격력: ${formatGold(clickPower)} / 클릭</div>
+                    <div class="pa-item">자동 DPS: ${formatGoldShort(displayIncome)}/초</div>
+                    <div class="pa-item">보유 장비: ${equipCount}개</div>
+                    <div class="pa-item">총 공격 횟수: ${totalClicks.toLocaleString()}회</div>
+                    <div class="pa-item">총 획득 골드: ${formatGold(totalEarned)}</div>
+                    <div class="pa-item">몬스터 처치: ${killCount}마리</div>
+                    <div class="pa-item">${monsterInfo}</div>
+                </div>
+                <div class="pa-section">
+                    <h3>🏆 최강 장비 TOP 3</h3>
+                    ${topEquipHTML || '<div class="pa-item">아직 장비가 없습니다</div>'}
+                </div>
+                <div class="pa-section">
+                    <h3>📈 성장 가이드</h3>
+                    <div class="pa-item">${suggestion}</div>
+                    <div class="pa-item">${rankProgress}</div>
+                </div>
+            `;
+            premiumContent.classList.remove('hidden');
+        }
     }
 
     // Reset
     function resetGame() {
-        if (!confirm('정말 모든 데이터를 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) return;
-        localStorage.removeItem('idleClicker');
-        localStorage.removeItem('idleClicker_lastTime');
-        location.reload();
+        if (confirm('정말 모든 진행 상황을 초기화하시겠습니까?\n이 작업은 되돌릴 수 없습니다.')) {
+            localStorage.removeItem('dungeonClicker');
+            localStorage.removeItem('dungeonClicker_lastTime');
+            location.reload();
+        }
     }
 
     // Events
@@ -449,45 +839,40 @@
             handleClick(e);
         }, { passive: false });
 
-        document.getElementById('btn-premium').addEventListener('click', async () => {
-            await showInterstitialAd();
-            showPremiumAnalysis();
-        });
-
-        document.getElementById('btn-reset').addEventListener('click', resetGame);
-
-        document.getElementById('btn-share').addEventListener('click', () => {
-            const titleInfo = getTitleForMoney(totalEarned);
-            const text = `Idle Clicker Empire\n등급: ${titleInfo.icon} ${titleInfo.title}\n총 수익: ${formatMoney(totalEarned)}\n자동 수익: ${formatMoneyShort(autoIncomePerSec)}/초\n\nhttps://dopabrain.com/idle-clicker/`;
-            if (navigator.share) {
-                navigator.share({ title: 'Idle Clicker Empire', text });
-            } else if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).then(() => alert('결과가 복사되었습니다!'));
-            }
-        });
-
-        // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
                 btn.classList.add('active');
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
-                document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
+                const tab = btn.dataset.tab;
+                document.getElementById('panel-' + tab)?.classList.add('active');
+                activeTab = tab;
             });
         });
+
+        const resetBtn = document.getElementById('btn-reset');
+        if (resetBtn) resetBtn.addEventListener('click', resetGame);
+
+        const shareBtn = document.getElementById('btn-share');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                const text = `던전 클리커: ${killCount}마리 처치! ${formatGold(totalEarned)} 골드 획득!`;
+                if (navigator.share) {
+                    navigator.share({ title: '던전 클리커', text, url: location.href }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(text + ' ' + location.href).then(() => {
+                        showMilestone('링크가 복사되었습니다!');
+                    }).catch(() => {});
+                }
+            });
+        }
+
+        window._buyEquip = buyEquipment;
+        window._buySkill = buySkill;
     }
 
-    // Expose to global for onclick handlers
-    window.buyBiz = buyBusiness;
-    window.buyUpg = buyUpgrade;
-
-    // SW
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js')
-                .then(r => console.log('SW registered:', r.scope))
-                .catch(e => console.log('SW failed:', e));
-        });
+        navigator.serviceWorker.register('sw.js').catch(() => {});
     }
 
     init();

@@ -1,11 +1,11 @@
 {
-    "name": "Idle Clicker Empire",
-    "short_name": "Idle Clicker",
-    "description": "클릭으로 사업 제국을 건설하는 방치형 클리커 게임",
+    "name": "던전 클리커 - Dungeon Clicker RPG",
+    "short_name": "던전 클리커",
+    "description": "던전을 탐험하고 장비를 강화하는 방치형 RPG 클리커 게임",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0a0f1a",
-    "theme_color": "#0a0f1a",
+    "background_color": "#0f0a1a",
+    "theme_color": "#8b5cf6",
     "orientation": "portrait",
     "icons": [
         {

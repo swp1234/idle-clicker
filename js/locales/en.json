@@ -1,0 +1,25 @@
+{
+    "app": {
+        "title": "Dungeon Clicker - Idle RPG Clicker Game | DopaBrain",
+        "description": "Defeat monsters in the dungeon and equip powerful gear! RPG adventure starts with a click. Free idle clicker game!"
+    },
+    "game": {
+        "title": "Dungeon Clicker",
+        "subtitle": "Conquer the dungeon with clicks",
+        "kill": "Defeated",
+        "equipment": "⚔️ Equipment",
+        "skill": "🛡️ Skills",
+        "stats": "📊 Stats",
+        "totalEarned": "Total Gold",
+        "totalClicks": "Total Attacks",
+        "clickPower": "Attack Power",
+        "equipCount": "Equipment Count",
+        "autoIncome": "Auto DPS",
+        "rank": "Dungeon Rank",
+        "share": "Share",
+        "reset": "Reset",
+        "tryMore": "Try These Too!",
+        "back": "DopaBrain Home",
+        "copyright": "© 2026 DopaBrain"
+    }
+}
