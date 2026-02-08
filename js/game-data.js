@@ -134,28 +134,28 @@ const SKILLS = [
 ];
 
 const DUNGEON_RANKS = [
-    { min: 0, title: '마을 초보자', icon: '🌱' },
-    { min: 100, title: '수련생', icon: '🗡️' },
-    { min: 1000, title: '모험가', icon: '🎒' },
-    { min: 10000, title: '전사', icon: '⚔️' },
-    { min: 100000, title: '기사', icon: '🛡️' },
-    { min: 1000000, title: '용사', icon: '🦸' },
-    { min: 10000000, title: '전설의 용사', icon: '⭐' },
-    { min: 100000000, title: '드래곤 슬레이어', icon: '🐉' },
-    { min: 1000000000, title: '대마법사', icon: '🔮' },
-    { min: 10000000000, title: '신의 대리인', icon: '👑' },
-    { min: 100000000000, title: '세계의 수호자', icon: '🌍' }
+    { min: 0, title: '마을 초보자', icon: '🌱', i18nKey: 'ranks.beginner' },
+    { min: 100, title: '수련생', icon: '🗡️', i18nKey: 'ranks.trainee' },
+    { min: 1000, title: '모험가', icon: '🎒', i18nKey: 'ranks.adventurer' },
+    { min: 10000, title: '전사', icon: '⚔️', i18nKey: 'ranks.warrior' },
+    { min: 100000, title: '기사', icon: '🛡️', i18nKey: 'ranks.knight' },
+    { min: 1000000, title: '용사', icon: '🦸', i18nKey: 'ranks.hero' },
+    { min: 10000000, title: '전설의 용사', icon: '⭐', i18nKey: 'ranks.legend' },
+    { min: 100000000, title: '드래곤 슬레이어', icon: '🐉', i18nKey: 'ranks.dragonslayer' },
+    { min: 1000000000, title: '대마법사', icon: '🔮', i18nKey: 'ranks.archmage' },
+    { min: 10000000000, title: '신의 대리인', icon: '👑', i18nKey: 'ranks.godscall' },
+    { min: 100000000000, title: '세계의 수호자', icon: '🌍', i18nKey: 'ranks.guardian' }
 ];
 
 const DUNGEON_MILESTONES = [
-    { amount: 100, message: '첫 번째 던전을 클리어했습니다!' },
-    { amount: 1000, message: '숲의 던전 정복! 장비를 강화하세요.' },
-    { amount: 10000, message: '화산 던전 돌파! 전투력이 성장하고 있습니다.' },
-    { amount: 100000, message: '심연의 던전 클리어! 기사의 자격이 있습니다.' },
-    { amount: 1000000, message: '드래곤의 둥지를 정복했습니다!' },
-    { amount: 10000000, message: '전설의 던전 클리어! 대단합니다!' },
-    { amount: 100000000, message: '신들의 시련을 통과했습니다!' },
-    { amount: 1000000000, message: '어둠의 군주를 쓰러뜨렸습니다!' }
+    { amount: 100, message: '첫 번째 던전을 클리어했습니다!', i18nKey: 'milestones.first' },
+    { amount: 1000, message: '숲의 던전 정복! 장비를 강화하세요.', i18nKey: 'milestones.forest' },
+    { amount: 10000, message: '화산 던전 돌파! 전투력이 성장하고 있습니다.', i18nKey: 'milestones.volcano' },
+    { amount: 100000, message: '심연의 던전 클리어! 기사의 자격이 있습니다.', i18nKey: 'milestones.abyss' },
+    { amount: 1000000, message: '드래곤의 둥지를 정복했습니다!', i18nKey: 'milestones.dragon' },
+    { amount: 10000000, message: '전설의 던전 클리어! 대단합니다!', i18nKey: 'milestones.legend' },
+    { amount: 100000000, message: '신들의 시련을 통과했습니다!', i18nKey: 'milestones.divine' },
+    { amount: 1000000000, message: '어둠의 군주를 쓰러뜨렸습니다!', i18nKey: 'milestones.darkness' }
 ];
 
 function getRankForGold(totalEarned) {
@@ -167,29 +167,44 @@ function getRankForGold(totalEarned) {
     return result;
 }
 
+// Gold unit suffixes per language
+const GOLD_UNITS_KO = ['만','억','조','경','해','자','양','구','간'];
+const GOLD_UNITS_EN = ['K','M','B','T','Qa','Qi','Sx','Sp','Oc'];
+const GOLD_UNITS_JA = ['万','億','兆','京','垓','秭','穣','溝','澗'];
+const GOLD_UNITS_ZH = ['万','亿','兆','京','垓','秭','穰','沟','涧'];
+
+function getGoldUnits() {
+    if (typeof i18n !== 'undefined') {
+        const lang = i18n.getCurrentLanguage();
+        if (lang === 'ko') return GOLD_UNITS_KO;
+        if (lang === 'ja') return GOLD_UNITS_JA;
+        if (lang === 'zh') return GOLD_UNITS_ZH;
+    }
+    return GOLD_UNITS_EN;
+}
+
+// Thresholds: 1e4, 1e8, 1e12, 1e16, 1e20, 1e24, 1e28, 1e32, 1e36
+const GOLD_THRESHOLDS = [1e4, 1e8, 1e12, 1e16, 1e20, 1e24, 1e28, 1e32, 1e36];
+
 function formatGold(amount) {
-    if (amount >= 1e36) return (amount / 1e36).toFixed(2) + '간';
-    if (amount >= 1e32) return (amount / 1e32).toFixed(2) + '구';
-    if (amount >= 1e28) return (amount / 1e28).toFixed(2) + '양';
-    if (amount >= 1e24) return (amount / 1e24).toFixed(2) + '자';
-    if (amount >= 1e20) return (amount / 1e20).toFixed(2) + '해';
-    if (amount >= 1e16) return (amount / 1e16).toFixed(2) + '경';
-    if (amount >= 1e12) return (amount / 1e12).toFixed(2) + '조';
-    if (amount >= 1e8) return (amount / 1e8).toFixed(2) + '억';
-    if (amount >= 1e4) return (amount / 1e4).toFixed(1) + '만';
+    const units = getGoldUnits();
+    for (let i = GOLD_THRESHOLDS.length - 1; i >= 0; i--) {
+        if (amount >= GOLD_THRESHOLDS[i]) {
+            const val = amount / GOLD_THRESHOLDS[i];
+            return (i === 0 ? val.toFixed(1) : val.toFixed(2)) + units[i];
+        }
+    }
     return Math.floor(amount).toLocaleString();
 }
 
 function formatGoldShort(amount) {
-    if (amount >= 1e36) return (amount / 1e36).toFixed(1) + '간';
-    if (amount >= 1e32) return (amount / 1e32).toFixed(1) + '구';
-    if (amount >= 1e28) return (amount / 1e28).toFixed(1) + '양';
-    if (amount >= 1e24) return (amount / 1e24).toFixed(1) + '자';
-    if (amount >= 1e20) return (amount / 1e20).toFixed(1) + '해';
-    if (amount >= 1e16) return (amount / 1e16).toFixed(1) + '경';
-    if (amount >= 1e12) return (amount / 1e12).toFixed(1) + '조';
-    if (amount >= 1e8) return (amount / 1e8).toFixed(1) + '억';
-    if (amount >= 1e4) return (amount / 1e4).toFixed(0) + '만';
+    const units = getGoldUnits();
+    for (let i = GOLD_THRESHOLDS.length - 1; i >= 0; i--) {
+        if (amount >= GOLD_THRESHOLDS[i]) {
+            const val = amount / GOLD_THRESHOLDS[i];
+            return (i === 0 ? val.toFixed(0) : val.toFixed(1)) + units[i];
+        }
+    }
     return Math.floor(amount).toLocaleString();
 }
 

@@ -24,6 +24,8 @@
             langOptions.forEach(o => o.classList.remove('active'));
             opt.classList.add('active');
             langMenu.classList.add('hidden');
+            // Re-render dynamic content after language change
+            if (window._refreshUI) window._refreshUI();
         });
     });
 
@@ -387,7 +389,8 @@
         // Get translated monster name
         const monsterNameKey = getMonsterNameKey(monster.name);
         const translatedMonsterName = i18n.t(monsterNameKey);
-        const displayName = isBoss ? '[ BOSS ] ' + translatedMonsterName : translatedMonsterName;
+        const bossLabel = i18n.t('game.bossLabel') || 'BOSS';
+        const displayName = isBoss ? '[ ' + bossLabel + ' ] ' + translatedMonsterName : translatedMonsterName;
         if (monsterNameEl) {
             monsterNameEl.textContent = displayName;
             monsterNameEl.className = isBoss ? 'monster-name boss-name' : 'monster-name';
@@ -674,8 +677,21 @@
         updateDisplay();
     }
 
+    function getEquipName(equip) {
+        const key = 'equipment.' + equip.id + '.name';
+        const translated = i18n.t(key);
+        return translated !== key ? translated : equip.name;
+    }
+
+    function getEquipDesc(equip) {
+        const key = 'equipment.' + equip.id + '.desc';
+        const translated = i18n.t(key);
+        return translated !== key ? translated : equip.description;
+    }
+
     function renderEquipment() {
         if (!equipmentList) return;
+        const totalLabel = i18n.t('game.total') || 'Total';
         equipmentList.innerHTML = EQUIPMENT.map(equip => {
             const count = ownedEquipment[equip.id] || 0;
             const cost = getEquipmentCost(equip);
@@ -687,9 +703,9 @@
                 <div class="equip-card ${canBuy ? 'can-buy' : ''}" onclick="window._buyEquip('${equip.id}')">
                     <div class="equip-icon">${equip.icon}</div>
                     <div class="equip-info">
-                        <div class="equip-name">${equip.name} <span class="equip-count">${count > 0 ? 'Lv.' + count : ''}</span></div>
-                        <div class="equip-desc">${equip.description}</div>
-                        <div class="equip-income">+${formatGoldShort(income)} DPS ${count > 0 ? '(합계: ' + formatGoldShort(totalIncome) + ')' : ''}</div>
+                        <div class="equip-name">${getEquipName(equip)} <span class="equip-count">${count > 0 ? 'Lv.' + count : ''}</span></div>
+                        <div class="equip-desc">${getEquipDesc(equip)}</div>
+                        <div class="equip-income">+${formatGoldShort(income)} DPS ${count > 0 ? '(' + totalLabel + ': ' + formatGoldShort(totalIncome) + ')' : ''}</div>
                     </div>
                     <div class="equip-cost ${canBuy ? '' : 'expensive'}">
                         <span>🪙 ${formatGoldShort(cost)}</span>
@@ -739,19 +755,30 @@
         skillList.innerHTML = available.map(skill => {
             const purchased = purchasedSkills[skill.id];
             const canBuy = !purchased && gold >= skill.cost;
+            const skillName = i18n.t('skills.' + skill.id) || skill.name;
+            const skillDesc = i18n.t('skills.' + skill.id + '_desc') || skill.desc;
+            const learnedText = i18n.t('skills.learned') || 'Learned';
 
             return `
                 <div class="skill-card ${purchased ? 'purchased' : ''} ${canBuy ? 'can-buy' : ''}" onclick="window._buySkill('${skill.id}')">
                     <div class="skill-icon">${skill.icon}</div>
                     <div class="skill-info">
-                        <div class="skill-name">${skill.name}</div>
-                        <div class="skill-desc">${skill.desc}</div>
+                        <div class="skill-name">${skillName}</div>
+                        <div class="skill-desc">${skillDesc}</div>
                     </div>
                     <div class="skill-cost ${purchased ? 'done' : canBuy ? '' : 'expensive'}">
-                        ${purchased ? '✅ 습득' : '🪙 ' + formatGoldShort(skill.cost)}
+                        ${purchased ? '✅ ' + learnedText : '🪙 ' + formatGoldShort(skill.cost)}
                     </div>
                 </div>`;
         }).join('');
+    }
+
+    function getRankTitle(rank) {
+        if (rank.i18nKey) {
+            const translated = i18n.t(rank.i18nKey);
+            return translated !== rank.i18nKey ? translated : rank.title;
+        }
+        return rank.title;
     }
 
     // Display
@@ -761,13 +788,12 @@
         const displayIncome = autoIncomePerSec * speedMultiplier;
         if (perSecDisplay) {
             const perSecSuffix = i18n.t('game.perSec');
-            // Find and update only the number part, keep the i18n span
-            const children = Array.from(perSecDisplay.children);
             perSecDisplay.textContent = formatGoldShort(displayIncome) + ' DPS' + perSecSuffix;
         }
 
         const rank = getRankForGold(totalEarned);
-        if (titleDisplay) titleDisplay.textContent = rank.icon + ' ' + rank.title;
+        const rankTitle = getRankTitle(rank);
+        if (titleDisplay) titleDisplay.textContent = rank.icon + ' ' + rankTitle;
 
         // Stats
         const set = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = val; };
@@ -777,13 +803,15 @@
         set('stat-equip-count', Object.values(ownedEquipment).reduce((s, c) => s + c, 0));
         const autoDPSSuffix = i18n.t('game.perSec');
         set('stat-auto-income', formatGoldShort(displayIncome) + autoDPSSuffix);
-        set('stat-rank', rank.icon + ' ' + rank.title);
+        set('stat-rank', rank.icon + ' ' + rankTitle);
     }
 
     // Milestones
     function checkMilestones() {
         while (milestoneIndex < DUNGEON_MILESTONES.length && totalEarned >= DUNGEON_MILESTONES[milestoneIndex].amount) {
-            showMilestone(DUNGEON_MILESTONES[milestoneIndex].message);
+            const milestone = DUNGEON_MILESTONES[milestoneIndex];
+            const msg = milestone.i18nKey ? i18n.t(milestone.i18nKey) : milestone.message;
+            showMilestone(msg);
             milestoneIndex++;
         }
     }
@@ -839,9 +867,8 @@
 
                 const hours = Math.floor(offlineSeconds / 3600);
                 const mins = Math.floor((offlineSeconds % 3600) / 60);
-                // For offline display, keep simple format or translate hour/minute words
                 const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
-                showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: ${offlineKills}${i18n.t('game.monsterKill')} ${formatGold(offlineGold)} ${i18n.t('game.goldEarned')}! (50%)`);
+                showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: +${formatGold(offlineGold)} Gold (${offlineKills} kills, 50%)`);
             }
         }
     }
@@ -856,7 +883,9 @@
                 killCount, currentMonsterIndex
             }));
             localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
-        } catch (e) {}
+        } catch (e) {
+            console.warn('Save failed:', e);
+        }
     }
 
     function loadState() {
@@ -866,7 +895,7 @@
                 gold = d.gold || 0;
                 totalEarned = d.totalEarned || 0;
                 totalClicks = d.totalClicks || 0;
-                clickValue = d.clickValue || 1;
+                clickValue = d.clickValue || 3;
                 clickMultiplier = d.clickMultiplier || 1;
                 autoMultiplier = d.autoMultiplier || 1;
                 speedMultiplier = d.speedMultiplier || 1;
@@ -877,7 +906,9 @@
                 killCount = d.killCount || 0;
                 currentMonsterIndex = d.currentMonsterIndex || 0;
             }
-        } catch (e) {}
+        } catch (e) {
+            console.warn('Load failed:', e);
+        }
     }
 
     // Interstitial
@@ -932,16 +963,17 @@
             .sort((a, b) => (ownedEquipment[b.id] * b.baseIncome) - (ownedEquipment[a.id] * a.baseIncome));
         const perSecSuffix = i18n.t('game.perSec');
         const topEquipHTML = topEquip.slice(0, 3).map(b =>
-            `<div class="pa-item">${b.icon} ${b.name} (Lv.${ownedEquipment[b.id]}): ${formatGoldShort(b.baseIncome * ownedEquipment[b.id] * autoMultiplier)}${perSecSuffix}</div>`
+            `<div class="pa-item">${b.icon} ${getEquipName(b)} (Lv.${ownedEquipment[b.id]}): ${formatGoldShort(b.baseIncome * ownedEquipment[b.id] * autoMultiplier)}${perSecSuffix}</div>`
         ).join('');
 
         const nextEquip = EQUIPMENT.find(b => (ownedEquipment[b.id] || 0) === 0);
+        const nextEquipName = nextEquip ? getEquipName(nextEquip) : '';
         const suggestion = nextEquip
-            ? `${i18n.t('game.nextEquip').split('을')[0]}을 ${nextEquip.name}"${i18n.t('game.nextEquip').split('을')[1]}`
+            ? `"${nextEquipName}" - ${i18n.t('game.nextEquip')}`
             : i18n.t('game.allEquip');
 
         const nextRank = DUNGEON_RANKS.find(t => t.min > totalEarned);
-        const rankProgress = nextRank ? `${i18n.t('game.nextRank')} ${formatGold(nextRank.min - totalEarned)} 골드` : i18n.t('game.maxRank');
+        const rankProgress = nextRank ? `${i18n.t('game.nextRank')} ${formatGold(nextRank.min - totalEarned)}` : i18n.t('game.maxRank');
 
         const currentMonster = MONSTERS[currentMonsterIndex];
         const monsterNameKey = currentMonster ? getMonsterNameKey(currentMonster.name) : '';
@@ -955,10 +987,10 @@
                     <h3>⚔️ ${i18n.t('game.battleAnalysis')}</h3>
                     <div class="pa-item">${i18n.t('game.attackPower')}: ${formatGold(clickPower)} / ${i18n.t('game.clickPower')}</div>
                     <div class="pa-item">${i18n.t('game.autoDPS')}: ${formatGoldShort(displayIncome)}${perSecSuffix}</div>
-                    <div class="pa-item">${i18n.t('game.ownedEquip')}: ${equipCount}개</div>
-                    <div class="pa-item">${i18n.t('game.totalAttacks')}: ${totalClicks.toLocaleString()}회</div>
+                    <div class="pa-item">${i18n.t('game.ownedEquip')}: ${equipCount}</div>
+                    <div class="pa-item">${i18n.t('game.totalAttacks')}: ${totalClicks.toLocaleString()}</div>
                     <div class="pa-item">${i18n.t('game.totalGoldEarned')}: ${formatGold(totalEarned)}</div>
-                    <div class="pa-item">${i18n.t('game.monsterKilled')}: ${killCount}마리</div>
+                    <div class="pa-item">${i18n.t('game.monsterKilled')}: ${killCount}</div>
                     <div class="pa-item">${monsterInfo}</div>
                 </div>
                 <div class="pa-section">
@@ -1030,6 +1062,13 @@
 
         window._buyEquip = buyEquipment;
         window._buySkill = buySkill;
+        window._showPremium = showPremiumAnalysis;
+        window._refreshUI = function() {
+            renderEquipment();
+            renderSkills();
+            updateDisplay();
+            spawnMonster();
+        };
     }
 
     // Ensure all init happens after DOM is loaded
