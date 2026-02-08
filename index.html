@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="robots" content="max-image-preview:large">
 
     <!-- SEO Meta Tags -->
-    <title>Idle Clicker Empire - 방치형 클리커 경영 게임 | DopaBrain</title>
-    <meta name="description" content="클릭으로 돈을 벌고 사업 제국을 건설하세요! 레모네이드 가판대에서 글로벌 은행까지, 10단계 사업 업그레이드. 무료 방치형 클리커 게임!">
-    <meta name="keywords" content="클리커 게임, 방치형 게임, idle clicker, 경영 게임, 사업 시뮬레이션, 무료 게임, 브라우저 게임, 캐주얼 게임">
+    <title>던전 클리커 - 방치형 RPG 클리커 게임 | DopaBrain</title>
+    <meta name="description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! 클릭으로 시작하는 RPG 모험. 무료 방치형 클리커 게임!">
+    <meta name="keywords" content="클리커 게임, 방치형 게임, RPG 게임, 던전 게임, idle clicker, 무료 게임, 브라우저 게임, 캐주얼 게임">
     <meta name="author" content="DopaBrain">
-    <link rel="canonical" href="https://dopabrain.com/idle-clicker/">
+    <link rel="canonical" href="https://dopabrain.com/dungeon-clicker/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Idle Clicker Empire - 방치형 클리커 경영 게임 💰">
-    <meta property="og:description" content="클릭으로 돈을 벌고 사업 제국을 건설하세요! 레모네이드 가판대에서 글로벌 은행까지!">
+    <meta property="og:title" content="던전 클리커 - 방치형 RPG 클리커 게임 ⚔️">
+    <meta property="og:description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! RPG 모험을 시작하세요!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dopabrain.com/idle-clicker/">
-    <meta property="og:image" content="https://dopabrain.com/idle-clicker/icon-512.svg">
+    <meta property="og:url" content="https://dopabrain.com/dungeon-clicker/">
+    <meta property="og:image" content="https://dopabrain.com/dungeon-clicker/icon-512.svg">
     <meta property="og:locale" content="ko_KR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Idle Clicker Empire - 방치형 클리커 경영 게임 💰">
-    <meta name="twitter:description" content="클릭으로 돈을 벌고 사업 제국을 건설하세요! 10단계 사업 업그레이드!">
-    <meta name="twitter:image" content="https://dopabrain.com/idle-clicker/icon-512.svg">
+    <meta name="twitter:title" content="던전 클리커 - 방치형 RPG 클리커 게임 ⚔️">
+    <meta name="twitter:description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! RPG 모험!">
+    <meta name="twitter:image" content="https://dopabrain.com/dungeon-clicker/icon-512.svg">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -39,10 +40,10 @@
     {
         "@context": "https://schema.org",
         "@type": "VideoGame",
-        "name": "Idle Clicker Empire",
-        "description": "클릭으로 돈을 벌고 사업 제국을 건설하는 방치형 클리커 경영 게임",
-        "url": "https://dopabrain.com/idle-clicker/",
-        "genre": "Idle Clicker",
+        "name": "던전 클리커",
+        "description": "클릭으로 던전을 탐험하고 몬스터를 무찌르는 방치형 RPG 클리커 게임",
+        "url": "https://dopabrain.com/dungeon-clicker/",
+        "genre": "RPG",
         "gamePlatform": "Web Browser",
         "operatingSystem": "Any",
         "applicationCategory": "Game",
@@ -69,63 +70,71 @@
 
         <!-- Header -->
         <header class="game-header">
-            <h1 class="game-title">Idle Clicker Empire</h1>
-            <p class="game-subtitle">클릭으로 사업 제국을 건설하세요</p>
+            <h1 class="game-title">던전 클리커</h1>
+            <p class="game-subtitle">클릭으로 던전을 정복하세요</p>
         </header>
 
-        <!-- Money Display -->
+        <!-- Gold Display -->
         <section class="money-section">
-            <div class="money-amount" id="money-display">0</div>
+            <div class="money-amount" id="gold-display">0</div>
             <div class="money-per-sec" id="per-sec-display">0/초</div>
             <div class="title-badge">
-                <span id="title-icon">😅</span>
-                <span id="title-display">무일푼</span>
+                <span id="title-icon">⚔️</span>
+                <span id="title-display">초급 모험가</span>
             </div>
         </section>
 
         <!-- Click Area -->
         <section class="click-section">
             <div class="click-area" id="click-area">
-                <span class="click-emoji" id="click-emoji">💰</span>
-                <span class="click-label">TAP!</span>
+                <span class="click-emoji" id="click-emoji">⚔️</span>
+                <span class="click-label">ATTACK!</span>
             </div>
         </section>
 
         <!-- Tabs -->
         <div class="tabs">
-            <button class="tab-btn active" data-tab="business">🏢 사업</button>
-            <button class="tab-btn" data-tab="upgrade">⬆️ 업그레이드</button>
+            <button class="tab-btn active" data-tab="equipment">⚔️ 장비</button>
+            <button class="tab-btn" data-tab="skill">🛡️ 스킬</button>
             <button class="tab-btn" data-tab="stats">📊 통계</button>
         </div>
 
-        <!-- Tab: Business -->
-        <div class="tab-content" id="tab-business">
-            <div id="business-list"></div>
+        <!-- Tab: Equipment -->
+        <div class="tab-content" id="panel-equipment">
+            <div id="equipment-list"></div>
         </div>
 
-        <!-- Tab: Upgrades -->
-        <div class="tab-content hidden" id="tab-upgrade">
-            <div id="upgrade-list"></div>
+        <!-- Tab: Skills -->
+        <div class="tab-content hidden" id="panel-skill">
+            <div id="skill-list"></div>
         </div>
 
         <!-- Tab: Stats -->
-        <div class="tab-content hidden" id="tab-stats">
+        <div class="tab-content hidden" id="panel-stats">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-val" id="stat-earned">0</span>
-                    <span class="stat-lbl">총 수익</span>
+                    <span class="stat-val" id="stat-total-earned">0</span>
+                    <span class="stat-lbl">총 골드</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-val" id="stat-clicks">0</span>
-                    <span class="stat-lbl">총 클릭</span>
+                    <span class="stat-val" id="stat-total-clicks">0</span>
+                    <span class="stat-lbl">총 공격</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-val" id="stat-click-value">1</span>
-                    <span class="stat-lbl">클릭당 수익</span>
+                    <span class="stat-val" id="stat-click-power">1</span>
+                    <span class="stat-lbl">공격력</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-val" id="stat-businesses">0</span>
-                    <span class="stat-lbl">사업체 수</span>
+                    <span class="stat-val" id="stat-equip-count">0</span>
+                    <span class="stat-lbl">장비 수</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val" id="stat-auto-income">0</span>
+                    <span class="stat-lbl">자동 DPS</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val" id="stat-rank">F</span>
+                    <span class="stat-lbl">던전 랭크</span>
                 </div>
             </div>
         </div>
@@ -133,14 +142,14 @@
         <!-- Premium Button -->
         <section class="premium-section">
             <button class="premium-btn" id="btn-premium">
-                <span>🧠</span>
-                <span>AI 경영 분석</span>
+                <span>🔮</span>
+                <span>전투 분석 (프리미엄)</span>
                 <span class="premium-badge">PRO</span>
             </button>
         </section>
 
         <!-- Interstitial Ad -->
-        <div class="overlay hidden" id="interstitial-overlay">
+        <div class="interstitial-overlay hidden" id="interstitial-overlay">
             <div class="overlay-content">
                 <p class="ad-notice">광고</p>
                 <div class="ad-placeholder-large">AD</div>
@@ -150,7 +159,7 @@
 
         <!-- Premium Result -->
         <section class="premium-result hidden" id="premium-result">
-            <h3 class="premium-result-title">🧠 AI 경영 분석</h3>
+            <h3 class="premium-result-title">🔮 전투 분석</h3>
             <div id="premium-content"></div>
         </section>
 
