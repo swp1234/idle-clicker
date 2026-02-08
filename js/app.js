@@ -54,6 +54,113 @@
     let currentTier = 1;
     let ambientInterval = null;
 
+    // Helper: Map Korean monster names to i18n keys
+    function getMonsterNameKey(koreanName) {
+        const monsterMap = {
+            '슬라임': 'monsters.slime',
+            '고블린': 'monsters.goblin',
+            '박쥐': 'monsters.bat',
+            '들쥐': 'monsters.rat',
+            '전갈': 'monsters.scorpion',
+            '뱀': 'monsters.snake',
+            '버섯괴물': 'monsters.mushroom',
+            '해골 전사': 'monsters.skeleton',
+            '멧돼지': 'monsters.boar',
+            '도적': 'monsters.thief',
+            '늑대': 'monsters.wolf',
+            '독거미': 'monsters.spider',
+            '트롤': 'monsters.troll',
+            '오크': 'monsters.orc',
+            '나무 정령': 'monsters.treent',
+            '곰': 'monsters.bear',
+            '요정 도둑': 'monsters.fairy',
+            '식인 식물': 'monsters.carnivorous',
+            '코볼트': 'monsters.kobold',
+            '숲 마녀': 'monsters.witch',
+            '화염 정령': 'monsters.flame_spirit',
+            '용암 골렘': 'monsters.lava_golem',
+            '불사조': 'monsters.phoenix',
+            '화염 박쥐': 'monsters.flame_bat',
+            '화산 도마뱀': 'monsters.volcano_lizard',
+            '용암 슬라임': 'monsters.lava_slime',
+            '이프리트': 'monsters.ifrit',
+            '화염 기사': 'monsters.flame_knight',
+            '마그마 웜': 'monsters.magma_worm',
+            '불의 군주': 'monsters.fire_lord',
+            '리치': 'monsters.lich',
+            '뱀파이어': 'monsters.vampire',
+            '악마': 'monsters.demon',
+            '그림자 암살자': 'monsters.shadow_assassin',
+            '밴시': 'monsters.banshee',
+            '미이라': 'monsters.mummy',
+            '데스 나이트': 'monsters.death_knight',
+            '심연의 촉수': 'monsters.tentacle',
+            '저주받은 기사': 'monsters.cursed_knight',
+            '네크로맨서': 'monsters.necromancer',
+            '드래곤': 'monsters.dragon',
+            '고대 용': 'monsters.ancient_dragon',
+            '얼음 드래곤': 'monsters.ice_dragon',
+            '독 드래곤': 'monsters.poison_dragon',
+            '뼈 드래곤': 'monsters.bone_dragon',
+            '용의 수호자': 'monsters.dragon_guardian',
+            '와이번': 'monsters.wyvern',
+            '히드라': 'monsters.hydra',
+            '바실리스크': 'monsters.basilisk',
+            '드래곤 로드': 'monsters.dragon_lord',
+            '타이탄': 'monsters.titan',
+            '어둠의 군주': 'monsters.dark_lord',
+            '대천사': 'monsters.archangel',
+            '크라켄': 'monsters.kraken',
+            '세계 뱀': 'monsters.world_snake',
+            '혼돈의 기사': 'monsters.chaos_knight',
+            '빛의 수호자': 'monsters.light_guardian',
+            '허공의 파괴자': 'monsters.void_destroyer',
+            '태양의 화신': 'monsters.sun_incarnation',
+            '종말의 수호자': 'monsters.apocalypse_guardian',
+            '차원 균열자': 'monsters.dimension_breaker',
+            '시간의 파수꾼': 'monsters.time_keeper',
+            '공허의 군주': 'monsters.void_lord',
+            '별의 포식자': 'monsters.star_predator',
+            '차원의 마왕': 'monsters.dimension_demon',
+            '우주 해파리': 'monsters.cosmic_jellyfish',
+            '결정 거인': 'monsters.crystal_giant',
+            '에테르 드래곤': 'monsters.ether_dragon',
+            '차원 수문장': 'monsters.dimension_guardian',
+            '무한의 존재': 'monsters.infinity_being',
+            '원초적 혼돈': 'monsters.primordial_chaos',
+            '태초의 불꽃': 'monsters.primordial_flame',
+            '세계 거북': 'monsters.world_turtle',
+            '시간의 용': 'monsters.time_dragon',
+            '별의 거인': 'monsters.star_giant',
+            '원소 타이탄': 'monsters.element_titan',
+            '운명의 심판자': 'monsters.fate_judge',
+            '혼돈의 화신': 'monsters.chaos_incarnation',
+            '영원의 감시자': 'monsters.eternal_watcher',
+            '태초의 존재': 'monsters.primordial_being',
+            '오딘': 'monsters.odin',
+            '토르': 'monsters.thor',
+            '하데스': 'monsters.hades',
+            '포세이돈': 'monsters.poseidon',
+            '아레스': 'monsters.ares',
+            '아테나': 'monsters.athena',
+            '제우스': 'monsters.zeus',
+            '크로노스': 'monsters.kronos',
+            '가이아': 'monsters.gaia',
+            '카오스': 'monsters.chaos',
+            '세계의 뱀 요르문간드': 'monsters.jormungandr',
+            '파괴신 수르트': 'monsters.surtr',
+            '세계 늑대 펜리르': 'monsters.fenrir',
+            '심연의 황제': 'monsters.abyss_emperor',
+            '차원의 파괴자': 'monsters.dimension_destroyer',
+            '영겁의 수호자': 'monsters.eternal_guardian',
+            '우주의 심장': 'monsters.universe_heart',
+            '시간의 종말': 'monsters.time_end',
+            '절대적 존재': 'monsters.absolute',
+            '??? (최종)': 'monsters.unknown'
+        };
+        return monsterMap[koreanName] || 'monsters.unknown';
+    }
+
     // DOM
     const goldDisplay = document.getElementById('gold-display');
     const perSecDisplay = document.getElementById('per-sec-display');
@@ -154,7 +261,11 @@
 
         // Update tier label
         if (tierIconEl) tierIconEl.textContent = tierData.icon;
-        if (tierNameEl) tierNameEl.textContent = tierData.name;
+        if (tierNameEl) {
+            const tierKey = `dungeon.${tierData.theme}`;
+            tierNameEl.textContent = i18n.t(tierKey);
+            tierNameEl.setAttribute('data-i18n', tierKey);
+        }
         if (tierLabelEl) {
             const m = MONSTERS.find(m => m.tier === tier);
             if (m) {
@@ -267,7 +378,10 @@
             }, 400);
         }
 
-        const displayName = isBoss ? '[ BOSS ] ' + monster.name : monster.name;
+        // Get translated monster name
+        const monsterNameKey = getMonsterNameKey(monster.name);
+        const translatedMonsterName = i18n.t(monsterNameKey);
+        const displayName = isBoss ? '[ BOSS ] ' + translatedMonsterName : translatedMonsterName;
         if (monsterNameEl) {
             monsterNameEl.textContent = displayName;
             monsterNameEl.className = isBoss ? 'monster-name boss-name' : 'monster-name';
@@ -370,7 +484,9 @@
             flash.className = 'boss-defeat-flash';
             document.body.appendChild(flash);
             setTimeout(() => flash.remove(), 600);
-            showMilestone('BOSS ' + monster.name + ' 처치! +' + formatGoldShort(reward) + ' 골드!');
+            const monsterNameKey = getMonsterNameKey(monster.name);
+            const translatedName = i18n.t(monsterNameKey);
+            showMilestone('BOSS ' + translatedName + ' ' + i18n.t('game.kill') + '! +' + formatGoldShort(reward) + ' ' + i18n.t('game.bossDefeated'));
         }
 
         killCount++;
@@ -635,7 +751,12 @@
         if (goldDisplay) goldDisplay.textContent = formatGold(gold);
 
         const displayIncome = autoIncomePerSec * speedMultiplier;
-        if (perSecDisplay) perSecDisplay.textContent = formatGoldShort(displayIncome) + ' DPS';
+        if (perSecDisplay) {
+            const perSecSuffix = i18n.t('game.perSec');
+            // Find and update only the number part, keep the i18n span
+            const children = Array.from(perSecDisplay.children);
+            perSecDisplay.textContent = formatGoldShort(displayIncome) + ' DPS' + perSecSuffix;
+        }
 
         const rank = getRankForGold(totalEarned);
         if (titleDisplay) titleDisplay.textContent = rank.icon + ' ' + rank.title;
@@ -646,7 +767,8 @@
         set('stat-total-clicks', totalClicks.toLocaleString());
         set('stat-click-power', formatGoldShort(clickValue * clickMultiplier));
         set('stat-equip-count', Object.values(ownedEquipment).reduce((s, c) => s + c, 0));
-        set('stat-auto-income', formatGoldShort(displayIncome) + '/초');
+        const autoDPSSuffix = i18n.t('game.perSec');
+        set('stat-auto-income', formatGoldShort(displayIncome) + autoDPSSuffix);
         set('stat-rank', rank.icon + ' ' + rank.title);
     }
 
@@ -709,8 +831,9 @@
 
                 const hours = Math.floor(offlineSeconds / 3600);
                 const mins = Math.floor((offlineSeconds % 3600) / 60);
-                const timeStr = hours > 0 ? `${hours}시간 ${mins}분` : `${mins}분`;
-                showMilestone(`오프라인 ${timeStr}: ${offlineKills}마리 처치, ${formatGold(offlineGold)} 골드! (50%)`);
+                // For offline display, keep simple format or translate hour/minute words
+                const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+                showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: ${offlineKills}${i18n.t('game.monsterKill')} ${formatGold(offlineGold)} ${i18n.t('game.goldEarned')}! (50%)`);
             }
         }
     }
@@ -786,7 +909,7 @@
     // Premium
     async function showPremiumAnalysis() {
         if (totalEarned === 0 && totalClicks === 0) {
-            alert('먼저 던전을 탐험해주세요!');
+            alert(i18n.t('game.playMore'));
             return;
         }
 
@@ -799,40 +922,43 @@
 
         const topEquip = EQUIPMENT.filter(b => (ownedEquipment[b.id] || 0) > 0)
             .sort((a, b) => (ownedEquipment[b.id] * b.baseIncome) - (ownedEquipment[a.id] * a.baseIncome));
+        const perSecSuffix = i18n.t('game.perSec');
         const topEquipHTML = topEquip.slice(0, 3).map(b =>
-            `<div class="pa-item">${b.icon} ${b.name} (Lv.${ownedEquipment[b.id]}): ${formatGoldShort(b.baseIncome * ownedEquipment[b.id] * autoMultiplier)}/초</div>`
+            `<div class="pa-item">${b.icon} ${b.name} (Lv.${ownedEquipment[b.id]}): ${formatGoldShort(b.baseIncome * ownedEquipment[b.id] * autoMultiplier)}${perSecSuffix}</div>`
         ).join('');
 
         const nextEquip = EQUIPMENT.find(b => (ownedEquipment[b.id] || 0) === 0);
         const suggestion = nextEquip
-            ? `다음 장비 "${nextEquip.name}"을 해금하면 전투력이 크게 상승합니다!`
-            : '모든 장비를 수집했습니다! 레벨을 올려 더 강해지세요!';
+            ? `${i18n.t('game.nextEquip').split('을')[0]}을 ${nextEquip.name}"${i18n.t('game.nextEquip').split('을')[1]}`
+            : i18n.t('game.allEquip');
 
         const nextRank = DUNGEON_RANKS.find(t => t.min > totalEarned);
-        const rankProgress = nextRank ? `다음 랭크까지 ${formatGold(nextRank.min - totalEarned)} 골드` : '최고 랭크 달성!';
+        const rankProgress = nextRank ? `${i18n.t('game.nextRank')} ${formatGold(nextRank.min - totalEarned)} 골드` : i18n.t('game.maxRank');
 
         const currentMonster = MONSTERS[currentMonsterIndex];
-        const monsterInfo = currentMonster ? `현재 상대: ${currentMonster.emoji} ${currentMonster.name}` : '';
+        const monsterNameKey = currentMonster ? getMonsterNameKey(currentMonster.name) : '';
+        const translatedMonsterName = currentMonster ? i18n.t(monsterNameKey) : '';
+        const monsterInfo = currentMonster ? `${i18n.t('game.currentOpponent')}: ${currentMonster.emoji} ${translatedMonsterName}` : '';
 
         const premiumContent = document.getElementById('premium-content');
         if (premiumContent) {
             premiumContent.innerHTML = `
                 <div class="pa-section">
-                    <h3>⚔️ 전투 분석</h3>
-                    <div class="pa-item">공격력: ${formatGold(clickPower)} / 클릭</div>
-                    <div class="pa-item">자동 DPS: ${formatGoldShort(displayIncome)}/초</div>
-                    <div class="pa-item">보유 장비: ${equipCount}개</div>
-                    <div class="pa-item">총 공격 횟수: ${totalClicks.toLocaleString()}회</div>
-                    <div class="pa-item">총 획득 골드: ${formatGold(totalEarned)}</div>
-                    <div class="pa-item">몬스터 처치: ${killCount}마리</div>
+                    <h3>⚔️ ${i18n.t('game.battleAnalysis')}</h3>
+                    <div class="pa-item">${i18n.t('game.attackPower')}: ${formatGold(clickPower)} / ${i18n.t('game.clickPower')}</div>
+                    <div class="pa-item">${i18n.t('game.autoDPS')}: ${formatGoldShort(displayIncome)}${perSecSuffix}</div>
+                    <div class="pa-item">${i18n.t('game.ownedEquip')}: ${equipCount}개</div>
+                    <div class="pa-item">${i18n.t('game.totalAttacks')}: ${totalClicks.toLocaleString()}회</div>
+                    <div class="pa-item">${i18n.t('game.totalGoldEarned')}: ${formatGold(totalEarned)}</div>
+                    <div class="pa-item">${i18n.t('game.monsterKilled')}: ${killCount}마리</div>
                     <div class="pa-item">${monsterInfo}</div>
                 </div>
                 <div class="pa-section">
-                    <h3>🏆 최강 장비 TOP 3</h3>
-                    ${topEquipHTML || '<div class="pa-item">아직 장비가 없습니다</div>'}
+                    <h3>🏆 ${i18n.t('game.topEquip')}</h3>
+                    ${topEquipHTML || '<div class="pa-item">' + i18n.t('game.noEquip') + '</div>'}
                 </div>
                 <div class="pa-section">
-                    <h3>📈 성장 가이드</h3>
+                    <h3>📈 ${i18n.t('game.growthGuide')}</h3>
                     <div class="pa-item">${suggestion}</div>
                     <div class="pa-item">${rankProgress}</div>
                 </div>
@@ -843,7 +969,7 @@
 
     // Reset
     function resetGame() {
-        if (confirm('정말 모든 진행 상황을 초기화하시겠습니까?\n이 작업은 되돌릴 수 없습니다.')) {
+        if (confirm(i18n.t('game.confirmReset'))) {
             localStorage.removeItem('dungeonClicker');
             localStorage.removeItem('dungeonClicker_lastTime');
             location.reload();
@@ -875,12 +1001,13 @@
         const shareBtn = document.getElementById('btn-share');
         if (shareBtn) {
             shareBtn.addEventListener('click', () => {
-                const text = `던전 클리커: ${killCount}마리 처치! ${formatGold(totalEarned)} 골드 획득!`;
+                const gameTitle = i18n.t('game.title');
+                const text = `${gameTitle}: ${killCount}${i18n.t('game.monsterKill')} ${formatGold(totalEarned)} ${i18n.t('game.goldEarned2')}`;
                 if (navigator.share) {
-                    navigator.share({ title: '던전 클리커', text, url: location.href }).catch(() => {});
+                    navigator.share({ title: gameTitle, text, url: location.href }).catch(() => {});
                 } else {
                     navigator.clipboard.writeText(text + ' ' + location.href).then(() => {
-                        showMilestone('링크가 복사되었습니다!');
+                        showMilestone(i18n.t('game.linkCopied'));
                     }).catch(() => {});
                 }
             });
