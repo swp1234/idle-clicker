@@ -70,6 +70,11 @@
     let prestigePoints = 0;
     let prestigeCount = 0;
 
+    // Achievement state
+    let achievements = {};
+    let bossKills = 0;
+    let goldenKills = 0;
+
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
         const monsterMap = {
@@ -208,6 +213,7 @@
         }
 
         loadState();
+        initAchievements();
         recalculateAutoIncome();
         spawnMonster();
         calculateOfflineEarnings();
@@ -215,6 +221,7 @@
         updatePrestigeDisplay();
         renderEquipment();
         renderSkills();
+        renderAchievements();
         startGameLoop();
         setupEvents();
 
@@ -663,10 +670,17 @@
         }
 
         killCount++;
+        if (isBoss) bossKills++;
+        if (isTierBoss) bossKills++;
+        if (killedMonster === 'golden') goldenKills++;
+
         if (killCountEl) {
             const stageInfo = getStageInfo(killCount);
             killCountEl.innerHTML = `<span>${killCount}</span> <span>${stageInfo.stage}/${10}</span>`;
         }
+
+        // Check achievements
+        checkAchievements();
 
         // Spawn next monster after delay (longer for boss)
         const spawnDelay = isTierBoss ? 1000 : isBoss ? 700 : 500;
@@ -824,6 +838,9 @@
         if (sfx) sfx.hit();
         damageMonster(damage, true);
         updateDisplay();
+
+        // Check click achievements
+        checkAchievements();
     }
 
     // Combo display
@@ -1433,9 +1450,11 @@
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
                 ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
-                killCount, currentMonsterIndex, prestigePoints, prestigeCount, setBonus
+                killCount, currentMonsterIndex, prestigePoints, prestigeCount, setBonus,
+                bossKills, goldenKills
             }));
             localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
+            localStorage.setItem('achievements', JSON.stringify(achievements));
         } catch (e) {
             console.warn('Save failed:', e);
         }
@@ -1462,6 +1481,8 @@
                 prestigePoints = d.prestigePoints || 0;
                 prestigeCount = d.prestigeCount || 0;
                 setBonus = d.setBonus || 1.0;
+                bossKills = d.bossKills || 0;
+                goldenKills = d.goldenKills || 0;
             }
         } catch (e) {
             console.warn('Load failed:', e);
@@ -1569,6 +1590,7 @@
         if (confirm(i18n.t('game.confirmReset'))) {
             localStorage.removeItem('dungeonClicker');
             localStorage.removeItem('dungeonClicker_lastTime');
+            localStorage.removeItem('achievements');
             location.reload();
         }
     }
@@ -1596,6 +1618,11 @@
                 const tab = btn.dataset.tab;
                 document.getElementById('panel-' + tab)?.classList.add('active');
                 activeTab = tab;
+
+                // Render achievements when tab opens
+                if (tab === 'achievement') {
+                    renderAchievements();
+                }
             });
         });
 
@@ -1633,6 +1660,93 @@
             updatePrestigeDisplay();
             spawnMonster();
         };
+    }
+
+    // === Achievement System ===
+    function initAchievements() {
+        // Load achievements from localStorage
+        const saved = localStorage.getItem('achievements');
+        if (saved) {
+            try {
+                achievements = JSON.parse(saved);
+            } catch (e) {
+                achievements = {};
+            }
+        }
+        // Initialize all achievements as false if not loaded
+        if (!achievements) achievements = {};
+        ACHIEVEMENTS.forEach(ach => {
+            if (!(ach.id in achievements)) {
+                achievements[ach.id] = false;
+            }
+        });
+    }
+
+    function checkAchievements() {
+        if (!ACHIEVEMENTS) return;
+
+        ACHIEVEMENTS.forEach(ach => {
+            if (!achievements[ach.id]) {
+                try {
+                    if (ach.condition && ach.condition()) {
+                        achievements[ach.id] = true;
+                        showAchievementToast(ach);
+                        if (sfx && sfx.success) sfx.success();
+                    }
+                } catch (e) {
+                    // Silent fail for condition checks
+                }
+            }
+        });
+    }
+
+    function showAchievementToast(achievement) {
+        const toast = document.createElement('div');
+        toast.className = 'achievement-toast';
+        const name = i18n.t(achievement.key) || achievement.name;
+        toast.textContent = `🏆 ${i18n.t('game.achievementUnlocked') || 'Achievement Unlocked!'} ${name}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+
+    function renderAchievements() {
+        const achievementList = document.getElementById('achievement-list');
+        if (!achievementList || !ACHIEVEMENTS) return;
+
+        achievementList.innerHTML = '';
+        let unlockedCount = 0;
+
+        ACHIEVEMENTS.forEach(ach => {
+            const isUnlocked = achievements[ach.id];
+            if (isUnlocked) unlockedCount++;
+
+            const card = document.createElement('div');
+            card.className = `achievement-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+
+            const name = i18n.t(ach.key) || ach.name;
+            const desc = i18n.t(ach.descKey) || ach.desc;
+
+            card.innerHTML = `
+                <div class="achievement-icon">${ach.icon}</div>
+                <div class="achievement-name">${name}</div>
+                <div class="achievement-desc">${desc}</div>
+                ${isUnlocked ? '<div class="achievement-checkmark">✓</div>' : ''}
+            `;
+
+            achievementList.appendChild(card);
+        });
+
+        // Update progress bar
+        const progressFill = document.getElementById('achievement-progress-fill');
+        const progressPercent = (unlockedCount / ACHIEVEMENTS.length) * 100;
+        if (progressFill) {
+            progressFill.style.width = progressPercent + '%';
+        }
+
+        const counter = document.getElementById('achievement-counter');
+        if (counter) {
+            counter.textContent = `${unlockedCount} / ${ACHIEVEMENTS.length}`;
+        }
     }
 
     // === Prestige System ===
@@ -1687,6 +1801,9 @@
         const earnedPoints = getPrestigePointsAtTier(currentTier);
         prestigePoints += earnedPoints;
         prestigeCount += 1;
+
+        // Check prestige achievements
+        checkAchievements();
 
         // Play prestige sound
         if (sfx) sfx.prestige();

@@ -55,6 +55,9 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
+    <link rel="preload" href="js/i18n.js" as="script">
+    <link rel="preload" href="js/game-data.js" as="script">
+    <link rel="preload" href="js/app.js" as="script">
 </head>
 <body>
     <div class="bg-effects">
@@ -175,6 +178,7 @@
             <button class="tab-btn active" data-tab="equipment" data-i18n="game.equipment">⚔️ 장비</button>
             <button class="tab-btn" data-tab="skill" data-i18n="game.skill">🛡️ 스킬</button>
             <button class="tab-btn" data-tab="stats" data-i18n="game.stats">📊 통계</button>
+            <button class="tab-btn" data-tab="achievement" data-i18n="game.achievement">🏆 업적</button>
         </div>
 
         <!-- Tab: Equipment -->
@@ -185,6 +189,17 @@
         <!-- Tab: Skills -->
         <div class="tab-panel" id="panel-skill">
             <div id="skill-list"></div>
+        </div>
+
+        <!-- Tab: Achievements -->
+        <div class="tab-panel" id="panel-achievement">
+            <div class="achievement-header">
+                <div class="achievement-progress-bar">
+                    <div class="achievement-progress-fill" id="achievement-progress-fill"></div>
+                </div>
+                <div class="achievement-counter" id="achievement-counter">0 / 15</div>
+            </div>
+            <div id="achievement-list" class="achievement-list"></div>
         </div>
 
         <!-- Tab: Stats -->
@@ -310,6 +325,16 @@
                     <span class="rec-name" data-i18n="recommendations.colorMemory">색상 기억력</span>
                     <span class="rec-desc" data-i18n="recommendations.colorMemoryDesc">기억력 도전 게임</span>
                 </a>
+                <a href="https://dopabrain.com/brain-type/" class="rec-card">
+                    <span class="rec-emoji">🧠</span>
+                    <span class="rec-name">두뇌 유형 테스트</span>
+                    <span class="rec-desc">당신의 뇌 유형은?</span>
+                </a>
+                <a href="https://dopabrain.com/reaction-test/" class="rec-card">
+                    <span class="rec-emoji">⚡</span>
+                    <span class="rec-name">반응속도 테스트</span>
+                    <span class="rec-desc">당신의 반응속도는?</span>
+                </a>
             </div>
         </section>
 
@@ -331,13 +356,13 @@
         </div>
     </div>
 
-    <script src="js/i18n.js"></script>
-    <script src="js/game-data.js"></script>
-    <script src="js/monster-art-ext.js"></script>
-    <script src="js/monster-art-ext2.js"></script>
-    <script src="js/sound-engine.js"></script>
-    <script src="js/dopamine-effects.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/game-data.js" defer></script>
+    <script src="js/monster-art-ext.js" defer></script>
+    <script src="js/monster-art-ext2.js" defer></script>
+    <script src="js/sound-engine.js" defer></script>
+    <script src="js/dopamine-effects.js" defer></script>
+    <script src="js/app.js" defer></script>
 
     <style>
         .sound-toggle {

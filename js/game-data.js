@@ -1052,3 +1052,37 @@ function getStageInfo(killCount) {
         isMidBoss: stageInTier === 5,   // Halfway = mini boss
     };
 }
+
+// === ACHIEVEMENTS (15개 업적) ===
+const ACHIEVEMENTS = [
+    // 기본 전투 업적
+    { id: 'first_step', icon: '🐣', name: 'First Step', key: 'achievement.firstStep', desc: 'key', descKey: 'achievement.firstStepDesc', condition: () => totalClicks >= 1, condition_label: 'totalClicks >= 1' },
+    { id: 'slayer_100', icon: '⚔️', name: 'Warrior Path', key: 'achievement.slayer100', desc: 'key', descKey: 'achievement.slayer100Desc', condition: () => killCount >= 100, condition_label: 'killCount >= 100' },
+    { id: 'slayer_1000', icon: '💀', name: 'Slayer', key: 'achievement.slayer1000', desc: 'key', descKey: 'achievement.slayer1000Desc', condition: () => killCount >= 1000, condition_label: 'killCount >= 1000' },
+
+    // 골드 업적
+    { id: 'wealth_10k', icon: '💰', name: 'Rich', key: 'achievement.wealth10k', desc: 'key', descKey: 'achievement.wealth10kDesc', condition: () => totalEarned >= 10000, condition_label: 'totalEarned >= 10000' },
+    { id: 'wealth_1m', icon: '🏦', name: 'Billionaire', key: 'achievement.wealth1m', desc: 'key', descKey: 'achievement.wealth1mDesc', condition: () => totalEarned >= 1000000, condition_label: 'totalEarned >= 1000000' },
+
+    // 장비 업적
+    { id: 'equipment_10', icon: '🛡️', name: 'Equipment Master', key: 'achievement.equipment10', desc: 'key', descKey: 'achievement.equipment10Desc', condition: () => Object.keys(ownedEquipment || {}).length >= 10, condition_label: 'equipmentCount >= 10' },
+
+    // 스킬 업적
+    { id: 'skill_master', icon: '⭐', name: 'Skill Master', key: 'achievement.skillMaster', desc: 'key', descKey: 'achievement.skillMasterDesc', condition: () => Object.values(skillLevels || {}).filter(l => l >= 5).length >= 5, condition_label: 'skillLevel5+ >= 5' },
+
+    // 환생 업적
+    { id: 'prestige_first', icon: '👑', name: 'Reborn', key: 'achievement.prestigeFirst', desc: 'key', descKey: 'achievement.prestigeFirstDesc', condition: () => prestigeCount >= 1, condition_label: 'prestigeCount >= 1' },
+    { id: 'prestige_5', icon: '🔥', name: 'Serial Reborn', key: 'achievement.prestige5', desc: 'key', descKey: 'achievement.prestige5Desc', condition: () => prestigeCount >= 5, condition_label: 'prestigeCount >= 5' },
+
+    // 보스 업적
+    { id: 'boss_hunter', icon: '🏆', name: 'Boss Hunter', key: 'achievement.bossHunter', desc: 'key', descKey: 'achievement.bossHunterDesc', condition: () => (bossKills || 0) >= 10, condition_label: 'bossKills >= 10' },
+
+    // 클릭 업적
+    { id: 'click_1k', icon: '⚡', name: 'Click King', key: 'achievement.click1k', desc: 'key', descKey: 'achievement.click1kDesc', condition: () => totalClicks >= 1000, condition_label: 'totalClicks >= 1000' },
+    { id: 'click_10k', icon: '🎯', name: 'Click Master', key: 'achievement.click10k', desc: 'key', descKey: 'achievement.click10kDesc', condition: () => totalClicks >= 10000, condition_label: 'totalClicks >= 10000' },
+
+    // 특수 업적
+    { id: 'golden_monster', icon: '🌟', name: 'Golden Hunter', key: 'achievement.goldenMonster', desc: 'key', descKey: 'achievement.goldenMonsterDesc', condition: () => (goldenKills || 0) >= 5, condition_label: 'goldenKills >= 5' },
+    { id: 'dps_100', icon: '📈', name: 'DPS 100', key: 'achievement.dps100', desc: 'key', descKey: 'achievement.dps100Desc', condition: () => totalCPS >= 100, condition_label: 'totalCPS >= 100' },
+    { id: 'dungeon_master', icon: '🏰', name: 'Dungeon Master', key: 'achievement.dungeonMaster', desc: 'key', descKey: 'achievement.dungeonMasterDesc', condition: () => currentTier >= 10, condition_label: 'currentTier >= 10' },
+];
