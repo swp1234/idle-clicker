@@ -1817,7 +1817,13 @@
     function showMilestone(message) {
         const toast = document.createElement('div');
         toast.className = 'milestone-toast';
-        toast.innerHTML = `<span class="milestone-icon">⚔️</span> ${message}`;
+        const icon = document.createElement('span');
+        icon.className = 'milestone-icon';
+        icon.textContent = '⚔️';
+        const text = document.createElement('span');
+        text.textContent = message;
+        toast.appendChild(icon);
+        toast.appendChild(text);
         document.body.appendChild(toast);
         setTimeout(() => toast.classList.add('show'), 10);
         setTimeout(() => {
@@ -3141,7 +3147,12 @@
     function showRecordNotification(notif) {
         const toast = document.createElement('div');
         toast.className = 'record-toast';
-        toast.innerHTML = `<span>${notif.icon}</span> ${notif.message}`;
+        const icon = document.createElement('span');
+        icon.textContent = notif.icon || '';
+        const message = document.createElement('span');
+        message.textContent = notif.message || '';
+        toast.appendChild(icon);
+        toast.appendChild(message);
         document.body.appendChild(toast);
 
         // Auto-remove
