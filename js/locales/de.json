@@ -389,5 +389,30 @@
         "legend": "Das legendäre Verlies geräumt! Bemerkenswert!",
         "divine": "Die göttliche Prüfung bestanden!",
         "darkness": "Den dunklen Herrn besiegt!"
+    },
+    "tutorial": {
+        "step": "SCHRITT",
+        "skip": "ÜBERSPRINGEN",
+        "next": "WEITER",
+        "step1": {
+            "title": "Klicke auf das Monster!",
+            "text": "Tippe auf das Monster, um anzugreifen. Du wirst mit jedem Klick Gold verdienen!"
+        },
+        "step2": {
+            "title": "Kaufe Ausrüstung!",
+            "text": "Kaufe Waffen und Rüstungen mit Gold im Equipment-Tab, um deine Angriffskraft zu erhöhen!"
+        },
+        "step3": {
+            "title": "Lerne Fähigkeiten!",
+            "text": "Lerne mächtige Fähigkeiten im Skill-Tab, um automatisch Gold zu verdienen!"
+        },
+        "step4": {
+            "title": "Besiege den Chef!",
+            "text": "Besiege den Chef in jeder Etappe, um zum nächsten Verlies voranzukommen!"
+        },
+        "step5": {
+            "title": "Erreiche Erfolge!",
+            "text": "Erreiche Erfolge, um deinen Fortschritt zu verfolgen und Ziele zu setzen!"
+        }
     }
 }

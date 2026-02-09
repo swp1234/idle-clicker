@@ -389,5 +389,30 @@
         "legend": "Efsanevi Zındanı temizlediniz! Harika!",
         "divine": "İlahi Denemeden geçtiniz!",
         "darkness": "Karanlık Lordunu yendiniz!"
+    },
+    "tutorial": {
+        "step": "ADIM",
+        "skip": "ATLA",
+        "next": "İLERİ",
+        "step1": {
+            "title": "Canavara Tıkla!",
+            "text": "Saldırmak için canavarı dokunun. Her tıklamada altın kazanacaksınız!"
+        },
+        "step2": {
+            "title": "Ekipman Satın Al!",
+            "text": "Ekipman sekmesinde altınla silah ve zırh satın alarak saldırı gücünüzü artırın!"
+        },
+        "step3": {
+            "title": "Becerileri Öğren!",
+            "text": "Beceri sekmesinde güçlü becerileri öğrenerek otomatik olarak altın kazanın!"
+        },
+        "step4": {
+            "title": "Şefi Yenin!",
+            "text": "Her aşamadaki şefi yenerek bir sonraki zındana ilerleyin!"
+        },
+        "step5": {
+            "title": "Başarıları Elde Edin!",
+            "text": "İlerlemesini takip etmek ve hedefler belirlemek için başarıları elde edin!"
+        }
     }
 }

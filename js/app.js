@@ -242,6 +242,13 @@
         if (totalClicks === 0 && killCount === 0) {
             showTapHint();
         }
+
+        // Start tutorial for new players
+        setTimeout(() => {
+            if (tutorial && !tutorial.isComplete && totalClicks === 0) {
+                tutorial.start();
+            }
+        }, 500);
     }
 
     function showTapHint() {

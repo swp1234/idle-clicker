@@ -389,5 +389,30 @@
         "legend": "Vous avez conquis le Donjon Légendaire! Incroyable!",
         "divine": "Vous avez réussi l'Épreuve Divine!",
         "darkness": "Vous avez vaincu le Seigneur Noir!"
+    },
+    "tutorial": {
+        "step": "ÉTAPE",
+        "skip": "IGNORER",
+        "next": "SUIVANT",
+        "step1": {
+            "title": "Cliquez sur le Monstre!",
+            "text": "Touchez le monstre pour attaquer. Vous gagnerez de l'or à chaque clic!"
+        },
+        "step2": {
+            "title": "Achetez des Équipements!",
+            "text": "Achetez des armes et des armures avec de l'or dans l'onglet Équipement pour augmenter votre puissance d'attaque!"
+        },
+        "step3": {
+            "title": "Apprenez des Compétences!",
+            "text": "Apprenez des compétences puissantes dans l'onglet Compétences pour gagner de l'or automatiquement!"
+        },
+        "step4": {
+            "title": "Vaincrez le Chef!",
+            "text": "Vaincrez le chef à chaque étape pour avancer vers le prochain donjon!"
+        },
+        "step5": {
+            "title": "Atteignez les Objectifs!",
+            "text": "Atteignez les objectifs pour suivre votre progression et fixer des buts!"
+        }
     }
 }

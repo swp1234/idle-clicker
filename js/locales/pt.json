@@ -389,5 +389,30 @@
         "legend": "Limpou a Masmorra Lendária! Incrível!",
         "divine": "Passou pela Provação Divina!",
         "darkness": "Derrotou o Senhor Escuro!"
+    },
+    "tutorial": {
+        "step": "ETAPA",
+        "skip": "PULAR",
+        "next": "PRÓXIMO",
+        "step1": {
+            "title": "Clique no Monstro!",
+            "text": "Toque o monstro para atacar. Você ganhará ouro a cada clique!"
+        },
+        "step2": {
+            "title": "Compre Equipamento!",
+            "text": "Compre armas e armaduras com ouro na aba de Equipamento para aumentar seu poder de ataque!"
+        },
+        "step3": {
+            "title": "Aprenda Habilidades!",
+            "text": "Aprenda habilidades poderosas na aba de Habilidades para ganhar ouro automaticamente!"
+        },
+        "step4": {
+            "title": "Derrote o Chefe!",
+            "text": "Derrote o chefe em cada estágio para avançar para o próximo calabouço!"
+        },
+        "step5": {
+            "title": "Alcance Objetivos!",
+            "text": "Alcance objetivos para rastrear seu progresso e definir metas!"
+        }
     }
 }

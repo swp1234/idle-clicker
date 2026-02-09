@@ -389,5 +389,30 @@
         "legend": "Selesai Dungeon Legendaris! Luar biasa!",
         "divine": "Lewati Ujian Ilahi!",
         "darkness": "Kalahkan Penguasa Gelap!"
+    },
+    "tutorial": {
+        "step": "LANGKAH",
+        "skip": "LEWATI",
+        "next": "SELANJUTNYA",
+        "step1": {
+            "title": "Klik Monster!",
+            "text": "Ketuk monster untuk menyerang. Anda akan mendapatkan emas setiap kali mengklik!"
+        },
+        "step2": {
+            "title": "Beli Perlengkapan!",
+            "text": "Beli senjata dan perlengkapan dengan emas di tab Perlengkapan untuk meningkatkan kekuatan serang Anda!"
+        },
+        "step3": {
+            "title": "Pelajari Keterampilan!",
+            "text": "Pelajari keterampilan kuat di tab Keterampilan untuk mendapatkan emas secara otomatis!"
+        },
+        "step4": {
+            "title": "Kalahkan Bos!",
+            "text": "Kalahkan bos di setiap tahap untuk maju ke dungeon berikutnya!"
+        },
+        "step5": {
+            "title": "Raih Prestasi!",
+            "text": "Raih prestasi untuk melacak progres Anda dan menetapkan tujuan!"
+        }
     }
 }
