@@ -233,6 +233,7 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="equipment" data-i18n="game.equipment">⚔️ 장비</button>
             <button class="tab-btn" data-tab="skill" data-i18n="game.skill">🛡️ 스킬</button>
+            <button class="tab-btn" data-tab="pet" data-i18n="pet.title">🐱 펫</button>
             <button class="tab-btn" data-tab="dailyMissions" data-i18n="dailyMissions.title">📋 일일 미션</button>
             <button class="tab-btn" data-tab="stats" data-i18n="game.stats">📊 통계</button>
             <button class="tab-btn" data-tab="achievement" data-i18n="game.achievement">🏆 업적</button>
@@ -246,6 +247,22 @@
         <!-- Tab: Skills -->
         <div class="tab-panel" id="panel-skill">
             <div id="skill-list"></div>
+        </div>
+
+        <!-- Tab: Pets -->
+        <div class="tab-panel" id="panel-pet">
+            <div class="pet-section">
+                <h3 class="pet-title" data-i18n="pet.activePet">활성 펫</h3>
+                <div class="active-pet-display">
+                    <div class="active-pet-emoji" id="active-pet-emoji">🐱</div>
+                    <div class="active-pet-info">
+                        <div class="active-pet-name" id="active-pet-name">없음</div>
+                        <div class="active-pet-level" id="active-pet-level">레벨: 0</div>
+                        <div class="active-pet-bonus" id="active-pet-bonus"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="pet-list" class="pet-list"></div>
         </div>
 
         <!-- Tab: Daily Missions -->

@@ -2744,3 +2744,208 @@ select:focus-visible {
     scrollbar-color: var(--primary-color, #3b82f6) var(--bg-dark, #f1f5f9);
     scrollbar-width: thin;
 }
+
+/* === Pet System Styles === */
+.pet-section {
+    margin-bottom: 24px;
+}
+
+.pet-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.active-pet-display {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, var(--surface-glass) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.active-pet-emoji {
+    font-size: 64px;
+    line-height: 1;
+    flex-shrink: 0;
+    animation: petBounce 2s ease-in-out infinite;
+}
+
+@keyframes petBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.active-pet-info {
+    flex: 1;
+}
+
+.active-pet-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.active-pet-level {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.active-pet-bonus {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.pet-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.pet-card {
+    background: linear-gradient(135deg, var(--surface-glass) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+    transition: var(--transition), border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.pet-card:hover {
+    background: linear-gradient(135deg, var(--surface-glass) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border-color: var(--border-glass-hover);
+    transform: translateY(-2px);
+}
+
+.pet-card.active {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-color: var(--primary);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+}
+
+.pet-card.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pet-emoji {
+    font-size: 36px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pet-info {
+    flex: 1;
+}
+
+.pet-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.pet-stats {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.pet-bonus {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.pet-level-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.pet-level-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.pet-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.pet-btn {
+    padding: 6px 12px;
+    background: linear-gradient(135deg, var(--primary) 0%, #6d28d9 100%);
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    color: var(--text);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.pet-btn:hover {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    border-color: var(--primary);
+}
+
+.pet-btn:active {
+    transform: scale(0.95);
+}
+
+.pet-btn.select {
+    background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
+    border-color: rgba(52, 211, 153, 0.5);
+}
+
+.pet-btn.select:hover {
+    background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
+}
+
+.pet-btn.levelup {
+    background: linear-gradient(135deg, var(--gold) 0%, #d97706 100%);
+    border-color: rgba(251, 191, 36, 0.5);
+    color: #000;
+}
+
+.pet-btn.levelup:hover {
+    background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
+}
+
+.pet-btn.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pet-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pet-status {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+}

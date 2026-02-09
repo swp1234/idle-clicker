@@ -106,6 +106,24 @@
         ]
     };
 
+    // Pet System state
+    const PET_DATA = {
+        cat: { name: 'cat', emoji: '🐱', type: 'autoAttack', bonus: 0.01, description: 'petCatDesc' },
+        dog: { name: 'dog', emoji: '🐕', type: 'goldBonus', bonus: 0.20, description: 'petDogDesc' },
+        eagle: { name: 'eagle', emoji: '🦅', type: 'critChance', bonus: 0.15, description: 'petEagleDesc' },
+        dragon: { name: 'dragon', emoji: '🐉', type: 'attackPower', bonus: 0.30, description: 'petDragonDesc' },
+        unicorn: { name: 'unicorn', emoji: '🦄', type: 'allStats', bonus: 0.10, description: 'petUnicornDesc' }
+    };
+    let pets = {}; // { cat: {level: 1, unlocked: false}, ... }
+    let activePet = null; // 'cat', 'dog', etc.
+    let petLevels = {}; // { cat: 5, dog: 3, ... }
+
+    // Initialize pet state
+    Object.keys(PET_DATA).forEach(petName => {
+        pets[petName] = { level: 1, unlocked: false };
+        petLevels[petName] = 1;
+    });
+
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
         const monsterMap = {
@@ -628,6 +646,22 @@
         // Event: Gold Rush bonus
         reward = Math.floor(reward * eventGoldRushMultiplier);
 
+        // Pet: Gold bonus (dog: +20%)
+        if (activePet === 'dog' && pets.dog.unlocked) {
+            const petLevel = petLevels.dog || 1;
+            const petLevelMultiplier = 1 + (petLevel - 1) * 0.05;
+            const goldBonus = PET_DATA.dog.bonus * petLevelMultiplier;
+            reward = Math.floor(reward * (1 + goldBonus));
+        }
+
+        // Pet: Allstats bonus (unicorn: +10% 골드)
+        if (activePet === 'unicorn' && pets.unicorn.unlocked) {
+            const petLevel = petLevels.unicorn || 1;
+            const petLevelMultiplier = 1 + (petLevel - 1) * 0.05;
+            const allBonus = PET_DATA.unicorn.bonus * petLevelMultiplier;
+            reward = Math.floor(reward * (1 + allBonus));
+        }
+
         gold += reward;
         totalEarned += reward;
 
@@ -882,6 +916,23 @@
         setTimeout(() => el.remove(), 1000);
     }
 
+    // Helper: Calculate pet bonus multiplier
+    function getPetBonusMultiplier() {
+        if (!activePet || !pets[activePet] || !pets[activePet].unlocked) return 1;
+        const petLevel = petLevels[activePet] || 1;
+        const petLevelMultiplier = 1 + (petLevel - 1) * 0.05; // 레벨당 5% 증가
+
+        const petInfo = PET_DATA[activePet];
+        switch (petInfo.type) {
+            case 'attackPower': // 드래곤: +30% 공격력
+                return 1 + (petInfo.bonus * petLevelMultiplier);
+            case 'allStats': // 유니콘: +10% 올스탯
+                return 1 + (petInfo.bonus * petLevelMultiplier);
+            default:
+                return 1;
+        }
+    }
+
     // Click with dopamine enhancement
     function handleClick(e) {
         if (monsterDying || monsterHP <= 0) return;
@@ -890,7 +941,8 @@
         if (totalClicks === 0) removeTapHint();
 
         const prestigeBonus = 1 + (prestigePoints * 0.15);  // IMPROVED: Stronger prestige bonus
-        const baseClick = clickValue * clickMultiplier * prestigeBonus;
+        const petBonus = getPetBonusMultiplier();
+        const baseClick = clickValue * clickMultiplier * prestigeBonus * petBonus;
         const autoBonus = autoIncomePerSec * goldenTouchBonus;
         const damage = Math.max(1, baseClick + autoBonus);
 
@@ -998,6 +1050,23 @@
                 const autoDamage = autoIncomePerSec * dt * speedMultiplier;
                 if (autoDamage > 0) {
                     damageMonster(autoDamage, false);
+                }
+            }
+
+            // Pet auto attack (cat pet: 1 click per second)
+            if (activePet === 'cat' && pets.cat.unlocked && !monsterDying && monsterHP > 0) {
+                const petLevel = petLevels.cat || 1;
+                const petDamageMultiplier = 1 + (petLevel - 1) * 0.05; // 레벨당 5% 증가
+                const prestigeBonus = 1 + (prestigePoints * 0.15);
+                const petDamage = clickValue * clickMultiplier * prestigeBonus * petDamageMultiplier;
+
+                // Auto attack every second (1000ms)
+                let lastPetAttackTime = window._lastPetAttackTime || 0;
+                if (now - lastPetAttackTime >= 1000) {
+                    window._lastPetAttackTime = now;
+                    if (petDamage > 0) {
+                        damageMonster(petDamage, false);
+                    }
                 }
             }
 
@@ -1880,6 +1949,7 @@
                 ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
                 killCount, currentMonsterIndex, currentTier, prestigePoints, prestigeCount, setBonus,
                 bossKills, goldenKills,
+                pets, activePet, petLevels,
                 eventState
             }));
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
@@ -1926,6 +1996,9 @@
                 setBonus = d.setBonus || 1.0;
                 bossKills = d.bossKills || 0;
                 goldenKills = d.goldenKills || 0;
+                pets = d.pets || pets;
+                activePet = d.activePet || null;
+                petLevels = d.petLevels || petLevels;
 
                 // Load event system state
                 if (eventSystem && d.eventState) {
@@ -2107,6 +2180,11 @@
                 if (tab === 'achievement') {
                     renderAchievements();
                 }
+
+                // Render pets when tab opens
+                if (tab === 'pet') {
+                    renderPets();
+                }
             });
         });
 
@@ -2142,6 +2220,7 @@
         window._refreshUI = function() {
             renderEquipment();
             renderSkills();
+            renderPets();
             renderDailyMissions();
             updateDisplay();
             updatePrestigeDisplay();
@@ -2421,6 +2500,140 @@
         if (counter) {
             counter.textContent = `${unlockedCount} / ${ACHIEVEMENTS.length}`;
         }
+    }
+
+    // === Pet System ===
+    function renderPets() {
+        const petList = document.getElementById('pet-list');
+        const activePetDisplay = document.getElementById('active-pet-emoji');
+        const activePetName = document.getElementById('active-pet-name');
+        const activePetLevel = document.getElementById('active-pet-level');
+        const activePetBonus = document.getElementById('active-pet-bonus');
+
+        if (!petList) return;
+
+        // Update active pet display
+        if (activePet && pets[activePet] && pets[activePet].unlocked) {
+            const petInfo = PET_DATA[activePet];
+            activePetDisplay.textContent = petInfo.emoji;
+            activePetName.textContent = i18n.t(`pet.${activePet}`) || petInfo.name;
+            const level = petLevels[activePet] || 1;
+            activePetLevel.textContent = `${i18n.t('pet.level') || 'Level'}: ${level}`;
+            const levelMultiplier = 1 + (level - 1) * 0.05;
+            const bonusPercent = Math.round(petInfo.bonus * levelMultiplier * 100);
+            activePetBonus.textContent = `${petInfo.emoji} +${bonusPercent}%`;
+        } else {
+            activePetDisplay.textContent = '🐱';
+            activePetName.textContent = i18n.t('pet.none') || 'None';
+            activePetLevel.textContent = '';
+            activePetBonus.textContent = '';
+        }
+
+        // Render pet cards
+        petList.innerHTML = '';
+        Object.entries(PET_DATA).forEach(([petKey, petInfo]) => {
+            const petState = pets[petKey];
+            const level = petLevels[petKey] || 1;
+            const isUnlocked = petState.unlocked;
+            const isActive = activePet === petKey;
+
+            const card = document.createElement('div');
+            card.className = `pet-card ${isActive ? 'active' : ''} ${!isUnlocked ? 'locked' : ''}`;
+
+            const levelMultiplier = 1 + (level - 1) * 0.05;
+            const bonusPercent = Math.round(petInfo.bonus * levelMultiplier * 100);
+
+            let levelUpCost = 10000 * Math.pow(1.5, level - 1);
+            const canLevelUp = isUnlocked && gold >= levelUpCost && level < 10;
+
+            let bonusText = '';
+            switch (petInfo.type) {
+                case 'autoAttack':
+                    bonusText = `${i18n.t('pet.autoAttack') || 'Auto Attack'}: 1/sec`;
+                    break;
+                case 'goldBonus':
+                    bonusText = `${i18n.t('pet.goldBonus') || 'Gold Bonus'}: +${bonusPercent}%`;
+                    break;
+                case 'critChance':
+                    bonusText = `${i18n.t('pet.critChance') || 'Crit Chance'}: +${bonusPercent}%`;
+                    break;
+                case 'attackPower':
+                    bonusText = `${i18n.t('pet.attackPower') || 'Attack Power'}: +${bonusPercent}%`;
+                    break;
+                case 'allStats':
+                    bonusText = `${i18n.t('pet.allStats') || 'All Stats'}: +${bonusPercent}%`;
+                    break;
+            }
+
+            const progressPercent = ((level - 1) / 9) * 100;
+
+            card.innerHTML = `
+                <div class="pet-emoji">${petInfo.emoji}</div>
+                <div class="pet-info">
+                    <div class="pet-name">${i18n.t(`pet.${petKey}`) || petInfo.name}</div>
+                    <div class="pet-stats">
+                        <div>${bonusText}</div>
+                        ${isUnlocked ? `<div>${i18n.t('pet.level') || 'Level'}: ${level}/10</div>` : '<div>' + (i18n.t('pet.locked') || 'Locked') + '</div>'}
+                    </div>
+                    <div class="pet-bonus">${i18n.t(`pet.${petInfo.description}`) || ''}</div>
+                    ${isUnlocked ? `<div class="pet-level-bar"><div class="pet-level-fill" style="width: ${progressPercent}%"></div></div>` : ''}
+                </div>
+                <div class="pet-actions">
+                    ${!isUnlocked && gold >= 50000 ? `<button class="pet-btn select" onclick="window._buyPet('${petKey}')">${i18n.t('pet.unlock') || 'Unlock'}</button>` : ''}
+                    ${isUnlocked && !isActive ? `<button class="pet-btn select" onclick="window._selectPet('${petKey}')">${i18n.t('pet.select') || 'Select'}</button>` : ''}
+                    ${isActive ? `<button class="pet-btn select" style="background: rgba(52, 211, 153, 0.3);">${i18n.t('pet.active') || 'Active'}</button>` : ''}
+                    ${isUnlocked && level < 10 ? `<button class="pet-btn levelup ${canLevelUp ? '' : 'disabled'}" onclick="window._levelUpPet('${petKey}')" ${canLevelUp ? '' : 'disabled'}>${i18n.t('pet.levelUp') || 'Level Up'} ${formatGoldShort(levelUpCost)}</button>` : ''}
+                </div>
+            `;
+
+            petList.appendChild(card);
+        });
+    }
+
+    function buyPet(petKey) {
+        const cost = 50000;
+        if (gold < cost) {
+            showMilestone(i18n.t('pet.insufficientGold') || 'Insufficient gold!');
+            return;
+        }
+
+        gold -= cost;
+        pets[petKey].unlocked = true;
+        if (!activePet) {
+            activePet = petKey;
+        }
+        saveState();
+        renderPets();
+        showMilestone(i18n.t(`pet.${petKey}`) + ' ' + (i18n.t('pet.unlocked') || 'unlocked!'));
+    }
+
+    function selectPet(petKey) {
+        if (pets[petKey] && pets[petKey].unlocked) {
+            activePet = petKey;
+            saveState();
+            renderPets();
+            showMilestone(i18n.t(`pet.${petKey}`) + ' ' + (i18n.t('pet.selected') || 'selected!'));
+        }
+    }
+
+    function levelUpPet(petKey) {
+        if (!pets[petKey] || !pets[petKey].unlocked) return;
+
+        const level = petLevels[petKey] || 1;
+        if (level >= 10) return;
+
+        const cost = 10000 * Math.pow(1.5, level - 1);
+        if (gold < cost) {
+            showMilestone(i18n.t('pet.insufficientGold') || 'Insufficient gold!');
+            return;
+        }
+
+        gold -= cost;
+        petLevels[petKey] = level + 1;
+        pets[petKey].level = level + 1;
+        saveState();
+        renderPets();
+        showMilestone(i18n.t(`pet.${petKey}`) + ` Lv.${level + 1}!`);
     }
 
     // === Prestige System ===
