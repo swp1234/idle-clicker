@@ -91,6 +91,12 @@
     let bossKills = 0;
     let goldenKills = 0;
 
+    // Leaderboard system
+    let leaderboard = null;
+    if (typeof LeaderboardManager !== 'undefined') {
+        leaderboard = new LeaderboardManager('idle-clicker', 10);
+    }
+
     // Event System state
     let eventSystem = null;
     let activeEvent = null;

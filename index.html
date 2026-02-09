@@ -548,6 +548,49 @@
         </div>
         <div id="premium-content" class="hidden"></div>
 
+        <!-- Mini Game Modal -->
+        <div class="minigame-overlay hidden" id="minigame-overlay">
+            <div class="minigame-container">
+                <!-- Mini Game Header -->
+                <div class="minigame-header">
+                    <h2 class="minigame-title" data-i18n="minigame.title">보물 상자 찾기</h2>
+                    <button class="minigame-close-btn" id="minigame-close-btn" aria-label="Close">✕</button>
+                </div>
+
+                <!-- Mini Game Content -->
+                <div class="minigame-content">
+                    <!-- Treasure Grid -->
+                    <div class="minigame-grid" id="minigame-grid">
+                        <!-- 3x3 Grid will be populated by JS -->
+                    </div>
+
+                    <!-- Game Info -->
+                    <div class="minigame-info">
+                        <div class="minigame-attempts">
+                            <span class="attempts-label" data-i18n="minigame.attemptsLeft">남은 기회:</span>
+                            <span class="attempts-value" id="minigame-attempts">3</span>
+                        </div>
+                    </div>
+
+                    <!-- Result Message -->
+                    <div class="minigame-result hidden" id="minigame-result">
+                        <div class="result-content">
+                            <div class="result-emoji" id="result-emoji">🎉</div>
+                            <div class="result-text" id="result-text">보물을 찾았습니다!</div>
+                            <div class="result-reward" id="result-reward">+5000 골드</div>
+                            <button class="result-button" id="result-button" data-i18n="minigame.confirm">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini Game Button (Main Screen) -->
+        <button class="minigame-btn hidden" id="minigame-btn" data-i18n="minigame.play">
+            <span class="minigame-btn-glow"></span>
+            미니게임!
+        </button>
+
         <!-- Interstitial Ad -->
         <div class="interstitial-overlay hidden" id="interstitial-overlay">
             <div class="overlay-content">
@@ -643,6 +686,8 @@
         </div>
     </div>
 
+    <script src="../_common/storage-manager.js" defer></script>
+    <script src="../_common/leaderboard-manager.js" defer></script>
     <script src="js/i18n.js" defer></script>
     <script src="js/ranking.js" defer></script>
     <script src="js/game-data.js" defer></script>

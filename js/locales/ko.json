@@ -533,5 +533,17 @@
         "missionCompleted": "완료!",
         "missionComplete": "주간 미션 달성!",
         "leaveGuild": "길드 탈퇴"
+    },
+    "minigame": {
+        "title": "보물 상자 찾기",
+        "play": "미니게임!",
+        "attemptsLeft": "남은 기회",
+        "confirm": "확인",
+        "treasureFound": "보물을 찾았습니다!",
+        "treasureReward": "골드 보상을 획득했습니다!",
+        "bombFound": "폭탄이 터졌습니다!",
+        "bombMessage": "게임이 끝났습니다.",
+        "noAttempts": "기회가 끝났습니다.",
+        "cooldown": "10분마다 미니게임을 플레이할 수 있습니다"
     }
 }
