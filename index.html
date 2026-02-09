@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="robots" content="max-image-preview:large">
 
+    <!-- Resource hints for external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+
+    <title>던전 클리커 ⚔️ - 방치형 RPG 클리커 게임 | DopaBrain</title>
+
     <!-- SEO Meta Tags -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
-    <title>던전 클리커 ⚔️ - 방치형 RPG 클리커 게임 | DopaBrain</title>
     <meta name="description" content="던전에서 몬스터를 무찌르고 강력한 장비를 장착하세요! 🗡️ 클릭으로 시작하는 무한 RPG 모험. 방치형 클리커 게임 - 자동 증가 기능으로 더 강해지세요!">
     <meta name="keywords" content="클리커 게임, 방치형 게임, RPG 게임, 던전 게임, idle clicker, 무료 게임, 브라우저 게임, 캐주얼 게임, 모험 게임, 클릭 게임">
     <meta name="author" content="DopaBrain">
@@ -96,10 +103,15 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Critical CSS async loading -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
+
+    <!-- Preload critical scripts -->
     <link rel="preload" href="js/i18n.js" as="script">
     <link rel="preload" href="js/game-data.js" as="script">
     <link rel="preload" href="js/app.js" as="script">
