@@ -27,6 +27,8 @@
     "confirmReset": "本当にすべての進行状況をリセットしますか？\nこの操作は元に戻せません。",
     "offlineEarnings": "オフライン",
     "bossLabel": "ボス",
+    "tierBossLabel": "ティアボス",
+    "tierCleared": "クリア",
     "total": "合計",
     "bossDefeated": "撃破！+",
     "goldEarned": "ゴールド！",

@@ -1004,13 +1004,42 @@ const MONSTER_SVG = {
 
 function getMonsterHP(monster, killCount) {
     const cycle = Math.floor(killCount / MONSTERS.length);
-    const scale = Math.pow(1.5, cycle);
-    return Math.max(monster.baseHP, Math.floor(monster.baseHP * scale));
+    // 100x per New Game+ cycle: Tier1 bat at cycle 1 = 700 HP
+    const cycleScale = Math.pow(100, cycle);
+    // Within cycle: +15% HP per tier set of 10 monsters
+    const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
+    const progressScale = 1 + setInCycle * 0.15;
+    return Math.max(monster.baseHP, Math.floor(monster.baseHP * cycleScale * progressScale));
 }
 
-function getMonsterGoldReward(monster, killCount, isBoss) {
+function getMonsterGoldReward(monster, killCount, isBoss, isTierBoss) {
     const cycle = Math.floor(killCount / MONSTERS.length);
-    const scale = Math.pow(1.5, cycle);
-    const base = Math.max(monster.goldReward, Math.floor(monster.goldReward * scale));
-    return isBoss ? base * 10 : base;
+    const cycleScale = Math.pow(100, cycle);
+    const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
+    const progressScale = 1 + setInCycle * 0.15;
+    const base = Math.max(monster.goldReward, Math.floor(monster.goldReward * cycleScale * progressScale));
+    if (isTierBoss) return base * 20;
+    if (isBoss) return base * 5;
+    return base;
+}
+
+// Get current tier/stage info for UI display
+function getStageInfo(killCount) {
+    const cycle = Math.floor(killCount / MONSTERS.length);
+    const posInCycle = killCount % MONSTERS.length;
+    const tierIndex = Math.floor(posInCycle / 10); // 0-9
+    const stageInTier = (posInCycle % 10) + 1; // 1-10
+    const tier = DUNGEON_TIERS[tierIndex] || DUNGEON_TIERS[0];
+    return {
+        cycle: cycle + 1,     // New Game+ number (1 = first playthrough)
+        tierIndex: tierIndex,  // 0-9
+        tierNum: tierIndex + 1, // 1-10
+        tierName: tier.name,
+        tierIcon: tier.icon,
+        tierTheme: tier.theme,
+        stage: stageInTier,    // 1-10 within tier
+        totalStage: posInCycle + 1, // 1-100 overall
+        isTierBoss: stageInTier === 10, // Last monster in tier = tier boss
+        isMidBoss: stageInTier === 5,   // Halfway = mini boss
+    };
 }

@@ -33,7 +33,7 @@
     let gold = 0;
     let totalEarned = 0;
     let totalClicks = 0;
-    let clickValue = 3;
+    let clickValue = 1;
     let clickMultiplier = 1;
     let autoMultiplier = 1;
     let speedMultiplier = 1;
@@ -366,13 +366,23 @@
 
     // === Monster System ===
 
+    let isTierBoss = false;
+
     function spawnMonster() {
         currentMonsterIndex = killCount % MONSTERS.length;
-        isBoss = (killCount > 0 && killCount % 10 === 0);
+        const stageInfo = getStageInfo(killCount);
+
+        // Boss logic: tier boss at stage 10 of each tier, mini boss at stage 5
+        isTierBoss = stageInfo.isTierBoss;
+        isBoss = stageInfo.isTierBoss || stageInfo.isMidBoss;
 
         const monster = MONSTERS[currentMonsterIndex];
         monsterMaxHP = getMonsterHP(monster, killCount);
-        if (isBoss) monsterMaxHP *= 3;
+        if (isTierBoss) {
+            monsterMaxHP *= 10; // Tier boss: 10x HP
+        } else if (isBoss) {
+            monsterMaxHP *= 5;  // Mini boss: 5x HP
+        }
         monsterHP = monsterMaxHP;
         monsterDying = false;
 
@@ -393,11 +403,14 @@
         // Get translated monster name
         const monsterNameKey = getMonsterNameKey(monster.name);
         const translatedMonsterName = i18n.t(monsterNameKey);
-        const bossLabel = i18n.t('game.bossLabel') || 'BOSS';
+        const bossLabel = isTierBoss
+            ? (i18n.t('game.tierBossLabel') || 'TIER BOSS')
+            : (i18n.t('game.bossLabel') || 'BOSS');
         const displayName = isBoss ? '[ ' + bossLabel + ' ] ' + translatedMonsterName : translatedMonsterName;
         if (monsterNameEl) {
             monsterNameEl.textContent = displayName;
             monsterNameEl.className = isBoss ? 'monster-name boss-name' : 'monster-name';
+            if (isTierBoss) monsterNameEl.classList.add('tier-boss-name');
         }
 
         const level = Math.floor(killCount / MONSTERS.length) + 1;
@@ -405,13 +418,36 @@
 
         // Boss visual
         if (clickArea) {
-            clickArea.classList.toggle('boss', isBoss);
+            clickArea.classList.remove('boss', 'tier-boss');
+            if (isTierBoss) {
+                clickArea.classList.add('boss', 'tier-boss');
+            } else if (isBoss) {
+                clickArea.classList.add('boss');
+            }
         }
 
         // Apply visual theme
         applyMonsterVisuals(monster);
 
+        // Update stage progress display
+        updateStageDisplay(stageInfo);
+
         updateHPBar();
+    }
+
+    function updateStageDisplay(stageInfo) {
+        const stageEl = document.getElementById('stage-progress');
+        if (!stageEl) return;
+
+        const cycleLabel = stageInfo.cycle > 1 ? ' NG+' + (stageInfo.cycle - 1) : '';
+        const tierName = i18n.t('dungeon.' + stageInfo.tierTheme) || stageInfo.tierName;
+        stageEl.innerHTML = `
+            <div class="stage-tier">${stageInfo.tierIcon} ${tierName}${cycleLabel}</div>
+            <div class="stage-bar-wrap">
+                <div class="stage-bar-fill" style="width: ${stageInfo.stage * 10}%"></div>
+                <span class="stage-bar-text">${stageInfo.stage} / 10</span>
+            </div>
+        `;
     }
 
     function updateHPBar() {
@@ -459,7 +495,7 @@
     function onMonsterDeath() {
         monsterDying = true;
         const monster = MONSTERS[currentMonsterIndex];
-        const reward = getMonsterGoldReward(monster, killCount, isBoss);
+        const reward = getMonsterGoldReward(monster, killCount, isBoss, isTierBoss);
 
         gold += reward;
         totalEarned += reward;
@@ -497,17 +533,36 @@
             sfx.coin();
         }
 
-        // Boss defeat flash
-        if (isBoss) {
+        // Tier Boss defeat: massive celebration
+        if (isTierBoss) {
+            const flash = document.createElement('div');
+            flash.className = 'boss-defeat-flash tier-boss-flash';
+            document.body.appendChild(flash);
+            setTimeout(() => flash.remove(), 1000);
+
+            const stageInfo = getStageInfo(killCount);
+            const tierName = i18n.t('dungeon.' + stageInfo.tierTheme) || stageInfo.tierName;
+            const monsterNameKey = getMonsterNameKey(monster.name);
+            const translatedName = i18n.t(monsterNameKey);
+            showMilestone(stageInfo.tierIcon + ' ' + tierName + ' ' + (i18n.t('game.tierCleared') || 'CLEARED') + '! ' + translatedName + ' +' + formatGoldShort(reward) + 'G');
+
+            if (window.effectsManager && clickArea) {
+              const rect = clickArea.getBoundingClientRect();
+              window.effectsManager.addMilestoneEffect('TIER CLEARED!', rect.width / 2, rect.height / 2);
+            }
+            // Extra confetti for tier boss
+            spawnConfetti();
+            setTimeout(() => spawnConfetti(), 300);
+        } else if (isBoss) {
+            // Mini boss defeat
             const flash = document.createElement('div');
             flash.className = 'boss-defeat-flash';
             document.body.appendChild(flash);
             setTimeout(() => flash.remove(), 600);
             const monsterNameKey = getMonsterNameKey(monster.name);
             const translatedName = i18n.t(monsterNameKey);
-            showMilestone('BOSS ' + translatedName + ' ' + i18n.t('game.kill') + '! +' + formatGoldShort(reward) + ' ' + i18n.t('game.bossDefeated'));
+            showMilestone('BOSS ' + translatedName + ' ' + (i18n.t('game.kill') || 'Kill') + '! +' + formatGoldShort(reward) + ' ' + (i18n.t('game.bossDefeated') || ''));
 
-            // Boss kill milestone effect
             if (window.effectsManager && clickArea) {
               const rect = clickArea.getBoundingClientRect();
               window.effectsManager.addMilestoneEffect('BOSS DEFEATED!', rect.width / 2, rect.height / 2);
@@ -517,11 +572,12 @@
         killCount++;
         if (killCountEl) killCountEl.textContent = killCount;
 
-        // Spawn next monster after delay
+        // Spawn next monster after delay (longer for boss)
+        const spawnDelay = isTierBoss ? 1000 : isBoss ? 700 : 500;
         setTimeout(() => {
             spawnMonster();
             updateDisplay();
-        }, 500);
+        }, spawnDelay);
     }
 
     // === Hit Effects ===
@@ -629,7 +685,7 @@
         setTimeout(() => el.remove(), 1000);
     }
 
-    // Click
+    // Click with dopamine enhancement
     function handleClick(e) {
         if (monsterDying || monsterHP <= 0) return;
 
@@ -638,13 +694,36 @@
         const damage = Math.max(1, baseClick + autoBonus);
 
         totalClicks++;
+
+        // Combo system
+        clickCombo++;
+        clearTimeout(comboTimeout);
+        comboTimeout = setTimeout(() => { clickCombo = 0; }, 2000);
+
+        // Show combo indicator every 5 clicks
+        if (clickCombo > 1 && clickCombo % 5 === 0) {
+            showComboIndicator('x' + clickCombo + '!');
+        }
+
         if (sfx) sfx.hit();
         damageMonster(damage, true);
         updateDisplay();
     }
 
+    // Combo display
+    function showComboIndicator(text) {
+        const indicator = document.createElement('div');
+        indicator.className = 'combo-indicator';
+        indicator.textContent = text;
+        document.body.appendChild(indicator);
+        setTimeout(() => indicator.remove(), 600);
+    }
+
     // Game Loop
     function startGameLoop() {
+        let lastClickTime = Date.now();
+        let clicksPerSecond = 0;
+
         setInterval(() => {
             const now = Date.now();
             const dt = (now - lastTickTime) / 1000;
@@ -657,6 +736,12 @@
                     damageMonster(autoDamage, false);
                 }
             }
+
+            // Update CPS display
+            if (clickCombo > 0) {
+                clicksPerSecond = Math.round((clickCombo / Math.max(1, (Date.now() - lastClickTime) / 1000)) * 100) / 100;
+            }
+            updateCPSDisplay(clicksPerSecond);
 
             updateDisplay();
             checkMilestones();
@@ -671,6 +756,21 @@
                 lastSaveTime = now;
             }
         }, 100);
+    }
+
+    // CPS Display
+    function updateCPSDisplay(cps) {
+        if (!cpsDisplay) {
+            cpsDisplay = document.createElement('div');
+            cpsDisplay.className = 'cps-display';
+            document.body.appendChild(cpsDisplay);
+        }
+        if (clickCombo > 0) {
+            cpsDisplay.textContent = cps + ' CPS';
+            cpsDisplay.style.display = 'block';
+        } else {
+            cpsDisplay.style.display = 'none';
+        }
     }
 
     // Income
@@ -711,11 +811,38 @@
             container.classList.add('shake');
             setTimeout(() => container.classList.remove('shake'), 150);
           }
+          // Screen flash effect
+          showScreenFlash();
+          // Confetti effect
+          spawnConfetti();
         }
 
         recalculateAutoIncome();
         renderEquipment();
         updateDisplay();
+    }
+
+    // Screen flash effect
+    function showScreenFlash() {
+        const flash = document.createElement('div');
+        flash.className = 'screen-flash';
+        document.body.appendChild(flash);
+        setTimeout(() => flash.remove(), 400);
+    }
+
+    // Confetti burst
+    function spawnConfetti() {
+        const confettiCount = 30;
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.innerHTML = ['🎉', '⭐', '✨', '🌟'][Math.floor(Math.random() * 4)];
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = window.innerHeight / 2 + 'px';
+            confetti.style.setProperty('--duration', (0.8 + Math.random() * 0.4) + 's');
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 1200);
+        }
     }
 
     function getEquipName(equip) {
@@ -895,15 +1022,19 @@
             let offlineKills = 0;
 
             while (remainingDamage > 0 && offlineKills < 1000) {
-                const mIdx = (killCount + offlineKills) % MONSTERS.length;
-                const isBossCheck = ((killCount + offlineKills) > 0 && (killCount + offlineKills) % 10 === 0);
+                const totalKills = killCount + offlineKills;
+                const mIdx = totalKills % MONSTERS.length;
+                const offStageInfo = getStageInfo(totalKills);
+                const isBossCheck = offStageInfo.isTierBoss || offStageInfo.isMidBoss;
+                const isTierBossCheck = offStageInfo.isTierBoss;
                 const monster = MONSTERS[mIdx];
-                let hp = getMonsterHP(monster, killCount + offlineKills);
-                if (isBossCheck) hp *= 3;
+                let hp = getMonsterHP(monster, totalKills);
+                if (isTierBossCheck) hp *= 10;
+                else if (isBossCheck) hp *= 5;
 
                 if (remainingDamage >= hp) {
                     remainingDamage -= hp;
-                    const reward = getMonsterGoldReward(monster, killCount + offlineKills, isBossCheck);
+                    const reward = getMonsterGoldReward(monster, totalKills, isBossCheck, isTierBossCheck);
                     offlineGold += reward;
                     offlineKills++;
                 } else {
@@ -947,7 +1078,7 @@
                 gold = d.gold || 0;
                 totalEarned = d.totalEarned || 0;
                 totalClicks = d.totalClicks || 0;
-                clickValue = d.clickValue || 3;
+                clickValue = d.clickValue || 1;
                 clickMultiplier = d.clickMultiplier || 1;
                 autoMultiplier = d.autoMultiplier || 1;
                 speedMultiplier = d.speedMultiplier || 1;

@@ -27,6 +27,8 @@
         "confirmReset": "您确定要重置所有进度吗？\n此操作无法撤销。",
         "offlineEarnings": "离线",
         "bossLabel": "首领",
+        "tierBossLabel": "阶段BOSS",
+        "tierCleared": "通关",
         "total": "合计",
         "bossDefeated": "已击败！ +",
         "goldEarned": "金币！",

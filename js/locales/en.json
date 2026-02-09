@@ -27,6 +27,8 @@
         "confirmReset": "Are you sure you want to reset all progress?\nThis action cannot be undone.",
         "offlineEarnings": "Offline",
         "bossLabel": "BOSS",
+        "tierBossLabel": "TIER BOSS",
+        "tierCleared": "CLEARED",
         "total": "Total",
         "bossDefeated": "Defeated! +",
         "goldEarned": "Gold!",

@@ -423,6 +423,71 @@ body {
 }
 
 /* Kill Counter */
+/* Stage Progress Bar */
+.stage-progress {
+    margin: 8px 0 4px;
+    padding: 6px 12px;
+    background: var(--surface-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(8px);
+}
+.stage-tier {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 8px var(--gold-glow);
+    margin-bottom: 4px;
+}
+.stage-bar-wrap {
+    position: relative;
+    height: 14px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 7px;
+    overflow: hidden;
+}
+.stage-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    border-radius: 7px;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+.stage-bar-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--text);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Tier Boss Name */
+.tier-boss-name {
+    color: #fbbf24 !important;
+    font-size: 16px !important;
+    text-shadow: 0 0 16px rgba(251,191,36,0.8), 0 0 32px rgba(239,68,68,0.4) !important;
+    animation: tierBossGlow 1s ease-in-out infinite alternate;
+}
+@keyframes tierBossGlow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.3); }
+}
+
+/* Tier Boss Click Area */
+.monster-area.tier-boss {
+    border-color: #fbbf24 !important;
+    box-shadow: 0 0 40px rgba(251,191,36,0.3), 0 0 80px rgba(239,68,68,0.15) !important;
+}
+
+/* Tier Boss Defeat Flash */
+.tier-boss-flash {
+    background: radial-gradient(circle, rgba(251,191,36,0.6), rgba(239,68,68,0.3), transparent) !important;
+    animation: bossDefeatFlash 1s ease forwards !important;
+}
+
 .kill-counter { font-size: 13px; color: var(--text-dim); font-weight: 600; letter-spacing: 0.5px; }
 .kill-counter span { color: var(--gold); font-weight: 800; font-size: 15px; text-shadow: 0 0 8px var(--gold-glow); }
 
