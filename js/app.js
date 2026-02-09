@@ -2098,4 +2098,13 @@
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js').catch(() => {});
     }
+
+    // Global error handler
+    window.addEventListener('error', (e) => {
+        console.warn('Caught error:', e.message, e.stack);
+    });
+
+    window.addEventListener('unhandledrejection', (e) => {
+        console.warn('Unhandled promise rejection:', e.reason);
+    });
 })();
