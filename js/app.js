@@ -96,6 +96,11 @@
     let eventEquipmentCostMultiplier = 1;
     let eventSkillExpMultiplier = 1;
 
+    // Season System state
+    let seasonSystem = null;
+    let isSeasonalMonster = false;
+    let seasonalMonsterBonus = null;
+
     // Daily Missions state
     let dailyMissions = {
         lastReset: null,
@@ -263,6 +268,10 @@
 
         // Initialize event system
         eventSystem = new EventSystem();
+
+        // Initialize season system
+        seasonSystem = new SeasonSystem();
+        seasonSystem.init();
 
         loadState();
         initAchievements();
@@ -2217,6 +2226,9 @@
         window._prestige = performPrestige;
         window._showOfflineAd = showOfflineAdAndDouble;
         window._claimMissionReward = claimMissionReward;
+        window._buyPet = buyPet;
+        window._selectPet = selectPet;
+        window._levelUpPet = levelUpPet;
         window._refreshUI = function() {
             renderEquipment();
             renderSkills();
