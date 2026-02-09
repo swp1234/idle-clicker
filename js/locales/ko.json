@@ -69,6 +69,13 @@
         "achievement": "🏆 업적",
         "achievementUnlocked": "업적 달성!"
     },
+    "offline": {
+        "title": "오프라인 수입",
+        "away": "{time} 동안 자리를 비웠습니다!",
+        "earned": "{gold} 골드",
+        "collect": "받기",
+        "double": "광고 보고 2배 받기"
+    },
     "achievement": {
         "firstStep": "첫 발걸음",
         "firstStepDesc": "첫 몬스터 처치",

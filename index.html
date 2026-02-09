@@ -364,6 +364,17 @@
     <script src="js/dopamine-effects.js" defer></script>
     <script src="js/app.js" defer></script>
 
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(r => console.log('SW registered:', r.scope))
+                    .catch(e => console.log('SW registration failed:', e));
+            });
+        }
+    </script>
+
     <style>
         .sound-toggle {
             position: fixed;

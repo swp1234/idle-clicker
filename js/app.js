@@ -1399,14 +1399,14 @@
 
     // Offline
     function calculateOfflineEarnings() {
-        const savedTime = localStorage.getItem('dungeonClicker_lastTime');
+        const savedTime = localStorage.getItem('dungeonClicker_lastOnline');
         if (!savedTime || isNaN(parseInt(savedTime))) return;
 
-        const offlineSeconds = Math.min((Date.now() - parseInt(savedTime)) / 1000, 43200);
+        const offlineSeconds = Math.min((Date.now() - parseInt(savedTime)) / 1000, 28800); // Max 8 hours
         if (isNaN(offlineSeconds) || offlineSeconds < 0) return;
-        if (offlineSeconds > 10 && autoIncomePerSec > 0) {
+        if (offlineSeconds > 60 && autoIncomePerSec > 0) { // Only show modal if offline > 1 minute
             const dps = autoIncomePerSec * speedMultiplier;
-            const offlineDamageTotal = dps * offlineSeconds * 0.5;
+            const offlineDamageTotal = dps * offlineSeconds * 0.5; // 50% of normal DPS
             let remainingDamage = offlineDamageTotal;
             let offlineGold = 0;
             let offlineKills = 0;
@@ -1432,17 +1432,138 @@
                 }
             }
 
-            if (offlineGold > 0) {
-                gold += offlineGold;
-                totalEarned += offlineGold;
-                killCount += offlineKills;
-                if (killCountEl) killCountEl.textContent = killCount;
+            if (offlineGold > 0 && offlineSeconds >= 60) {
+                // Store offline earnings for modal
+                localStorage.setItem('pendingOfflineEarnings', JSON.stringify({
+                    gold: offlineGold,
+                    kills: offlineKills,
+                    seconds: offlineSeconds,
+                    timestamp: Date.now()
+                }));
 
-                const hours = Math.floor(offlineSeconds / 3600);
-                const mins = Math.floor((offlineSeconds % 3600) / 60);
-                const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
-                showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: +${formatGold(offlineGold)} Gold (${offlineKills} kills, 50%)`);
+                // Show offline earnings modal
+                showOfflineEarningsModal(offlineGold, offlineKills, offlineSeconds);
             }
+        }
+    }
+
+    // Show offline earnings modal
+    function showOfflineEarningsModal(offlineGold, offlineKills, offlineSeconds) {
+        const hours = Math.floor(offlineSeconds / 3600);
+        const mins = Math.floor((offlineSeconds % 3600) / 60);
+        const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'offline-modal-overlay';
+        overlay.id = 'offline-modal';
+
+        const modal = document.createElement('div');
+        modal.className = 'offline-modal';
+        modal.innerHTML = `
+            <div class="offline-modal-content">
+                <div class="offline-modal-header">
+                    <span class="offline-modal-icon">⏰</span>
+                </div>
+                <h2 class="offline-modal-title" data-i18n="offline.title">오프라인 수입</h2>
+                <p class="offline-modal-away" data-i18n="offline.away">${timeStr} 동안 자리를 비웠습니다!</p>
+                <div class="offline-modal-earnings">
+                    <div class="offline-modal-gold">
+                        💰 <span data-i18n="offline.earned">${formatGold(offlineGold)} 골드</span>
+                    </div>
+                    <div class="offline-modal-details">
+                        ${offlineKills} ${i18n.t('game.kill') || '처치'}
+                    </div>
+                </div>
+                <div class="offline-modal-buttons">
+                    <button class="offline-btn offline-btn-collect" id="offline-collect-btn">
+                        <span data-i18n="offline.collect">받기</span>
+                    </button>
+                    <button class="offline-btn offline-btn-double" id="offline-double-btn" onclick="window._showOfflineAd && window._showOfflineAd()">
+                        <span data-i18n="offline.double">광고 보고 2배 받기</span>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Update UI text
+        i18n.updateUI();
+
+        // Add animation
+        setTimeout(() => modal.classList.add('show'), 10);
+
+        // Collect button
+        const collectBtn = document.getElementById('offline-collect-btn');
+        if (collectBtn) {
+            collectBtn.addEventListener('click', () => {
+                claimOfflineEarnings(false);
+                overlay.remove();
+            });
+        }
+    }
+
+    // Claim offline earnings
+    function claimOfflineEarnings(doubled = false) {
+        const pending = localStorage.getItem('pendingOfflineEarnings');
+        if (!pending) return;
+
+        try {
+            const data = JSON.parse(pending);
+            let claimGold = data.gold;
+
+            if (doubled) {
+                claimGold *= 2;
+            }
+
+            gold += claimGold;
+            totalEarned += claimGold;
+            killCount += data.kills;
+
+            if (killCountEl) {
+                const stageInfo = getStageInfo(killCount);
+                killCountEl.innerHTML = `<span>${killCount}</span> <span>${stageInfo.stage}/${10}</span>`;
+            }
+
+            // Show milestone
+            const hours = Math.floor(data.seconds / 3600);
+            const mins = Math.floor((data.seconds % 3600) / 60);
+            const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+            const multiplier = doubled ? ' x2!' : '';
+            showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: +${formatGold(claimGold)} Gold${multiplier}`);
+
+            // Show particle effect
+            spawnOfflineGoldParticles(claimGold);
+
+            // Update display
+            updateDisplay();
+            checkAchievements();
+
+            // Clear pending
+            localStorage.removeItem('pendingOfflineEarnings');
+        } catch (e) {
+            console.warn('Claim offline earnings failed:', e);
+        }
+    }
+
+    // Spawn gold particles for offline claim
+    function spawnOfflineGoldParticles(amount) {
+        if (!clickArea) return;
+        const count = Math.min(30, Math.floor(Math.log(amount) * 5));
+        for (let i = 0; i < count; i++) {
+            const p = document.createElement('div');
+            p.className = 'offline-gold-particle';
+            p.textContent = '💰';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = '50%';
+            p.style.fontSize = (12 + Math.random() * 8) + 'px';
+            const angle = (Math.PI * 2 * i) / count;
+            const dist = 60 + Math.random() * 80;
+            p.style.setProperty('--px', Math.cos(angle) * dist + 'px');
+            p.style.setProperty('--py', Math.sin(angle) * dist + 'px');
+            clickArea.appendChild(p);
+            setTimeout(() => p.remove(), 1000);
         }
     }
 
@@ -1456,7 +1577,7 @@
                 killCount, currentMonsterIndex, currentTier, prestigePoints, prestigeCount, setBonus,
                 bossKills, goldenKills
             }));
-            localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
+            localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
             localStorage.setItem('achievements', JSON.stringify(achievements));
         } catch (e) {
             console.warn('Save failed:', e);
@@ -1536,6 +1657,15 @@
         });
     }
 
+    // Show offline ad and claim doubled earnings
+    async function showOfflineAdAndDouble() {
+        await showInterstitialAd();
+        claimOfflineEarnings(true);
+
+        const offlineModal = document.getElementById('offline-modal');
+        if (offlineModal) offlineModal.remove();
+    }
+
     // Premium
     async function showPremiumAnalysis() {
         if (totalEarned === 0 && totalClicks === 0) {
@@ -1602,8 +1732,10 @@
     function resetGame() {
         if (confirm(i18n.t('game.confirmReset'))) {
             localStorage.removeItem('dungeonClicker');
+            localStorage.removeItem('dungeonClicker_lastOnline');
             localStorage.removeItem('dungeonClicker_lastTime');
             localStorage.removeItem('achievements');
+            localStorage.removeItem('pendingOfflineEarnings');
             location.reload();
         }
     }
@@ -1666,6 +1798,7 @@
         window._buySkill = buySkill;
         window._showPremium = showPremiumAnalysis;
         window._prestige = performPrestige;
+        window._showOfflineAd = showOfflineAdAndDouble;
         window._refreshUI = function() {
             renderEquipment();
             renderSkills();
