@@ -785,5 +785,26 @@
       "text": "¡Completa logros para rastrear tu progreso y establecer objetivos!",
       "title": "¡Completa logros!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "Monstruo de Flor",
+    "iceMonster": "Monstruo de Hielo",
+    "pumpkinMonster": "Monstruo de Calabaza",
+    "snowmanMonster": "Monstruo de Muñeco de Nieve"
+  },
+  "seasons": {
+    "spring": "Primavera",
+    "summer": "Verano",
+    "autumn": "Otoño",
+    "winter": "Invierno",
+    "seasonalMonster": "Monstruo de Temporada",
+    "seasonalMonsterFlower": "Monstruo de Flor (Primavera)",
+    "seasonalMonsterIce": "Monstruo de Hielo (Verano)",
+    "seasonalMonsterPumpkin": "Monstruo de Calabaza (Otoño)",
+    "seasonalMonsterSnowman": "Monstruo de Muñeco de Nieve (Invierno)",
+    "bonusGold": "Oro +30%",
+    "bonusCooldown": "Enfriamiento -15%",
+    "bonusExp": "Experiencia +30%",
+    "bonusAll": "Todos los Bonos +15%"
   }
 }

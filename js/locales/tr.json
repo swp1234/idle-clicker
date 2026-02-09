@@ -785,5 +785,26 @@
       "text": "İlerlemesini takip etmek ve hedefler belirlemek için başarıları elde edin!",
       "title": "Başarıları Elde Edin!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "Çiçek Canavar",
+    "iceMonster": "Buz Canavar",
+    "pumpkinMonster": "Kabak Canavar",
+    "snowmanMonster": "Kardan Adam Canavar"
+  },
+  "seasons": {
+    "spring": "Bahar",
+    "summer": "Yaz",
+    "autumn": "Sonbahar",
+    "winter": "Kış",
+    "seasonalMonster": "Mevsimsel Canavar",
+    "seasonalMonsterFlower": "Çiçek Canavar (Bahar)",
+    "seasonalMonsterIce": "Buz Canavar (Yaz)",
+    "seasonalMonsterPumpkin": "Kabak Canavar (Sonbahar)",
+    "seasonalMonsterSnowman": "Kardan Adam Canavar (Kış)",
+    "bonusGold": "Altın +30%",
+    "bonusCooldown": "Soğutma -15%",
+    "bonusExp": "Deneyim +30%",
+    "bonusAll": "Tüm Bonuslar +15%"
   }
 }

@@ -785,5 +785,26 @@
       "text": "Raih prestasi untuk melacak progres Anda dan menetapkan tujuan!",
       "title": "Raih Prestasi!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "Monsterbunga",
+    "iceMonster": "Monsteres Es",
+    "pumpkinMonster": "Monsterrunduk",
+    "snowmanMonster": "MonsterBonekaSalju"
+  },
+  "seasons": {
+    "spring": "Musim Semi",
+    "summer": "Musim Panas",
+    "autumn": "Musim Gugur",
+    "winter": "Musim Dingin",
+    "seasonalMonster": "Monstermusiman",
+    "seasonalMonsterFlower": "Monsterbunga (Musim Semi)",
+    "seasonalMonsterIce": "Monsteres Es (Musim Panas)",
+    "seasonalMonsterPumpkin": "Monsterrunduk (Musim Gugur)",
+    "seasonalMonsterSnowman": "MonsterBonekaSalju (Musim Dingin)",
+    "bonusGold": "Emas +30%",
+    "bonusCooldown": "Pendinginan -15%",
+    "bonusExp": "Pengalaman +30%",
+    "bonusAll": "Semua Bonus +15%"
   }
 }

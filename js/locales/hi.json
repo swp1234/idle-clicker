@@ -785,5 +785,26 @@
       "text": "उपलब्धियां हासिल करके अपनी प्रगति ट्रैक करें और लक्ष्य निर्धारित करें!",
       "title": "उपलब्धियां हासिल करें!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "फूल राक्षस",
+    "iceMonster": "बर्फ राक्षस",
+    "pumpkinMonster": "कद्दू राक्षस",
+    "snowmanMonster": "बर्फ मानव राक्षस"
+  },
+  "seasons": {
+    "spring": "वसंत",
+    "summer": "गर्मी",
+    "autumn": "पतझड़",
+    "winter": "सर्दी",
+    "seasonalMonster": "ऋतु राक्षस",
+    "seasonalMonsterFlower": "फूल राक्षस (वसंत)",
+    "seasonalMonsterIce": "बर्फ राक्षस (गर्मी)",
+    "seasonalMonsterPumpkin": "कद्दू राक्षस (पतझड़)",
+    "seasonalMonsterSnowman": "बर्फ मानव राक्षस (सर्दी)",
+    "bonusGold": "सोना +30%",
+    "bonusCooldown": "शीतलन -15%",
+    "bonusExp": "अनुभव +30%",
+    "bonusAll": "सभी बोनस +15%"
   }
 }

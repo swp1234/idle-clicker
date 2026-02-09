@@ -101,6 +101,23 @@
     let isSeasonalMonster = false;
     let seasonalMonsterBonus = null;
 
+    // Guild System state
+    const GUILD_DATA = [
+        { id: 0, name: 'flameGuild', emoji: '🔴', color: '#ef4444', bonusType: 'attackPower', bonusDesc: 'flameBuff' },
+        { id: 1, name: 'frostGuild', emoji: '🔵', color: '#3b82f6', bonusType: 'goldBonus', bonusDesc: 'frostBuff' },
+        { id: 2, name: 'natureGuild', emoji: '🟢', color: '#22c55e', bonusType: 'healthRegen', bonusDesc: 'natureBuff' },
+        { id: 3, name: 'stormGuild', emoji: '🟡', color: '#eab308', bonusType: 'attackSpeed', bonusDesc: 'stormBuff' },
+        { id: 4, name: 'shadowGuild', emoji: '🟣', color: '#a855f7', bonusType: 'critChance', bonusDesc: 'shadowBuff' }
+    ];
+    let guildId = null;
+    let guildLevel = 1;
+    let guildExp = 0;
+    let guildMaxExp = 100;
+    let weeklyMissionKills = 0;
+    let weeklyMissionTarget = 5000;
+    let weeklyMissionCompleted = false;
+    let weeklyMissionResetTime = null;
+
     // Daily Missions state
     let dailyMissions = {
         lastReset: null,
@@ -276,6 +293,7 @@
         loadState();
         initAchievements();
         initDailyMissions();
+        initGuildSystem();
 
         // Initialize and start event system after loading state
         if (eventSystem) {
@@ -2000,6 +2018,7 @@
                 killCount, currentMonsterIndex, currentTier, prestigePoints, prestigeCount, setBonus,
                 bossKills, goldenKills,
                 pets, activePet, petLevels,
+                guildId, guildLevel, guildExp, guildMaxExp, weeklyMissionKills, weeklyMissionTarget, weeklyMissionCompleted, weeklyMissionResetTime,
                 eventState
             }));
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
@@ -2049,6 +2068,14 @@
                 pets = d.pets || pets;
                 activePet = d.activePet || null;
                 petLevels = d.petLevels || petLevels;
+                guildId = d.guildId || null;
+                guildLevel = d.guildLevel || 1;
+                guildExp = d.guildExp || 0;
+                guildMaxExp = d.guildMaxExp || 100;
+                weeklyMissionKills = d.weeklyMissionKills || 0;
+                weeklyMissionTarget = d.weeklyMissionTarget || 5000;
+                weeklyMissionCompleted = d.weeklyMissionCompleted || false;
+                weeklyMissionResetTime = d.weeklyMissionResetTime || null;
 
                 // Load event system state
                 if (eventSystem && d.eventState) {
@@ -2235,6 +2262,11 @@
                 if (tab === 'pet') {
                     renderPets();
                 }
+
+                // Render guild when tab opens
+                if (tab === 'guild') {
+                    renderGuild();
+                }
             });
         });
 
@@ -2270,11 +2302,14 @@
         window._buyPet = buyPet;
         window._selectPet = selectPet;
         window._levelUpPet = levelUpPet;
+        window._joinGuild = joinGuild;
+        window._leaveGuild = leaveGuild;
         window._refreshUI = function() {
             renderEquipment();
             renderSkills();
             renderPets();
             renderDailyMissions();
+            renderGuild();
             updateDisplay();
             updatePrestigeDisplay();
             spawnMonster();
@@ -2901,6 +2936,198 @@
         setTimeout(() => {
             toast.remove();
         }, 3000);
+    }
+
+    // === Guild System ===
+    function initGuildSystem() {
+        // Initialize weekly mission reset time if not set
+        if (!weeklyMissionResetTime) {
+            weeklyMissionResetTime = getNextWeeklyReset();
+        }
+
+        // Check if weekly mission needs reset
+        const now = Date.now();
+        if (now > weeklyMissionResetTime) {
+            resetWeeklyMission();
+        }
+
+        renderGuild();
+    }
+
+    function getNextWeeklyReset() {
+        const now = new Date();
+        const daysUntilMonday = (8 - now.getDay()) % 7 || 7;
+        const nextMonday = new Date(now);
+        nextMonday.setDate(nextMonday.getDate() + daysUntilMonday);
+        nextMonday.setHours(0, 0, 0, 0);
+        return nextMonday.getTime();
+    }
+
+    function resetWeeklyMission() {
+        weeklyMissionKills = 0;
+        weeklyMissionCompleted = false;
+        weeklyMissionResetTime = getNextWeeklyReset();
+        saveState();
+        renderGuild();
+    }
+
+    function joinGuild(guildIdx) {
+        if (guildId !== null) return; // Already in guild
+        guildId = guildIdx;
+        guildLevel = 1;
+        guildExp = 0;
+        guildMaxExp = 100;
+        weeklyMissionKills = 0;
+        weeklyMissionTarget = 5000;
+        weeklyMissionCompleted = false;
+        weeklyMissionResetTime = getNextWeeklyReset();
+        saveState();
+        renderGuild();
+        if (sfx && sfx.success) sfx.success();
+    }
+
+    function leaveGuild() {
+        if (guildId === null) return;
+        guildId = null;
+        guildLevel = 1;
+        guildExp = 0;
+        guildMaxExp = 100;
+        weeklyMissionKills = 0;
+        weeklyMissionTarget = 5000;
+        weeklyMissionCompleted = false;
+        weeklyMissionResetTime = null;
+        saveState();
+        renderGuild();
+    }
+
+    function addGuildExp(amount) {
+        if (guildId === null) return;
+
+        guildExp += amount;
+
+        // Level up check
+        while (guildExp >= guildMaxExp && guildLevel < 20) {
+            guildExp -= guildMaxExp;
+            guildLevel++;
+            guildMaxExp = Math.floor(100 * (1 + guildLevel * 0.1));
+            showMilestone(i18n.t('guild.levelUp') + ' ' + guildLevel);
+            if (sfx && sfx.levelup) sfx.levelup();
+        }
+
+        // Cap at max level
+        if (guildLevel >= 20) {
+            guildLevel = 20;
+            guildExp = 0;
+            guildMaxExp = 100;
+        }
+
+        saveState();
+        renderGuild();
+    }
+
+    function updateWeeklyMission(killsAdded) {
+        if (guildId === null) return;
+
+        weeklyMissionKills += killsAdded;
+
+        if (weeklyMissionKills >= weeklyMissionTarget && !weeklyMissionCompleted) {
+            weeklyMissionCompleted = true;
+            showMilestone(i18n.t('guild.missionComplete'));
+            if (sfx && sfx.success) sfx.success();
+        }
+
+        saveState();
+        renderGuild();
+    }
+
+    function getGuildBonus() {
+        if (guildId === null) return 1.0;
+
+        const baseBonus = 0.10; // 10%
+        const levelBonus = (guildLevel - 1) * 0.05; // +5% per level
+        return 1.0 + baseBonus + levelBonus;
+    }
+
+    function renderGuild() {
+        const guildContainer = document.getElementById('guild-info');
+        const guildSelection = document.getElementById('guild-selection');
+
+        if (guildId === null) {
+            // Show selection screen
+            if (guildSelection) guildSelection.classList.remove('hidden');
+            if (guildContainer) guildContainer.classList.add('hidden');
+
+            // Set up guild selection buttons
+            document.querySelectorAll('.guild-option').forEach(btn => {
+                btn.removeEventListener('click', handleGuildSelection);
+                btn.addEventListener('click', handleGuildSelection);
+            });
+        } else {
+            // Show guild info
+            if (guildSelection) guildSelection.classList.add('hidden');
+            if (guildContainer) guildContainer.classList.remove('hidden');
+
+            const guild = GUILD_DATA[guildId];
+            const bonusPercent = Math.round((getGuildBonus() - 1.0) * 100);
+
+            // Update emblem
+            const emblem = document.getElementById('guild-emblem');
+            if (emblem) emblem.textContent = guild.emoji;
+
+            // Update name
+            const nameDisplay = document.getElementById('guild-name-display');
+            if (nameDisplay) nameDisplay.textContent = i18n.t('guild.' + guild.name);
+
+            // Update level
+            const levelEl = document.getElementById('guild-level');
+            if (levelEl) levelEl.textContent = guildLevel;
+
+            // Update bonus display
+            const bonusLabel = document.getElementById('guild-bonus-label');
+            const bonusValue = document.getElementById('guild-bonus-value');
+            if (bonusLabel) bonusLabel.textContent = i18n.t('guild.' + guild.bonusDesc);
+            if (bonusValue) bonusValue.textContent = '+' + bonusPercent + '%';
+
+            // Update experience bar
+            const expText = document.getElementById('guild-exp-text');
+            const expFill = document.getElementById('guild-exp-fill');
+            if (expText) expText.textContent = `${guildExp} / ${guildMaxExp}`;
+            if (expFill) expFill.style.width = (guildExp / guildMaxExp * 100) + '%';
+
+            // Update weekly mission
+            const missionTitle = document.getElementById('guild-mission-title');
+            const missionProgress = document.getElementById('guild-mission-progress');
+            const missionText = document.getElementById('guild-mission-text');
+            const missionReward = document.getElementById('guild-mission-reward');
+
+            if (missionTitle) missionTitle.textContent = i18n.t('guild.weeklyTarget') + ' ' + weeklyMissionTarget + i18n.t('guild.monsters');
+            if (missionText) missionText.textContent = `${weeklyMissionKills} / ${weeklyMissionTarget}`;
+            if (missionProgress) {
+                const progress = Math.min(weeklyMissionKills / weeklyMissionTarget * 100, 100);
+                missionProgress.style.width = progress + '%';
+            }
+
+            if (missionReward) {
+                if (weeklyMissionCompleted) {
+                    missionReward.innerHTML = '<span class="reward-icon">✓</span><span class="reward-text" data-i18n="guild.missionCompleted">완료!</span>';
+                } else {
+                    missionReward.innerHTML = '<span class="reward-icon">🎁</span><span class="reward-text" data-i18n="guild.missionReward">완료 시 보너스 획득</span>';
+                }
+                i18n.updateUI();
+            }
+
+            // Set up leave guild button
+            const leaveBtn = document.getElementById('guild-leave-btn');
+            if (leaveBtn) {
+                leaveBtn.removeEventListener('click', leaveGuild);
+                leaveBtn.addEventListener('click', leaveGuild);
+            }
+        }
+    }
+
+    function handleGuildSelection(e) {
+        const guildIdx = parseInt(e.currentTarget.dataset.guildId);
+        joinGuild(guildIdx);
     }
 
     // Ensure all init happens after DOM is loaded

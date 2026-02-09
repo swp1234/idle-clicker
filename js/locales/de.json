@@ -785,5 +785,26 @@
       "text": "Erreiche Erfolge, um deinen Fortschritt zu verfolgen und Ziele zu setzen!",
       "title": "Erreiche Erfolge!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "Blütenmonster",
+    "iceMonster": "Eismonster",
+    "pumpkinMonster": "Kürbismonster",
+    "snowmanMonster": "Schneemannmonster"
+  },
+  "seasons": {
+    "spring": "Frühling",
+    "summer": "Sommer",
+    "autumn": "Herbst",
+    "winter": "Winter",
+    "seasonalMonster": "Saisonales Monster",
+    "seasonalMonsterFlower": "Blütenmonster (Frühling)",
+    "seasonalMonsterIce": "Eismonster (Sommer)",
+    "seasonalMonsterPumpkin": "Kürbismonster (Herbst)",
+    "seasonalMonsterSnowman": "Schneemannmonster (Winter)",
+    "bonusGold": "Gold +30%",
+    "bonusCooldown": "Abkühlung -15%",
+    "bonusExp": "Erfahrung +30%",
+    "bonusAll": "Alle Boni +15%"
   }
 }

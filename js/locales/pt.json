@@ -785,5 +785,26 @@
       "text": "Alcance objetivos para rastrear seu progresso e definir metas!",
       "title": "Alcance Objetivos!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "Monstro da Flor",
+    "iceMonster": "Monstro do Gelo",
+    "pumpkinMonster": "Monstro da Abóbora",
+    "snowmanMonster": "Monstro do Boneco de Neve"
+  },
+  "seasons": {
+    "spring": "Primavera",
+    "summer": "Verão",
+    "autumn": "Outono",
+    "winter": "Inverno",
+    "seasonalMonster": "Monstro Sazonal",
+    "seasonalMonsterFlower": "Monstro da Flor (Primavera)",
+    "seasonalMonsterIce": "Monstro do Gelo (Verão)",
+    "seasonalMonsterPumpkin": "Monstro da Abóbora (Outono)",
+    "seasonalMonsterSnowman": "Monstro do Boneco de Neve (Inverno)",
+    "bonusGold": "Ouro +30%",
+    "bonusCooldown": "Recarga -15%",
+    "bonusExp": "Experiência +30%",
+    "bonusAll": "Todos os Bônus +15%"
   }
 }

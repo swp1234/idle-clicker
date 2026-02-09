@@ -785,5 +785,26 @@
       "text": "Complete achievements to track your progress and set goals!",
       "title": "Achieve Objectives!"
     }
+  },
+  "monsters": {
+    "flowerMonster": "Цветочный Монстр",
+    "iceMonster": "Ледяной Монстр",
+    "pumpkinMonster": "Тыквенный Монстр",
+    "snowmanMonster": "Снежный Монстр"
+  },
+  "seasons": {
+    "spring": "Весна",
+    "summer": "Лето",
+    "autumn": "Осень",
+    "winter": "Зима",
+    "seasonalMonster": "Сезонный Монстр",
+    "seasonalMonsterFlower": "Цветочный Монстр (Весна)",
+    "seasonalMonsterIce": "Ледяной Монстр (Лето)",
+    "seasonalMonsterPumpkin": "Тыквенный Монстр (Осень)",
+    "seasonalMonsterSnowman": "Снежный Монстр (Зима)",
+    "bonusGold": "Золото +30%",
+    "bonusCooldown": "Охлаждение -15%",
+    "bonusExp": "Опыт +30%",
+    "bonusAll": "Все Бонусы +15%"
   }
 }

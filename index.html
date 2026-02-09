@@ -53,7 +53,7 @@
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#8b5cf6">
+    <meta name="theme-color" content="#f39c12">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
@@ -236,6 +236,7 @@
             <button class="tab-btn active" data-tab="equipment" data-i18n="game.equipment">⚔️ 장비</button>
             <button class="tab-btn" data-tab="skill" data-i18n="game.skill">🛡️ 스킬</button>
             <button class="tab-btn" data-tab="pet" data-i18n="pet.title">🐱 펫</button>
+            <button class="tab-btn" data-tab="guild" data-i18n="guild.title">🏰 길드</button>
             <button class="tab-btn" data-tab="dailyMissions" data-i18n="dailyMissions.title">📋 일일 미션</button>
             <button class="tab-btn" data-tab="stats" data-i18n="game.stats">📊 통계</button>
             <button class="tab-btn" data-tab="achievement" data-i18n="game.achievement">🏆 업적</button>
@@ -265,6 +266,105 @@
                 </div>
             </div>
             <div id="pet-list" class="pet-list"></div>
+        </div>
+
+        <!-- Tab: Guild -->
+        <div class="tab-panel" id="panel-guild">
+            <div class="guild-container">
+                <!-- Guild Selection (if not joined) -->
+                <div id="guild-selection" class="guild-selection hidden">
+                    <h2 class="guild-selection-title" data-i18n="guild.selectGuild">길드 선택</h2>
+                    <p class="guild-selection-desc" data-i18n="guild.selectGuildDesc">하나의 길드를 선택하여 가입하세요</p>
+                    <div class="guild-options">
+                        <button class="guild-option flame" data-guild-id="0">
+                            <div class="guild-emoji">🔴</div>
+                            <div class="guild-name" data-i18n="guild.flameGuild">화염단</div>
+                            <div class="guild-bonus" data-i18n="guild.flameBuff">공격력 +10%</div>
+                        </button>
+                        <button class="guild-option frost" data-guild-id="1">
+                            <div class="guild-emoji">🔵</div>
+                            <div class="guild-name" data-i18n="guild.frostGuild">빙결단</div>
+                            <div class="guild-bonus" data-i18n="guild.frostBuff">골드 +10%</div>
+                        </button>
+                        <button class="guild-option nature" data-guild-id="2">
+                            <div class="guild-emoji">🟢</div>
+                            <div class="guild-name" data-i18n="guild.natureGuild">자연단</div>
+                            <div class="guild-bonus" data-i18n="guild.natureBuff">체력 회복 +10%</div>
+                        </button>
+                        <button class="guild-option storm" data-guild-id="3">
+                            <div class="guild-emoji">🟡</div>
+                            <div class="guild-name" data-i18n="guild.stormGuild">번개단</div>
+                            <div class="guild-bonus" data-i18n="guild.stormBuff">공격 속도 +10%</div>
+                        </button>
+                        <button class="guild-option shadow" data-guild-id="4">
+                            <div class="guild-emoji">🟣</div>
+                            <div class="guild-name" data-i18n="guild.shadowGuild">암흑단</div>
+                            <div class="guild-bonus" data-i18n="guild.shadowBuff">크리티컬 +10%</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Guild Info (if joined) -->
+                <div id="guild-info" class="guild-info hidden">
+                    <!-- Guild Header -->
+                    <div class="guild-header">
+                        <div class="guild-emblem" id="guild-emblem">🔴</div>
+                        <div class="guild-header-info">
+                            <h2 class="guild-name-display" id="guild-name-display">화염단</h2>
+                            <div class="guild-level-info">
+                                <span class="guild-level-label" data-i18n="guild.level">레벨</span>
+                                <span class="guild-level" id="guild-level">1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guild Bonus Display -->
+                    <div class="guild-bonus-section">
+                        <h3 class="bonus-header" data-i18n="guild.guildBonus">길드 보너스</h3>
+                        <div class="bonus-display">
+                            <div class="bonus-bar">
+                                <div class="bonus-label" id="guild-bonus-label">공격력 +10%</div>
+                                <div class="bonus-value" id="guild-bonus-value">+10%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guild Experience Bar -->
+                    <div class="guild-exp-section">
+                        <div class="exp-header">
+                            <span class="exp-label" data-i18n="guild.experience">길드 경험치</span>
+                            <span class="exp-text" id="guild-exp-text">0 / 100</span>
+                        </div>
+                        <div class="exp-bar">
+                            <div class="exp-fill" id="guild-exp-fill" style="width: 0%"></div>
+                        </div>
+                        <p class="exp-note" data-i18n="guild.expNote">몬스터를 처치하면 길드 경험치를 획득합니다</p>
+                    </div>
+
+                    <!-- Weekly Mission -->
+                    <div class="guild-mission-section">
+                        <h3 class="mission-header" data-i18n="guild.weeklyMission">주간 미션</h3>
+                        <div class="mission-card">
+                            <div class="mission-title" id="guild-mission-title">이번 주 5000마리 처치</div>
+                            <div class="mission-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="guild-mission-progress" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="guild-mission-text">0 / 5000</span>
+                            </div>
+                            <div class="mission-reward" id="guild-mission-reward">
+                                <span class="reward-icon">🎁</span>
+                                <span class="reward-text">완료 시 보너스 획득</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guild Settings -->
+                    <div class="guild-settings">
+                        <button class="guild-action-btn leave-btn" id="guild-leave-btn" data-i18n="guild.leaveGuild">길드 탈퇴</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tab: Daily Missions -->
