@@ -3,16 +3,16 @@
 // === EQUIPMENT (100 items across 10 tiers) ===
 const EQUIPMENT_DEFS = [
     // ═══ Tier 1: 마을 주변 (Village) ═══
-    { id: 'wooden_sword',   name: '나무 검',         icon: '🗡️', baseCost: 5,      baseIncome: 1,     costMul: 1.12, desc: '모험의 시작, 첫 번째 무기', ally: null },
-    { id: 'leather_shield', name: '가죽 방패',       icon: '🛡️', baseCost: 15,     baseIncome: 2,     costMul: 1.12, desc: '기본적인 방어력을 제공', ally: null },
-    { id: 'iron_dagger',    name: '철 단검',         icon: '🔪', baseCost: 40,     baseIncome: 5,     costMul: 1.12, desc: '빠른 연속 공격이 가능', ally: null },
-    { id: 'iron_helm',      name: '철 투구',         icon: '⛑️', baseCost: 100,    baseIncome: 10,    costMul: 1.13, desc: '머리를 보호하는 철 투구', ally: null },
-    { id: 'iron_armor',     name: '철 갑옷',         icon: '⚔️', baseCost: 250,    baseIncome: 20,    costMul: 1.13, desc: '단단한 철로 제련된 갑옷', ally: null },
-    { id: 'steel_sword',    name: '강철 장검',       icon: '⚔️', baseCost: 600,    baseIncome: 38,    costMul: 1.13, desc: '장인이 벼린 강철의 검', ally: null },
-    { id: 'recruit_bow',    name: '수비대의 활',     icon: '🏹', baseCost: 1500,   baseIncome: 70,    costMul: 1.14, desc: '마을 수비대 궁수의 활', ally: 'archer' },
-    { id: 'acolyte_staff',  name: '수습 지팡이',     icon: '🪄', baseCost: 3500,   baseIncome: 125,   costMul: 1.14, desc: '마법 수련에 쓰이는 지팡이', ally: 'mage' },
-    { id: 'squire_plate',   name: '견습 기사 갑옷',  icon: '🛡️', baseCost: 8000,   baseIncome: 225,   costMul: 1.14, desc: '기사 수련생의 무거운 갑옷', ally: null },
-    { id: 'master_blade',   name: '대장장이의 명검', icon: '🗡️', baseCost: 18000,  baseIncome: 400,   costMul: 1.14, desc: '마을 최고 장인의 역작', ally: null },
+    { id: 'wooden_sword',   name: '나무 검',         icon: '🗡️', baseCost: 3,      baseIncome: 1,     costMul: 1.12, desc: '모험의 시작, 첫 번째 무기', ally: null },
+    { id: 'leather_shield', name: '가죽 방패',       icon: '🛡️', baseCost: 8,      baseIncome: 2,     costMul: 1.12, desc: '기본적인 방어력을 제공', ally: null },
+    { id: 'iron_dagger',    name: '철 단검',         icon: '🔪', baseCost: 20,     baseIncome: 5,     costMul: 1.12, desc: '빠른 연속 공격이 가능', ally: null },
+    { id: 'iron_helm',      name: '철 투구',         icon: '⛑️', baseCost: 50,     baseIncome: 10,    costMul: 1.13, desc: '머리를 보호하는 철 투구', ally: null },
+    { id: 'iron_armor',     name: '철 갑옷',         icon: '⚔️', baseCost: 125,    baseIncome: 20,    costMul: 1.13, desc: '단단한 철로 제련된 갑옷', ally: null },
+    { id: 'steel_sword',    name: '강철 장검',       icon: '⚔️', baseCost: 300,    baseIncome: 38,    costMul: 1.13, desc: '장인이 벼린 강철의 검', ally: null },
+    { id: 'recruit_bow',    name: '수비대의 활',     icon: '🏹', baseCost: 750,    baseIncome: 70,    costMul: 1.14, desc: '마을 수비대 궁수의 활', ally: 'archer' },
+    { id: 'acolyte_staff',  name: '수습 지팡이',     icon: '🪄', baseCost: 1750,   baseIncome: 125,   costMul: 1.14, desc: '마법 수련에 쓰이는 지팡이', ally: 'mage' },
+    { id: 'squire_plate',   name: '견습 기사 갑옷',  icon: '🛡️', baseCost: 4000,   baseIncome: 225,   costMul: 1.14, desc: '기사 수련생의 무거운 갑옷', ally: null },
+    { id: 'master_blade',   name: '대장장이의 명검', icon: '🗡️', baseCost: 9000,   baseIncome: 400,   costMul: 1.14, desc: '마을 최고 장인의 역작', ally: null },
     // ═══ Tier 2: 숲의 던전 (Forest) ═══
     { id: 'hunters_bow',    name: '사냥꾼의 활',     icon: '🏹', baseCost: 40000,     baseIncome: 720,     costMul: 1.14, desc: '숲의 노련한 사냥꾼의 활', ally: 'archer' },
     { id: 'wolf_cloak',     name: '늑대 가죽 망토',  icon: '🐺', baseCost: 90000,     baseIncome: 1300,    costMul: 1.14, desc: '늑대의 가죽으로 만든 망토', ally: null },

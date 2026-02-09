@@ -33,7 +33,7 @@
     let gold = 0;
     let totalEarned = 0;
     let totalClicks = 0;
-    let clickValue = 1;
+    let clickValue = 3;  // IMPROVED: Initial click value (was 1, now 3 for better early game feel)
     let clickMultiplier = 1;
     let autoMultiplier = 1;
     let speedMultiplier = 1;
@@ -1163,7 +1163,7 @@
                 speedMultiplier = (speedMultiplier / oldEffect) * newEffect;
                 break;
             case 'golden':
-                goldenTouchBonus = (goldenTouchBonus || 1) * effectBonus;
+                goldenTouchBonus = (goldenTouchBonus === 0 ? 1 : goldenTouchBonus) * effectBonus;
                 break;
         }
 
@@ -1534,7 +1534,7 @@
 
     // === Prestige System ===
     function getPrestigePointsAtTier(tier) {
-        const tiers = [0, 1, 3, 7, 15, 30, 50];
+        const tiers = [0, 3, 7, 15, 30, 50, 100];  // IMPROVED: First prestige now gives 3 points (was 1)
         return tier >= tiers.length ? tiers[tiers.length - 1] : tiers[tier];
     }
 
