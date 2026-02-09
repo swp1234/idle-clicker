@@ -69,6 +69,13 @@
         "achievement": "🏆 Realizações",
         "achievementUnlocked": "Realização desbloqueada!"
     },
+    "offline": {
+        "title": "Ganhos Offline",
+        "away": "Você esteve longe por {time}!",
+        "earned": "{gold} Ouro",
+        "collect": "Coletar",
+        "double": "Assistir Anúncio para 2x Ganhos"
+    },
     "achievement": {
         "firstStep": "Primeiro Passo",
         "firstStepDesc": "Derrote seu primeiro monstro",

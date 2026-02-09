@@ -69,6 +69,13 @@
         "achievement": "🏆 成就",
         "achievementUnlocked": "成就解锁！"
     },
+    "offline": {
+        "title": "离线收入",
+        "away": "你已离线 {time}！",
+        "earned": "{gold} 金币",
+        "collect": "领取",
+        "double": "看广告获得2倍收入"
+    },
     "achievement": {
         "firstStep": "初试锋芒",
         "firstStepDesc": "击败第一个怪物",
