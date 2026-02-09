@@ -460,6 +460,19 @@
             }
         }
 
+        // Boss warning effect
+        if (isBoss && dungeonStage) {
+            dungeonStage.classList.add('boss-incoming');
+            setTimeout(() => {
+                dungeonStage.classList.remove('boss-incoming');
+            }, 1000);
+        }
+
+        // Play boss appearance sound
+        if (isBoss && sfx) {
+            sfx.bossAppear();
+        }
+
         // Apply visual theme
         applyMonsterVisuals(monster);
 
@@ -573,12 +586,14 @@
 
         // Play sound effects
         if (sfx) {
-            if (isBoss) {
-                sfx.levelUp();
+            if (isTierBoss) {
+                sfx.bossDefeat();
+            } else if (isBoss) {
+                sfx.levelUpNew();
             } else {
                 sfx.explosion();
             }
-            sfx.coin();
+            sfx.coinCollect();
         }
 
         // Tier Boss defeat: massive celebration with enhanced effects
@@ -687,9 +702,16 @@
 
         // Add dopamine click effect
         if (window.effectsManager) {
-          const isCrit = damage >= clickValue * clickMultiplier * 3;
           const color = isCrit ? '#FF6600' : '#FFD700';
-          window.effectsManager.addClickEffect(80 + offsetX, 80, damage, color);
+          window.effectsManager.addClickEffect(80 + offsetX, 80, damage, color, isCrit);
+          if (isCrit) {
+            window.effectsManager.addCriticalHitEffect(80 + offsetX, 80);
+          }
+        }
+
+        // Play sound
+        if (isCrit) {
+          if (sfx) sfx.criticalHit();
         }
     }
 
@@ -939,7 +961,7 @@
         document.body.appendChild(msg);
         setTimeout(() => msg.remove(), 2000);
 
-        if (sfx) sfx.levelUp();
+        if (sfx) sfx.goldenMonster();
 
         // 10초 타이머 카운트다운 UI
         const timerEl = document.createElement('div');
@@ -1012,7 +1034,7 @@
 
         gold -= cost;
         ownedEquipment[equipId] = (ownedEquipment[equipId] || 0) + 1;
-        if (sfx) sfx.place();
+        if (sfx) sfx.equipmentBuy();
 
         // Add dopamine upgrade effect
         if (window.effectsManager && clickArea) {
@@ -1143,7 +1165,7 @@
         skillLevels[skillId] = currentLevel + 1;
         purchasedSkills[skillId] = true;
 
-        if (sfx) sfx.levelUp();
+        if (sfx) sfx.skillUnlock();
 
         // 스킬 효과 적용
         const newLevel = getSkillLevel(skillId);
@@ -1584,6 +1606,9 @@
         const earnedPoints = getPrestigePointsAtTier(currentTier);
         prestigePoints += earnedPoints;
         prestigeCount += 1;
+
+        // Play prestige sound
+        if (sfx) sfx.prestige();
 
         // Apply bonuses based on prestige count
         let startingGold = 0;

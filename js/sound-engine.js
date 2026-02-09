@@ -239,6 +239,155 @@ class SoundEngine {
     bgmStop() {
         // Stop background (context will naturally fade out from sustain/release)
     }
+
+    // === Enhanced Sound Effects ===
+
+    levelUpNew() {
+        // Level up fanfare - enhanced version with more notes
+        const notes = [500, 600, 700, 800, 900];
+        notes.forEach((freq, i) => {
+            setTimeout(() => {
+                this.playOscillator(freq, 0.12, 'sine', { attack: 0.01, decay: 0.08, sustain: 0.1 });
+            }, i * 70);
+        });
+    }
+
+    equipmentBuy() {
+        // Equipment purchase "ka-ching" sound
+        this.playOscillator(1000, 0.08, 'triangle', { attack: 0.005, decay: 0.06, sustain: 0 });
+        setTimeout(() => {
+            this.playOscillator(800, 0.1, 'triangle', { attack: 0.005, decay: 0.07, sustain: 0 });
+        }, 50);
+        setTimeout(() => {
+            this.playOscillator(600, 0.12, 'sine', { attack: 0.01, decay: 0.08, sustain: 0.05 });
+        }, 100);
+    }
+
+    criticalHit() {
+        // Critical hit "zing" sound
+        this.playOscillator(1200, 0.1, 'square', { attack: 0.005, decay: 0.08, sustain: 0.2 });
+        this.playOscillator(1500, 0.08, 'sine', { attack: 0.01, decay: 0.06, sustain: 0 });
+    }
+
+    bossAppear() {
+        // Boss appearance deep warning sound
+        const now = this.ctx ? this.ctx.currentTime : 0;
+        if (!this.ctx || !this.enabled) return;
+
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(200, now);
+        osc.frequency.exponentialRampToValueAtTime(150, now + 0.3);
+
+        osc.connect(gain);
+        gain.connect(this.masterGain);
+
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.05, now + 0.3);
+
+        osc.start(now);
+        osc.stop(now + 0.3);
+    }
+
+    bossDefeat() {
+        // Boss defeat victory fanfare
+        const notes = [600, 800, 1000, 1200, 1000, 800];
+        notes.forEach((freq, i) => {
+            setTimeout(() => {
+                this.playOscillator(freq, 0.2, 'sine', { attack: 0.02, decay: 0.12, sustain: 0.3 });
+            }, i * 100);
+        });
+    }
+
+    skillUnlock() {
+        // Skill unlock "sparkle" sound
+        const now = this.ctx ? this.ctx.currentTime : 0;
+        if (!this.ctx || !this.enabled) return;
+
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+                const freq = 1400 + i * 200;
+                this.playOscillator(freq, 0.08, 'sine', { attack: 0.005, decay: 0.06, sustain: 0 });
+            }, i * 60);
+        }
+    }
+
+    prestige() {
+        // Prestige grand fanfare
+        const notes = [800, 1000, 1200, 1400, 1200, 1000, 800];
+        notes.forEach((freq, i) => {
+            setTimeout(() => {
+                this.playOscillator(freq, 0.15, 'sine', { attack: 0.01, decay: 0.1, sustain: 0.2 });
+            }, i * 120);
+        });
+    }
+
+    goldenMonster() {
+        // Golden monster appearance magical sound
+        const now = this.ctx ? this.ctx.currentTime : 0;
+        if (!this.ctx || !this.enabled) return;
+
+        for (let i = 0; i < 2; i++) {
+            setTimeout(() => {
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(1500 + i * 300, now);
+                osc.frequency.exponentialRampToValueAtTime(1200 + i * 200, now + 0.4);
+
+                osc.connect(gain);
+                gain.connect(this.masterGain);
+
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.05, now + 0.4);
+
+                osc.start(now);
+                osc.stop(now + 0.4);
+            }, i * 100);
+        }
+    }
+
+    coinCollect() {
+        // Enhanced coin collection sound
+        this.playOscillator(1000, 0.06, 'sine', { attack: 0.003, decay: 0.04, sustain: 0 });
+        setTimeout(() => {
+            this.playOscillator(1400, 0.08, 'sine', { attack: 0.003, decay: 0.06, sustain: 0 });
+        }, 40);
+    }
+
+    rebirthSound() {
+        // Rebirth/environment sound magical tone
+        const now = this.ctx ? this.ctx.currentTime : 0;
+        if (!this.ctx || !this.enabled) return;
+
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(2000, now + 0.5);
+
+        osc.connect(gain);
+        gain.connect(this.masterGain);
+
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.3, now + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.02, now + 0.5);
+
+        osc.start(now);
+        osc.stop(now + 0.5);
+    }
+
+    warningBeep() {
+        // Quick warning beep (for low HP)
+        this.playOscillator(1600, 0.06, 'square', { attack: 0.01, decay: 0.04, sustain: 0 });
+        setTimeout(() => {
+            this.playOscillator(1600, 0.06, 'square', { attack: 0.01, decay: 0.04, sustain: 0 });
+        }, 120);
+    }
 }
 
 // Global instance

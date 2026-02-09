@@ -2,10 +2,11 @@
 // Click effects, floating numbers, particle bursts, screen shake
 
 class ClickEffect {
-  constructor(x, y, value, color = '#FFD700') {
+  constructor(x, y, value, color = '#FFD700', isCrit = false) {
     this.particles = [];
 
     // Create floating number
+    const size = isCrit ? 32 : (24 + (value > 100 ? 8 : 0));
     const textParticle = {
       text: `+${value}`,
       x: x,
@@ -14,18 +15,20 @@ class ClickEffect {
       vy: -3 - Math.random() * 2,
       life: 1,
       maxLife: 1.0,
-      color: color,
-      size: 24 + (value > 100 ? 8 : 0),
+      color: isCrit ? '#FF6600' : color,
+      size: size,
       isText: true,
-      rotation: Math.random() * 0.2 - 0.1
+      rotation: Math.random() * 0.2 - 0.1,
+      isCrit: isCrit
     };
     this.particles.push(textParticle);
 
     // Create particles around the number
-    const particleCount = Math.min(value / 10, 15);
+    const particleCount = Math.min(value / 10, isCrit ? 20 : 15);
+    const particleColor = isCrit ? '#FF6600' : color;
     for (let i = 0; i < particleCount; i++) {
       const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.3;
-      const speed = 2 + Math.random() * 3;
+      const speed = isCrit ? (3 + Math.random() * 4) : (2 + Math.random() * 3);
 
       this.particles.push({
         x: x,
@@ -33,10 +36,11 @@ class ClickEffect {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed - 1,
         life: 1,
-        maxLife: 0.6,
-        size: 2 + Math.random() * 3,
-        color: color,
-        isParticle: true
+        maxLife: isCrit ? 0.8 : 0.6,
+        size: isCrit ? (3 + Math.random() * 4) : (2 + Math.random() * 3),
+        color: particleColor,
+        isParticle: true,
+        glow: isCrit
       });
     }
   }
@@ -100,7 +104,104 @@ class ClickEffect {
         }
       } else if (p.isParticle) {
         ctx.fillStyle = p.color;
-        ctx.filter = `drop-shadow(0 0 ${3 * alpha}px ${p.color})`;
+        if (p.glow) {
+          ctx.filter = `drop-shadow(0 0 ${8 * alpha}px ${p.color}) drop-shadow(0 0 ${12 * alpha}px ${p.color})`;
+        } else {
+          ctx.filter = `drop-shadow(0 0 ${3 * alpha}px ${p.color})`;
+        }
+        ctx.beginPath();
+        ctx.arc(sx, sy, p.size * alpha, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    });
+  }
+}
+
+class CriticalHitEffect {
+  constructor(x, y) {
+    this.particles = [];
+    this.lifetime = 0;
+    this.maxLife = 0.6;
+
+    // Red flash burst
+    const burstCount = 16;
+    for (let i = 0; i < burstCount; i++) {
+      const angle = (Math.PI * 2 * i) / burstCount;
+      const speed = 5 + Math.random() * 3;
+
+      this.particles.push({
+        x: x,
+        y: y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        maxLife: 0.5,
+        size: 2 + Math.random() * 3,
+        color: '#FF6600',
+        glow: true
+      });
+    }
+
+    // Red flash ring
+    this.ring = {
+      x: x,
+      y: y,
+      radius: 0,
+      maxRadius: 60,
+      life: 1,
+      maxLife: 0.4,
+      color: '#FF6600',
+      isRing: true
+    };
+    this.particles.push(this.ring);
+  }
+
+  update(deltaTime) {
+    this.lifetime += deltaTime;
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const p = this.particles[i];
+      p.life -= deltaTime / p.maxLife;
+
+      if (p.life <= 0) {
+        this.particles.splice(i, 1);
+        continue;
+      }
+
+      if (p.isRing) {
+        p.radius = (1 - p.life) * p.maxRadius;
+      } else {
+        p.vx *= 0.95;
+        p.vy *= 0.95;
+        p.x += p.vx;
+        p.y += p.vy;
+      }
+    }
+  }
+
+  isDone() {
+    return this.particles.length === 0;
+  }
+
+  draw(ctx, scale, offsetX, offsetY) {
+    this.particles.forEach(p => {
+      const sx = p.x * scale + offsetX;
+      const sy = p.y * scale + offsetY;
+      const alpha = p.life;
+
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, alpha);
+
+      if (p.isRing) {
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(sx, sy, p.radius, 0, Math.PI * 2);
+        ctx.stroke();
+      } else if (p.glow) {
+        ctx.fillStyle = p.color;
+        ctx.filter = `drop-shadow(0 0 ${10 * alpha}px ${p.color}) drop-shadow(0 0 ${6 * alpha}px ${p.color})`;
         ctx.beginPath();
         ctx.arc(sx, sy, p.size * alpha, 0, Math.PI * 2);
         ctx.fill();
@@ -401,6 +502,30 @@ class MilestoneEffect {
   }
 }
 
+class ScreenFlashEffect {
+  constructor(color = '#FF6600', duration = 0.3) {
+    this.color = color;
+    this.life = 1;
+    this.maxLife = duration;
+  }
+
+  update(deltaTime) {
+    this.life -= deltaTime / this.maxLife;
+  }
+
+  isDone() {
+    return this.life <= 0;
+  }
+
+  drawScreen(ctx, width, height) {
+    const alpha = Math.max(0, this.life) * 0.5;
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = this.color;
+    ctx.fillRect(0, 0, width, height);
+    ctx.globalAlpha = 1;
+  }
+}
+
 // Global effects manager
 class EffectsManager {
   constructor() {
@@ -408,14 +533,27 @@ class EffectsManager {
     this.killEffects = [];
     this.upgradeEffects = [];
     this.milestoneEffects = [];
+    this.criticalHitEffects = [];
+    this.screenFlashEffects = [];
   }
 
-  addClickEffect(x, y, value, color = '#FFD700') {
-    this.clickEffects.push(new ClickEffect(x, y, value, color));
+  addClickEffect(x, y, value, color = '#FFD700', isCrit = false) {
+    this.clickEffects.push(new ClickEffect(x, y, value, color, isCrit));
+    if (isCrit) {
+      this.screenFlashEffects.push(new ScreenFlashEffect('#FF6600', 0.2));
+    }
   }
 
   addMonsterKillEffect(x, y) {
     this.killEffects.push(new MonsterKillEffect(x, y));
+  }
+
+  addCriticalHitEffect(x, y) {
+    this.criticalHitEffects.push(new CriticalHitEffect(x, y));
+  }
+
+  addScreenFlash(color = '#FFD700', duration = 0.3) {
+    this.screenFlashEffects.push(new ScreenFlashEffect(color, duration));
   }
 
   addUpgradeEffect(x, y, equipmentName) {
@@ -442,6 +580,13 @@ class EffectsManager {
       }
     }
 
+    for (let i = this.criticalHitEffects.length - 1; i >= 0; i--) {
+      this.criticalHitEffects[i].update(deltaTime);
+      if (this.criticalHitEffects[i].isDone()) {
+        this.criticalHitEffects.splice(i, 1);
+      }
+    }
+
     for (let i = this.upgradeEffects.length - 1; i >= 0; i--) {
       this.upgradeEffects[i].update(deltaTime);
       if (this.upgradeEffects[i].isDone()) {
@@ -455,20 +600,34 @@ class EffectsManager {
         this.milestoneEffects.splice(i, 1);
       }
     }
+
+    for (let i = this.screenFlashEffects.length - 1; i >= 0; i--) {
+      this.screenFlashEffects[i].update(deltaTime);
+      if (this.screenFlashEffects[i].isDone()) {
+        this.screenFlashEffects.splice(i, 1);
+      }
+    }
   }
 
   drawAll(ctx, scale, offsetX, offsetY) {
     this.clickEffects.forEach(e => e.draw(ctx, scale, offsetX, offsetY));
     this.killEffects.forEach(e => e.draw(ctx, scale, offsetX, offsetY));
+    this.criticalHitEffects.forEach(e => e.draw(ctx, scale, offsetX, offsetY));
     this.upgradeEffects.forEach(e => e.draw(ctx, scale, offsetX, offsetY));
     this.milestoneEffects.forEach(e => e.draw(ctx, scale, offsetX, offsetY));
+  }
+
+  drawScreenEffects(ctx, width, height) {
+    this.screenFlashEffects.forEach(e => e.drawScreen(ctx, width, height));
   }
 
   clear() {
     this.clickEffects = [];
     this.killEffects = [];
+    this.criticalHitEffects = [];
     this.upgradeEffects = [];
     this.milestoneEffects = [];
+    this.screenFlashEffects = [];
   }
 }
 
