@@ -46,6 +46,7 @@
     let lastTickTime = Date.now();
     let milestoneIndex = 0;
     let activeTab = 'equipment';
+    let setBonus = 0;  // 장비 세트 보너스 배수 (기본 1.0, 세트당 1.2)
 
     // Monster state
     let currentMonsterIndex = 0;
@@ -1007,6 +1008,32 @@
         }
     }
 
+    // 세트 보너스 계산 (같은 등급 3개 이상 = 20% DPS +)
+    function calculateSetBonus() {
+        const gradeCounts = {
+            common: 0, uncommon: 0, rare: 0, epic: 0, legendary: 0
+        };
+
+        for (const equip of EQUIPMENT) {
+            const count = ownedEquipment[equip.id] || 0;
+            if (count > 0) {
+                const grade = EQUIPMENT_DEFS.find(e => e.id === equip.id)?.grade || 'common';
+                gradeCounts[grade] += count;
+            }
+        }
+
+        setBonus = 1.0;
+        let activeSets = 0;
+        for (const grade in gradeCounts) {
+            if (gradeCounts[grade] >= 3) {
+                setBonus *= 1.2;  // 각 세트당 20% 보너스
+                activeSets++;
+            }
+        }
+
+        return activeSets;  // 활성 세트 개수 반환
+    }
+
     // Income
     function recalculateAutoIncome() {
         let total = 0;
@@ -1017,7 +1044,7 @@
             }
         }
         const prestigeBonus = 1 + (prestigePoints * 0.1);
-        autoIncomePerSec = total * autoMultiplier * prestigeBonus;
+        autoIncomePerSec = total * autoMultiplier * prestigeBonus * setBonus;
     }
 
     // Equipment
@@ -1036,6 +1063,9 @@
         ownedEquipment[equipId] = (ownedEquipment[equipId] || 0) + 1;
         if (sfx) sfx.equipmentBuy();
 
+        // Check set bonus before update
+        const oldSets = calculateSetBonus();
+
         // Add dopamine upgrade effect
         if (window.effectsManager && clickArea) {
           const rect = clickArea.getBoundingClientRect();
@@ -1050,6 +1080,30 @@
           showScreenFlash();
           // Confetti effect
           spawnConfetti();
+        }
+
+        // Recalculate with new equipment
+        calculateSetBonus();
+        const equipDef = EQUIPMENT_DEFS.find(e => e.id === equipId);
+        const grade = equipDef?.grade || 'common';
+        const gradeName = EQUIPMENT_GRADES[grade]?.name || grade;
+
+        // Check if set bonus completed
+        const gradeCounts = {};
+        for (const e of EQUIPMENT) {
+            const cnt = ownedEquipment[e.id] || 0;
+            if (cnt > 0) {
+                const g = EQUIPMENT_DEFS.find(x => x.id === e.id)?.grade || 'common';
+                gradeCounts[g] = (gradeCounts[g] || 0) + cnt;
+            }
+        }
+
+        if (gradeCounts[grade] === 3) {
+            // 새로운 세트 완성!
+            const gradeKey = EQUIPMENT_GRADES[grade]?.key || 'equipment.common';
+            const setMsg = i18n.t('equipment.setBonus') || 'SET BONUS! +20% DPS';
+            showMilestone(setMsg + ' - ' + gradeName);
+            if (sfx) sfx.levelUpNew();
         }
 
         recalculateAutoIncome();
@@ -1111,23 +1165,49 @@
     function renderEquipment() {
         if (!equipmentList) return;
         const totalLabel = i18n.t('game.total') || 'Total';
+
+        // 등급별 카운트 계산 (세트 보너스 표시용)
+        const gradeCounts = {};
+        for (const equip of EQUIPMENT) {
+            const cnt = ownedEquipment[equip.id] || 0;
+            if (cnt > 0) {
+                const equipDef = EQUIPMENT_DEFS.find(e => e.id === equip.id);
+                const grade = equipDef?.grade || 'common';
+                gradeCounts[grade] = (gradeCounts[grade] || 0) + cnt;
+            }
+        }
+
         equipmentList.innerHTML = EQUIPMENT.map(equip => {
+            const equipDef = EQUIPMENT_DEFS.find(e => e.id === equip.id);
+            const grade = equipDef?.grade || 'common';
+            const gradeInfo = EQUIPMENT_GRADES[grade] || EQUIPMENT_GRADES.common;
             const count = ownedEquipment[equip.id] || 0;
             const cost = getEquipmentCost(equip);
-            const income = equip.baseIncome * autoMultiplier * speedMultiplier;
+            const income = equip.baseIncome * autoMultiplier * speedMultiplier * setBonus;
             const canBuy = gold >= cost;
             const totalIncome = income * count;
 
+            // 세트 보너스 표시
+            const gradeCount = gradeCounts[grade] || 0;
+            const setIndicator = gradeCount >= 3 ? '✨ SET!' : (gradeCount > 0 ? `${gradeCount}/3` : '');
+
             return `
-                <div class="equip-card ${canBuy ? 'can-buy' : ''}" onclick="window._buyEquip('${equip.id}')">
-                    <div class="equip-icon">${equip.icon}</div>
-                    <div class="equip-info">
-                        <div class="equip-name">${getEquipName(equip)} <span class="equip-count">${count > 0 ? 'Lv.' + count : ''}</span></div>
-                        <div class="equip-desc">${getEquipDesc(equip)}</div>
-                        <div class="equip-income">+${formatGoldShort(income)} DPS ${count > 0 ? '(' + totalLabel + ': ' + formatGoldShort(totalIncome) + ')' : ''}</div>
-                    </div>
-                    <div class="equip-cost ${canBuy ? '' : 'expensive'}">
-                        <span>🪙 ${formatGoldShort(cost)}</span>
+                <div class="equip-card ${canBuy ? 'can-buy' : ''} equip-grade-${grade}" onclick="window._buyEquip('${equip.id}')">
+                    <div class="equip-border" style="border-color: ${gradeInfo.borderColor}; box-shadow: 0 0 12px ${gradeInfo.borderColor};">
+                        <div class="equip-icon">${equip.icon}</div>
+                        <div class="equip-info">
+                            <div class="equip-name" style="color: ${gradeInfo.textColor};">
+                                ${getEquipName(equip)}
+                                <span class="equip-count">${count > 0 ? 'Lv.' + count : ''}</span>
+                                <span class="equip-grade" style="color: ${gradeInfo.borderColor}; font-size: 11px; font-weight: bold;">${gradeInfo.name}</span>
+                            </div>
+                            <div class="equip-desc">${getEquipDesc(equip)}</div>
+                            <div class="equip-income">+${formatGoldShort(income)} DPS ${count > 0 ? '(' + totalLabel + ': ' + formatGoldShort(totalIncome) + ')' : ''}</div>
+                            ${setIndicator ? `<div class="equip-set-indicator">${setIndicator}</div>` : ''}
+                        </div>
+                        <div class="equip-cost ${canBuy ? '' : 'expensive'}">
+                            <span>🪙 ${formatGoldShort(cost)}</span>
+                        </div>
                     </div>
                 </div>`;
         }).join('');
@@ -1353,7 +1433,7 @@
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
                 ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
-                killCount, currentMonsterIndex, prestigePoints, prestigeCount
+                killCount, currentMonsterIndex, prestigePoints, prestigeCount, setBonus
             }));
             localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
         } catch (e) {
@@ -1381,6 +1461,7 @@
                 currentMonsterIndex = d.currentMonsterIndex || 0;
                 prestigePoints = d.prestigePoints || 0;
                 prestigeCount = d.prestigeCount || 0;
+                setBonus = d.setBonus || 1.0;
             }
         } catch (e) {
             console.warn('Load failed:', e);

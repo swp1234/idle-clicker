@@ -79,7 +79,9 @@
         "zigzagRunner": "Zigzag Runner",
         "zigzagRunnerDesc": "Zigzag running game",
         "quizApp": "Trivia Quiz",
-        "quizAppDesc": "Random trivia quiz"
+        "quizAppDesc": "Random trivia quiz",
+        "colorMemory": "Color Memory",
+        "colorMemoryDesc": "Memory challenge game"
     },
     "dungeon": {
         "village": "Village Outskirts",
@@ -232,6 +234,12 @@
         "guardian": "World's Guardian"
     },
     "equipment": {
+        "common": "Common",
+        "uncommon": "Uncommon",
+        "rare": "Rare",
+        "epic": "Epic",
+        "legendary": "Legendary",
+        "setBonus": "⭐ SET COMPLETE! +20% DPS",
         "wooden_sword": {"name": "Wooden Sword", "desc": "Your first weapon, the start of adventure"},
         "leather_shield": {"name": "Leather Shield", "desc": "Provides basic defense"},
         "iron_dagger": {"name": "Iron Dagger", "desc": "Enables quick successive attacks"},

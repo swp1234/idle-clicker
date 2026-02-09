@@ -228,6 +228,12 @@
         "darkness": "어둠의 군주를 쓰러뜨렸습니다!"
     },
     "equipment": {
+        "common": "일반",
+        "uncommon": "고급",
+        "rare": "희귀",
+        "epic": "전설",
+        "legendary": "신화",
+        "setBonus": "⭐ 세트 완성! +20% DPS",
         "wooden_sword": {"name": "나무 검", "desc": "모험의 시작, 첫 번째 무기"},
         "leather_shield": {"name": "가죽 방패", "desc": "기본적인 방어력을 제공"},
         "iron_dagger": {"name": "철 단검", "desc": "빠른 연속 공격이 가능"},
@@ -341,6 +347,8 @@
         "zigzagRunner": "Zigzag Runner",
         "zigzagRunnerDesc": "지그재그 달리기 게임",
         "quizApp": "상식 퀴즈",
-        "quizAppDesc": "랜덤 상식 퀴즈"
+        "quizAppDesc": "랜덤 상식 퀴즈",
+        "colorMemory": "색상 기억력",
+        "colorMemoryDesc": "기억력 도전 게임"
     }
 }

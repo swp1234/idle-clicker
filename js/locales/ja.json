@@ -196,6 +196,12 @@
     "quizAppDesc": "ランダム雑学クイズ"
   },
   "equipment": {
+    "common": "コモン",
+    "uncommon": "アンコモン",
+    "rare": "レア",
+    "epic": "エピック",
+    "legendary": "レジェンダリー",
+    "setBonus": "⭐ セット完成! DPS +20%",
     "wooden_sword": {"name": "木製の剣", "desc": "最初の武器、冒険の始まり"},
     "leather_shield": {"name": "革の盾", "desc": "基本的な防御を提供"},
     "iron_dagger": {"name": "鉄製短剣", "desc": "素早い連続攻撃を可能にする"},
