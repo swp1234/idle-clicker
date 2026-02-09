@@ -559,10 +559,13 @@
         monsterDying = true;
         const monster = MONSTERS[currentMonsterIndex];
         let reward = getMonsterGoldReward(monster, killCount, isBoss, isTierBoss);
+        let killedMonster = 'normal';
 
         // Golden Monster: 3배 보상
         if (goldenMonsterActive) {
             reward *= 3;
+            goldenKills++;
+            killedMonster = 'golden';
             endGoldenMonster();
         }
 
