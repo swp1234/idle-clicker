@@ -833,5 +833,17 @@
     "missionCompleted": "Complété!",
     "missionComplete": "Mission Hebdomadaire Complétée!",
     "leaveGuild": "Quitter la Guilde"
+  },
+  "minigame": {
+    "title": "Trouver le coffre au trésor",
+    "play": "Mini-jeu!",
+    "attemptsLeft": "Tentatives restantes",
+    "confirm": "OK",
+    "treasureFound": "Vous avez trouvé le trésor!",
+    "treasureReward": "Récompense en or obtenue!",
+    "bombFound": "Bombe explodée!",
+    "bombMessage": "Jeu terminé.",
+    "noAttempts": "Aucune tentative restante.",
+    "cooldown": "Vous pouvez jouer au mini-jeu toutes les 10 minutes"
   }
 }

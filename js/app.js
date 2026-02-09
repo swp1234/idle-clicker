@@ -137,6 +137,14 @@
         ]
     };
 
+    // Mini Game state
+    let lastMiniGameTime = 0; // Timestamp of last mini game play
+    const MINIGAME_COOLDOWN = 10 * 60 * 1000; // 10 minutes in milliseconds
+    const MINIGAME_GRID_SIZE = 9; // 3x3 grid
+    const MINIGAME_ATTEMPTS = 3;
+    const MINIGAME_BOMB_COUNT = 2;
+    const MINIGAME_TREASURE_REWARD = 5000; // Gold reward for finding treasure
+
     // Pet System state
     const PET_DATA = {
         cat: { name: 'cat', emoji: '🐱', type: 'autoAttack', bonus: 0.01, description: 'petCatDesc' },
@@ -284,6 +292,168 @@
     const tierIconEl = document.getElementById('tier-icon');
     const tierNameEl = document.getElementById('tier-name');
 
+    // Mini Game Elements
+    const minigameBtn = document.getElementById('minigame-btn');
+    const minigameOverlay = document.getElementById('minigame-overlay');
+    const minigameCloseBtn = document.getElementById('minigame-close-btn');
+    const minigameGrid = document.getElementById('minigame-grid');
+    const minigameAttemptsEl = document.getElementById('minigame-attempts');
+    const minigameResult = document.getElementById('minigame-result');
+    const resultEmoji = document.getElementById('result-emoji');
+    const resultText = document.getElementById('result-text');
+    const resultReward = document.getElementById('result-reward');
+    const resultButton = document.getElementById('result-button');
+
+    // Mini Game State
+    let minigameState = {
+        active: false,
+        grid: [],
+        attempts: MINIGAME_ATTEMPTS,
+        treasureIndex: -1,
+        revealed: new Set()
+    };
+
+    // Mini Game Functions
+    function initMiniGame() {
+        minigameState.grid = [];
+        minigameState.attempts = MINIGAME_ATTEMPTS;
+        minigameState.revealed = new Set();
+
+        // Create grid: randomly place 1 treasure, MINIGAME_BOMB_COUNT bombs, rest are empty
+        for (let i = 0; i < MINIGAME_GRID_SIZE; i++) {
+            minigameState.grid.push({ type: 'empty' });
+        }
+
+        // Place treasure
+        minigameState.treasureIndex = Math.floor(Math.random() * MINIGAME_GRID_SIZE);
+        minigameState.grid[minigameState.treasureIndex].type = 'treasure';
+
+        // Place bombs
+        let bombsPlaced = 0;
+        while (bombsPlaced < MINIGAME_BOMB_COUNT) {
+            const idx = Math.floor(Math.random() * MINIGAME_GRID_SIZE);
+            if (minigameState.grid[idx].type === 'empty') {
+                minigameState.grid[idx].type = 'bomb';
+                bombsPlaced++;
+            }
+        }
+
+        renderMiniGameGrid();
+    }
+
+    function renderMiniGameGrid() {
+        minigameGrid.innerHTML = '';
+        minigameAttemptsEl.textContent = minigameState.attempts;
+
+        for (let i = 0; i < MINIGAME_GRID_SIZE; i++) {
+            const card = document.createElement('div');
+            card.className = 'minigame-card';
+            card.dataset.index = i;
+
+            if (minigameState.revealed.has(i)) {
+                card.classList.add('revealed');
+                const item = minigameState.grid[i];
+                if (item.type === 'treasure') {
+                    card.textContent = '💎';
+                } else if (item.type === 'bomb') {
+                    card.textContent = '💣';
+                } else {
+                    card.textContent = '🪨';
+                }
+            } else {
+                card.textContent = '📦';
+            }
+
+            if (minigameState.attempts <= 0) {
+                card.classList.add('disabled');
+            }
+
+            card.addEventListener('click', () => revealCard(i));
+            minigameGrid.appendChild(card);
+        }
+    }
+
+    function revealCard(index) {
+        if (minigameState.attempts <= 0 || minigameState.revealed.has(index)) return;
+
+        minigameState.revealed.add(index);
+        minigameState.attempts--;
+
+        const item = minigameState.grid[index];
+
+        if (item.type === 'treasure') {
+            // Win!
+            showMiniGameResult(true, MINIGAME_TREASURE_REWARD);
+            gold += MINIGAME_TREASURE_REWARD;
+            totalEarned += MINIGAME_TREASURE_REWARD;
+        } else if (item.type === 'bomb') {
+            // Lose!
+            showMiniGameResult(false, 0);
+        } else if (minigameState.attempts <= 0) {
+            // Out of attempts
+            showMiniGameResult(false, 0);
+        }
+
+        renderMiniGameGrid();
+    }
+
+    function showMiniGameResult(won, reward) {
+        minigameResult.classList.remove('hidden');
+        minigameGrid.classList.add('disabled');
+
+        if (won) {
+            resultEmoji.textContent = '🎉';
+            resultText.textContent = i18n.t('minigame.treasureFound');
+            resultReward.textContent = `+${reward} ${i18n.t('game.goldEarned')}`;
+        } else {
+            resultEmoji.textContent = '💔';
+            if (minigameState.attempts <= 0) {
+                resultText.textContent = i18n.t('minigame.noAttempts');
+            } else {
+                resultText.textContent = i18n.t('minigame.bombFound');
+            }
+            resultReward.textContent = i18n.t('minigame.bombMessage');
+        }
+
+        minigameState.active = false;
+        lastMiniGameTime = Date.now();
+        saveState();
+    }
+
+    function closeMiniGame() {
+        minigameOverlay.classList.add('hidden');
+        minigameResult.classList.add('hidden');
+        minigameState.active = false;
+        updateMiniGameButton();
+    }
+
+    function openMiniGame() {
+        const now = Date.now();
+        if (now - lastMiniGameTime < MINIGAME_COOLDOWN) {
+            return; // Still on cooldown
+        }
+
+        minigameOverlay.classList.remove('hidden');
+        minigameState.active = true;
+        initMiniGame();
+    }
+
+    function updateMiniGameButton() {
+        const now = Date.now();
+        const canPlay = now - lastMiniGameTime >= MINIGAME_COOLDOWN;
+
+        if (canPlay && !minigameState.active) {
+            minigameBtn.classList.remove('hidden');
+        } else {
+            minigameBtn.classList.add('hidden');
+        }
+    }
+
+    function checkMiniGameCooldown() {
+        // Called periodically to check if button should be shown
+        updateMiniGameButton();
+    }
+
     // Init
     function init() {
         // Validate critical DOM elements exist
@@ -320,6 +490,7 @@
         renderAchievements();
         startGameLoop();
         setupEvents();
+        setupMiniGame();
 
         // Onboarding hint for new users
         if (totalClicks === 0 && killCount === 0) {
@@ -2036,6 +2207,7 @@
                 bossKills, goldenKills,
                 pets, activePet, petLevels,
                 guildId, guildLevel, guildExp, guildMaxExp, weeklyMissionKills, weeklyMissionTarget, weeklyMissionCompleted, weeklyMissionResetTime,
+                lastMiniGameTime,
                 eventState
             }));
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
@@ -2093,6 +2265,7 @@
                 weeklyMissionTarget = d.weeklyMissionTarget || 5000;
                 weeklyMissionCompleted = d.weeklyMissionCompleted || false;
                 weeklyMissionResetTime = d.weeklyMissionResetTime || null;
+                lastMiniGameTime = d.lastMiniGameTime || 0;
 
                 // Load event system state
                 if (eventSystem && d.eventState) {
@@ -2244,6 +2417,28 @@
             }
             location.reload();
         }
+    }
+
+    // Mini Game Setup
+    function setupMiniGame() {
+        if (!minigameBtn || !minigameOverlay || !minigameCloseBtn) return;
+
+        minigameBtn.addEventListener('click', openMiniGame);
+        minigameCloseBtn.addEventListener('click', closeMiniGame);
+        resultButton.addEventListener('click', closeMiniGame);
+
+        // Close on overlay click
+        minigameOverlay.addEventListener('click', (e) => {
+            if (e.target === minigameOverlay) {
+                closeMiniGame();
+            }
+        });
+
+        // Check cooldown every second
+        setInterval(checkMiniGameCooldown, 1000);
+
+        // Initial button state
+        updateMiniGameButton();
     }
 
     // Events

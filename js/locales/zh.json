@@ -833,5 +833,17 @@
     "missionCompleted": "已完成！",
     "missionComplete": "周间任务已完成！",
     "leaveGuild": "退出公会"
+  },
+  "minigame": {
+    "title": "寻找宝箱",
+    "play": "小游戏!",
+    "attemptsLeft": "剩余尝试",
+    "confirm": "确认",
+    "treasureFound": "你找到了宝藏!",
+    "treasureReward": "获得金币奖励!",
+    "bombFound": "炸弹爆炸了!",
+    "bombMessage": "游戏结束。",
+    "noAttempts": "没有剩余尝试。",
+    "cooldown": "每10分钟可以玩一次小游戏"
   }
 }

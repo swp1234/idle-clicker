@@ -833,5 +833,17 @@
     "missionCompleted": "¡Completado!",
     "missionComplete": "¡Misión Semanal Completada!",
     "leaveGuild": "Salir del Gremio"
+  },
+  "minigame": {
+    "title": "Encontrar cofre del tesoro",
+    "play": "¡Mini juego!",
+    "attemptsLeft": "Intentos restantes",
+    "confirm": "OK",
+    "treasureFound": "¡Encontraste el tesoro!",
+    "treasureReward": "¡Recompensa de oro obtenida!",
+    "bombFound": "¡Bomba explotada!",
+    "bombMessage": "Juego terminado.",
+    "noAttempts": "No hay intentos restantes.",
+    "cooldown": "Puedes jugar el mini juego cada 10 minutos"
   }
 }

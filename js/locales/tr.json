@@ -833,5 +833,17 @@
     "missionCompleted": "Tamamlandı!",
     "missionComplete": "Haftalık Görev Tamamlandı!",
     "leaveGuild": "Loncayı Terk Et"
+  },
+  "minigame": {
+    "title": "Hazine Sandığını Bul",
+    "play": "Mini Oyun!",
+    "attemptsLeft": "Kalan Denemeler",
+    "confirm": "Tamam",
+    "treasureFound": "Hazineyi buldunuz!",
+    "treasureReward": "Altın ödülü kazandınız!",
+    "bombFound": "Bomba patladı!",
+    "bombMessage": "Oyun bitti.",
+    "noAttempts": "Deneme kalmadı.",
+    "cooldown": "Her 10 dakikada bir mini oyun oynayabilirsiniz"
   }
 }

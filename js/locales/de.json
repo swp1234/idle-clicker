@@ -833,5 +833,17 @@
     "missionCompleted": "Abgeschlossen!",
     "missionComplete": "Wöchentliche Aufgabe Abgeschlossen!",
     "leaveGuild": "Gilde Verlassen"
+  },
+  "minigame": {
+    "title": "Schatzbox finden",
+    "play": "Minispiel!",
+    "attemptsLeft": "Verbleibende Versuche",
+    "confirm": "OK",
+    "treasureFound": "Sie haben den Schatz gefunden!",
+    "treasureReward": "Goldpreis erhalten!",
+    "bombFound": "Bombe explodiert!",
+    "bombMessage": "Spiel vorbei.",
+    "noAttempts": "Keine Versuche mehr.",
+    "cooldown": "Sie können alle 10 Minuten ein Minispiel spielen"
   }
 }

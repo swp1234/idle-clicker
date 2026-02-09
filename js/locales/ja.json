@@ -833,5 +833,17 @@
     "missionCompleted": "完了!",
     "missionComplete": "週間ミッション完了!",
     "leaveGuild": "ギルドを退出"
+  },
+  "minigame": {
+    "title": "宝箱を探す",
+    "play": "ミニゲーム!",
+    "attemptsLeft": "残り試行回数",
+    "confirm": "OK",
+    "treasureFound": "宝を見つけました!",
+    "treasureReward": "ゴールド報酬を獲得しました!",
+    "bombFound": "爆弾が爆発しました!",
+    "bombMessage": "ゲーム終了。",
+    "noAttempts": "試行回数がありません。",
+    "cooldown": "10分ごとにミニゲームをプレイできます"
   }
 }

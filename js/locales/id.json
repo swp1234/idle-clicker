@@ -833,5 +833,17 @@
     "missionCompleted": "Selesai!",
     "missionComplete": "Misi Mingguan Selesai!",
     "leaveGuild": "Keluar Guild"
+  },
+  "minigame": {
+    "title": "Temukan Peti Harta Karun",
+    "play": "Mini Game!",
+    "attemptsLeft": "Usaha tersisa",
+    "confirm": "OK",
+    "treasureFound": "Anda menemukan harta karun!",
+    "treasureReward": "Hadiah emas diperoleh!",
+    "bombFound": "Bom meledak!",
+    "bombMessage": "Permainan berakhir.",
+    "noAttempts": "Tidak ada usaha tersisa.",
+    "cooldown": "Anda dapat bermain mini game setiap 10 menit"
   }
 }

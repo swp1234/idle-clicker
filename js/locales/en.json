@@ -533,5 +533,17 @@
         "missionCompleted": "Completed!",
         "missionComplete": "Weekly Mission Completed!",
         "leaveGuild": "Leave Guild"
+    },
+    "minigame": {
+        "title": "Find Treasure Chest",
+        "play": "Mini Game!",
+        "attemptsLeft": "Attempts Left",
+        "confirm": "OK",
+        "treasureFound": "You found treasure!",
+        "treasureReward": "Gold reward obtained!",
+        "bombFound": "Bomb exploded!",
+        "bombMessage": "Game over.",
+        "noAttempts": "No attempts left.",
+        "cooldown": "You can play mini game every 10 minutes"
     }
 }

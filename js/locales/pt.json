@@ -833,5 +833,17 @@
     "missionCompleted": "Concluído!",
     "missionComplete": "Missão Semanal Concluída!",
     "leaveGuild": "Sair da Guilda"
+  },
+  "minigame": {
+    "title": "Encontrar baú de tesouro",
+    "play": "Mini jogo!",
+    "attemptsLeft": "Tentativas restantes",
+    "confirm": "OK",
+    "treasureFound": "Você encontrou o tesouro!",
+    "treasureReward": "Recompensa de ouro obtida!",
+    "bombFound": "Bomba explodiu!",
+    "bombMessage": "Jogo encerrado.",
+    "noAttempts": "Sem tentativas restantes.",
+    "cooldown": "Você pode jogar mini jogo a cada 10 minutos"
   }
 }

@@ -833,5 +833,17 @@
     "missionCompleted": "पूर्ण!",
     "missionComplete": "साप्ताहिक मिशन पूर्ण!",
     "leaveGuild": "गिल्ड छोड़ें"
+  },
+  "minigame": {
+    "title": "खजाना खोजो",
+    "play": "मिनी गेम!",
+    "attemptsLeft": "शेष प्रयास",
+    "confirm": "ठीक है",
+    "treasureFound": "आपको खजाना मिल गया!",
+    "treasureReward": "सोना पुरस्कार प्राप्त किया!",
+    "bombFound": "बम फट गया!",
+    "bombMessage": "गेम खत्म।",
+    "noAttempts": "कोई प्रयास नहीं बचा।",
+    "cooldown": "आप हर 10 मिनट में मिनी गेम खेल सकते हैं"
   }
 }
