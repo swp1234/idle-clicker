@@ -1453,7 +1453,7 @@
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
                 ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
-                killCount, currentMonsterIndex, prestigePoints, prestigeCount, setBonus,
+                killCount, currentMonsterIndex, currentTier, prestigePoints, prestigeCount, setBonus,
                 bossKills, goldenKills
             }));
             localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
@@ -1481,11 +1481,21 @@
                 milestoneIndex = d.milestoneIndex || 0;
                 killCount = d.killCount || 0;
                 currentMonsterIndex = d.currentMonsterIndex || 0;
+                currentTier = d.currentTier || 1;
                 prestigePoints = d.prestigePoints || 0;
                 prestigeCount = d.prestigeCount || 0;
                 setBonus = d.setBonus || 1.0;
                 bossKills = d.bossKills || 0;
                 goldenKills = d.goldenKills || 0;
+            }
+            // Load achievements from localStorage
+            const savedAchievements = localStorage.getItem('achievements');
+            if (savedAchievements) {
+                try {
+                    achievements = JSON.parse(savedAchievements);
+                } catch (e) {
+                    achievements = {};
+                }
             }
         } catch (e) {
             console.warn('Load failed:', e);
