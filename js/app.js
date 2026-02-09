@@ -232,6 +232,7 @@
         calculateOfflineEarnings();
         updateDisplay();
         updatePrestigeDisplay();
+        updateRankingUI();
         renderEquipment();
         renderSkills();
         renderAchievements();
@@ -558,6 +559,11 @@
         if (monsterDying || monsterHP <= 0) return;
 
         monsterHP -= damage;
+
+        // Record for ranking system
+        if (isClick) {
+            window.lastHitDamage = Math.max(window.lastHitDamage || 0, damage);
+        }
 
         if (isClick) {
             showDamageNumber(damage);
@@ -960,6 +966,28 @@
             if (now - lastSaveTime > 5000) {
                 saveState();
                 lastSaveTime = now;
+
+                // Update ranking system
+                if (window.rankingSystem) {
+                    const result = window.rankingSystem.updateRecords({
+                        autoIncome: autoIncomePerSec,
+                        killCount: killCount,
+                        currentTier: currentTier,
+                        gold: gold,
+                        prestigeCount: prestigeCount,
+                        lastHitDamage: window.lastHitDamage || 0
+                    });
+
+                    // Show notifications for new records
+                    if (result.notifications.length > 0) {
+                        result.notifications.forEach(notif => {
+                            showRecordNotification(notif);
+                        });
+                    }
+
+                    // Update ranking UI
+                    updateRankingUI();
+                }
             }
         }, 100);
     }
@@ -1393,6 +1421,9 @@
         const autoDPSSuffix = i18n.t('game.perSec');
         set('stat-auto-income', formatGoldShort(displayIncome) + autoDPSSuffix);
         set('stat-rank', rank.icon + ' ' + rankTitle);
+
+        // Update ranking display
+        updateRankingUI();
     }
 
     // Milestones
@@ -1770,6 +1801,9 @@
             localStorage.removeItem('dungeonClicker_lastTime');
             localStorage.removeItem('achievements');
             localStorage.removeItem('pendingOfflineEarnings');
+            if (window.rankingSystem) {
+                window.rankingSystem.resetRecords();
+            }
             location.reload();
         }
     }
@@ -2085,6 +2119,62 @@
 
             setTimeout(() => confetti.remove(), 2000);
         }
+    }
+
+    // Ranking System UI Functions
+    function updateRankingUI() {
+        if (!window.rankingSystem) return;
+
+        const rankInfo = window.rankingSystem.getRankInfo(killCount);
+        const records = window.rankingSystem.getPersonalRecordsData();
+
+        // Update Rank Badge
+        const rankIcon = document.getElementById('rank-icon');
+        const rankName = document.getElementById('rank-name');
+        if (rankIcon) rankIcon.textContent = rankInfo.icon;
+        if (rankName) {
+            const rankKey = 'ranking.rank' + rankInfo.rank;
+            rankName.textContent = i18n.t(rankKey) || rankInfo.rank;
+        }
+
+        // Update Rank Progress
+        const progressFill = document.getElementById('rank-progress-fill');
+        const progressText = document.getElementById('rank-progress-text');
+        if (progressFill) progressFill.style.width = rankInfo.progress + '%';
+        if (progressText) {
+            if (rankInfo.isMaxRank) {
+                progressText.textContent = i18n.t('ranking.maxRank') || 'MAX RANK';
+            } else {
+                progressText.textContent = `${rankInfo.currentKills} / ${rankInfo.nextThreshold}`;
+            }
+        }
+
+        // Update Records
+        const updateRecord = (id, dateName, record) => {
+            const valEl = document.getElementById(id);
+            const dateEl = document.getElementById(dateName);
+            if (valEl) valEl.textContent = record.formatted;
+            if (dateEl) dateEl.textContent = window.rankingSystem.formatDate(record.timestamp);
+        };
+
+        updateRecord('record-dps', 'record-dps-date', records.highestDPS);
+        updateRecord('record-kills', 'record-kills-date', records.mostKills);
+        updateRecord('record-tier', 'record-tier-date', records.highestTier);
+        updateRecord('record-gold', 'record-gold-date', records.maxGoldHeld);
+        updateRecord('record-prestige', 'record-prestige-date', records.totalPrestige);
+        updateRecord('record-hit', 'record-hit-date', records.maxSingleHit);
+    }
+
+    function showRecordNotification(notif) {
+        const toast = document.createElement('div');
+        toast.className = 'record-toast';
+        toast.innerHTML = `<span>${notif.icon}</span> ${notif.message}`;
+        document.body.appendChild(toast);
+
+        // Auto-remove
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
     }
 
     // Ensure all init happens after DOM is loaded

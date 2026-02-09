@@ -417,5 +417,21 @@
             "title": "Achieve Objectives!",
             "text": "Complete achievements to track your progress and set goals!"
         }
+    },
+    "ranking": {
+        "personalRecords": "Personal Records",
+        "highestDPS": "Highest DPS",
+        "mostKills": "Most Kills",
+        "highestTier": "Highest Tier",
+        "maxGoldHeld": "Max Gold Held",
+        "totalPrestige": "Total Prestiges",
+        "maxSingleHit": "Max Single Hit",
+        "rankBRONZE": "Bronze",
+        "rankSILVER": "Silver",
+        "rankGOLD": "Gold",
+        "rankPLATINUM": "Platinum",
+        "rankDIAMOND": "Diamond",
+        "rankMASTER": "Master",
+        "maxRank": "Max Rank Achieved!"
     }
 }

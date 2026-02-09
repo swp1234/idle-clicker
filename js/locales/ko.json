@@ -417,5 +417,21 @@
             "title": "업적을 달성하세요!",
             "text": "업적을 달성하면 게임의 진행 상황을 추적하고 목표를 설정할 수 있습니다!"
         }
+    },
+    "ranking": {
+        "personalRecords": "개인 기록",
+        "highestDPS": "최고 DPS",
+        "mostKills": "최다 처치",
+        "highestTier": "최고 티어",
+        "maxGoldHeld": "최대 보유 골드",
+        "totalPrestige": "최다 환생",
+        "maxSingleHit": "최대 단일 타격",
+        "rankBRONZE": "동급",
+        "rankSILVER": "은급",
+        "rankGOLD": "금급",
+        "rankPLATINUM": "플래티넘",
+        "rankDIAMOND": "다이아몬드",
+        "rankMASTER": "마스터",
+        "maxRank": "최고 랭크 달성!"
     }
 }
