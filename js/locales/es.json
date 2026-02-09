@@ -27,6 +27,8 @@
         "confirmReset": "¿Estás seguro de que quieres reiniciar todo tu progreso?\nEsta acción no se puede deshacer.",
         "offlineEarnings": "Sin conexión",
         "bossLabel": "JEFE",
+        "tierBossLabel": "JEFE DE NIVEL",
+        "tierCleared": "COMPLETADO",
         "total": "Total",
         "bossDefeated": "¡Derrotado! +",
         "goldEarned": "¡Oro!",
@@ -49,7 +51,8 @@
         "nextEquip": "¡Desbloquear el siguiente equipo aumentará mucho tu poder de combate!",
         "allEquip": "¡Has recogido todo el equipo! ¡Sube de nivel para ser más fuerte!",
         "nextRank": "Oro hasta el siguiente rango:",
-        "maxRank": "¡Rango máximo alcanzado!"
+        "maxRank": "¡Rango máximo alcanzado!",
+        "tapHint": "¡TOCA PARA ATACAR!"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -59,7 +62,11 @@
         "emotionTemp": "Termómetro de Emociones",
         "emotionTempDesc": "¿Cuál es tu temperatura emocional?",
         "mbtiLove": "Compatibilidad de Amor MBTI",
-        "mbtiLoveDesc": "Encuentra tu pareja perfecta"
+        "mbtiLoveDesc": "Encuentra tu pareja perfecta",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Juego de carrera en zigzag",
+        "quizApp": "Quiz de Cultura",
+        "quizAppDesc": "Quiz de conocimiento aleatorio"
     },
     "dungeon": {
         "village": "Afueras del Pueblo",

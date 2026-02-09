@@ -51,7 +51,8 @@
         "nextEquip": "解锁下一个装备将大大提高您的战斗力！",
         "allEquip": "您已收集所有装备！升级以变得更强！",
         "nextRank": "距下一级别的金币：",
-        "maxRank": "已达到最高级别！"
+        "maxRank": "已达到最高级别！",
+        "tapHint": "点击攻击！"
     },
     "recommendations": {
         "emojiMerge": "表情符号合并",
@@ -61,7 +62,11 @@
         "emotionTemp": "情绪温度计",
         "emotionTempDesc": "你的情绪温度是多少?",
         "mbtiLove": "MBTI爱情匹配",
-        "mbtiLoveDesc": "找到你完美的伴侣"
+        "mbtiLoveDesc": "找到你完美的伴侣",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "之字形跑步游戏",
+        "quizApp": "常识问答",
+        "quizAppDesc": "随机常识测验"
     },
     "dungeon": {
         "village": "村庄外围",

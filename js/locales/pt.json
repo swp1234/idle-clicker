@@ -27,6 +27,8 @@
         "confirmReset": "Tem certeza de que deseja reiniciar todo o seu progresso?\nEsta ação não pode ser desfeita.",
         "offlineEarnings": "Offline",
         "bossLabel": "CHEFE",
+        "tierBossLabel": "CHEFE DE NÍVEL",
+        "tierCleared": "COMPLETO",
         "total": "Total",
         "bossDefeated": "Derrotado! +",
         "goldEarned": "Ouro!",
@@ -49,7 +51,8 @@
         "nextEquip": "Desbloquear o próximo equipamento aumentará muito seu poder de combate!",
         "allEquip": "Você coletou todo o equipamento! Suba de nível para ficar mais forte!",
         "nextRank": "Ouro até o próximo nível:",
-        "maxRank": "Nível máximo alcançado!"
+        "maxRank": "Nível máximo alcançado!",
+        "tapHint": "TOQUE PARA ATACAR!"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -59,7 +62,11 @@
         "emotionTemp": "Termômetro de Emoção",
         "emotionTempDesc": "Qual é sua temperatura emocional?",
         "mbtiLove": "Compatibilidade Amorosa MBTI",
-        "mbtiLoveDesc": "Encontre sua alma gêmea"
+        "mbtiLoveDesc": "Encontre sua alma gêmea",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Jogo de corrida em zigue-zague",
+        "quizApp": "Quiz de Conhecimento",
+        "quizAppDesc": "Quiz de conhecimentos aleatórios"
     },
     "dungeon": {
         "village": "Arredores da Vila",

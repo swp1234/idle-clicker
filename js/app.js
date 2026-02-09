@@ -206,6 +206,30 @@
         renderSkills();
         startGameLoop();
         setupEvents();
+
+        // Onboarding hint for new users
+        if (totalClicks === 0 && killCount === 0) {
+            showTapHint();
+        }
+    }
+
+    function showTapHint() {
+        if (!dungeonStage) return;
+        const hint = document.createElement('div');
+        hint.className = 'tap-hint';
+        hint.id = 'tap-hint';
+        const tapText = i18n.t('game.tapHint') || 'TAP TO ATTACK!';
+        hint.textContent = '👆 ' + tapText;
+        dungeonStage.appendChild(hint);
+    }
+
+    function removeTapHint() {
+        const hint = document.getElementById('tap-hint');
+        if (hint) {
+            hint.style.transition = 'opacity 0.5s';
+            hint.style.opacity = '0';
+            setTimeout(() => hint.remove(), 500);
+        }
     }
 
     // === Monster Visual System ===
@@ -586,13 +610,22 @@
         if (!clickArea) return;
         const popup = document.createElement('div');
         popup.className = 'damage-float';
-        if (damage >= clickValue * clickMultiplier * 3) popup.classList.add('crit');
+        const isCrit = damage >= clickValue * clickMultiplier * 3;
+        if (isCrit) popup.classList.add('crit');
         popup.textContent = '-' + formatGoldShort(damage);
 
-        // Random position around center
-        const offsetX = (Math.random() - 0.5) * 60;
+        // More varied position around center
+        const offsetX = (Math.random() - 0.5) * 80;
+        const offsetY = 20 + Math.random() * 30;
         popup.style.left = (80 + offsetX) + 'px';
-        popup.style.top = '30px';
+        popup.style.top = offsetY + 'px';
+
+        // Vary size based on damage relative to monster max HP
+        const impactRatio = Math.min(damage / monsterMaxHP, 0.5);
+        if (impactRatio > 0.1) {
+            popup.style.fontSize = (22 + impactRatio * 16) + 'px';
+        }
+
         clickArea.appendChild(popup);
         setTimeout(() => popup.remove(), 800);
 
@@ -688,6 +721,9 @@
     // Click with dopamine enhancement
     function handleClick(e) {
         if (monsterDying || monsterHP <= 0) return;
+
+        // Remove onboarding hint on first click
+        if (totalClicks === 0) removeTapHint();
 
         const baseClick = clickValue * clickMultiplier;
         const autoBonus = autoIncomePerSec * goldenTouchBonus;

@@ -27,6 +27,8 @@
         "confirmReset": "Bist du sicher, dass du deinen gesamten Fortschritt zurücksetzen möchtest?\nDiese Aktion kann nicht rückgängig gemacht werden.",
         "offlineEarnings": "Offline",
         "bossLabel": "BOSS",
+        "tierBossLabel": "STUFENBOSS",
+        "tierCleared": "GESCHAFFT",
         "total": "Gesamt",
         "bossDefeated": "Besiegt! +",
         "goldEarned": "Gold!",
@@ -49,7 +51,8 @@
         "nextEquip": "Das Freischalten der nächsten Ausrüstung wird deine Kampfkraft stark erhöhen!",
         "allEquip": "Du hast alle Ausrüstungen gesammelt! Lvl auf, um stärker zu werden!",
         "nextRank": "Gold bis zum nächsten Rang:",
-        "maxRank": "Maximaler Rang erreicht!"
+        "maxRank": "Maximaler Rang erreicht!",
+        "tapHint": "TIPPE ZUM ANGREIFEN!"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -59,7 +62,11 @@
         "emotionTemp": "Emotion Thermometer",
         "emotionTempDesc": "Was ist deine emotionale Temperatur?",
         "mbtiLove": "MBTI Liebeskompatibilität",
-        "mbtiLoveDesc": "Finde deinen perfekten Partner"
+        "mbtiLoveDesc": "Finde deinen perfekten Partner",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Zickzack-Laufspiel",
+        "quizApp": "Wissensquiz",
+        "quizAppDesc": "Zufälliges Wissensquiz"
     },
     "dungeon": {
         "village": "Dorfrand",

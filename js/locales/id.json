@@ -27,6 +27,8 @@
         "confirmReset": "Apakah Anda yakin ingin mengatur ulang semua kemajuan?\nTindakan ini tidak dapat dibatalkan.",
         "offlineEarnings": "Offline",
         "bossLabel": "BOS",
+        "tierBossLabel": "BOS TINGKAT",
+        "tierCleared": "SELESAI",
         "total": "Total",
         "bossDefeated": "Dikalahkan! +",
         "goldEarned": "Emas!",
@@ -49,7 +51,8 @@
         "nextEquip": "Membuka peralatan berikutnya akan meningkatkan kekuatan pertempuran Anda secara drastis!",
         "allEquip": "Anda telah mengumpulkan semua peralatan! Naik level untuk menjadi lebih kuat!",
         "nextRank": "Emas hingga peringkat berikutnya:",
-        "maxRank": "Peringkat maksimum tercapai!"
+        "maxRank": "Peringkat maksimum tercapai!",
+        "tapHint": "KETUK UNTUK MENYERANG!"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -59,7 +62,11 @@
         "emotionTemp": "Termometer Emosi",
         "emotionTempDesc": "Berapa suhu emosi Anda?",
         "mbtiLove": "Kecocokan Cinta MBTI",
-        "mbtiLoveDesc": "Temukan pasangan sempurna Anda"
+        "mbtiLoveDesc": "Temukan pasangan sempurna Anda",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Permainan lari zigzag",
+        "quizApp": "Kuis Pengetahuan",
+        "quizAppDesc": "Kuis pengetahuan acak"
     },
     "dungeon": {
         "village": "Pinggiran Desa",

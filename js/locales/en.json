@@ -51,7 +51,8 @@
         "nextEquip": "Unlocking the next equipment will greatly increase your combat power!",
         "allEquip": "You have collected all equipment! Level up to get stronger!",
         "nextRank": "Gold until next rank:",
-        "maxRank": "Maximum rank achieved!"
+        "maxRank": "Maximum rank achieved!",
+        "tapHint": "TAP TO ATTACK!"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -61,7 +62,11 @@
         "emotionTemp": "Emotion Thermometer",
         "emotionTempDesc": "What's your emotion temperature?",
         "mbtiLove": "MBTI Love Match",
-        "mbtiLoveDesc": "Find your perfect match"
+        "mbtiLoveDesc": "Find your perfect match",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Zigzag running game",
+        "quizApp": "Trivia Quiz",
+        "quizAppDesc": "Random trivia quiz"
     },
     "dungeon": {
         "village": "Village Outskirts",

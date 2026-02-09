@@ -27,6 +27,8 @@
         "confirmReset": "Êtes-vous sûr de vouloir réinitialiser tous vos progrès?\nCette action ne peut pas être annulée.",
         "offlineEarnings": "Hors ligne",
         "bossLabel": "BOSS",
+        "tierBossLabel": "BOSS DE NIVEAU",
+        "tierCleared": "TERMINÉ",
         "total": "Total",
         "bossDefeated": "Vaincu! +",
         "goldEarned": "Or!",
@@ -49,7 +51,8 @@
         "nextEquip": "Débloquer l'équipement suivant augmentera considérablement votre puissance de combat!",
         "allEquip": "Vous avez collecté tout l'équipement! Montez de niveau pour devenir plus fort!",
         "nextRank": "Or jusqu'au prochain rang:",
-        "maxRank": "Rang maximum atteint!"
+        "maxRank": "Rang maximum atteint!",
+        "tapHint": "APPUYEZ POUR ATTAQUER !"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -59,7 +62,11 @@
         "emotionTemp": "Thermomètre d'Emotion",
         "emotionTempDesc": "Quelle est ta température émotionnelle?",
         "mbtiLove": "Compatibilité Amoureuse MBTI",
-        "mbtiLoveDesc": "Trouve ton âme soeur"
+        "mbtiLoveDesc": "Trouve ton âme soeur",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Jeu de course en zigzag",
+        "quizApp": "Quiz Culture",
+        "quizAppDesc": "Quiz de culture générale"
     },
     "dungeon": {
         "village": "Abords du Village",

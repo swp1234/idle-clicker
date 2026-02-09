@@ -51,7 +51,8 @@
         "nextEquip": "을 해금하면 전투력이 크게 상승합니다!",
         "allEquip": "모든 장비를 수집했습니다! 레벨을 올려 더 강해지세요!",
         "nextRank": "다음 랭크까지",
-        "maxRank": "최고 랭크 달성!"
+        "maxRank": "최고 랭크 달성!",
+        "tapHint": "탭하여 공격!"
     },
     "dungeon": {
         "village": "마을 주변",
@@ -319,6 +320,10 @@
         "emotionTemp": "감정 온도계",
         "emotionTempDesc": "나의 감정 온도는?",
         "mbtiLove": "MBTI 연애 궁합",
-        "mbtiLoveDesc": "찰떡궁합 찾기"
+        "mbtiLoveDesc": "찰떡궁합 찾기",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "지그재그 달리기 게임",
+        "quizApp": "상식 퀴즈",
+        "quizAppDesc": "랜덤 상식 퀴즈"
     }
 }

@@ -27,6 +27,8 @@
         "confirmReset": "Tüm ilerlemenizi sıfırlamak istediğinizden emin misiniz?\nBu işlem geri alınamaz.",
         "offlineEarnings": "Çevrimdışı",
         "bossLabel": "PATRON",
+        "tierBossLabel": "BÖLÜM PATRONU",
+        "tierCleared": "TEMİZLENDİ",
         "total": "Toplam",
         "bossDefeated": "Yenildi! +",
         "goldEarned": "Altın!",
@@ -49,7 +51,8 @@
         "nextEquip": "Sonraki ekipmanın kilidini açmak savaş gücünü büyük ölçüde artıracak!",
         "allEquip": "Tüm ekipmanları topladınız! Daha güçlü olmak için seviye atın!",
         "nextRank": "Sonraki sıraya kadar altın:",
-        "maxRank": "Maksimum sıra başarıldı!"
+        "maxRank": "Maksimum sıra başarıldı!",
+        "tapHint": "SALDIRMAK İÇİN DOKUN!"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",
@@ -59,7 +62,11 @@
         "emotionTemp": "Duygu Termometresi",
         "emotionTempDesc": "Duygusal sıcaklığınız kaç derece?",
         "mbtiLove": "MBTI Aşk Uyumluluğu",
-        "mbtiLoveDesc": "Mükemmel eşleşmeni bul"
+        "mbtiLoveDesc": "Mükemmel eşleşmeni bul",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Zikzak koşu oyunu",
+        "quizApp": "Bilgi Yarışması",
+        "quizAppDesc": "Rastgele bilgi yarışması"
     },
     "dungeon": {
         "village": "Köy Kenarları",

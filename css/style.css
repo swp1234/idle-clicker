@@ -693,6 +693,18 @@ body {
 .equip-card.locked, .biz-card.locked { opacity: 0.5; pointer-events: none; }
 .equip-card:not(.locked):hover, .biz-card:not(.locked):hover { border-color: var(--border-glass-hover); border-left-color: var(--accent); box-shadow: 0 0 16px rgba(139, 92, 246, 0.2); transform: translateX(2px); }
 .equip-card.can-buy, .equip-card.purchased { border-left-color: var(--gold); }
+.equip-card.can-buy { animation: canBuyPulse 2s ease-in-out infinite; position: relative; }
+@keyframes canBuyPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(251,191,36,0); border-color: var(--border-glass); border-left-color: var(--gold); }
+    50% { box-shadow: 0 0 16px rgba(251,191,36,0.15), inset 0 0 12px rgba(251,191,36,0.05); border-color: rgba(251,191,36,0.3); border-left-color: var(--gold); }
+}
+.equip-card.can-buy::after {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 8px var(--gold-glow);
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+@keyframes dotPulse { 0%, 100% { opacity: 0.6; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
 .equip-card.expensive { border-left-color: var(--accent); }
 .equip-icon, .biz-icon { font-size: 32px; flex-shrink: 0; filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.4)); }
 .equip-info, .biz-info { flex: 1; min-width: 0; }
@@ -1125,6 +1137,40 @@ canvas {
 }
 
 /* CPS meter display */
+/* Onboarding hint */
+.tap-hint {
+    position: absolute;
+    bottom: 60px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px; font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    text-shadow: 0 0 12px rgba(139,92,246,0.6);
+    letter-spacing: 1px; text-transform: uppercase;
+    animation: hintBounce 1.5s ease-in-out infinite;
+    z-index: 10;
+    pointer-events: none;
+    white-space: nowrap;
+}
+@keyframes hintBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+    50% { transform: translateX(-50%) translateY(-8px); opacity: 1; }
+}
+
+/* DPS ticking indicator */
+.dps-tick {
+    position: absolute;
+    font-size: 13px; font-weight: 700;
+    color: rgba(52,211,153,0.7);
+    pointer-events: none;
+    z-index: 10;
+    animation: dpsTick 1.2s ease forwards;
+    white-space: nowrap;
+}
+@keyframes dpsTick {
+    0% { opacity: 0.8; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-30px); }
+}
+
 .cps-display {
     position: fixed;
     bottom: 20px;

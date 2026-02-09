@@ -51,7 +51,8 @@
     "nextEquip": "次の装備「",
     "allEquip": "すべての装備を集めました！レベルを上げて強くなりましょう！",
     "nextRank": "次のランクまであと",
-    "maxRank": "最高ランクに到達しました！"
+    "maxRank": "最高ランクに到達しました！",
+    "tapHint": "タップして攻撃！"
   },
   "dungeon": {
     "village": "村の外れ",
@@ -175,7 +176,11 @@
     "emotionTemp": "感情温度計",
     "emotionTempDesc": "あなたの感情温度は何度?",
     "mbtiLove": "MBTI恋愛相性",
-    "mbtiLoveDesc": "完璧なペアを見つけてください"
+    "mbtiLoveDesc": "完璧なペアを見つけてください",
+    "zigzagRunner": "Zigzag Runner",
+    "zigzagRunnerDesc": "ジグザグランニングゲーム",
+    "quizApp": "雑学クイズ",
+    "quizAppDesc": "ランダム雑学クイズ"
   },
   "equipment": {
     "wooden_sword": {"name": "木製の剣", "desc": "最初の武器、冒険の始まり"},
