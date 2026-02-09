@@ -59,6 +59,10 @@
     let comboTimeout = null;
     let totalCPS = 0;
     let cpsDisplay = null;
+    let goldenMonsterActive = false;
+    let goldenMonsterTimeout = null;
+    let goldenMonsterCountdown = 10;
+    let nextGoldenTime = 0;
 
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
@@ -465,12 +469,20 @@
 
         const cycleLabel = stageInfo.cycle > 1 ? ' NG+' + (stageInfo.cycle - 1) : '';
         const tierName = i18n.t('dungeon.' + stageInfo.tierTheme) || stageInfo.tierName;
+
+        // 중간 체크포인트 표시 (5마리 처치 시)
+        let midpointLabel = '';
+        if (stageInfo.stage === 5) {
+            midpointLabel = `<div style="font-size: 11px; color: var(--gold); margin-top: 2px; text-shadow: 0 0 8px var(--gold-glow);">⭐ ${i18n.t('game.halfway') || '절반 돌파!'}</div>`;
+        }
+
         stageEl.innerHTML = `
             <div class="stage-tier">${stageInfo.tierIcon} ${tierName}${cycleLabel}</div>
             <div class="stage-bar-wrap">
                 <div class="stage-bar-fill" style="width: ${stageInfo.stage * 10}%"></div>
                 <span class="stage-bar-text">${stageInfo.stage} / 10</span>
             </div>
+            ${midpointLabel}
         `;
     }
 
@@ -519,7 +531,13 @@
     function onMonsterDeath() {
         monsterDying = true;
         const monster = MONSTERS[currentMonsterIndex];
-        const reward = getMonsterGoldReward(monster, killCount, isBoss, isTierBoss);
+        let reward = getMonsterGoldReward(monster, killCount, isBoss, isTierBoss);
+
+        // Golden Monster: 3배 보상
+        if (goldenMonsterActive) {
+            reward *= 3;
+            endGoldenMonster();
+        }
 
         gold += reward;
         totalEarned += reward;
@@ -557,44 +575,76 @@
             sfx.coin();
         }
 
-        // Tier Boss defeat: massive celebration
+        // Tier Boss defeat: massive celebration with enhanced effects
         if (isTierBoss) {
             const flash = document.createElement('div');
             flash.className = 'boss-defeat-flash tier-boss-flash';
             document.body.appendChild(flash);
             setTimeout(() => flash.remove(), 1000);
 
+            // Intensive screen shake for tier boss
+            if (container) {
+                container.classList.remove('shake');
+                void container.offsetWidth;
+                container.classList.add('shake');
+                setTimeout(() => container.classList.remove('shake'), 150);
+                setTimeout(() => {
+                    container.classList.add('shake');
+                    setTimeout(() => container.classList.remove('shake'), 150);
+                }, 200);
+            }
+
             const stageInfo = getStageInfo(killCount);
             const tierName = i18n.t('dungeon.' + stageInfo.tierTheme) || stageInfo.tierName;
             const monsterNameKey = getMonsterNameKey(monster.name);
             const translatedName = i18n.t(monsterNameKey);
-            showMilestone(stageInfo.tierIcon + ' ' + tierName + ' ' + (i18n.t('game.tierCleared') || 'CLEARED') + '! ' + translatedName + ' +' + formatGoldShort(reward) + 'G');
+            const defeatText = i18n.t('game.bossDefeated') || 'BOSS DEFEATED';
+            const rewardMsg = stageInfo.tierIcon + ' ' + tierName + ' ' + (i18n.t('game.tierCleared') || 'CLEARED') + '! ' + translatedName + ' +' + formatGoldShort(reward) + 'G';
+
+            // 크게 표시되는 보상
+            showMilestone(defeatText + '! ✨✨✨');
+            setTimeout(() => showMilestone(rewardMsg), 400);
 
             if (window.effectsManager && clickArea) {
               const rect = clickArea.getBoundingClientRect();
               window.effectsManager.addMilestoneEffect('TIER CLEARED!', rect.width / 2, rect.height / 2);
             }
-            // Extra confetti for tier boss
-            spawnConfetti();
-            setTimeout(() => spawnConfetti(), 300);
+            // 대형 컨페티 폭발
+            spawnMassiveConfetti();
+            setTimeout(() => spawnMassiveConfetti(), 400);
         } else if (isBoss) {
-            // Mini boss defeat
+            // Mini boss defeat - enhanced
             const flash = document.createElement('div');
             flash.className = 'boss-defeat-flash';
             document.body.appendChild(flash);
             setTimeout(() => flash.remove(), 600);
+
+            // Screen shake for boss
+            if (container) {
+                container.classList.remove('shake');
+                void container.offsetWidth;
+                container.classList.add('shake');
+                setTimeout(() => container.classList.remove('shake'), 150);
+            }
+
             const monsterNameKey = getMonsterNameKey(monster.name);
             const translatedName = i18n.t(monsterNameKey);
-            showMilestone('BOSS ' + translatedName + ' ' + (i18n.t('game.kill') || 'Kill') + '! +' + formatGoldShort(reward) + ' ' + (i18n.t('game.bossDefeated') || ''));
+            const defeatText = i18n.t('game.bossDefeated') || 'BOSS DEFEATED!';
+            showMilestone(defeatText + ' ' + translatedName + ' +' + formatGoldShort(reward) + 'G');
 
             if (window.effectsManager && clickArea) {
               const rect = clickArea.getBoundingClientRect();
               window.effectsManager.addMilestoneEffect('BOSS DEFEATED!', rect.width / 2, rect.height / 2);
             }
+            // Regular confetti for mini boss
+            spawnConfetti();
         }
 
         killCount++;
-        if (killCountEl) killCountEl.textContent = killCount;
+        if (killCountEl) {
+            const stageInfo = getStageInfo(killCount);
+            killCountEl.innerHTML = `<span>${killCount}</span> <span>${stageInfo.stage}/${10}</span>`;
+        }
 
         // Spawn next monster after delay (longer for boss)
         const spawnDelay = isTierBoss ? 1000 : isBoss ? 700 : 500;
@@ -755,6 +805,43 @@
         setTimeout(() => indicator.remove(), 600);
     }
 
+    // Golden Monster 타이머 업데이트
+    function updateGoldenMonsterTimer() {
+        if (!goldenMonsterActive) return;
+        goldenMonsterCountdown--;
+        if (goldenMonsterCountdown <= 0) {
+            // Golden monster escaped
+            showGoldenMonsterEscape();
+            endGoldenMonster();
+        }
+    }
+
+    function showGoldenMonsterEscape() {
+        const msg = document.createElement('div');
+        msg.style.cssText = `
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(251, 191, 36, 0.2); border: 2px solid #fbbf24;
+            color: #fbbf24; padding: 20px 40px; border-radius: 12px;
+            font-size: 18px; font-weight: 700; z-index: 60;
+            text-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
+            animation: slideUp 0.5s ease forwards;
+        `;
+        msg.textContent = i18n.t('game.goldenEscape') || '⭐ GOLDEN MONSTER ESCAPED!';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 2000);
+    }
+
+    function endGoldenMonster() {
+        goldenMonsterActive = false;
+        if (goldenMonsterTimeout) clearTimeout(goldenMonsterTimeout);
+        if (monsterEmojiEl && !monsterDying) {
+            monsterEmojiEl.style.filter = '';
+        }
+        if (clickArea) {
+            clickArea.classList.remove('golden-monster');
+        }
+    }
+
     // Game Loop
     function startGameLoop() {
         let lastClickTime = Date.now();
@@ -764,6 +851,19 @@
             const now = Date.now();
             const dt = (now - lastTickTime) / 1000;
             lastTickTime = now;
+
+            // Check for golden monster spawn
+            if (!goldenMonsterActive && !monsterDying && now >= nextGoldenTime) {
+                if (Math.random() < 0.05) { // 약 5% 확률
+                    activateGoldenMonster();
+                    nextGoldenTime = now + (120000 + Math.random() * 60000); // 2-3분
+                }
+            }
+
+            // Update golden monster countdown
+            if (goldenMonsterActive) {
+                updateGoldenMonsterTimer();
+            }
 
             // Auto DPS damages monster
             if (autoIncomePerSec > 0 && !monsterDying && monsterHP > 0) {
@@ -792,6 +892,75 @@
                 lastSaveTime = now;
             }
         }, 100);
+    }
+
+    function activateGoldenMonster() {
+        goldenMonsterActive = true;
+        goldenMonsterCountdown = 10;
+
+        if (monsterEmojiEl) {
+            // 황금 아우라 적용
+            monsterEmojiEl.style.filter = `drop-shadow(0 0 20px #fbbf24) drop-shadow(0 0 40px rgba(251, 191, 36, 0.6)) brightness(1.2)`;
+        }
+
+        if (clickArea) {
+            clickArea.classList.add('golden-monster');
+        }
+
+        // 화면 플래시
+        const flash = document.createElement('div');
+        flash.style.cssText = `
+            position: fixed; inset: 0; pointer-events: none; z-index: 35;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.5), transparent);
+            animation: screenFlash 0.4s ease forwards;
+        `;
+        document.body.appendChild(flash);
+        setTimeout(() => flash.remove(), 400);
+
+        // 출현 메시지
+        const msg = document.createElement('div');
+        msg.style.cssText = `
+            position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(251, 191, 36, 0.3); border: 3px solid #fbbf24;
+            color: #fbbf24; padding: 16px 32px; border-radius: 12px;
+            font-size: 20px; font-weight: 900; z-index: 60;
+            text-shadow: 0 0 16px rgba(251, 191, 36, 0.8);
+            animation: slideUp 0.5s ease forwards;
+            letter-spacing: 2px;
+        `;
+        msg.textContent = '⭐ ' + (i18n.t('game.goldenAppear') || 'GOLDEN MONSTER') + ' ⭐';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 2000);
+
+        if (sfx) sfx.levelUp();
+
+        // 10초 타이머 카운트다운 UI
+        const timerEl = document.createElement('div');
+        timerEl.id = 'golden-timer';
+        timerEl.style.cssText = `
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 48px; font-weight: 900; color: #fbbf24;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+            z-index: 65; pointer-events: none;
+        `;
+        document.body.appendChild(timerEl);
+
+        // 1초마다 카운트다운 표시
+        const timerInterval = setInterval(() => {
+            if (goldenMonsterActive && goldenMonsterCountdown > 0) {
+                timerEl.textContent = goldenMonsterCountdown.toString();
+            } else {
+                clearInterval(timerInterval);
+                timerEl.remove();
+            }
+        }, 100);
+
+        // 10초 후 자동 종료
+        if (goldenMonsterTimeout) clearTimeout(goldenMonsterTimeout);
+        goldenMonsterTimeout = setTimeout(() => {
+            endGoldenMonster();
+            timerEl.remove();
+        }, 10000);
     }
 
     // CPS Display
@@ -878,6 +1047,22 @@
             confetti.style.setProperty('--duration', (0.8 + Math.random() * 0.4) + 's');
             document.body.appendChild(confetti);
             setTimeout(() => confetti.remove(), 1200);
+        }
+    }
+
+    // 대형 컨페티 폭발 (보스 처치)
+    function spawnMassiveConfetti() {
+        const confettiCount = 60;
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.innerHTML = ['💥', '🎆', '✨', '⭐', '🌟', '💫'][Math.floor(Math.random() * 6)];
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = window.innerHeight / 2 + 'px';
+            confetti.style.fontSize = (16 + Math.random() * 12) + 'px';
+            confetti.style.setProperty('--duration', (1 + Math.random() * 0.8) + 's');
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 1800);
         }
     }
 
