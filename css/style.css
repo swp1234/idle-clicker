@@ -3890,3 +3890,14 @@ body.season-winter .bg-orb-2 {
 .result-button:active {
     transform: scale(0.98);
 }
+
+/* Selection Color */
+::selection {
+    background: #8b5cf6;
+    color: white;
+}
+
+::-moz-selection {
+    background: #8b5cf6;
+    color: white;
+}
