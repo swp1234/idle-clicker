@@ -69,6 +69,13 @@
         "achievement": "🏆 Logros",
         "achievementUnlocked": "¡Logro desbloqueado!"
     },
+    "offline": {
+        "title": "Ganancias Offline",
+        "away": "¡Estuviste fuera durante {time}!",
+        "earned": "{gold} Oro",
+        "collect": "Reclamar",
+        "double": "Ver Anuncio para 2x Ganancias"
+    },
     "achievement": {
         "firstStep": "Primer Paso",
         "firstStepDesc": "Derrota tu primer monstruo",
