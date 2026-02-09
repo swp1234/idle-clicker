@@ -785,5 +785,26 @@
       "text": "アチーブメントを達成すると、ゲームの進行状況を追跡し、目標を設定できます！",
       "title": "アチーブメントを達成してください！"
     }
+  },
+  "monsters": {
+    "flowerMonster": "花モンスター",
+    "iceMonster": "氷モンスター",
+    "pumpkinMonster": "カボチャモンスター",
+    "snowmanMonster": "雪だるまモンスター"
+  },
+  "seasons": {
+    "spring": "春",
+    "summer": "夏",
+    "autumn": "秋",
+    "winter": "冬",
+    "seasonalMonster": "季節モンスター",
+    "seasonalMonsterFlower": "花モンスター (春)",
+    "seasonalMonsterIce": "氷モンスター (夏)",
+    "seasonalMonsterPumpkin": "カボチャモンスター (秋)",
+    "seasonalMonsterSnowman": "雪だるまモンスター (冬)",
+    "bonusGold": "ゴールド +30%",
+    "bonusCooldown": "クールダウン -15%",
+    "bonusExp": "経験値 +30%",
+    "bonusAll": "すべてのボーナス +15%"
   }
 }

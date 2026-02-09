@@ -785,5 +785,26 @@
       "text": "达成成就可以追踪游戏进度并设定目标！",
       "title": "达成成就！"
     }
+  },
+  "monsters": {
+    "flowerMonster": "花怪",
+    "iceMonster": "冰怪",
+    "pumpkinMonster": "南瓜怪",
+    "snowmanMonster": "雪人怪"
+  },
+  "seasons": {
+    "spring": "春季",
+    "summer": "夏季",
+    "autumn": "秋季",
+    "winter": "冬季",
+    "seasonalMonster": "季节怪物",
+    "seasonalMonsterFlower": "花怪 (春季)",
+    "seasonalMonsterIce": "冰怪 (夏季)",
+    "seasonalMonsterPumpkin": "南瓜怪 (秋季)",
+    "seasonalMonsterSnowman": "雪人怪 (冬季)",
+    "bonusGold": "黄金 +30%",
+    "bonusCooldown": "冷却 -15%",
+    "bonusExp": "经验 +30%",
+    "bonusAll": "所有奖励 +15%"
   }
 }
