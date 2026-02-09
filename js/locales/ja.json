@@ -806,5 +806,32 @@
     "bonusCooldown": "クールダウン -15%",
     "bonusExp": "経験値 +30%",
     "bonusAll": "すべてのボーナス +15%"
+  },
+  "guild": {
+    "title": "ギルド",
+    "selectGuild": "ギルドを選択",
+    "selectGuildDesc": "参加するギルドを選択してください",
+    "flameGuild": "炎のギルド",
+    "flameBuff": "攻撃力 +10%",
+    "frostGuild": "氷のギルド",
+    "frostBuff": "ゴールド +10%",
+    "natureGuild": "自然のギルド",
+    "natureBuff": "HP回復 +10%",
+    "stormGuild": "嵐のギルド",
+    "stormBuff": "攻撃速度 +10%",
+    "shadowGuild": "影のギルド",
+    "shadowBuff": "クリティカル +10%",
+    "level": "レベル",
+    "guildBonus": "ギルドボーナス",
+    "experience": "ギルド経験値",
+    "expNote": "モンスターを倒してギルド経験値を獲得します",
+    "levelUp": "ギルドレベルアップ!",
+    "weeklyMission": "週間ミッション",
+    "weeklyTarget": "今週",
+    "monsters": "体のモンスター倒し",
+    "missionReward": "完了でボーナス獲得",
+    "missionCompleted": "完了!",
+    "missionComplete": "週間ミッション完了!",
+    "leaveGuild": "ギルドを退出"
   }
 }

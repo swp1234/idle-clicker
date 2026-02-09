@@ -806,5 +806,32 @@
     "bonusCooldown": "Recarga -15%",
     "bonusExp": "Experiência +30%",
     "bonusAll": "Todos os Bônus +15%"
+  },
+  "guild": {
+    "title": "Guilda",
+    "selectGuild": "Selecionar Guilda",
+    "selectGuildDesc": "Escolha uma guilda para se juntar",
+    "flameGuild": "Guilda do Fogo",
+    "flameBuff": "Poder de Ataque +10%",
+    "frostGuild": "Guilda do Gelo",
+    "frostBuff": "Ouro +10%",
+    "natureGuild": "Guilda da Natureza",
+    "natureBuff": "Regeneração de Vida +10%",
+    "stormGuild": "Guilda da Tempestade",
+    "stormBuff": "Velocidade de Ataque +10%",
+    "shadowGuild": "Guilda da Sombra",
+    "shadowBuff": "Crítico +10%",
+    "level": "Nível",
+    "guildBonus": "Bônus da Guilda",
+    "experience": "Experiência da Guilda",
+    "expNote": "Ganhe experiência da guilda ao derrotar monstros",
+    "levelUp": "Guilda Subiu de Nível!",
+    "weeklyMission": "Missão Semanal",
+    "weeklyTarget": "Esta Semana",
+    "monsters": "monstros derrotados",
+    "missionReward": "Obtenha bônus ao completar",
+    "missionCompleted": "Concluído!",
+    "missionComplete": "Missão Semanal Concluída!",
+    "leaveGuild": "Sair da Guilda"
   }
 }

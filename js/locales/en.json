@@ -506,5 +506,32 @@
         "bonusCooldown": "Cooldown -15%",
         "bonusExp": "Experience +30%",
         "bonusAll": "All Bonuses +15%"
+    },
+    "guild": {
+        "title": "Guild",
+        "selectGuild": "Select Guild",
+        "selectGuildDesc": "Choose one guild to join",
+        "flameGuild": "Flame Guild",
+        "flameBuff": "Attack Power +10%",
+        "frostGuild": "Frost Guild",
+        "frostBuff": "Gold +10%",
+        "natureGuild": "Nature Guild",
+        "natureBuff": "Health Regen +10%",
+        "stormGuild": "Storm Guild",
+        "stormBuff": "Attack Speed +10%",
+        "shadowGuild": "Shadow Guild",
+        "shadowBuff": "Critical +10%",
+        "level": "Level",
+        "guildBonus": "Guild Bonus",
+        "experience": "Guild Experience",
+        "expNote": "Gain guild experience by defeating monsters",
+        "levelUp": "Guild Level Up!",
+        "weeklyMission": "Weekly Mission",
+        "weeklyTarget": "This Week",
+        "monsters": "monsters defeated",
+        "missionReward": "Complete to get bonus",
+        "missionCompleted": "Completed!",
+        "missionComplete": "Weekly Mission Completed!",
+        "leaveGuild": "Leave Guild"
     }
 }

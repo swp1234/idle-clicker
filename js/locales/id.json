@@ -806,5 +806,32 @@
     "bonusCooldown": "Pendinginan -15%",
     "bonusExp": "Pengalaman +30%",
     "bonusAll": "Semua Bonus +15%"
+  },
+  "guild": {
+    "title": "Guild",
+    "selectGuild": "Pilih Guild",
+    "selectGuildDesc": "Pilih satu guild untuk bergabung",
+    "flameGuild": "Guild Api",
+    "flameBuff": "Kekuatan Serangan +10%",
+    "frostGuild": "Guild Es",
+    "frostBuff": "Emas +10%",
+    "natureGuild": "Guild Alam",
+    "natureBuff": "Pemulihan Kesehatan +10%",
+    "stormGuild": "Guild Badai",
+    "stormBuff": "Kecepatan Serangan +10%",
+    "shadowGuild": "Guild Bayangan",
+    "shadowBuff": "Kritis +10%",
+    "level": "Tingkat",
+    "guildBonus": "Bonus Guild",
+    "experience": "Pengalaman Guild",
+    "expNote": "Dapatkan pengalaman guild dengan mengalahkan monster",
+    "levelUp": "Guild Naik Level!",
+    "weeklyMission": "Misi Mingguan",
+    "weeklyTarget": "Minggu Ini",
+    "monsters": "monster dikalahkan",
+    "missionReward": "Dapatkan bonus saat menyelesaikan",
+    "missionCompleted": "Selesai!",
+    "missionComplete": "Misi Mingguan Selesai!",
+    "leaveGuild": "Keluar Guild"
   }
 }

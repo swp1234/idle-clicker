@@ -506,5 +506,32 @@
         "bonusCooldown": "쿨타임 -15%",
         "bonusExp": "경험치 +30%",
         "bonusAll": "모든 보너스 +15%"
+    },
+    "guild": {
+        "title": "길드",
+        "selectGuild": "길드 선택",
+        "selectGuildDesc": "하나의 길드를 선택하여 가입하세요",
+        "flameGuild": "화염단",
+        "flameBuff": "공격력 +10%",
+        "frostGuild": "빙결단",
+        "frostBuff": "골드 +10%",
+        "natureGuild": "자연단",
+        "natureBuff": "체력 회복 +10%",
+        "stormGuild": "번개단",
+        "stormBuff": "공격 속도 +10%",
+        "shadowGuild": "암흑단",
+        "shadowBuff": "크리티컬 +10%",
+        "level": "레벨",
+        "guildBonus": "길드 보너스",
+        "experience": "길드 경험치",
+        "expNote": "몬스터를 처치하면 길드 경험치를 획득합니다",
+        "levelUp": "길드 레벨업!",
+        "weeklyMission": "주간 미션",
+        "weeklyTarget": "이번 주",
+        "monsters": "마리 처치",
+        "missionReward": "완료 시 보너스 획득",
+        "missionCompleted": "완료!",
+        "missionComplete": "주간 미션 달성!",
+        "leaveGuild": "길드 탈퇴"
     }
 }

@@ -21,6 +21,18 @@
     --transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
+/* Light Mode */
+[data-theme="light"] {
+    --bg-deep: #f5f5fa;
+    --bg-surface: #efefff;
+    --surface-glass: rgba(139, 92, 246, 0.08);
+    --border-glass: rgba(139, 92, 246, 0.2);
+    --border-glass-hover: rgba(139, 92, 246, 0.35);
+    --text: #1a1a2e;
+    --text-secondary: rgba(26, 26, 46, 0.7);
+    --text-dim: rgba(26, 26, 46, 0.6);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1103,6 +1115,37 @@ body {
 .lang-option.active {
     background: rgba(245, 158, 11, 0.3);
     font-weight: 600;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 76px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle:hover {
+    background: rgba(245, 158, 11, 0.5);
+    transform: scale(1.05);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 /* Premium Section */
@@ -3169,4 +3212,363 @@ body.season-winter .bg-orb-2 {
         filter: drop-shadow(0 0 20px var(--season-primary));
         transform: scale(1.05);
     }
+}
+
+/* === Guild System Styles === */
+.guild-container {
+    width: 100%;
+}
+
+.guild-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.guild-selection.hidden {
+    display: none;
+}
+
+.guild-selection-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.guild-selection-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.guild-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+}
+
+@media (max-width: 480px) {
+    .guild-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+.guild-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(139, 92, 246, 0.02));
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.guild-option:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.08));
+}
+
+.guild-option.flame {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.guild-option.flame:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+}
+
+.guild-option.frost {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.guild-option.frost:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+}
+
+.guild-option.nature {
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.guild-option.nature:hover {
+    border-color: rgba(34, 197, 94, 0.6);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+}
+
+.guild-option.storm {
+    border-color: rgba(234, 179, 8, 0.3);
+}
+
+.guild-option.storm:hover {
+    border-color: rgba(234, 179, 8, 0.6);
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(234, 179, 8, 0.05));
+}
+
+.guild-option.shadow {
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.guild-option.shadow:hover {
+    border-color: rgba(168, 85, 247, 0.6);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.05));
+}
+
+.guild-emoji {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.guild-name {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.guild-bonus {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.guild-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.guild-info.hidden {
+    display: none;
+}
+
+.guild-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius);
+}
+
+.guild-emblem {
+    font-size: 48px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guild-header-info {
+    flex: 1;
+}
+
+.guild-name-display {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.guild-level-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.guild-level {
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 16px;
+}
+
+.guild-bonus-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bonus-header {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+}
+
+.bonus-display {
+    padding: 12px 16px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-sm);
+}
+
+.bonus-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bonus-label {
+    font-size: 14px;
+    color: var(--text);
+}
+
+.bonus-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.guild-exp-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: var(--radius);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.exp-label {
+    color: var(--text-secondary);
+}
+
+.exp-text {
+    color: var(--gold);
+}
+
+.exp-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.exp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--gold));
+    transition: width 0.3s ease;
+}
+
+.exp-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.guild-mission-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(251, 191, 36, 0.05);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: var(--radius);
+}
+
+.mission-header {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+}
+
+.mission-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mission-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.mission-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #ff9500);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.mission-reward {
+    padding: 8px 12px;
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.reward-icon {
+    font-size: 16px;
+}
+
+.guild-settings {
+    display: flex;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-glass);
+}
+
+.guild-action-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.08);
+    color: var(--text);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.leave-btn:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    background: rgba(239, 68, 68, 0.15);
 }

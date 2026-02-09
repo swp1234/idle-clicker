@@ -806,5 +806,32 @@
     "bonusCooldown": "Enfriamiento -15%",
     "bonusExp": "Experiencia +30%",
     "bonusAll": "Todos los Bonos +15%"
+  },
+  "guild": {
+    "title": "Gremio",
+    "selectGuild": "Seleccionar Gremio",
+    "selectGuildDesc": "Elige un gremio para unirte",
+    "flameGuild": "Gremio de Fuego",
+    "flameBuff": "Poder de Ataque +10%",
+    "frostGuild": "Gremio de Hielo",
+    "frostBuff": "Oro +10%",
+    "natureGuild": "Gremio de Naturaleza",
+    "natureBuff": "Recuperación de Vida +10%",
+    "stormGuild": "Gremio de Tormenta",
+    "stormBuff": "Velocidad de Ataque +10%",
+    "shadowGuild": "Gremio de Sombra",
+    "shadowBuff": "Crítico +10%",
+    "level": "Nivel",
+    "guildBonus": "Bonificación del Gremio",
+    "experience": "Experiencia del Gremio",
+    "expNote": "Gana experiencia del gremio derrotando monstruos",
+    "levelUp": "Subida de Nivel del Gremio!",
+    "weeklyMission": "Misión Semanal",
+    "weeklyTarget": "Esta Semana",
+    "monsters": "monstruos derrotados",
+    "missionReward": "Obtén bonificación al completar",
+    "missionCompleted": "¡Completado!",
+    "missionComplete": "¡Misión Semanal Completada!",
+    "leaveGuild": "Salir del Gremio"
   }
 }

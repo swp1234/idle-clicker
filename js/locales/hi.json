@@ -806,5 +806,32 @@
     "bonusCooldown": "शीतलन -15%",
     "bonusExp": "अनुभव +30%",
     "bonusAll": "सभी बोनस +15%"
+  },
+  "guild": {
+    "title": "गिल्ड",
+    "selectGuild": "गिल्ड चुनें",
+    "selectGuildDesc": "एक गिल्ड चुनकर शामिल हों",
+    "flameGuild": "ज्वाला गिल्ड",
+    "flameBuff": "हमला शक्ति +10%",
+    "frostGuild": "ठंढ गिल्ड",
+    "frostBuff": "सोना +10%",
+    "natureGuild": "प्रकृति गिल्ड",
+    "natureBuff": "स्वास्थ्य पुनरुद्धार +10%",
+    "stormGuild": "तूफान गिल्ड",
+    "stormBuff": "हमला गति +10%",
+    "shadowGuild": "छाया गिल्ड",
+    "shadowBuff": "महत्वपूर्ण +10%",
+    "level": "स्तर",
+    "guildBonus": "गिल्ड बोनस",
+    "experience": "गिल्ड अनुभव",
+    "expNote": "राक्षसों को मारकर गिल्ड अनुभव प्राप्त करें",
+    "levelUp": "गिल्ड स्तर ऊपर!",
+    "weeklyMission": "साप्ताहिक मिशन",
+    "weeklyTarget": "इस सप्ताह",
+    "monsters": "राक्षस मारे गए",
+    "missionReward": "पूरा करने पर बोनस प्राप्त करें",
+    "missionCompleted": "पूर्ण!",
+    "missionComplete": "साप्ताहिक मिशन पूर्ण!",
+    "leaveGuild": "गिल्ड छोड़ें"
   }
 }

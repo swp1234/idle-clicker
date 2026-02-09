@@ -806,5 +806,32 @@
     "bonusCooldown": "冷却 -15%",
     "bonusExp": "经验 +30%",
     "bonusAll": "所有奖励 +15%"
+  },
+  "guild": {
+    "title": "公会",
+    "selectGuild": "选择公会",
+    "selectGuildDesc": "选择一个公会加入",
+    "flameGuild": "烈焰公会",
+    "flameBuff": "攻击力 +10%",
+    "frostGuild": "霜冻公会",
+    "frostBuff": "金币 +10%",
+    "natureGuild": "自然公会",
+    "natureBuff": "生命恢复 +10%",
+    "stormGuild": "风暴公会",
+    "stormBuff": "攻击速度 +10%",
+    "shadowGuild": "暗影公会",
+    "shadowBuff": "暴击 +10%",
+    "level": "等级",
+    "guildBonus": "公会奖励",
+    "experience": "公会经验",
+    "expNote": "击败怪物获得公会经验",
+    "levelUp": "公会升级！",
+    "weeklyMission": "周间任务",
+    "weeklyTarget": "本周",
+    "monsters": "只怪物已击败",
+    "missionReward": "完成即可获得奖励",
+    "missionCompleted": "已完成！",
+    "missionComplete": "周间任务已完成！",
+    "leaveGuild": "退出公会"
   }
 }

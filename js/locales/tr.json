@@ -806,5 +806,32 @@
     "bonusCooldown": "Soğutma -15%",
     "bonusExp": "Deneyim +30%",
     "bonusAll": "Tüm Bonuslar +15%"
+  },
+  "guild": {
+    "title": "Lonca",
+    "selectGuild": "Lonca Seç",
+    "selectGuildDesc": "Katılmak için bir lonca seçin",
+    "flameGuild": "Alev Loncası",
+    "flameBuff": "Saldırı Gücü +10%",
+    "frostGuild": "Dondurma Loncası",
+    "frostBuff": "Altın +10%",
+    "natureGuild": "Doğa Loncası",
+    "natureBuff": "Sağlık Iyileşmesi +10%",
+    "stormGuild": "Fırtına Loncası",
+    "stormBuff": "Saldırı Hızı +10%",
+    "shadowGuild": "Gölge Loncası",
+    "shadowBuff": "Kritik +10%",
+    "level": "Seviye",
+    "guildBonus": "Lonca Bonusu",
+    "experience": "Lonca Deneyimi",
+    "expNote": "Canavarları yenerek lonca deneyimi kazanın",
+    "levelUp": "Lonca Seviye Yükseltme!",
+    "weeklyMission": "Haftalık Görev",
+    "weeklyTarget": "Bu Hafta",
+    "monsters": "canavar yenildi",
+    "missionReward": "Tamamlayınca bonus alın",
+    "missionCompleted": "Tamamlandı!",
+    "missionComplete": "Haftalık Görev Tamamlandı!",
+    "leaveGuild": "Loncayı Terk Et"
   }
 }

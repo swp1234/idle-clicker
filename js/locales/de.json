@@ -806,5 +806,32 @@
     "bonusCooldown": "Abkühlung -15%",
     "bonusExp": "Erfahrung +30%",
     "bonusAll": "Alle Boni +15%"
+  },
+  "guild": {
+    "title": "Gilde",
+    "selectGuild": "Gilde Wählen",
+    "selectGuildDesc": "Wählen Sie eine Gilde zum Beitreten",
+    "flameGuild": "Flammen-Gilde",
+    "flameBuff": "Angriffskraft +10%",
+    "frostGuild": "Frost-Gilde",
+    "frostBuff": "Gold +10%",
+    "natureGuild": "Natur-Gilde",
+    "natureBuff": "Gesundheitsregeneration +10%",
+    "stormGuild": "Sturm-Gilde",
+    "stormBuff": "Angriffsgeschwindigkeit +10%",
+    "shadowGuild": "Schatten-Gilde",
+    "shadowBuff": "Kritischer Treffer +10%",
+    "level": "Stufe",
+    "guildBonus": "Gilden-Bonus",
+    "experience": "Gildenerfahrung",
+    "expNote": "Sammeln Sie Gildenerfahrung durch das Besiegen von Monstern",
+    "levelUp": "Gildenstufe erhöht!",
+    "weeklyMission": "Wöchentliche Aufgabe",
+    "weeklyTarget": "Diese Woche",
+    "monsters": "Monster besiegt",
+    "missionReward": "Erhalten Sie Bonus beim Abschluss",
+    "missionCompleted": "Abgeschlossen!",
+    "missionComplete": "Wöchentliche Aufgabe Abgeschlossen!",
+    "leaveGuild": "Gilde Verlassen"
   }
 }

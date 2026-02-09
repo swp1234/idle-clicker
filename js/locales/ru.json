@@ -806,5 +806,32 @@
     "bonusCooldown": "Охлаждение -15%",
     "bonusExp": "Опыт +30%",
     "bonusAll": "Все Бонусы +15%"
+  },
+  "guild": {
+    "title": "Гильдия",
+    "selectGuild": "Выбрать гильдию",
+    "selectGuildDesc": "Выберите гильдию для присоединения",
+    "flameGuild": "Гильдия Пламени",
+    "flameBuff": "Сила атаки +10%",
+    "frostGuild": "Гильдия Холода",
+    "frostBuff": "Золото +10%",
+    "natureGuild": "Гильдия Природы",
+    "natureBuff": "Восстановление здоровья +10%",
+    "stormGuild": "Гильдия Бури",
+    "stormBuff": "Скорость атаки +10%",
+    "shadowGuild": "Гильдия Тени",
+    "shadowBuff": "Крит +10%",
+    "level": "Уровень",
+    "guildBonus": "Бонус гильдии",
+    "experience": "Опыт гильдии",
+    "expNote": "Получайте опыт гильдии при победе над монстрами",
+    "levelUp": "Повышение уровня гильдии!",
+    "weeklyMission": "Еженедельная миссия",
+    "weeklyTarget": "На этой неделе",
+    "monsters": "монстров побеждено",
+    "missionReward": "Получайте бонус при завершении",
+    "missionCompleted": "Завершено!",
+    "missionComplete": "Еженедельная миссия завершена!",
+    "leaveGuild": "Покинуть гильдию"
   }
 }

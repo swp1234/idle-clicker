@@ -42,6 +42,9 @@
         });
     });
 
+    // Initialize Theme Toggle
+    initTheme();
+
     // Game state
     let gold = 0;
     let totalEarned = 0;
@@ -847,6 +850,12 @@
             updateMissionProgress('boss_1', 1);
         }
 
+        // Update guild system
+        if (guildId !== null) {
+            addGuildExp(1); // 1 exp per kill
+            updateWeeklyMission(1);
+        }
+
         if (killCountEl) {
             const stageInfo = getStageInfo(killCount);
             killCountEl.innerHTML = `<span>${killCount}</span> <span>${stageInfo.stage}/${10}</span>`;
@@ -1010,7 +1019,8 @@
 
         const prestigeBonus = 1 + (prestigePoints * 0.15);  // IMPROVED: Stronger prestige bonus
         const petBonus = getPetBonusMultiplier();
-        const baseClick = clickValue * clickMultiplier * prestigeBonus * petBonus;
+        const guildBonus = getGuildBonus();
+        const baseClick = clickValue * clickMultiplier * prestigeBonus * petBonus * guildBonus;
         const autoBonus = autoIncomePerSec * goldenTouchBonus;
         const damage = Math.max(1, baseClick + autoBonus);
 
@@ -1301,7 +1311,8 @@
             }
         }
         const prestigeBonus = 1 + (prestigePoints * 0.15);  // IMPROVED: Stronger prestige bonus
-        autoIncomePerSec = total * autoMultiplier * prestigeBonus * setBonus;
+        const guildBonus = getGuildBonus();
+        autoIncomePerSec = total * autoMultiplier * prestigeBonus * setBonus * guildBonus;
     }
 
     // Equipment
