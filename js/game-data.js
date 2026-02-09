@@ -12,71 +12,71 @@ const EQUIPMENT_GRADES = {
 // === EQUIPMENT (100 items across 10 tiers) ===
 const EQUIPMENT_DEFS = [
     // ═══ Tier 1: 마을 주변 (Village) ═══
-    { id: 'wooden_sword',   name: '나무 검',         icon: '🗡️', baseCost: 3,      baseIncome: 1,     costMul: 1.12, desc: '모험의 시작, 첫 번째 무기', ally: null, grade: 'common' },
-    { id: 'leather_shield', name: '가죽 방패',       icon: '🛡️', baseCost: 8,      baseIncome: 2,     costMul: 1.12, desc: '기본적인 방어력을 제공', ally: null, grade: 'common' },
-    { id: 'iron_dagger',    name: '철 단검',         icon: '🔪', baseCost: 20,     baseIncome: 5,     costMul: 1.12, desc: '빠른 연속 공격이 가능', ally: null, grade: 'common' },
-    { id: 'iron_helm',      name: '철 투구',         icon: '⛑️', baseCost: 50,     baseIncome: 10,    costMul: 1.13, desc: '머리를 보호하는 철 투구', ally: null, grade: 'uncommon' },
-    { id: 'iron_armor',     name: '철 갑옷',         icon: '⚔️', baseCost: 125,    baseIncome: 20,    costMul: 1.13, desc: '단단한 철로 제련된 갑옷', ally: null, grade: 'uncommon' },
-    { id: 'steel_sword',    name: '강철 장검',       icon: '⚔️', baseCost: 300,    baseIncome: 38,    costMul: 1.13, desc: '장인이 벼린 강철의 검', ally: null, grade: 'uncommon' },
-    { id: 'recruit_bow',    name: '수비대의 활',     icon: '🏹', baseCost: 750,    baseIncome: 70,    costMul: 1.14, desc: '마을 수비대 궁수의 활', ally: 'archer', grade: 'rare' },
-    { id: 'acolyte_staff',  name: '수습 지팡이',     icon: '🪄', baseCost: 1750,   baseIncome: 125,   costMul: 1.14, desc: '마법 수련에 쓰이는 지팡이', ally: 'mage', grade: 'rare' },
-    { id: 'squire_plate',   name: '견습 기사 갑옷',  icon: '🛡️', baseCost: 4000,   baseIncome: 225,   costMul: 1.14, desc: '기사 수련생의 무거운 갑옷', ally: null, grade: 'rare' },
-    { id: 'master_blade',   name: '대장장이의 명검', icon: '🗡️', baseCost: 9000,   baseIncome: 400,   costMul: 1.14, desc: '마을 최고 장인의 역작', ally: null, grade: 'epic' },
+    { id: 'wooden_sword',   name: '나무 검',         icon: '🗡️', baseCost: 3,      baseIncome: 1,     costMul: 1.10, desc: '모험의 시작, 첫 번째 무기', ally: null, grade: 'common' },
+    { id: 'leather_shield', name: '가죽 방패',       icon: '🛡️', baseCost: 6,      baseIncome: 1.5,   costMul: 1.10, desc: '기본적인 방어력을 제공', ally: null, grade: 'common' },
+    { id: 'iron_dagger',    name: '철 단검',         icon: '🔪', baseCost: 12,     baseIncome: 3,     costMul: 1.11, desc: '빠른 연속 공격이 가능', ally: null, grade: 'common' },
+    { id: 'iron_helm',      name: '철 투구',         icon: '⛑️', baseCost: 28,     baseIncome: 6,     costMul: 1.11, desc: '머리를 보호하는 철 투구', ally: null, grade: 'uncommon' },
+    { id: 'iron_armor',     name: '철 갑옷',         icon: '⚔️', baseCost: 65,     baseIncome: 13,    costMul: 1.12, desc: '단단한 철로 제련된 갑옷', ally: null, grade: 'uncommon' },
+    { id: 'steel_sword',    name: '강철 장검',       icon: '⚔️', baseCost: 150,    baseIncome: 28,    costMul: 1.12, desc: '장인이 벼린 강철의 검', ally: null, grade: 'uncommon' },
+    { id: 'recruit_bow',    name: '수비대의 활',     icon: '🏹', baseCost: 350,    baseIncome: 55,    costMul: 1.13, desc: '마을 수비대 궁수의 활', ally: 'archer', grade: 'rare' },
+    { id: 'acolyte_staff',  name: '수습 지팡이',     icon: '🪄', baseCost: 800,    baseIncome: 100,   costMul: 1.13, desc: '마법 수련에 쓰이는 지팡이', ally: 'mage', grade: 'rare' },
+    { id: 'squire_plate',   name: '견습 기사 갑옷',  icon: '🛡️', baseCost: 1800,   baseIncome: 180,   costMul: 1.13, desc: '기사 수련생의 무거운 갑옷', ally: null, grade: 'rare' },
+    { id: 'master_blade',   name: '대장장이의 명검', icon: '🗡️', baseCost: 4000,   baseIncome: 320,   costMul: 1.13, desc: '마을 최고 장인의 역작', ally: null, grade: 'epic' },
     // ═══ Tier 2: 숲의 던전 (Forest) ═══
-    { id: 'hunters_bow',    name: '사냥꾼의 활',     icon: '🏹', baseCost: 40000,     baseIncome: 720,     costMul: 1.14, desc: '숲의 노련한 사냥꾼의 활', ally: 'archer', grade: 'epic' },
-    { id: 'wolf_cloak',     name: '늑대 가죽 망토',  icon: '🐺', baseCost: 90000,     baseIncome: 1300,    costMul: 1.14, desc: '늑대의 가죽으로 만든 망토', ally: null, grade: 'rare' },
-    { id: 'poison_blade',   name: '독날 검',         icon: '🗡️', baseCost: 200000,    baseIncome: 2400,    costMul: 1.14, desc: '독이 묻은 날카로운 검', ally: null, grade: 'rare' },
-    { id: 'thorn_whip',     name: '가시 채찍',       icon: '🌿', baseCost: 440000,    baseIncome: 4200,    costMul: 1.13, desc: '가시로 뒤덮인 마법 채찍', ally: null, grade: 'epic' },
-    { id: 'forest_staff',   name: '숲의 지팡이',     icon: '🪄', baseCost: 1000000,   baseIncome: 7500,    costMul: 1.13, desc: '자연의 힘이 깃든 지팡이', ally: 'druid', grade: 'epic' },
-    { id: 'elven_boots',    name: '엘프 부츠',       icon: '👢', baseCost: 2200000,   baseIncome: 13000,   costMul: 1.13, desc: '엘프의 민첩함이 깃든 부츠', ally: null, grade: 'legendary' },
-    { id: 'oak_shield',     name: '참나무 대방패',   icon: '🛡️', baseCost: 5000000,   baseIncome: 23000,   costMul: 1.13, desc: '세계수 조각으로 만든 방패', ally: null, grade: 'legendary' },
-    { id: 'spirit_bow',     name: '정령의 활',       icon: '🏹', baseCost: 11000000,  baseIncome: 40000,   costMul: 1.12, desc: '정령이 축복한 신비의 활', ally: 'elf_archer', grade: 'legendary' },
-    { id: 'druid_robe',     name: '드루이드 로브',   icon: '🧙', baseCost: 25000000,  baseIncome: 70000,   costMul: 1.12, desc: '자연과 소통하는 마법 로브', ally: 'druid', grade: 'legendary' },
-    { id: 'forest_crown',   name: '숲 왕의 왕관',    icon: '👑', baseCost: 55000000,  baseIncome: 125000,  costMul: 1.12, desc: '숲을 다스리는 왕의 왕관', ally: null, grade: 'legendary' },
+    { id: 'hunters_bow',    name: '사냥꾼의 활',     icon: '🏹', baseCost: 18000,     baseIncome: 550,     costMul: 1.13, desc: '숲의 노련한 사냥꾼의 활', ally: 'archer', grade: 'epic' },
+    { id: 'wolf_cloak',     name: '늑대 가죽 망토',  icon: '🐺', baseCost: 40000,     baseIncome: 1000,    costMul: 1.13, desc: '늑대의 가죽으로 만든 망토', ally: null, grade: 'rare' },
+    { id: 'poison_blade',   name: '독날 검',         icon: '🗡️', baseCost: 90000,    baseIncome: 1900,    costMul: 1.13, desc: '독이 묻은 날카로운 검', ally: null, grade: 'rare' },
+    { id: 'thorn_whip',     name: '가시 채찍',       icon: '🌿', baseCost: 200000,   baseIncome: 3400,    costMul: 1.13, desc: '가시로 뒤덮인 마법 채찍', ally: null, grade: 'epic' },
+    { id: 'forest_staff',   name: '숲의 지팡이',     icon: '🪄', baseCost: 450000,   baseIncome: 5800,    costMul: 1.13, desc: '자연의 힘이 깃든 지팡이', ally: 'druid', grade: 'epic' },
+    { id: 'elven_boots',    name: '엘프 부츠',       icon: '👢', baseCost: 1000000,   baseIncome: 10000,   costMul: 1.13, desc: '엘프의 민첩함이 깃든 부츠', ally: null, grade: 'legendary' },
+    { id: 'oak_shield',     name: '참나무 대방패',   icon: '🛡️', baseCost: 2200000,   baseIncome: 18000,   costMul: 1.13, desc: '세계수 조각으로 만든 방패', ally: null, grade: 'legendary' },
+    { id: 'spirit_bow',     name: '정령의 활',       icon: '🏹', baseCost: 4800000,  baseIncome: 32000,   costMul: 1.12, desc: '정령이 축복한 신비의 활', ally: 'elf_archer', grade: 'legendary' },
+    { id: 'druid_robe',     name: '드루이드 로브',   icon: '🧙', baseCost: 10500000,  baseIncome: 56000,   costMul: 1.12, desc: '자연과 소통하는 마법 로브', ally: 'druid', grade: 'legendary' },
+    { id: 'forest_crown',   name: '숲 왕의 왕관',    icon: '👑', baseCost: 23000000,  baseIncome: 100000,  costMul: 1.12, desc: '숲을 다스리는 왕의 왕관', ally: null, grade: 'legendary' },
     // ═══ Tier 3: 화산 던전 (Volcano) ═══
-    { id: 'flame_sword',    name: '화염 검',         icon: '🔥', baseCost: 120e6,   baseIncome: 220000,   costMul: 1.12, desc: '불꽃이 타오르는 마검', ally: null, grade: 'epic' },
-    { id: 'lava_shield',    name: '용암 방패',       icon: '🛡️', baseCost: 260e6,   baseIncome: 380000,   costMul: 1.12, desc: '녹지 않는 용암석 방패', ally: null, grade: 'epic' },
-    { id: 'fire_staff',     name: '화염 지팡이',     icon: '🔥', baseCost: 570e6,   baseIncome: 660000,   costMul: 1.12, desc: '화산의 마력이 담긴 지팡이', ally: 'fire_mage', grade: 'epic' },
-    { id: 'obsidian_blade', name: '흑요석 검',       icon: '🗡️', baseCost: 1.2e9,   baseIncome: 1150000,  costMul: 1.11, desc: '화산에서 태어난 흑요석 칼날', ally: null, grade: 'legendary' },
-    { id: 'magma_gauntlet', name: '마그마 건틀릿',   icon: '🧤', baseCost: 2.7e9,   baseIncome: 2000000,  costMul: 1.11, desc: '용암으로 단련된 장갑', ally: null, grade: 'legendary' },
-    { id: 'salamander_mail',name: '불도마뱀 갑옷',   icon: '🦎', baseCost: 6e9,     baseIncome: 3500000,  costMul: 1.11, desc: '화염에 면역인 비늘 갑옷', ally: null, grade: 'legendary' },
-    { id: 'volcano_hammer', name: '화산 망치',       icon: '🔨', baseCost: 13e9,    baseIncome: 6000000,  costMul: 1.11, desc: '화산의 분노를 담은 대형 망치', ally: 'fire_golem', grade: 'legendary' },
-    { id: 'phoenix_feather',name: '불사조 깃털',     icon: '🪶', baseCost: 28e9,    baseIncome: 10500000, costMul: 1.10, desc: '불사조의 신성한 깃털 장식', ally: 'phoenix_ally', grade: 'legendary' },
-    { id: 'inferno_robe',   name: '지옥불 로브',     icon: '🔥', baseCost: 60e9,    baseIncome: 18000000, costMul: 1.10, desc: '지옥불이 수놓인 마법 로브', ally: null, grade: 'legendary' },
-    { id: 'volcano_heart',  name: '화산의 심장',     icon: '❤️‍🔥', baseCost: 130e9,  baseIncome: 32000000, costMul: 1.10, desc: '화산 깊은 곳의 핵심 결정', ally: null, grade: 'legendary' },
+    { id: 'flame_sword',    name: '화염 검',         icon: '🔥', baseCost: 50e6,   baseIncome: 170000,   costMul: 1.12, desc: '불꽃이 타오르는 마검', ally: null, grade: 'epic' },
+    { id: 'lava_shield',    name: '용암 방패',       icon: '🛡️', baseCost: 110e6,   baseIncome: 300000,   costMul: 1.12, desc: '녹지 않는 용암석 방패', ally: null, grade: 'epic' },
+    { id: 'fire_staff',     name: '화염 지팡이',     icon: '🔥', baseCost: 240e6,   baseIncome: 530000,   costMul: 1.12, desc: '화산의 마력이 담긴 지팡이', ally: 'fire_mage', grade: 'epic' },
+    { id: 'obsidian_blade', name: '흑요석 검',       icon: '🗡️', baseCost: 520e6,   baseIncome: 920000,  costMul: 1.11, desc: '화산에서 태어난 흑요석 칼날', ally: null, grade: 'legendary' },
+    { id: 'magma_gauntlet', name: '마그마 건틀릿',   icon: '🧤', baseCost: 1.15e9,   baseIncome: 1600000,  costMul: 1.11, desc: '용암으로 단련된 장갑', ally: null, grade: 'legendary' },
+    { id: 'salamander_mail',name: '불도마뱀 갑옷',   icon: '🦎', baseCost: 2.5e9,     baseIncome: 2800000,  costMul: 1.11, desc: '화염에 면염인 비늘 갑옷', ally: null, grade: 'legendary' },
+    { id: 'volcano_hammer', name: '화산 망치',       icon: '🔨', baseCost: 5.5e9,    baseIncome: 4800000,  costMul: 1.11, desc: '화산의 분노를 담은 대형 망치', ally: 'fire_golem', grade: 'legendary' },
+    { id: 'phoenix_feather',name: '불사조 깃털',     icon: '🪶', baseCost: 12e9,    baseIncome: 8400000, costMul: 1.10, desc: '불사조의 신성한 깃털 장식', ally: 'phoenix_ally', grade: 'legendary' },
+    { id: 'inferno_robe',   name: '지옥불 로브',     icon: '🔥', baseCost: 26e9,    baseIncome: 14400000, costMul: 1.10, desc: '지옥불이 수놓인 마법 로브', ally: null, grade: 'legendary' },
+    { id: 'volcano_heart',  name: '화산의 심장',     icon: '❤️‍🔥', baseCost: 57e9,  baseIncome: 25600000, costMul: 1.10, desc: '화산 깊은 곳의 핵심 결정', ally: null, grade: 'legendary' },
     // ═══ Tier 4: 심연 (Abyss) ═══
-    { id: 'shadow_blade',   name: '그림자 검',       icon: '⚔️', baseCost: 280e9,   baseIncome: 55e6,    costMul: 1.10, desc: '어둠에서 태어난 검', ally: 'shadow' },
-    { id: 'soul_gem',       name: '영혼석',          icon: '💎', baseCost: 600e9,   baseIncome: 95e6,    costMul: 1.10, desc: '영혼의 힘을 증폭시키는 보석', ally: null, grade: 'rare' },
-    { id: 'necro_tome',     name: '사령술서',        icon: '📖', baseCost: 1.3e12,  baseIncome: 165e6,   costMul: 1.10, desc: '죽은 자를 부리는 금서', ally: 'skeleton' },
-    { id: 'abyssal_scythe', name: '심연의 낫',       icon: '⚔️', baseCost: 2.8e12,  baseIncome: 285e6,   costMul: 1.09, desc: '저승사자의 대낫', ally: null, grade: 'rare' },
-    { id: 'void_armor',     name: '공허의 갑옷',     icon: '🛡️', baseCost: 6e12,    baseIncome: 500e6,   costMul: 1.09, desc: '심연의 공허로 만든 갑옷', ally: null, grade: 'rare' },
-    { id: 'banshee_wail',   name: '밴시의 울음',     icon: '👻', baseCost: 13e12,   baseIncome: 860e6,   costMul: 1.09, desc: '귀를 찢는 비명의 마법 구슬', ally: 'banshee' },
-    { id: 'blood_chalice',  name: '피의 성배',       icon: '🏆', baseCost: 28e12,   baseIncome: 1.5e9,   costMul: 1.09, desc: '뱀파이어 군주의 성배', ally: null, grade: 'rare' },
-    { id: 'demon_horn',     name: '악마의 뿔',       icon: '😈', baseCost: 60e12,   baseIncome: 2.6e9,   costMul: 1.09, desc: '악마에게서 빼앗은 뿔 장식', ally: 'demon_ally' },
-    { id: 'abyss_eye',      name: '심연의 눈',       icon: '👁️', baseCost: 130e12,  baseIncome: 4.5e9,   costMul: 1.08, desc: '모든 것을 꿰뚫어 보는 눈', ally: null, grade: 'rare' },
-    { id: 'death_mantle',   name: '죽음의 군주 망토',icon: '💀', baseCost: 280e12,  baseIncome: 7.8e9,   costMul: 1.08, desc: '죽음을 지배하는 군주의 망토', ally: 'death_knight' },
+    { id: 'shadow_blade',   name: '그림자 검',       icon: '⚔️', baseCost: 120e9,   baseIncome: 44e6,    costMul: 1.10, desc: '어둠에서 태어난 검', ally: 'shadow' },
+    { id: 'soul_gem',       name: '영혼석',          icon: '💎', baseCost: 260e9,   baseIncome: 76e6,    costMul: 1.10, desc: '영혼의 힘을 증폭시키는 보석', ally: null, grade: 'rare' },
+    { id: 'necro_tome',     name: '사령술서',        icon: '📖', baseCost: 560e9,  baseIncome: 132e6,   costMul: 1.10, desc: '죽은 자를 부리는 금서', ally: 'skeleton' },
+    { id: 'abyssal_scythe', name: '심연의 낫',       icon: '⚔️', baseCost: 1.2e12,  baseIncome: 228e6,   costMul: 1.09, desc: '저승사자의 대낫', ally: null, grade: 'rare' },
+    { id: 'void_armor',     name: '공허의 갑옷',     icon: '🛡️', baseCost: 2.6e12,    baseIncome: 400e6,   costMul: 1.09, desc: '심연의 공허로 만든 갑옷', ally: null, grade: 'rare' },
+    { id: 'banshee_wail',   name: '밴시의 울음',     icon: '👻', baseCost: 5.6e12,   baseIncome: 688e6,   costMul: 1.09, desc: '귀를 찢는 비명의 마법 구슬', ally: 'banshee' },
+    { id: 'blood_chalice',  name: '피의 성배',       icon: '🏆', baseCost: 12e12,   baseIncome: 1.2e9,   costMul: 1.09, desc: '뱀파이어 군주의 성배', ally: null, grade: 'rare' },
+    { id: 'demon_horn',     name: '악마의 뿔',       icon: '😈', baseCost: 26e12,   baseIncome: 2.08e9,   costMul: 1.09, desc: '악마에게서 빼앗은 뿔 장식', ally: 'demon_ally' },
+    { id: 'abyss_eye',      name: '심연의 눈',       icon: '👁️', baseCost: 56e12,  baseIncome: 3.6e9,   costMul: 1.08, desc: '모든 것을 꿰뚫어 보는 눈', ally: null, grade: 'rare' },
+    { id: 'death_mantle',   name: '죽음의 군주 망토',icon: '💀', baseCost: 120e12,  baseIncome: 6.24e9,   costMul: 1.08, desc: '죽음을 지배하는 군주의 망토', ally: 'death_knight' },
     // ═══ Tier 5: 용의 둥지 (Dragon's Nest) ═══
-    { id: 'dragon_fang',    name: '드래곤 송곳니',   icon: '🐉', baseCost: 600e12,  baseIncome: 13.5e9,  costMul: 1.08, desc: '드래곤의 이빨로 만든 검', ally: null, grade: 'rare' },
-    { id: 'dragon_scale',   name: '드래곤 비늘 갑옷',icon: '🐲', baseCost: 1.3e15,  baseIncome: 23e9,    costMul: 1.08, desc: '용의 비늘로 만든 갑옷', ally: 'dragon_pet' },
-    { id: 'wyrmfire_staff',  name: '용화 지팡이',    icon: '🪄', baseCost: 2.8e15,  baseIncome: 40e9,    costMul: 1.08, desc: '용의 숨결이 담긴 지팡이', ally: 'fire_dragon' },
-    { id: 'wyvern_lance',   name: '와이번 창',       icon: '⚔️', baseCost: 6e15,    baseIncome: 70e9,    costMul: 1.07, desc: '와이번의 뼈로 만든 창', ally: null, grade: 'rare' },
-    { id: 'hydra_fang',     name: '히드라의 이빨',   icon: '🐍', baseCost: 13e15,   baseIncome: 120e9,   costMul: 1.07, desc: '자라나는 독니로 만든 무기', ally: null, grade: 'rare' },
-    { id: 'ancient_relic',  name: '고대의 유물',     icon: '🏺', baseCost: 28e15,   baseIncome: 210e9,   costMul: 1.07, desc: '태초의 힘이 봉인된 유물', ally: null, grade: 'rare' },
-    { id: 'bone_dragon_bow',name: '뼈 드래곤 활',    icon: '🦴', baseCost: 60e15,   baseIncome: 360e9,   costMul: 1.07, desc: '언데드 드래곤의 뼈 활', ally: 'bone_dragon' },
-    { id: 'titan_hammer',   name: '타이탄 망치',     icon: '🔨', baseCost: 130e15,  baseIncome: 620e9,   costMul: 1.07, desc: '거신이 사용하던 대형 망치', ally: 'titan_ally' },
-    { id: 'dragon_heart',   name: '용의 심장',       icon: '❤️', baseCost: 280e15,  baseIncome: 1.1e12,  costMul: 1.06, desc: '드래곤 로드의 심장 결정', ally: null, grade: 'rare' },
-    { id: 'dragonlord_crown',name:'용왕의 왕관',     icon: '👑', baseCost: 600e15,  baseIncome: 1.9e12,  costMul: 1.06, desc: '모든 용을 지배하는 왕관', ally: 'dragon_lord' },
+    { id: 'dragon_fang',    name: '드래곤 송곳니',   icon: '🐉', baseCost: 260e12,  baseIncome: 10.8e9,  costMul: 1.08, desc: '드래곤의 이빨로 만든 검', ally: null, grade: 'rare' },
+    { id: 'dragon_scale',   name: '드래곤 비늘 갑옷',icon: '🐲', baseCost: 560e12,  baseIncome: 18.4e9,    costMul: 1.08, desc: '용의 비늘로 만든 갑옷', ally: 'dragon_pet' },
+    { id: 'wyrmfire_staff',  name: '용화 지팡이',    icon: '🪄', baseCost: 1.2e15,  baseIncome: 32e9,    costMul: 1.08, desc: '용의 숨결이 담긴 지팡이', ally: 'fire_dragon' },
+    { id: 'wyvern_lance',   name: '와이번 창',       icon: '⚔️', baseCost: 2.6e15,    baseIncome: 56e9,    costMul: 1.07, desc: '와이번의 뼈로 만든 창', ally: null, grade: 'rare' },
+    { id: 'hydra_fang',     name: '히드라의 이빨',   icon: '🐍', baseCost: 5.6e15,   baseIncome: 96e9,   costMul: 1.07, desc: '자라나는 독니로 만든 무기', ally: null, grade: 'rare' },
+    { id: 'ancient_relic',  name: '고대의 유물',     icon: '🏺', baseCost: 12e15,   baseIncome: 168e9,   costMul: 1.07, desc: '태초의 힘이 봉인된 유물', ally: null, grade: 'rare' },
+    { id: 'bone_dragon_bow',name: '뼈 드래곤 활',    icon: '🦴', baseCost: 26e15,   baseIncome: 288e9,   costMul: 1.07, desc: '언데드 드래곤의 뼈 활', ally: 'bone_dragon' },
+    { id: 'titan_hammer',   name: '타이탄 망치',     icon: '🔨', baseCost: 56e15,  baseIncome: 496e9,   costMul: 1.07, desc: '거신이 사용하던 대형 망치', ally: 'titan_ally' },
+    { id: 'dragon_heart',   name: '용의 심장',       icon: '❤️', baseCost: 120e15,  baseIncome: 880e9,  costMul: 1.06, desc: '드래곤 로드의 심장 결정', ally: null, grade: 'rare' },
+    { id: 'dragonlord_crown',name:'용왕의 왕관',     icon: '👑', baseCost: 260e15,  baseIncome: 1.52e12,  costMul: 1.06, desc: '모든 용을 지배하는 왕관', ally: 'dragon_lord' },
     // ═══ Tier 6: 신들의 영역 (Divine) ═══
-    { id: 'god_blade',      name: '신의 검',         icon: '⚜️', baseCost: 1.3e18,  baseIncome: 3.2e12,  costMul: 1.06, desc: '신이 내린 축복의 검', ally: 'angel' },
-    { id: 'celestial_armor',name: '천상의 갑옷',     icon: '🔱', baseCost: 2.8e18,  baseIncome: 5.5e12,  costMul: 1.06, desc: '하늘의 광채를 담은 갑옷', ally: null, grade: 'rare' },
-    { id: 'infinity_orb',   name: '무한의 오브',     icon: '🔮', baseCost: 6e18,    baseIncome: 9.5e12,  costMul: 1.06, desc: '무한한 마력의 수정구', ally: 'archmage' },
-    { id: 'seraphim_wings', name: '세라핌의 날개',   icon: '👼', baseCost: 13e18,   baseIncome: 16.5e12, costMul: 1.05, desc: '천사장의 날개 장식', ally: 'seraphim' },
-    { id: 'world_tree_bow', name: '세계수의 활',     icon: '🌳', baseCost: 28e18,   baseIncome: 28e12,   costMul: 1.05, desc: '세계수 가지로 만든 신궁', ally: 'elf_ranger' },
-    { id: 'astral_blade',   name: '성광의 검',       icon: '✨', baseCost: 60e18,   baseIncome: 48e12,   costMul: 1.05, desc: '별빛을 품은 성스러운 검', ally: null, grade: 'rare' },
-    { id: 'divine_shield',  name: '신성 방패',       icon: '🛡️', baseCost: 130e18,  baseIncome: 84e12,   costMul: 1.05, desc: '어떤 공격도 막아내는 방패', ally: null, grade: 'rare' },
-    { id: 'sun_staff',      name: '태양의 지팡이',   icon: '☀️', baseCost: 280e18,  baseIncome: 145e12,  costMul: 1.05, desc: '태양의 힘을 모으는 지팡이', ally: 'sun_spirit' },
-    { id: 'judgment_hammer', name: '심판의 망치',    icon: '⚒️', baseCost: 600e18,  baseIncome: 250e12,  costMul: 1.04, desc: '신이 내린 심판의 무기', ally: null, grade: 'rare' },
-    { id: 'hero_crown',     name: '영웅의 왕관',     icon: '👑', baseCost: 1.3e21,  baseIncome: 430e12,  costMul: 1.04, desc: '세계를 구한 영웅의 왕관', ally: 'hero_army' },
+    { id: 'god_blade',      name: '신의 검',         icon: '⚜️', baseCost: 560e15,  baseIncome: 2.56e12,  costMul: 1.06, desc: '신이 내린 축복의 검', ally: 'angel' },
+    { id: 'celestial_armor',name: '천상의 갑옷',     icon: '🔱', baseCost: 1.2e18,  baseIncome: 4.4e12,  costMul: 1.06, desc: '하늘의 광채를 담은 갑옷', ally: null, grade: 'rare' },
+    { id: 'infinity_orb',   name: '무한의 오브',     icon: '🔮', baseCost: 2.6e18,    baseIncome: 7.6e12,  costMul: 1.06, desc: '무한한 마력의 수정구', ally: 'archmage' },
+    { id: 'seraphim_wings', name: '세라핌의 날개',   icon: '👼', baseCost: 5.6e18,   baseIncome: 13.2e12, costMul: 1.05, desc: '천사장의 날개 장식', ally: 'seraphim' },
+    { id: 'world_tree_bow', name: '세계수의 활',     icon: '🌳', baseCost: 12e18,   baseIncome: 22.4e12,   costMul: 1.05, desc: '세계수 가지로 만든 신궁', ally: 'elf_ranger' },
+    { id: 'astral_blade',   name: '성광의 검',       icon: '✨', baseCost: 26e18,   baseIncome: 38.4e12,   costMul: 1.05, desc: '별빛을 품은 성스러운 검', ally: null, grade: 'rare' },
+    { id: 'divine_shield',  name: '신성 방패',       icon: '🛡️', baseCost: 56e18,  baseIncome: 67.2e12,   costMul: 1.05, desc: '어떤 공격도 막아내는 방패', ally: null, grade: 'rare' },
+    { id: 'sun_staff',      name: '태양의 지팡이',   icon: '☀️', baseCost: 120e18,  baseIncome: 116e12,  costMul: 1.05, desc: '태양의 힘을 모으는 지팡이', ally: 'sun_spirit' },
+    { id: 'judgment_hammer', name: '심판의 망치',    icon: '⚒️', baseCost: 260e18,  baseIncome: 200e12,  costMul: 1.04, desc: '신이 내린 심판의 무기', ally: null, grade: 'rare' },
+    { id: 'hero_crown',     name: '영웅의 왕관',     icon: '👑', baseCost: 560e18,  baseIncome: 344e12,  costMul: 1.04, desc: '세계를 구한 영웅의 왕관', ally: 'hero_army' },
     // ═══ Tier 7: 차원의 틈 (Rift) ═══
     { id: 'rift_blade',     name: '균열의 검',       icon: '🌀', baseCost: 2.8e21,  baseIncome: 740e12,  costMul: 1.04, desc: '차원을 베는 검', ally: null, grade: 'rare' },
     { id: 'time_dagger',    name: '시간의 단검',     icon: '⏰', baseCost: 6e21,    baseIncome: 1.3e15,  costMul: 1.04, desc: '시간을 멈추는 단검', ally: 'time_phantom' },
@@ -132,14 +132,14 @@ const EQUIPMENT = EQUIPMENT_DEFS.map(e => ({
 }));
 
 const SKILLS = [
-    { id: 'critical', name: '크리티컬 스트라이크', icon: '💥', desc: '공격력 증가', cost: 50, type: 'click', multiplier: 1.5, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.5, requires: { gold: 20 } },
-    { id: 'summon', name: '영웅 소환', icon: '🦸', desc: '자동 공격 증가', cost: 150, type: 'auto', multiplier: 1.5, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.5, requires: { gold: 50 } },
-    { id: 'power_slash', name: '파워 슬래시', icon: '⚡', desc: '공격력 대폭 증가', cost: 800, type: 'click', multiplier: 1.6, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.6, requires: { gold: 300 } },
-    { id: 'haste', name: '속도 강화', icon: '💨', desc: '공격 속도 증가', cost: 2000, type: 'speed', multiplier: 1.4, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.4, requires: { gold: 800 } },
-    { id: 'army', name: '용사단', icon: '⚔️', desc: '자동 공격 크게 증가', cost: 5000, type: 'auto', multiplier: 1.6, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.6, requires: { gold: 2000 } },
-    { id: 'lightning', name: '번개 참격', icon: '🌩️', desc: '공격력 극대 증가', cost: 15000, type: 'click', multiplier: 1.7, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.7, requires: { gold: 5000 } },
-    { id: 'legion', name: '전설의 군단', icon: '🏰', desc: '자동 공격 극대 증가', cost: 50000, type: 'auto', multiplier: 1.7, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.7, requires: { gold: 20000 } },
-    { id: 'boss_hunter', name: '보스 사냥꾼', icon: '🎯', desc: '클릭 DPS 보너스', cost: 100000, type: 'golden', multiplier: 1.08, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.08, requires: { gold: 50000 } },
+    { id: 'critical', name: '크리티컬 스트라이크', icon: '💥', desc: '공격력 증가', cost: 25, type: 'click', multiplier: 1.5, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.5, requires: { gold: 10 } },
+    { id: 'summon', name: '영웅 소환', icon: '🦸', desc: '자동 공격 증가', cost: 75, type: 'auto', multiplier: 1.5, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.5, requires: { gold: 30 } },
+    { id: 'power_slash', name: '파워 슬래시', icon: '⚡', desc: '공격력 대폭 증가', cost: 400, type: 'click', multiplier: 1.6, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.6, requires: { gold: 150 } },
+    { id: 'haste', name: '속도 강화', icon: '💨', desc: '공격 속도 증가', cost: 1000, type: 'speed', multiplier: 1.4, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.4, requires: { gold: 400 } },
+    { id: 'army', name: '용사단', icon: '⚔️', desc: '자동 공격 크게 증가', cost: 2500, type: 'auto', multiplier: 1.6, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.6, requires: { gold: 1000 } },
+    { id: 'lightning', name: '번개 참격', icon: '🌩️', desc: '공격력 극대 증가', cost: 7500, type: 'click', multiplier: 1.7, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.7, requires: { gold: 2500 } },
+    { id: 'legion', name: '전설의 군단', icon: '🏰', desc: '자동 공격 극대 증가', cost: 25000, type: 'auto', multiplier: 1.7, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.7, requires: { gold: 10000 } },
+    { id: 'boss_hunter', name: '보스 사냥꾼', icon: '🎯', desc: '클릭 DPS 보너스', cost: 50000, type: 'golden', multiplier: 1.08, maxLevel: 10, costMultiplier: 2.3, effectMultiplier: 1.08, requires: { gold: 25000 } },
 ];
 
 const DUNGEON_RANKS = [
@@ -1013,8 +1013,8 @@ const MONSTER_SVG = {
 
 function getMonsterHP(monster, killCount) {
     const cycle = Math.floor(killCount / MONSTERS.length);
-    // 100x per New Game+ cycle: Tier1 bat at cycle 1 = 700 HP
-    const cycleScale = Math.pow(100, cycle);
+    // IMPROVED: 10x per New Game+ cycle (was 100x) for better balance and re-growth feel
+    const cycleScale = Math.pow(10, cycle);
     // Within cycle: +15% HP per tier set of 10 monsters
     const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
     const progressScale = 1 + setInCycle * 0.15;
@@ -1023,12 +1023,13 @@ function getMonsterHP(monster, killCount) {
 
 function getMonsterGoldReward(monster, killCount, isBoss, isTierBoss) {
     const cycle = Math.floor(killCount / MONSTERS.length);
-    const cycleScale = Math.pow(100, cycle);
+    // IMPROVED: 10x per cycle (was 100x) for better balance
+    const cycleScale = Math.pow(10, cycle);
     const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
     const progressScale = 1 + setInCycle * 0.15;
     const base = Math.max(monster.goldReward, Math.floor(monster.goldReward * cycleScale * progressScale));
-    if (isTierBoss) return base * 20;
-    if (isBoss) return base * 5;
+    if (isTierBoss) return base * 10;  // IMPROVED: 10x (was 20x) - still rewarding
+    if (isBoss) return base * 5;       // Mid-boss stays at 5x
     return base;
 }
 

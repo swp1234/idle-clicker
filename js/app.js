@@ -847,7 +847,7 @@
         // Remove onboarding hint on first click
         if (totalClicks === 0) removeTapHint();
 
-        const prestigeBonus = 1 + (prestigePoints * 0.1);
+        const prestigeBonus = 1 + (prestigePoints * 0.15);  // IMPROVED: Stronger prestige bonus
         const baseClick = clickValue * clickMultiplier * prestigeBonus;
         const autoBonus = autoIncomePerSec * goldenTouchBonus;
         const damage = Math.max(1, baseClick + autoBonus);
@@ -1111,7 +1111,7 @@
                 total += equip.baseIncome * count;
             }
         }
-        const prestigeBonus = 1 + (prestigePoints * 0.1);
+        const prestigeBonus = 1 + (prestigePoints * 0.15);  // IMPROVED: Stronger prestige bonus
         autoIncomePerSec = total * autoMultiplier * prestigeBonus * setBonus;
     }
 
@@ -1965,7 +1965,7 @@
 
     // === Prestige System ===
     function getPrestigePointsAtTier(tier) {
-        const tiers = [0, 3, 7, 15, 30, 50, 100];  // IMPROVED: First prestige now gives 3 points (was 1)
+        const tiers = [0, 5, 12, 25, 50, 85, 140];  // IMPROVED: Much more generous prestige rewards for faster re-growth
         return tier >= tiers.length ? tiers[tiers.length - 1] : tiers[tier];
     }
 
@@ -1980,9 +1980,9 @@
         if (prestigePointsEl) prestigePointsEl.textContent = prestigePoints.toString();
         if (prestigeCountEl) prestigeCountEl.textContent = prestigeCount.toString();
 
-        const bonusMultiplier = 1 + (prestigePoints * 0.1);
+        const bonusMultiplier = 1 + (prestigePoints * 0.15);  // IMPROVED: Stronger prestige bonus (+15% per point vs 10%)
         if (prestigeBonusEl) {
-            prestigeBonusEl.textContent = '+' + (prestigePoints * 10) + '%';
+            prestigeBonusEl.textContent = '+' + (prestigePoints * 15) + '%';  // Display updated bonus
         }
 
         const nextPoints = getPrestigePointsAtTier(currentTier);
