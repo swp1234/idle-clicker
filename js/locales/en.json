@@ -56,7 +56,16 @@
         "allEquip": "You have collected all equipment! Level up to get stronger!",
         "nextRank": "Gold until next rank:",
         "maxRank": "Maximum rank achieved!",
-        "tapHint": "TAP TO ATTACK!"
+        "tapHint": "TAP TO ATTACK!",
+        "prestige": "Prestige",
+        "prestigeDesc": "Reset all progress and gain permanent bonuses",
+        "prestigeConfirm": "Are you sure you want to prestige? All progress will be reset!",
+        "prestigePoints": "Prestige Points",
+        "prestigeCount": "Prestige Count",
+        "prestigeBonus": "Permanent Bonus",
+        "prestigeRequire": "Tier 5 or higher to prestige",
+        "prestigeTitle": "Prestige Info",
+        "nextPrestige": "Points earned on next prestige"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",

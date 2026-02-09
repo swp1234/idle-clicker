@@ -56,7 +56,16 @@
     "allEquip": "すべての装備を集めました！レベルを上げて強くなりましょう！",
     "nextRank": "次のランクまであと",
     "maxRank": "最高ランクに到達しました！",
-    "tapHint": "タップして攻撃！"
+    "tapHint": "タップして攻撃！",
+    "prestige": "プレステージ",
+    "prestigeDesc": "すべての進捗をリセットして永久ボーナスを獲得する",
+    "prestigeConfirm": "本当にプレステージしますか？すべての進捗がリセットされます！",
+    "prestigePoints": "プレステージポイント",
+    "prestigeCount": "プレステージ回数",
+    "prestigeBonus": "永久ボーナス",
+    "prestigeRequire": "ティア5以上でプレステージ可能",
+    "prestigeTitle": "プレステージ情報",
+    "nextPrestige": "次のプレステージで獲得するポイント"
   },
   "dungeon": {
     "village": "村の外れ",

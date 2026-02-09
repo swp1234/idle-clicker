@@ -56,7 +56,16 @@
         "allEquip": "모든 장비를 수집했습니다! 레벨을 올려 더 강해지세요!",
         "nextRank": "다음 랭크까지",
         "maxRank": "최고 랭크 달성!",
-        "tapHint": "탭하여 공격!"
+        "tapHint": "탭하여 공격!",
+        "prestige": "환생",
+        "prestigeDesc": "모든 진행을 초기화하고 영구 보너스를 획득합니다",
+        "prestigeConfirm": "정말 환생하시겠습니까? 모든 진행이 초기화됩니다!",
+        "prestigePoints": "환생 포인트",
+        "prestigeCount": "환생 횟수",
+        "prestigeBonus": "영구 보너스",
+        "prestigeRequire": "Tier 5 이상에서 환생 가능",
+        "prestigeTitle": "환생 정보",
+        "nextPrestige": "다음 환생 시 획득 포인트"
     },
     "dungeon": {
         "village": "마을 주변",

@@ -215,6 +215,31 @@
                     <span class="stat-lbl" data-i18n="game.rank">던전 랭크</span>
                 </div>
             </div>
+
+            <!-- Prestige Section -->
+            <div class="prestige-section">
+                <h3 class="prestige-title" data-i18n="game.prestigeTitle">환생 정보</h3>
+                <div class="prestige-info-grid">
+                    <div class="prestige-info-item">
+                        <span class="prestige-info-label" data-i18n="game.prestigePoints">환생 포인트</span>
+                        <span class="prestige-info-value" id="prestige-points">0</span>
+                    </div>
+                    <div class="prestige-info-item">
+                        <span class="prestige-info-label" data-i18n="game.prestigeCount">환생 횟수</span>
+                        <span class="prestige-info-value" id="prestige-count">0</span>
+                    </div>
+                    <div class="prestige-info-item">
+                        <span class="prestige-info-label" data-i18n="game.prestigeBonus">영구 보너스</span>
+                        <span class="prestige-info-value" id="prestige-bonus">+0%</span>
+                    </div>
+                    <div class="prestige-info-item">
+                        <span class="prestige-info-label" data-i18n="game.nextPrestige">다음 환생 시 획득</span>
+                        <span class="prestige-info-value" id="next-prestige-points">0</span>
+                    </div>
+                </div>
+                <button class="prestige-btn" id="btn-prestige" onclick="window._prestige && window._prestige()" data-i18n="game.prestige">환생</button>
+                <p class="prestige-require" id="prestige-require-text" data-i18n="game.prestigeRequire">Tier 5 이상에서 환생 가능</p>
+            </div>
         </div>
 
         <!-- Premium Analysis -->

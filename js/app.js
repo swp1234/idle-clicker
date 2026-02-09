@@ -41,6 +41,7 @@
     let autoIncomePerSec = 0;
     let ownedEquipment = {};
     let purchasedSkills = {};
+    let skillLevels = {};
     let lastSaveTime = Date.now();
     let lastTickTime = Date.now();
     let milestoneIndex = 0;
@@ -63,6 +64,10 @@
     let goldenMonsterTimeout = null;
     let goldenMonsterCountdown = 10;
     let nextGoldenTime = 0;
+
+    // Prestige state
+    let prestigePoints = 0;
+    let prestigeCount = 0;
 
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
@@ -206,6 +211,7 @@
         spawnMonster();
         calculateOfflineEarnings();
         updateDisplay();
+        updatePrestigeDisplay();
         renderEquipment();
         renderSkills();
         startGameLoop();
@@ -775,7 +781,8 @@
         // Remove onboarding hint on first click
         if (totalClicks === 0) removeTapHint();
 
-        const baseClick = clickValue * clickMultiplier;
+        const prestigeBonus = 1 + (prestigePoints * 0.1);
+        const baseClick = clickValue * clickMultiplier * prestigeBonus;
         const autoBonus = autoIncomePerSec * goldenTouchBonus;
         const damage = Math.max(1, baseClick + autoBonus);
 
@@ -987,7 +994,8 @@
                 total += equip.baseIncome * count;
             }
         }
-        autoIncomePerSec = total * autoMultiplier;
+        const prestigeBonus = 1 + (prestigePoints * 0.1);
+        autoIncomePerSec = total * autoMultiplier * prestigeBonus;
     }
 
     // Equipment
@@ -1103,37 +1111,66 @@
         }).join('');
     }
 
-    // Skills
-    function buySkill(skillId) {
-        if (purchasedSkills[skillId]) return;
-        const skill = SKILLS.find(u => u.id === skillId);
-        if (!skill || gold < skill.cost) return;
+    // Skills - 스킬 비용 계산
+    function getSkillCost(skill, level) {
+        const baseCost = skill.cost;
+        return Math.floor(baseCost * Math.pow(skill.costMultiplier, level));
+    }
 
-        gold -= skill.cost;
+    // 스킬 현재 레벨 가져오기
+    function getSkillLevel(skillId) {
+        return skillLevels[skillId] || 0;
+    }
+
+    // 스킬 효과값 계산
+    function getSkillEffectValue(skill, level) {
+        const baseMultiplier = skill.multiplier;
+        return Math.pow(skill.effectMultiplier, level) * baseMultiplier;
+    }
+
+    // Skills - 레벨업 시스템
+    function buySkill(skillId) {
+        const skill = SKILLS.find(u => u.id === skillId);
+        if (!skill) return;
+
+        const currentLevel = getSkillLevel(skillId);
+        if (currentLevel >= skill.maxLevel) return; // 최대 레벨 도달
+
+        const cost = getSkillCost(skill, currentLevel);
+        if (gold < cost) return;
+
+        gold -= cost;
+        skillLevels[skillId] = currentLevel + 1;
         purchasedSkills[skillId] = true;
 
         if (sfx) sfx.levelUp();
 
+        // 스킬 효과 적용
+        const newLevel = getSkillLevel(skillId);
+        const newEffect = getSkillEffectValue(skill, newLevel);
+        const oldEffect = newLevel > 1 ? getSkillEffectValue(skill, newLevel - 1) : 1;
+        const effectBonus = newEffect / oldEffect;
+
         switch (skill.type) {
             case 'click':
-                clickMultiplier *= skill.multiplier;
+                clickMultiplier = (clickMultiplier / oldEffect) * newEffect;
                 break;
             case 'auto':
-                autoMultiplier *= skill.multiplier;
+                autoMultiplier = (autoMultiplier / oldEffect) * newEffect;
                 recalculateAutoIncome();
                 break;
             case 'speed':
-                speedMultiplier *= skill.multiplier;
+                speedMultiplier = (speedMultiplier / oldEffect) * newEffect;
                 break;
             case 'golden':
-                goldenTouchBonus = skill.multiplier;
+                goldenTouchBonus = (goldenTouchBonus || 1) * effectBonus;
                 break;
         }
 
         // Add dopamine skill unlock effect
         if (window.effectsManager && clickArea) {
           const rect = clickArea.getBoundingClientRect();
-          window.effectsManager.addMilestoneEffect('SKILL UNLOCKED!', rect.width / 2, rect.height / 2);
+          window.effectsManager.addMilestoneEffect('SKILL LVL UP!', rect.width / 2, rect.height / 2);
           // Screen shake on skill unlock
           if (container) {
             container.classList.add('shake');
@@ -1148,26 +1185,36 @@
     function renderSkills() {
         if (!skillList) return;
         const available = SKILLS.filter(s => {
-            if (purchasedSkills[s.id]) return true;
+            const level = getSkillLevel(s.id);
+            if (level > 0) return true;
             return totalEarned >= (s.requires?.gold || 0);
         });
 
         skillList.innerHTML = available.map(skill => {
-            const purchased = purchasedSkills[skill.id];
-            const canBuy = !purchased && gold >= skill.cost;
+            const level = getSkillLevel(skill.id);
+            const isMaxLevel = level >= skill.maxLevel;
+            const cost = getSkillCost(skill, level);
+            const canBuy = !isMaxLevel && gold >= cost;
             const skillName = i18n.t('skills.' + skill.id) || skill.name;
             const skillDesc = i18n.t('skills.' + skill.id + '_desc') || skill.desc;
-            const learnedText = i18n.t('skills.learned') || 'Learned';
+            const maxLevelText = i18n.t('skill.maxLevel') || 'Max Level!';
+            const progressPct = (level / skill.maxLevel) * 100;
+            const levelDisplay = `Lv.${level}/${skill.maxLevel}`;
 
             return `
-                <div class="skill-card ${purchased ? 'purchased' : ''} ${canBuy ? 'can-buy' : ''}" onclick="window._buySkill('${skill.id}')">
+                <div class="skill-card ${level > 0 ? 'purchased' : ''} ${canBuy ? 'can-buy' : ''}" onclick="window._buySkill('${skill.id}')">
                     <div class="skill-icon">${skill.icon}</div>
                     <div class="skill-info">
-                        <div class="skill-name">${skillName}</div>
+                        <div class="skill-name">${skillName} <span class="skill-level">${levelDisplay}</span></div>
                         <div class="skill-desc">${skillDesc}</div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: ${progressPct}%"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-cost ${purchased ? 'done' : canBuy ? '' : 'expensive'}">
-                        ${purchased ? '✅ ' + learnedText : '🪙 ' + formatGoldShort(skill.cost)}
+                    <div class="skill-cost ${isMaxLevel ? 'max-level' : canBuy ? '' : 'expensive'}">
+                        ${isMaxLevel ? '⭐ ' + maxLevelText : '🪙 ' + formatGoldShort(cost)}
                     </div>
                 </div>`;
         }).join('');
@@ -1283,8 +1330,8 @@
             localStorage.setItem('dungeonClicker', JSON.stringify({
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
-                ownedEquipment, purchasedSkills, milestoneIndex,
-                killCount, currentMonsterIndex
+                ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
+                killCount, currentMonsterIndex, prestigePoints, prestigeCount
             }));
             localStorage.setItem('dungeonClicker_lastTime', Date.now().toString());
         } catch (e) {
@@ -1306,9 +1353,12 @@
                 goldenTouchBonus = d.goldenTouchBonus || 0;
                 ownedEquipment = d.ownedEquipment || {};
                 purchasedSkills = d.purchasedSkills || {};
+                skillLevels = d.skillLevels || {};
                 milestoneIndex = d.milestoneIndex || 0;
                 killCount = d.killCount || 0;
                 currentMonsterIndex = d.currentMonsterIndex || 0;
+                prestigePoints = d.prestigePoints || 0;
+                prestigeCount = d.prestigeCount || 0;
             }
         } catch (e) {
             console.warn('Load failed:', e);
@@ -1464,15 +1514,174 @@
             });
         }
 
+        const prestigeBtn = document.getElementById('btn-prestige');
+        if (prestigeBtn) {
+            prestigeBtn.addEventListener('click', performPrestige);
+        }
+
         window._buyEquip = buyEquipment;
         window._buySkill = buySkill;
         window._showPremium = showPremiumAnalysis;
+        window._prestige = performPrestige;
         window._refreshUI = function() {
             renderEquipment();
             renderSkills();
             updateDisplay();
+            updatePrestigeDisplay();
             spawnMonster();
         };
+    }
+
+    // === Prestige System ===
+    function getPrestigePointsAtTier(tier) {
+        const tiers = [0, 1, 3, 7, 15, 30, 50];
+        return tier >= tiers.length ? tiers[tiers.length - 1] : tiers[tier];
+    }
+
+    function updatePrestigeDisplay() {
+        const prestigePointsEl = document.getElementById('prestige-points');
+        const prestigeCountEl = document.getElementById('prestige-count');
+        const prestigeBonusEl = document.getElementById('prestige-bonus');
+        const nextPrestigeEl = document.getElementById('next-prestige-points');
+        const prestigeBtnEl = document.getElementById('btn-prestige');
+        const prestigeRequireEl = document.getElementById('prestige-require-text');
+
+        if (prestigePointsEl) prestigePointsEl.textContent = prestigePoints.toString();
+        if (prestigeCountEl) prestigeCountEl.textContent = prestigeCount.toString();
+
+        const bonusMultiplier = 1 + (prestigePoints * 0.1);
+        if (prestigeBonusEl) {
+            prestigeBonusEl.textContent = '+' + (prestigePoints * 10) + '%';
+        }
+
+        const nextPoints = getPrestigePointsAtTier(currentTier);
+        if (nextPrestigeEl) nextPrestigeEl.textContent = nextPoints.toString();
+
+        const canPrestige = currentTier >= 5;
+        if (prestigeBtnEl) {
+            prestigeBtnEl.disabled = !canPrestige;
+        }
+
+        if (prestigeRequireEl) {
+            if (canPrestige) {
+                prestigeRequireEl.textContent = i18n.t('game.prestigeDesc') || 'Reset all progress and gain permanent bonuses';
+            } else {
+                prestigeRequireEl.textContent = i18n.t('game.prestigeRequire') || 'Tier 5 or higher to prestige';
+            }
+        }
+    }
+
+    function performPrestige() {
+        if (currentTier < 5) {
+            alert(i18n.t('game.prestigeRequire') || 'You cannot prestige yet!');
+            return;
+        }
+
+        const confirm_msg = i18n.t('game.prestigeConfirm') || 'Are you sure you want to prestige? All progress will be reset!';
+        if (!confirm(confirm_msg)) return;
+
+        // Get prestige points for this tier
+        const earnedPoints = getPrestigePointsAtTier(currentTier);
+        prestigePoints += earnedPoints;
+        prestigeCount += 1;
+
+        // Apply bonuses based on prestige count
+        let startingGold = 0;
+        let clickMultiplierBonus = 1;
+        let autoDPSBonus = 0;
+
+        if (prestigeCount >= 1) startingGold = 100;
+        if (prestigeCount >= 3) {
+            startingGold = 500;
+            clickMultiplierBonus = 2;
+        }
+        if (prestigeCount >= 5) {
+            startingGold = 2000;
+            autoDPSBonus = autoIncomePerSec > 0 ? 1 : 0;
+        }
+        if (prestigeCount >= 10) {
+            startingGold *= 2;
+            clickMultiplierBonus *= 2;
+            if (autoDPSBonus > 0) autoDPSBonus *= 2;
+        }
+
+        // Play prestige animation
+        playPrestigeAnimation();
+
+        // Reset game state (but keep prestige points and count)
+        setTimeout(() => {
+            gold = startingGold;
+            totalEarned = startingGold;
+            totalClicks = 0;
+            clickValue = 1 * clickMultiplierBonus;
+            clickMultiplier = 1;
+            autoMultiplier = 1 + autoDPSBonus;
+            speedMultiplier = 1;
+            goldenTouchBonus = 0;
+            ownedEquipment = {};
+            purchasedSkills = {};
+            skillLevels = {};
+            milestoneIndex = 0;
+            killCount = 0;
+            currentMonsterIndex = 0;
+            clickCombo = 0;
+            goldenMonsterActive = false;
+
+            recalculateAutoIncome();
+            spawnMonster();
+            updateDisplay();
+            updatePrestigeDisplay();
+            renderEquipment();
+            renderSkills();
+            saveState();
+
+            // Show prestige reward toast
+            const rewardMsg = i18n.t('game.prestige') + ' +' + earnedPoints + '포인트';
+            showMilestone(rewardMsg || 'PRESTIGED! +' + earnedPoints + ' Points');
+        }, 1500);
+    }
+
+    function playPrestigeAnimation() {
+        // Whiteout effect
+        const whiteout = document.createElement('div');
+        whiteout.className = 'prestige-whiteout';
+        document.body.appendChild(whiteout);
+
+        // Prestige text
+        setTimeout(() => {
+            const text = document.createElement('div');
+            text.className = 'prestige-text';
+            text.textContent = 'PRESTIGE!';
+            document.body.appendChild(text);
+
+            // Confetti
+            createPrestigeConfetti();
+
+            // Clean up
+            setTimeout(() => {
+                whiteout.remove();
+                text.remove();
+            }, 2000);
+        }, 750);
+    }
+
+    function createPrestigeConfetti() {
+        const colors = ['#8b5cf6', '#ef4444', '#fbbf24', '#34d399', '#06b6d4'];
+        const count = 50;
+
+        for (let i = 0; i < count; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'prestige-confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '50%';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.width = (Math.random() * 8 + 4) + 'px';
+            confetti.style.height = confetti.style.width;
+            confetti.style.borderRadius = '50%';
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 2000);
+        }
     }
 
     // Ensure all init happens after DOM is loaded

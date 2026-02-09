@@ -56,7 +56,16 @@
         "allEquip": "Tüm ekipmanları topladınız! Daha güçlü olmak için seviye atın!",
         "nextRank": "Sonraki sıraya kadar altın:",
         "maxRank": "Maksimum sıra başarıldı!",
-        "tapHint": "SALDIRMAK İÇİN DOKUN!"
+        "tapHint": "SALDIRMAK İÇİN DOKUN!",
+        "prestige": "Prestij",
+        "prestigeDesc": "Tüm ilerlemeyi sıfırla ve kalıcı bonuslar kazanılr",
+        "prestigeConfirm": "Prestij yapmak istediğinizden emin misiniz? Tüm ilerleme sıfırlanacaktır!",
+        "prestigePoints": "Prestij Puanları",
+        "prestigeCount": "Prestij Sayısı",
+        "prestigeBonus": "Kalıcı Bonus",
+        "prestigeRequire": "Prestij için Tier 5 veya daha yüksek",
+        "prestigeTitle": "Prestij Bilgisi",
+        "nextPrestige": "Sonraki Prestijde kazanılan puanlar"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",

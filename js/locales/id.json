@@ -56,7 +56,16 @@
         "allEquip": "Anda telah mengumpulkan semua peralatan! Naik level untuk menjadi lebih kuat!",
         "nextRank": "Emas hingga peringkat berikutnya:",
         "maxRank": "Peringkat maksimum tercapai!",
-        "tapHint": "KETUK UNTUK MENYERANG!"
+        "tapHint": "KETUK UNTUK MENYERANG!",
+        "prestige": "Prestis",
+        "prestigeDesc": "Atur ulang semua kemajuan dan dapatkan bonus permanen",
+        "prestigeConfirm": "Apakah Anda yakin ingin Prestis? Semua kemajuan akan direset!",
+        "prestigePoints": "Poin Prestis",
+        "prestigeCount": "Hitungan Prestis",
+        "prestigeBonus": "Bonus Permanen",
+        "prestigeRequire": "Tier 5 atau lebih tinggi untuk Prestis",
+        "prestigeTitle": "Informasi Prestis",
+        "nextPrestige": "Poin yang diperoleh pada Prestis berikutnya"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",

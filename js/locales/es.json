@@ -56,7 +56,16 @@
         "allEquip": "¡Has recogido todo el equipo! ¡Sube de nivel para ser más fuerte!",
         "nextRank": "Oro hasta el siguiente rango:",
         "maxRank": "¡Rango máximo alcanzado!",
-        "tapHint": "¡TOCA PARA ATACAR!"
+        "tapHint": "¡TOCA PARA ATACAR!",
+        "prestige": "Prestigio",
+        "prestigeDesc": "Reinicia todo el progreso y obtén bonificaciones permanentes",
+        "prestigeConfirm": "¿Estás seguro de que quieres prestigio? ¡Todo el progreso se reiniciará!",
+        "prestigePoints": "Puntos de Prestigio",
+        "prestigeCount": "Número de Prestigios",
+        "prestigeBonus": "Bonificación Permanente",
+        "prestigeRequire": "Nivel 5 o superior para prestigio",
+        "prestigeTitle": "Información de Prestigio",
+        "nextPrestige": "Puntos obtenidos en el próximo prestigio"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",

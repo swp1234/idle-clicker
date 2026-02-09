@@ -56,7 +56,16 @@
         "allEquip": "Du hast alle Ausrüstungen gesammelt! Lvl auf, um stärker zu werden!",
         "nextRank": "Gold bis zum nächsten Rang:",
         "maxRank": "Maximaler Rang erreicht!",
-        "tapHint": "TIPPE ZUM ANGREIFEN!"
+        "tapHint": "TIPPE ZUM ANGREIFEN!",
+        "prestige": "Prestige",
+        "prestigeDesc": "Alle Fortschritte zurücksetzen und permanente Boni erhalten",
+        "prestigeConfirm": "Sind Sie sicher, dass Sie Prestige erhalten möchten? Alle Fortschritte werden zurückgesetzt!",
+        "prestigePoints": "Prestige-Punkte",
+        "prestigeCount": "Prestige-Anzahl",
+        "prestigeBonus": "Permanenter Bonus",
+        "prestigeRequire": "Tier 5 oder höher für Prestige",
+        "prestigeTitle": "Prestige-Informationen",
+        "nextPrestige": "Punkte beim nächsten Prestige verdient"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",

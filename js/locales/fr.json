@@ -56,7 +56,16 @@
         "allEquip": "Vous avez collecté tout l'équipement! Montez de niveau pour devenir plus fort!",
         "nextRank": "Or jusqu'au prochain rang:",
         "maxRank": "Rang maximum atteint!",
-        "tapHint": "APPUYEZ POUR ATTAQUER !"
+        "tapHint": "APPUYEZ POUR ATTAQUER !",
+        "prestige": "Prestige",
+        "prestigeDesc": "Réinitialisez tous les progrès et gagnez des bonus permanents",
+        "prestigeConfirm": "Êtes-vous sûr de vouloir faire du prestige? Tous les progrès seront réinitialisés!",
+        "prestigePoints": "Points de prestige",
+        "prestigeCount": "Nombre de prestiges",
+        "prestigeBonus": "Bonus permanent",
+        "prestigeRequire": "Niveau 5 ou supérieur pour prestige",
+        "prestigeTitle": "Informations de prestige",
+        "nextPrestige": "Points gagnés au prochain prestige"
     },
     "recommendations": {
         "emojiMerge": "Emoji Merge",

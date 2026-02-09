@@ -123,14 +123,14 @@ const EQUIPMENT = EQUIPMENT_DEFS.map(e => ({
 }));
 
 const SKILLS = [
-    { id: 'critical', name: '크리티컬 스트라이크', icon: '💥', desc: '공격력 2배', cost: 50, type: 'click', multiplier: 2, requires: { gold: 20 } },
-    { id: 'summon', name: '영웅 소환', icon: '🦸', desc: '자동 공격 2배', cost: 150, type: 'auto', multiplier: 2, requires: { gold: 50 } },
-    { id: 'power_slash', name: '파워 슬래시', icon: '⚡', desc: '공격력 3배', cost: 800, type: 'click', multiplier: 3, requires: { gold: 300 } },
-    { id: 'haste', name: '속도 강화', icon: '💨', desc: '공격 속도 2배', cost: 2000, type: 'speed', multiplier: 2, requires: { gold: 800 } },
-    { id: 'army', name: '용사단', icon: '⚔️', desc: '자동 공격 3배', cost: 5000, type: 'auto', multiplier: 3, requires: { gold: 2000 } },
-    { id: 'lightning', name: '번개 참격', icon: '🌩️', desc: '공격력 5배', cost: 15000, type: 'click', multiplier: 5, requires: { gold: 5000 } },
-    { id: 'legion', name: '전설의 군단', icon: '🏰', desc: '자동 공격 5배', cost: 50000, type: 'auto', multiplier: 5, requires: { gold: 20000 } },
-    { id: 'boss_hunter', name: '보스 사냥꾼', icon: '🎯', desc: '클릭 시 DPS의 5% 보너스', cost: 100000, type: 'golden', multiplier: 0.05, requires: { gold: 50000 } },
+    { id: 'critical', name: '크리티컬 스트라이크', icon: '💥', desc: '공격력 증가', cost: 50, type: 'click', multiplier: 1.5, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.5, requires: { gold: 20 } },
+    { id: 'summon', name: '영웅 소환', icon: '🦸', desc: '자동 공격 증가', cost: 150, type: 'auto', multiplier: 1.5, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.5, requires: { gold: 50 } },
+    { id: 'power_slash', name: '파워 슬래시', icon: '⚡', desc: '공격력 대폭 증가', cost: 800, type: 'click', multiplier: 1.6, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.6, requires: { gold: 300 } },
+    { id: 'haste', name: '속도 강화', icon: '💨', desc: '공격 속도 증가', cost: 2000, type: 'speed', multiplier: 1.4, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.4, requires: { gold: 800 } },
+    { id: 'army', name: '용사단', icon: '⚔️', desc: '자동 공격 크게 증가', cost: 5000, type: 'auto', multiplier: 1.6, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.6, requires: { gold: 2000 } },
+    { id: 'lightning', name: '번개 참격', icon: '🌩️', desc: '공격력 극대 증가', cost: 15000, type: 'click', multiplier: 1.7, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.7, requires: { gold: 5000 } },
+    { id: 'legion', name: '전설의 군단', icon: '🏰', desc: '자동 공격 극대 증가', cost: 50000, type: 'auto', multiplier: 1.7, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.7, requires: { gold: 20000 } },
+    { id: 'boss_hunter', name: '보스 사냥꾼', icon: '🎯', desc: '클릭 DPS 보너스', cost: 100000, type: 'golden', multiplier: 1.08, maxLevel: 10, costMultiplier: 2.5, effectMultiplier: 1.08, requires: { gold: 50000 } },
 ];
 
 const DUNGEON_RANKS = [

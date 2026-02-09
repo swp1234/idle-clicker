@@ -56,7 +56,16 @@
         "allEquip": "您已收集所有装备！升级以变得更强！",
         "nextRank": "距下一级别的金币：",
         "maxRank": "已达到最高级别！",
-        "tapHint": "点击攻击！"
+        "tapHint": "点击攻击！",
+        "prestige": "转生",
+        "prestigeDesc": "重置所有进度并获得永久加成",
+        "prestigeConfirm": "您确定要转生吗？所有进度将被重置！",
+        "prestigePoints": "转生点数",
+        "prestigeCount": "转生次数",
+        "prestigeBonus": "永久加成",
+        "prestigeRequire": "第5层或更高层级时可转生",
+        "prestigeTitle": "转生信息",
+        "nextPrestige": "下次转生获得的点数"
     },
     "recommendations": {
         "emojiMerge": "表情符号合并",
