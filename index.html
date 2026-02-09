@@ -245,6 +245,65 @@
                 </div>
             </div>
 
+            <!-- Personal Records Section -->
+            <div class="records-section">
+                <h3 class="records-title" data-i18n="ranking.personalRecords">개인 기록</h3>
+
+                <!-- Rank Progress -->
+                <div class="rank-section">
+                    <div class="rank-badge" id="rank-badge">
+                        <span class="rank-icon" id="rank-icon">🥉</span>
+                        <span class="rank-name" id="rank-name">Bronze</span>
+                    </div>
+                    <div class="rank-progress-info">
+                        <div class="rank-progress-bar">
+                            <div class="rank-progress-fill" id="rank-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="rank-progress-text" id="rank-progress-text">0 / 100</div>
+                    </div>
+                </div>
+
+                <!-- Records Grid -->
+                <div class="records-grid">
+                    <div class="record-card">
+                        <span class="record-icon">⚡</span>
+                        <span class="record-label" data-i18n="ranking.highestDPS">최고 DPS</span>
+                        <span class="record-value" id="record-dps">0</span>
+                        <span class="record-date" id="record-dps-date">—</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-icon">⚔️</span>
+                        <span class="record-label" data-i18n="ranking.mostKills">최다 처치</span>
+                        <span class="record-value" id="record-kills">0</span>
+                        <span class="record-date" id="record-kills-date">—</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-icon">📈</span>
+                        <span class="record-label" data-i18n="ranking.highestTier">최고 티어</span>
+                        <span class="record-value" id="record-tier">Tier 1</span>
+                        <span class="record-date" id="record-tier-date">—</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-icon">💰</span>
+                        <span class="record-label" data-i18n="ranking.maxGoldHeld">최대 보유 골드</span>
+                        <span class="record-value" id="record-gold">0</span>
+                        <span class="record-date" id="record-gold-date">—</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-icon">♻️</span>
+                        <span class="record-label" data-i18n="ranking.totalPrestige">최다 환생</span>
+                        <span class="record-value" id="record-prestige">0</span>
+                        <span class="record-date" id="record-prestige-date">—</span>
+                    </div>
+                    <div class="record-card">
+                        <span class="record-icon">💥</span>
+                        <span class="record-label" data-i18n="ranking.maxSingleHit">최대 단일 타격</span>
+                        <span class="record-value" id="record-hit">0</span>
+                        <span class="record-date" id="record-hit-date">—</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Prestige Section -->
             <div class="prestige-section">
                 <h3 class="prestige-title" data-i18n="game.prestigeTitle">환생 정보</h3>
@@ -376,6 +435,7 @@
     </div>
 
     <script src="js/i18n.js" defer></script>
+    <script src="js/ranking.js" defer></script>
     <script src="js/game-data.js" defer></script>
     <script src="js/monster-art-ext.js" defer></script>
     <script src="js/monster-art-ext2.js" defer></script>
