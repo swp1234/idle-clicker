@@ -433,5 +433,15 @@
         "rankDIAMOND": "Diamond",
         "rankMASTER": "Master",
         "maxRank": "Max Rank Achieved!"
+    },
+    "event": {
+        "goldRush": "Gold Rush",
+        "goldRushDesc": "2x gold earnings for 30 seconds!",
+        "monsterFest": "Monster Festival",
+        "monsterFestDesc": "Monster HP 50% reduced for 30 seconds!",
+        "equipSale": "Equipment Sale",
+        "equipSaleDesc": "Equipment prices 30% off for 30 seconds!",
+        "expBoost": "EXP Boost",
+        "expBoostDesc": "Skill EXP 2x for 30 seconds!"
     }
 }

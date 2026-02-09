@@ -737,5 +737,15 @@
     "rankDIAMOND": "钻石级",
     "rankMASTER": "大师级",
     "maxRank": "达到最高等级！"
+  },
+  "event": {
+    "goldRush": "黄金时刻",
+    "goldRushDesc": "30秒内获得金币加倍！",
+    "monsterFest": "怪物节日",
+    "monsterFestDesc": "30秒内怪物HP降低50%！",
+    "equipSale": "装备促销",
+    "equipSaleDesc": "30秒内装备价格打七折！",
+    "expBoost": "经验加成",
+    "expBoostDesc": "30秒内技能经验加倍！"
   }
 }

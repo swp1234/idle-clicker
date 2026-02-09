@@ -433,5 +433,15 @@
         "rankDIAMOND": "다이아몬드",
         "rankMASTER": "마스터",
         "maxRank": "최고 랭크 달성!"
+    },
+    "event": {
+        "goldRush": "골드 러시",
+        "goldRushDesc": "30초간 골드 획득량 2배!",
+        "monsterFest": "몬스터 페스티벌",
+        "monsterFestDesc": "30초간 몬스터 체력 50% 감소!",
+        "equipSale": "장비 할인",
+        "equipSaleDesc": "30초간 장비 가격 30% 할인!",
+        "expBoost": "경험치 부스트",
+        "expBoostDesc": "30초간 스킬 경험치 2배!"
     }
 }

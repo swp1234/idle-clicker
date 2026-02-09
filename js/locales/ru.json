@@ -733,5 +733,15 @@
     "rankDIAMOND": "Diamond",
     "rankMASTER": "Master",
     "maxRank": "Max Rank Achieved!"
+  },
+  "event": {
+    "goldRush": "Золотая лихорадка",
+    "goldRushDesc": "2x доход золота на 30 секунд!",
+    "monsterFest": "Фестиваль Монстров",
+    "monsterFestDesc": "HP монстра уменьшена на 50% на 30 секунд!",
+    "equipSale": "Распродажа Оборудования",
+    "equipSaleDesc": "Скидка 30% на оборудование на 30 секунд!",
+    "expBoost": "Бонус Опыта",
+    "expBoostDesc": "2x опыт навыков на 30 секунд!"
   }
 }

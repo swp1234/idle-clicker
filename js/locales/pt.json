@@ -733,5 +733,15 @@
     "rankDIAMOND": "Diamante",
     "rankMASTER": "Mestre",
     "maxRank": "Classificação Máxima Atingida!"
+  },
+  "event": {
+    "goldRush": "Corrida do Ouro",
+    "goldRushDesc": "Ganhos de ouro 2x por 30 segundos!",
+    "monsterFest": "Festival de Monstros",
+    "monsterFestDesc": "HP do monstro 50% reduzido por 30 segundos!",
+    "equipSale": "Venda de Equipamentos",
+    "equipSaleDesc": "Preços de equipamentos 30% de desconto por 30 segundos!",
+    "expBoost": "Impulsionador de EXP",
+    "expBoostDesc": "EXP de habilidade 2x por 30 segundos!"
   }
 }

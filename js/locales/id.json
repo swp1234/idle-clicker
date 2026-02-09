@@ -733,5 +733,15 @@
     "rankDIAMOND": "Diamond",
     "rankMASTER": "Master",
     "maxRank": "Max Rank Achieved!"
+  },
+  "event": {
+    "goldRush": "Demam Emas",
+    "goldRushDesc": "Penghasilan emas 2x selama 30 detik!",
+    "monsterFest": "Festival Monster",
+    "monsterFestDesc": "HP monster berkurang 50% selama 30 detik!",
+    "equipSale": "Penjualan Peralatan",
+    "equipSaleDesc": "Harga peralatan diskon 30% selama 30 detik!",
+    "expBoost": "Dorongan EXP",
+    "expBoostDesc": "Keterampilan EXP 2x selama 30 detik!"
   }
 }

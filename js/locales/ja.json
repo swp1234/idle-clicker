@@ -733,5 +733,15 @@
     "rankDIAMOND": "ダイヤモンド",
     "rankMASTER": "マスター",
     "maxRank": "最高ランク達成！"
+  },
+  "event": {
+    "goldRush": "ゴールドラッシュ",
+    "goldRushDesc": "30秒間ゴールド獲得量2倍！",
+    "monsterFest": "モンスターフェスティバル",
+    "monsterFestDesc": "30秒間モンスターHP50%減少！",
+    "equipSale": "装備セール",
+    "equipSaleDesc": "30秒間装備価格30%割引！",
+    "expBoost": "経験値ブースト",
+    "expBoostDesc": "30秒間スキル経験値2倍！"
   }
 }

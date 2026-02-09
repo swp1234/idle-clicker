@@ -733,5 +733,15 @@
     "rankDIAMOND": "हीरा",
     "rankMASTER": "मास्टर",
     "maxRank": "अधिकतम रैंक प्राप्त!"
+  },
+  "event": {
+    "goldRush": "सोने की भीड़",
+    "goldRushDesc": "30 सेकंड के लिए सोने की कमाई 2x!",
+    "monsterFest": "राक्षस महोत्सव",
+    "monsterFestDesc": "30 सेकंड के लिए राक्षस HP 50% कम!",
+    "equipSale": "उपकरण बिक्री",
+    "equipSaleDesc": "30 सेकंड के लिए उपकरण 30% छूट!",
+    "expBoost": "अनुभव बूस्ट",
+    "expBoostDesc": "30 सेकंड के लिए कौशल EXP 2x!"
   }
 }

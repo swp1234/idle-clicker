@@ -88,6 +88,14 @@
     let bossKills = 0;
     let goldenKills = 0;
 
+    // Event System state
+    let eventSystem = null;
+    let activeEvent = null;
+    let eventGoldRushMultiplier = 1;
+    let eventMonsterHPMultiplier = 1;
+    let eventEquipmentCostMultiplier = 1;
+    let eventSkillExpMultiplier = 1;
+
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
         const monsterMap = {
@@ -225,8 +233,17 @@
             return;
         }
 
+        // Initialize event system
+        eventSystem = new EventSystem();
+
         loadState();
         initAchievements();
+
+        // Initialize and start event system after loading state
+        if (eventSystem) {
+            eventSystem.init();
+        }
+
         recalculateAutoIncome();
         spawnMonster();
         calculateOfflineEarnings();
@@ -446,6 +463,8 @@
         } else if (isBoss) {
             monsterMaxHP *= 5;  // Mini boss: 5x HP
         }
+        // Event: Monster Festival - reduce HP
+        monsterMaxHP = Math.floor(monsterMaxHP * eventMonsterHPMultiplier);
         monsterHP = monsterMaxHP;
         monsterDying = false;
 
@@ -594,6 +613,9 @@
             killedMonster = 'golden';
             endGoldenMonster();
         }
+
+        // Event: Gold Rush bonus
+        reward = Math.floor(reward * eventGoldRushMultiplier);
 
         gold += reward;
         totalEarned += reward;
@@ -928,6 +950,16 @@
             const dt = (now - lastTickTime) / 1000;
             lastTickTime = now;
 
+            // Update event system
+            if (eventSystem) {
+                eventSystem.update(now);
+                // Update event banner timer every tick
+                const countdown = document.getElementById('event-countdown');
+                if (countdown && eventSystem.currentEvent) {
+                    countdown.textContent = eventSystem.getRemainingTime();
+                }
+            }
+
             // Check for golden monster spawn
             if (!goldenMonsterActive && !monsterDying && now >= nextGoldenTime) {
                 if (Math.random() < 0.05) { // 약 5% 확률
@@ -1118,7 +1150,8 @@
     // Equipment
     function getEquipmentCost(equip) {
         const count = ownedEquipment[equip.id] || 0;
-        return Math.floor(equip.baseCost * Math.pow(equip.costMultiplier, count));
+        const baseCost = Math.floor(equip.baseCost * Math.pow(equip.costMultiplier, count));
+        return Math.floor(baseCost * eventEquipmentCostMultiplier);
     }
 
     function buyEquipment(equipId) {
@@ -1618,16 +1651,216 @@
         }
     }
 
+    // === Event System ===
+    class EventSystem {
+        constructor() {
+            this.events = [
+                {
+                    id: 'gold-rush',
+                    name: 'event.goldRush',
+                    icon: '💰',
+                    color: '#fbbf24',
+                    duration: 30,
+                    description: 'event.goldRushDesc',
+                    apply: () => {
+                        eventGoldRushMultiplier = 2;
+                    },
+                    remove: () => {
+                        eventGoldRushMultiplier = 1;
+                    }
+                },
+                {
+                    id: 'monster-fest',
+                    name: 'event.monsterFest',
+                    icon: '⚡',
+                    color: '#ec4899',
+                    duration: 30,
+                    description: 'event.monsterFestDesc',
+                    apply: () => {
+                        eventMonsterHPMultiplier = 0.5;
+                    },
+                    remove: () => {
+                        eventMonsterHPMultiplier = 1;
+                    }
+                },
+                {
+                    id: 'equip-sale',
+                    name: 'event.equipSale',
+                    icon: '🛍️',
+                    color: '#06b6d4',
+                    duration: 30,
+                    description: 'event.equipSaleDesc',
+                    apply: () => {
+                        eventEquipmentCostMultiplier = 0.7;
+                    },
+                    remove: () => {
+                        eventEquipmentCostMultiplier = 1;
+                    }
+                },
+                {
+                    id: 'exp-boost',
+                    name: 'event.expBoost',
+                    icon: '✨',
+                    color: '#8b5cf6',
+                    duration: 30,
+                    description: 'event.expBoostDesc',
+                    apply: () => {
+                        eventSkillExpMultiplier = 2;
+                    },
+                    remove: () => {
+                        eventSkillExpMultiplier = 1;
+                    }
+                }
+            ];
+            this.currentEvent = null;
+            this.eventEndTime = 0;
+            this.eventInterval = null;
+            this.nextEventTime = 0;
+        }
+
+        init() {
+            this.scheduleNextEvent();
+        }
+
+        scheduleNextEvent() {
+            // Events occur every 5 minutes (300 seconds)
+            const nextInterval = 300 + Math.random() * 60; // 5-6 minutes
+            this.nextEventTime = Date.now() + (nextInterval * 1000);
+        }
+
+        update(now) {
+            // Check if it's time to start a new event
+            if (!this.currentEvent && now >= this.nextEventTime) {
+                this.startRandomEvent();
+            }
+
+            // Check if current event should end
+            if (this.currentEvent && now >= this.eventEndTime) {
+                this.endEvent();
+            }
+        }
+
+        startRandomEvent() {
+            const randomEvent = this.events[Math.floor(Math.random() * this.events.length)];
+            this.currentEvent = randomEvent;
+            this.eventEndTime = Date.now() + (randomEvent.duration * 1000);
+
+            randomEvent.apply();
+            this.showEventBanner();
+
+            // Play event sound
+            if (sfx && sfx.eventStart) {
+                sfx.eventStart();
+            }
+        }
+
+        endEvent() {
+            if (this.currentEvent) {
+                this.currentEvent.remove();
+                this.showEventEndBanner();
+
+                // Play event end sound
+                if (sfx && sfx.eventEnd) {
+                    sfx.eventEnd();
+                }
+
+                this.currentEvent = null;
+                this.scheduleNextEvent();
+            }
+        }
+
+        showEventBanner() {
+            if (!this.currentEvent) return;
+
+            const existing = document.getElementById('event-banner');
+            if (existing) existing.remove();
+
+            const banner = document.createElement('div');
+            banner.id = 'event-banner';
+            banner.className = 'event-banner event-active';
+            banner.style.borderColor = this.currentEvent.color;
+            banner.style.backgroundColor = `${this.currentEvent.color}15`;
+
+            const title = i18n.t(this.currentEvent.name) || this.currentEvent.name;
+            const desc = i18n.t(this.currentEvent.description) || this.currentEvent.description;
+
+            banner.innerHTML = `
+                <div class="event-icon" style="color: ${this.currentEvent.color};">
+                    ${this.currentEvent.icon}
+                </div>
+                <div class="event-content">
+                    <div class="event-title">${title}</div>
+                    <div class="event-desc">${desc}</div>
+                    <div class="event-timer">
+                        <span class="event-countdown" id="event-countdown">${this.currentEvent.duration}</span>s
+                    </div>
+                </div>
+            `;
+
+            // Insert after the ad banner
+            const adBanner = document.querySelector('.ad-banner');
+            if (adBanner) {
+                adBanner.after(banner);
+            } else {
+                const container = document.querySelector('.container');
+                if (container) container.insertBefore(banner, container.firstChild);
+            }
+        }
+
+        showEventEndBanner() {
+            if (!this.currentEvent) return;
+
+            const banner = document.getElementById('event-banner');
+            if (banner) {
+                banner.classList.remove('event-active');
+                banner.classList.add('event-inactive');
+
+                setTimeout(() => banner.remove(), 500);
+            }
+        }
+
+        getRemainingTime() {
+            if (!this.currentEvent) return 0;
+            const remaining = Math.max(0, this.eventEndTime - Date.now());
+            return Math.ceil(remaining / 1000);
+        }
+
+        saveState() {
+            return {
+                currentEvent: this.currentEvent ? this.currentEvent.id : null,
+                eventEndTime: this.eventEndTime,
+                nextEventTime: this.nextEventTime
+            };
+        }
+
+        loadState(data) {
+            if (data && data.currentEvent) {
+                const event = this.events.find(e => e.id === data.currentEvent);
+                if (event && Date.now() < data.eventEndTime) {
+                    this.currentEvent = event;
+                    this.eventEndTime = data.eventEndTime;
+                    event.apply();
+                    this.showEventBanner();
+                }
+            }
+            if (data && data.nextEventTime) {
+                this.nextEventTime = data.nextEventTime;
+            }
+        }
+    }
+
     // Save/Load (with enhanced error handling)
     function saveState() {
         try {
             if (typeof localStorage === 'undefined') return;
+            const eventState = eventSystem ? eventSystem.saveState() : null;
             localStorage.setItem('dungeonClicker', JSON.stringify({
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
                 ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
                 killCount, currentMonsterIndex, currentTier, prestigePoints, prestigeCount, setBonus,
-                bossKills, goldenKills
+                bossKills, goldenKills,
+                eventState
             }));
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
             localStorage.setItem('achievements', JSON.stringify(achievements));
@@ -1672,6 +1905,11 @@
                 setBonus = d.setBonus || 1.0;
                 bossKills = d.bossKills || 0;
                 goldenKills = d.goldenKills || 0;
+
+                // Load event system state
+                if (eventSystem && d.eventState) {
+                    eventSystem.loadState(d.eventState);
+                }
             }
             // Load achievements from localStorage
             const savedAchievements = localStorage.getItem('achievements');

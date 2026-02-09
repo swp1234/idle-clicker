@@ -401,6 +401,26 @@ class SoundEngine {
             this.playOscillator(1600, 0.06, 'square', { attack: 0.01, decay: 0.04, sustain: 0 });
         }, 120);
     }
+
+    eventStart() {
+        // Event start fanfare - bright and energetic
+        const now = this.ctx ? this.ctx.currentTime : 0;
+        if (!this.ctx) return;
+
+        // Two rising notes
+        this.playOscillator(700, 0.2, 'sine', { attack: 0.02, decay: 0.15, sustain: 0 });
+        setTimeout(() => {
+            this.playOscillator(900, 0.25, 'sine', { attack: 0.02, decay: 0.2, sustain: 0 });
+        }, 150);
+    }
+
+    eventEnd() {
+        // Event end sound - smooth descending tone
+        this.playOscillator(800, 0.3, 'sine', { attack: 0.05, decay: 0.25, sustain: 0 });
+        setTimeout(() => {
+            this.playOscillator(600, 0.3, 'sine', { attack: 0.05, decay: 0.25, sustain: 0 });
+        }, 200);
+    }
 }
 
 // Global instance

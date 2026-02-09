@@ -733,5 +733,15 @@
     "rankDIAMOND": "Diamond",
     "rankMASTER": "Master",
     "maxRank": "Max Rank Achieved!"
+  },
+  "event": {
+    "goldRush": "Altın Çılgınlığı",
+    "goldRushDesc": "30 saniye boyunca altın kazancı 2x!",
+    "monsterFest": "Canavar Festivali",
+    "monsterFestDesc": "30 saniye boyunca canavar HP %50 azaltıldı!",
+    "equipSale": "Ekipman İndirimi",
+    "equipSaleDesc": "30 saniye boyunca ekipman fiyatları %30 indirim!",
+    "expBoost": "Deneyim Artışı",
+    "expBoostDesc": "30 saniye boyunca beceri EXP 2x!"
   }
 }

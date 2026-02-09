@@ -733,5 +733,15 @@
     "rankDIAMOND": "Diamond",
     "rankMASTER": "Master",
     "maxRank": "Max Rank Achieved!"
+  },
+  "event": {
+    "goldRush": "Goldrausch",
+    "goldRushDesc": "30 Sekunden lang 2x Goldverdienste!",
+    "monsterFest": "Monsterfest",
+    "monsterFestDesc": "30 Sekunden lang 50% Monster-HP reduziert!",
+    "equipSale": "Ausrüstungsverkauf",
+    "equipSaleDesc": "30 Sekunden lang 30% Rabatt auf Ausrüstung!",
+    "expBoost": "EXP-Schub",
+    "expBoostDesc": "30 Sekunden lang 2x Fähigkeits-EXP!"
   }
 }

@@ -733,5 +733,15 @@
     "rankDIAMOND": "Diamond",
     "rankMASTER": "Master",
     "maxRank": "Max Rank Achieved!"
+  },
+  "event": {
+    "goldRush": "Ruée vers l'Or",
+    "goldRushDesc": "2x les gains d'or pendant 30 secondes!",
+    "monsterFest": "Festival des Monstres",
+    "monsterFestDesc": "PV des monstres réduits de 50% pendant 30 secondes!",
+    "equipSale": "Vente d'Équipements",
+    "equipSaleDesc": "30% de réduction sur les équipements pendant 30 secondes!",
+    "expBoost": "Coup de Pouce XP",
+    "expBoostDesc": "2x XP des compétences pendant 30 secondes!"
   }
 }
