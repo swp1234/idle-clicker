@@ -232,6 +232,12 @@
         "guardian": "世界守护者"
     },
     "equipment": {
+        "common": "普通",
+        "uncommon": "罕见",
+        "rare": "稀有",
+        "epic": "史诗",
+        "legendary": "传奇",
+        "setBonus": "⭐ 套装完成! DPS +20%",
         "wooden_sword": {"name": "木制剑", "desc": "你的第一个武器，冒险的开始"},
         "leather_shield": {"name": "皮盾", "desc": "提供基本防御"},
         "iron_dagger": {"name": "铁匕首", "desc": "可以进行快速连续攻击"},

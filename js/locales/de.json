@@ -232,6 +232,12 @@
         "guardian": "Welthüter"
     },
     "equipment": {
+        "common": "Gewöhnlich",
+        "uncommon": "Ungewöhnlich",
+        "rare": "Selten",
+        "epic": "Episch",
+        "legendary": "Legendär",
+        "setBonus": "⭐ SATZ VERVOLLSTÄNDIGT! DPS +20%",
         "wooden_sword": {"name": "Holzschwert", "desc": "Deine erste Waffe, der Anfang des Abenteuers"},
         "leather_shield": {"name": "Lederschild", "desc": "Bietet grundlegenden Schutz"},
         "iron_dagger": {"name": "Eiserner Dolch", "desc": "Ermöglicht schnelle aufeinanderfolgende Angriffe"},

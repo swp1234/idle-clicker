@@ -232,6 +232,12 @@
         "guardian": "Dünya Koruyucusu"
     },
     "equipment": {
+        "common": "Sıradan",
+        "uncommon": "Sıradışı",
+        "rare": "Nadir",
+        "epic": "Efsanevi",
+        "legendary": "Efsane",
+        "setBonus": "⭐ TAKIMI TAMAMLANDI! DPS +20%",
         "wooden_sword": {"name": "Ahşap Kılıç", "desc": "İlk silahın, maceranın başlangıcı"},
         "leather_shield": {"name": "Deri Kalkanı", "desc": "Temel savunma sağlar"},
         "iron_dagger": {"name": "Demir Hançer", "desc": "Hızlı ardışık saldırıları mümkün kılar"},

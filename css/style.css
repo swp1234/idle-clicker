@@ -727,6 +727,17 @@ body {
 .equip-buy-btn:hover, .biz-buy-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px var(--primary-glow), 0 0 16px var(--accent); }
 .equip-buy-btn.disabled, .biz-buy-btn.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; box-shadow: none; }
 
+/* === Equipment Grade Styles === */
+.equip-grade-common { border-left-color: #808080; }
+.equip-grade-uncommon { border-left-color: #16a34a; background: rgba(22, 163, 74, 0.05); }
+.equip-grade-rare { border-left-color: #0ea5e9; background: rgba(14, 165, 233, 0.05); }
+.equip-grade-epic { border-left-color: #7c3aed; background: rgba(124, 58, 237, 0.05); }
+.equip-grade-legendary { border-left-color: #f97316; background: rgba(249, 115, 22, 0.08); animation: legendaryGlow 2s ease-in-out infinite; }
+@keyframes legendaryGlow { 0%, 100% { box-shadow: 0 0 12px rgba(249, 115, 22, 0.2); } 50% { box-shadow: 0 0 24px rgba(249, 115, 22, 0.4); } }
+.equip-border { border: 1px solid var(--border-glass); border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px; width: 100%; }
+.equip-grade { margin-left: 4px; opacity: 0.8; font-size: 10px !important; }
+.equip-set-indicator { font-size: 11px; color: #fbbf24; font-weight: 700; margin-top: 4px; }
+
 /* === Skill Cards === */
 .skill-card, .upgrade-card {
     display: flex; align-items: center; gap: 10px;
@@ -1472,3 +1483,13 @@ canvas {
     text-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
     animation: prestigeTextBounce 2s ease-out forwards;
 }
+
+/* === Accessibility Improvements === */
+button:focus-visible,a:focus-visible,input:focus-visible,[role="button"]:focus-visible{outline:3px solid #8b5cf6;outline-offset:2px;}
+button,a[href],input[type="button"],input[type="submit"],[role="button"]{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+.skip-link{position:absolute;top:-40px;left:0;background:#8b5cf6;color:white;padding:8px;text-decoration:none;z-index:100;}
+.skip-link:focus{top:0;}
+[role="dialog"]{z-index:1000;}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+@media (prefers-contrast: more){button{border:2px solid #8b5cf6;}}
+.rec-card:focus-visible{outline:3px solid #8b5cf6;outline-offset:4px;}

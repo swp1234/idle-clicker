@@ -232,6 +232,12 @@
         "guardian": "Penjaga Dunia"
     },
     "equipment": {
+        "common": "Biasa",
+        "uncommon": "Jarang",
+        "rare": "Sangat Jarang",
+        "epic": "Epik",
+        "legendary": "Legendaris",
+        "setBonus": "⭐ RANGKAIAN LENGKAP! DPS +20%",
         "wooden_sword": {"name": "Pedang Kayu", "desc": "Senjata pertamamu, awal dari petualangan"},
         "leather_shield": {"name": "Perisai Kulit", "desc": "Memberikan pertahanan dasar"},
         "iron_dagger": {"name": "Belati Besi", "desc": "Memungkinkan serangan beruntun cepat"},

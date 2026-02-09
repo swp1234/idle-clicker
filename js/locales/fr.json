@@ -232,6 +232,12 @@
         "guardian": "Gardien du Monde"
     },
     "equipment": {
+        "common": "Commun",
+        "uncommon": "Rare",
+        "rare": "Très Rare",
+        "epic": "Épique",
+        "legendary": "Légendaire",
+        "setBonus": "⭐ ENSEMBLE COMPLET! DPS +20%",
         "wooden_sword": {"name": "Épée en Bois", "desc": "Votre première arme, le début de l'aventure"},
         "leather_shield": {"name": "Bouclier de Cuir", "desc": "Offre une protection basique"},
         "iron_dagger": {"name": "Poignard en Fer", "desc": "Permet des attaques rapides successives"},

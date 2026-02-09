@@ -232,6 +232,12 @@
         "guardian": "Guardião do Mundo"
     },
     "equipment": {
+        "common": "Comum",
+        "uncommon": "Incomum",
+        "rare": "Raro",
+        "epic": "Épico",
+        "legendary": "Lendário",
+        "setBonus": "⭐ CONJUNTO COMPLETO! DPS +20%",
         "wooden_sword": {"name": "Espada de Madeira", "desc": "Sua primeira arma, o início da aventura"},
         "leather_shield": {"name": "Escudo de Couro", "desc": "Fornece defesa básica"},
         "iron_dagger": {"name": "Punhal de Ferro", "desc": "Permite ataques sucessivos rápidos"},
