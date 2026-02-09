@@ -190,15 +190,19 @@
         "lightning": "번개 참격",
         "legion": "전설의 군단",
         "boss_hunter": "보스 사냥꾼",
-        "critical_desc": "공격력 2배",
-        "summon_desc": "자동 공격 2배",
-        "power_slash_desc": "공격력 3배",
-        "haste_desc": "공격 속도 2배",
-        "army_desc": "자동 공격 3배",
-        "lightning_desc": "공격력 5배",
-        "legion_desc": "자동 공격 5배",
-        "boss_hunter_desc": "클릭 시 DPS의 5% 보너스",
-        "learned": "습득"
+        "critical_desc": "공격력 증가",
+        "summon_desc": "자동 공격 증가",
+        "power_slash_desc": "공격력 대폭 증가",
+        "haste_desc": "공격 속도 증가",
+        "army_desc": "자동 공격 크게 증가",
+        "lightning_desc": "공격력 극대 증가",
+        "legion_desc": "자동 공격 극대 증가",
+        "boss_hunter_desc": "클릭 DPS 보너스",
+        "learned": "습득",
+        "maxLevel": "최대 레벨 달성!"
+    },
+    "skill": {
+        "maxLevel": "최대 레벨!"
     },
     "ranks": {
         "beginner": "마을 초보자",

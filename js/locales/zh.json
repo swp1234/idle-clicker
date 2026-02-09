@@ -204,15 +204,19 @@
         "lightning": "闪电斩击",
         "legion": "传奇军团",
         "boss_hunter": "猎龙者",
-        "critical_desc": "2倍攻击力",
-        "summon_desc": "2倍自动攻击",
-        "power_slash_desc": "3倍攻击力",
-        "haste_desc": "2倍攻击速度",
-        "army_desc": "3倍自动攻击",
-        "lightning_desc": "5倍攻击力",
-        "legion_desc": "5倍自动攻击",
-        "boss_hunter_desc": "点击伤害加成5%",
-        "learned": "已学习"
+        "critical_desc": "增加攻击力",
+        "summon_desc": "增加自动攻击",
+        "power_slash_desc": "大幅增加攻击力",
+        "haste_desc": "增加攻击速度",
+        "army_desc": "大幅增加自动攻击",
+        "lightning_desc": "极大增加攻击力",
+        "legion_desc": "极大增加自动攻击",
+        "boss_hunter_desc": "点击DPS加成",
+        "learned": "已学习",
+        "maxLevel": "达到最大等级!"
+    },
+    "skill": {
+        "maxLevel": "最大等级!"
     },
     "ranks": {
         "beginner": "村庄新手",

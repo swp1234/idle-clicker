@@ -204,15 +204,19 @@
         "lightning": "Golpe Relâmpago",
         "legion": "Legião Lendária",
         "boss_hunter": "Caçador de Chefes",
-        "critical_desc": "2x Poder de Ataque",
-        "summon_desc": "2x Ataque Automático",
-        "power_slash_desc": "3x Poder de Ataque",
-        "haste_desc": "2x Velocidade de Ataque",
-        "army_desc": "3x Ataque Automático",
-        "lightning_desc": "5x Poder de Ataque",
-        "legion_desc": "5x Ataque Automático",
-        "boss_hunter_desc": "5% Bônus de DPS ao Clicar",
-        "learned": "Aprendido"
+        "critical_desc": "Aumentar Poder de Ataque",
+        "summon_desc": "Aumentar Ataque Automático",
+        "power_slash_desc": "Aumentar Muito Poder de Ataque",
+        "haste_desc": "Aumentar Velocidade de Ataque",
+        "army_desc": "Aumentar Muito Ataque Automático",
+        "lightning_desc": "Maximizar Poder de Ataque",
+        "legion_desc": "Maximizar Ataque Automático",
+        "boss_hunter_desc": "Bônus de DPS ao Clicar",
+        "learned": "Aprendido",
+        "maxLevel": "Nível Máximo!"
+    },
+    "skill": {
+        "maxLevel": "Nível Máximo!"
     },
     "ranks": {
         "beginner": "Novato da Vila",

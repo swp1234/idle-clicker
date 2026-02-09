@@ -204,15 +204,19 @@
         "lightning": "Yıldırım Kesimi",
         "legion": "Efsanevi Lejyon",
         "boss_hunter": "Boss Avcısı",
-        "critical_desc": "2x Saldırı Gücü",
-        "summon_desc": "2x Otomatik Saldırı",
-        "power_slash_desc": "3x Saldırı Gücü",
-        "haste_desc": "2x Saldırı Hızı",
-        "army_desc": "3x Otomatik Saldırı",
-        "lightning_desc": "5x Saldırı Gücü",
-        "legion_desc": "5x Otomatik Saldırı",
-        "boss_hunter_desc": "Tıklamada %5 Hasar Bonusu",
-        "learned": "Öğrenildi"
+        "critical_desc": "Saldırı Gücünü Artır",
+        "summon_desc": "Otomatik Saldırıyı Artır",
+        "power_slash_desc": "Saldırı Gücünü Çok Artır",
+        "haste_desc": "Saldırı Hızını Artır",
+        "army_desc": "Otomatik Saldırıyı Çok Artır",
+        "lightning_desc": "Saldırı Gücünü Maksimize Et",
+        "legion_desc": "Otomatik Saldırıyı Maksimize Et",
+        "boss_hunter_desc": "Tıklamada Hasar Bonusu",
+        "learned": "Öğrenildi",
+        "maxLevel": "Maksimum Seviye!"
+    },
+    "skill": {
+        "maxLevel": "Maksimum Seviye!"
     },
     "ranks": {
         "beginner": "Köy Acemisi",

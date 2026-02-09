@@ -204,15 +204,19 @@
         "lightning": "Coup Éclair",
         "legion": "Légion Légendaire",
         "boss_hunter": "Chasseur de Boss",
-        "critical_desc": "2x Puissance d'Attaque",
-        "summon_desc": "2x Attaque Automatique",
-        "power_slash_desc": "3x Puissance d'Attaque",
-        "haste_desc": "2x Vitesse d'Attaque",
-        "army_desc": "3x Attaque Automatique",
-        "lightning_desc": "5x Puissance d'Attaque",
-        "legion_desc": "5x Attaque Automatique",
-        "boss_hunter_desc": "5% Bonus de DPS au Clic",
-        "learned": "Appris"
+        "critical_desc": "Augmenter Puissance d'Attaque",
+        "summon_desc": "Augmenter Attaque Automatique",
+        "power_slash_desc": "Augmenter Beaucoup Puissance d'Attaque",
+        "haste_desc": "Augmenter Vitesse d'Attaque",
+        "army_desc": "Augmenter Beaucoup Attaque Automatique",
+        "lightning_desc": "Maximiser Puissance d'Attaque",
+        "legion_desc": "Maximiser Attaque Automatique",
+        "boss_hunter_desc": "Bonus de DPS au Clic",
+        "learned": "Appris",
+        "maxLevel": "Niveau Maximum!"
+    },
+    "skill": {
+        "maxLevel": "Niveau Maximum!"
     },
     "ranks": {
         "beginner": "Novice du Village",

@@ -204,15 +204,19 @@
         "lightning": "Blitzschlag",
         "legion": "Legendäre Legion",
         "boss_hunter": "Boss-Jäger",
-        "critical_desc": "2x Angriffskraft",
-        "summon_desc": "2x Automatischer Angriff",
-        "power_slash_desc": "3x Angriffskraft",
-        "haste_desc": "2x Angriffsgeschwindigkeit",
-        "army_desc": "3x Automatischer Angriff",
-        "lightning_desc": "5x Angriffskraft",
-        "legion_desc": "5x Automatischer Angriff",
-        "boss_hunter_desc": "5% DPS-Bonus beim Klick",
-        "learned": "Gelernt"
+        "critical_desc": "Angriffskraft erhöhen",
+        "summon_desc": "Automatischer Angriff erhöhen",
+        "power_slash_desc": "Angriffskraft stark erhöhen",
+        "haste_desc": "Angriffsgeschwindigkeit erhöhen",
+        "army_desc": "Automatischer Angriff stark erhöhen",
+        "lightning_desc": "Angriffskraft maximieren",
+        "legion_desc": "Automatischer Angriff maximieren",
+        "boss_hunter_desc": "DPS-Bonus beim Klick",
+        "learned": "Gelernt",
+        "maxLevel": "Maximale Stufe!"
+    },
+    "skill": {
+        "maxLevel": "Maximale Stufe!"
     },
     "ranks": {
         "beginner": "Dorfneuling",

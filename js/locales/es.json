@@ -204,15 +204,19 @@
         "lightning": "Corte de Rayo",
         "legion": "Legión Legendaria",
         "boss_hunter": "Cazador de Jefes",
-        "critical_desc": "2x Poder de Ataque",
-        "summon_desc": "2x Ataque Automático",
-        "power_slash_desc": "3x Poder de Ataque",
-        "haste_desc": "2x Velocidad de Ataque",
-        "army_desc": "3x Ataque Automático",
-        "lightning_desc": "5x Poder de Ataque",
-        "legion_desc": "5x Ataque Automático",
-        "boss_hunter_desc": "5% Bonificación de DPS en Clic",
-        "learned": "Aprendido"
+        "critical_desc": "Aumentar Poder de Ataque",
+        "summon_desc": "Aumentar Ataque Automático",
+        "power_slash_desc": "Aumentar Mucho Poder de Ataque",
+        "haste_desc": "Aumentar Velocidad de Ataque",
+        "army_desc": "Aumentar Mucho Ataque Automático",
+        "lightning_desc": "Maximizar Poder de Ataque",
+        "legion_desc": "Maximizar Ataque Automático",
+        "boss_hunter_desc": "Bonificación de DPS en Clic",
+        "learned": "Aprendido",
+        "maxLevel": "¡Nivel Máximo!"
+    },
+    "skill": {
+        "maxLevel": "¡Nivel Máximo!"
     },
     "ranks": {
         "beginner": "Novato de Pueblo",

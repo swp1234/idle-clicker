@@ -204,15 +204,19 @@
         "lightning": "Lightning Slash",
         "legion": "Legendary Legion",
         "boss_hunter": "Boss Hunter",
-        "critical_desc": "2x Attack Power",
-        "summon_desc": "2x Auto Attack",
-        "power_slash_desc": "3x Attack Power",
-        "haste_desc": "2x Attack Speed",
-        "army_desc": "3x Auto Attack",
-        "lightning_desc": "5x Attack Power",
-        "legion_desc": "5x Auto Attack",
-        "boss_hunter_desc": "5% DPS Bonus on Click",
-        "learned": "Learned"
+        "critical_desc": "Increase Attack Power",
+        "summon_desc": "Increase Auto Attack",
+        "power_slash_desc": "Greatly Increase Attack Power",
+        "haste_desc": "Increase Attack Speed",
+        "army_desc": "Greatly Increase Auto Attack",
+        "lightning_desc": "Maximize Attack Power",
+        "legion_desc": "Maximize Auto Attack",
+        "boss_hunter_desc": "DPS Click Bonus",
+        "learned": "Learned",
+        "maxLevel": "Max Level!"
+    },
+    "skill": {
+        "maxLevel": "Max Level!"
     },
     "ranks": {
         "beginner": "Village Novice",

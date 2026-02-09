@@ -204,15 +204,19 @@
         "lightning": "बिजली की काट",
         "legion": "महान सेना",
         "boss_hunter": "बॉस शिकारी",
-        "critical_desc": "2x हमले की शक्ति",
-        "summon_desc": "2x स्वचालित हमला",
-        "power_slash_desc": "3x हमले की शक्ति",
-        "haste_desc": "2x हमले की गति",
-        "army_desc": "3x स्वचालित हमला",
-        "lightning_desc": "5x हमले की शक्ति",
-        "legion_desc": "5x स्वचालित हमला",
-        "boss_hunter_desc": "क्लिक पर 5% DPS बोनस",
-        "learned": "सीखा"
+        "critical_desc": "हमले की शक्ति बढ़ाएं",
+        "summon_desc": "स्वचालित हमला बढ़ाएं",
+        "power_slash_desc": "हमले की शक्ति बहुत बढ़ाएं",
+        "haste_desc": "हमले की गति बढ़ाएं",
+        "army_desc": "स्वचालित हमला बहुत बढ़ाएं",
+        "lightning_desc": "हमले की शक्ति अधिकतम करें",
+        "legion_desc": "स्वचालित हमला अधिकतम करें",
+        "boss_hunter_desc": "क्लिक पर DPS बोनस",
+        "learned": "सीखा",
+        "maxLevel": "अधिकतम स्तर!"
+    },
+    "skill": {
+        "maxLevel": "अधिकतम स्तर!"
     },
     "ranks": {
         "beginner": "गांव का नया",

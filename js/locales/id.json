@@ -204,15 +204,19 @@
         "lightning": "Goresan Petir",
         "legion": "Legion Legendaris",
         "boss_hunter": "Pemburu Bos",
-        "critical_desc": "2x Kekuatan Serangan",
-        "summon_desc": "2x Serangan Otomatis",
-        "power_slash_desc": "3x Kekuatan Serangan",
-        "haste_desc": "2x Kecepatan Serangan",
-        "army_desc": "3x Serangan Otomatis",
-        "lightning_desc": "5x Kekuatan Serangan",
-        "legion_desc": "5x Serangan Otomatis",
-        "boss_hunter_desc": "Bonus DPS 5% pada Klik",
-        "learned": "Dipelajari"
+        "critical_desc": "Tingkatkan Kekuatan Serangan",
+        "summon_desc": "Tingkatkan Serangan Otomatis",
+        "power_slash_desc": "Tingkatkan Banyak Kekuatan Serangan",
+        "haste_desc": "Tingkatkan Kecepatan Serangan",
+        "army_desc": "Tingkatkan Banyak Serangan Otomatis",
+        "lightning_desc": "Maksimalkan Kekuatan Serangan",
+        "legion_desc": "Maksimalkan Serangan Otomatis",
+        "boss_hunter_desc": "Bonus DPS pada Klik",
+        "learned": "Dipelajari",
+        "maxLevel": "Level Maksimal!"
+    },
+    "skill": {
+        "maxLevel": "Level Maksimal!"
     },
     "ranks": {
         "beginner": "Pemula Desa",
