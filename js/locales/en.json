@@ -69,6 +69,13 @@
         "achievement": "🏆 Achievements",
         "achievementUnlocked": "Achievement Unlocked!"
     },
+    "offline": {
+        "title": "Offline Earnings",
+        "away": "You were away for {time}!",
+        "earned": "{gold} Gold",
+        "collect": "Collect",
+        "double": "Watch Ad for 2x Earnings"
+    },
     "achievement": {
         "firstStep": "First Step",
         "firstStepDesc": "Defeat your first monster",
