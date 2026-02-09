@@ -485,5 +485,26 @@
         "active": "활성",
         "levelUp": "레벨 업",
         "insufficientGold": "골드가 부족합니다!"
+    },
+    "monsters": {
+        "flowerMonster": "꽃 몬스터",
+        "iceMonster": "얼음 몬스터",
+        "pumpkinMonster": "호박 몬스터",
+        "snowmanMonster": "눈사람 몬스터"
+    },
+    "seasons": {
+        "spring": "봄",
+        "summer": "여름",
+        "autumn": "가을",
+        "winter": "겨울",
+        "seasonalMonster": "시즌 몬스터",
+        "seasonalMonsterFlower": "꽃 몬스터 (봄)",
+        "seasonalMonsterIce": "얼음 몬스터 (여름)",
+        "seasonalMonsterPumpkin": "호박 몬스터 (가을)",
+        "seasonalMonsterSnowman": "눈사람 몬스터 (겨울)",
+        "bonusGold": "골드 +30%",
+        "bonusCooldown": "쿨타임 -15%",
+        "bonusExp": "경험치 +30%",
+        "bonusAll": "모든 보너스 +15%"
     }
 }

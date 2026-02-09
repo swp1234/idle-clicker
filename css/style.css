@@ -2949,3 +2949,224 @@ select:focus-visible {
     color: var(--text-dim);
     margin-top: 4px;
 }
+
+/* === Seasonal System === */
+
+/* Seasonal Variables (Default: Winter) */
+:root {
+    --season-primary: #e0f2fe;
+    --season-secondary: #60a5fa;
+    --season-theme: snowfall;
+}
+
+/* Spring Season */
+body.season-spring {
+    --season-primary: #10b981;
+    --season-secondary: #ec4899;
+    --season-theme: cherry-blossom;
+}
+
+body.season-spring .bg-orb-1 {
+    background: var(--season-primary);
+}
+
+body.season-spring .bg-orb-2 {
+    background: var(--season-secondary);
+}
+
+/* Summer Season */
+body.season-summer {
+    --season-primary: #06b6d4;
+    --season-secondary: #3b82f6;
+    --season-theme: wave;
+}
+
+body.season-summer .bg-orb-1 {
+    background: var(--season-primary);
+}
+
+body.season-summer .bg-orb-2 {
+    background: var(--season-secondary);
+}
+
+/* Autumn Season */
+body.season-autumn {
+    --season-primary: #f97316;
+    --season-secondary: #d97706;
+    --season-theme: falling-leaves;
+}
+
+body.season-autumn .bg-orb-1 {
+    background: var(--season-primary);
+}
+
+body.season-autumn .bg-orb-2 {
+    background: var(--season-secondary);
+}
+
+/* Winter Season */
+body.season-winter {
+    --season-primary: #e0f2fe;
+    --season-secondary: #60a5fa;
+    --season-theme: snowfall;
+}
+
+body.season-winter .bg-orb-1 {
+    background: var(--season-primary);
+}
+
+body.season-winter .bg-orb-2 {
+    background: var(--season-secondary);
+}
+
+/* === Seasonal Particles === */
+.seasonal-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.seasonal-particle {
+    position: absolute;
+    font-size: 32px;
+    opacity: 0.6;
+    will-change: transform;
+}
+
+/* Cherry Blossom (Spring) */
+.seasonal-particle.cherry-blossom {
+    animation: fall-blossom 20s linear infinite;
+}
+
+@keyframes fall-blossom {
+    0% {
+        top: -50px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: translateX(100px) rotate(360deg);
+    }
+}
+
+/* Wave/Water Droplet (Summer) */
+.seasonal-particle.wave {
+    animation: fall-wave 18s linear infinite;
+}
+
+@keyframes fall-wave {
+    0% {
+        top: -50px;
+        opacity: 0;
+        transform: translateX(0) scaleY(1);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(50px) scaleY(0.8);
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: translateX(-50px) scaleY(0.5);
+    }
+}
+
+/* Falling Leaves (Autumn) */
+.seasonal-particle.falling-leaves {
+    animation: fall-leaves 22s linear infinite;
+}
+
+@keyframes fall-leaves {
+    0% {
+        top: -50px;
+        opacity: 0;
+        transform: translateX(0) rotateZ(0deg);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateX(60px) rotateZ(90deg);
+    }
+    50% {
+        transform: translateX(-30px) rotateZ(180deg);
+    }
+    75% {
+        transform: translateX(40px) rotateZ(270deg);
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: translateX(-20px) rotateZ(360deg);
+    }
+}
+
+/* Snowfall (Winter) */
+.seasonal-particle.snowfall {
+    animation: fall-snow 25s linear infinite;
+}
+
+@keyframes fall-snow {
+    0% {
+        top: -50px;
+        opacity: 0;
+        transform: translateX(0) scale(1);
+    }
+    10% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateX(30px) scale(0.8);
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: translateX(-30px) scale(0.5);
+    }
+}
+
+/* Seasonal Monster Styling */
+.monster-emoji.seasonal-monster {
+    animation: seasonal-glow 1.5s ease-in-out infinite;
+}
+
+.monster-name.seasonal-monster-name {
+    color: var(--season-primary);
+    text-shadow: 0 0 15px var(--season-secondary);
+    font-weight: 700;
+}
+
+@keyframes seasonal-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px var(--season-primary));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px var(--season-primary));
+        transform: scale(1.05);
+    }
+}

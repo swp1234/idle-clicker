@@ -494,6 +494,19 @@
         isTierBoss = stageInfo.isTierBoss;
         isBoss = stageInfo.isTierBoss || stageInfo.isMidBoss;
 
+        // Check for seasonal bonus monster (unless boss)
+        isSeasonalMonster = false;
+        seasonalMonsterBonus = null;
+        let monsterDisplay = null;
+
+        if (!isBoss && seasonSystem) {
+            seasonalMonsterBonus = seasonSystem.shouldSpawnSeasonalMonster();
+            if (seasonalMonsterBonus) {
+                isSeasonalMonster = true;
+                monsterDisplay = seasonSystem.getSeasonalMonsterDisplay();
+            }
+        }
+
         const monster = MONSTERS[currentMonsterIndex];
         monsterMaxHP = getMonsterHP(monster, killCount);
         if (isTierBoss) {
@@ -508,21 +521,30 @@
 
         // Update DOM
         if (monsterEmojiEl) {
-            // Use SVG illustration if available, fallback to emoji
-            if (typeof MONSTER_SVG !== 'undefined' && MONSTER_SVG[monster.name]) {
+            // Use seasonal monster emoji if applicable
+            if (isSeasonalMonster && monsterDisplay) {
+                monsterEmojiEl.textContent = monsterDisplay.emoji;
+            } else if (typeof MONSTER_SVG !== 'undefined' && MONSTER_SVG[monster.name]) {
+                // Use SVG illustration if available, fallback to emoji
                 monsterEmojiEl.innerHTML = MONSTER_SVG[monster.name];
             } else {
                 monsterEmojiEl.textContent = monster.emoji;
             }
-            monsterEmojiEl.className = 'monster-emoji spawning';
+            monsterEmojiEl.className = 'monster-emoji spawning' + (isSeasonalMonster ? ' seasonal-monster' : '');
             setTimeout(() => {
                 monsterEmojiEl.classList.remove('spawning');
             }, 400);
         }
 
         // Get translated monster name
-        const monsterNameKey = getMonsterNameKey(monster.name);
-        const translatedMonsterName = i18n.t(monsterNameKey);
+        let translatedMonsterName;
+        if (isSeasonalMonster && monsterDisplay) {
+            translatedMonsterName = i18n.t('monsters.' + monsterDisplay.name) || 'Seasonal Monster';
+        } else {
+            const monsterNameKey = getMonsterNameKey(monster.name);
+            translatedMonsterName = i18n.t(monsterNameKey);
+        }
+
         const bossLabel = isTierBoss
             ? (i18n.t('game.tierBossLabel') || 'TIER BOSS')
             : (i18n.t('game.bossLabel') || 'BOSS');
@@ -531,6 +553,7 @@
             monsterNameEl.textContent = displayName;
             monsterNameEl.className = isBoss ? 'monster-name boss-name' : 'monster-name';
             if (isTierBoss) monsterNameEl.classList.add('tier-boss-name');
+            if (isSeasonalMonster) monsterNameEl.classList.add('seasonal-monster-name');
         }
 
         const level = Math.floor(killCount / MONSTERS.length) + 1;
@@ -643,6 +666,24 @@
         const monster = MONSTERS[currentMonsterIndex];
         let reward = getMonsterGoldReward(monster, killCount, isBoss, isTierBoss);
         let killedMonster = 'normal';
+
+        // Seasonal Monster: Gold/Prestige/All bonus
+        if (isSeasonalMonster && seasonalMonsterBonus) {
+            killedMonster = 'seasonal';
+            const seasonalBonus = seasonSystem.calculateSeasonalBonus(seasonalMonsterBonus.type);
+
+            if (seasonalMonsterBonus.type === 'goldBoost') {
+                // Gold +30% (flower monster in spring)
+                reward = Math.floor(reward * seasonalBonus);
+            } else if (seasonalMonsterBonus.type === 'experienceBoost') {
+                // Experience +30% (pumpkin monster in autumn) - applied to prestige points later
+                prestigePoints += Math.floor(prestigePoints * (seasonalBonus - 1));
+            } else if (seasonalMonsterBonus.type === 'allBonusBoost') {
+                // All bonuses +15% (snowman monster in winter)
+                reward = Math.floor(reward * seasonalBonus);
+            }
+            // cooldownReduction is applied separately in skill system
+        }
 
         // Golden Monster: 3배 보상
         if (goldenMonsterActive) {

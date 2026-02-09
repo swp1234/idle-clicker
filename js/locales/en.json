@@ -485,5 +485,26 @@
         "active": "Active",
         "levelUp": "Level Up",
         "insufficientGold": "Insufficient gold!"
+    },
+    "monsters": {
+        "flowerMonster": "Flower Monster",
+        "iceMonster": "Ice Monster",
+        "pumpkinMonster": "Pumpkin Monster",
+        "snowmanMonster": "Snowman Monster"
+    },
+    "seasons": {
+        "spring": "Spring",
+        "summer": "Summer",
+        "autumn": "Autumn",
+        "winter": "Winter",
+        "seasonalMonster": "Seasonal Monster",
+        "seasonalMonsterFlower": "Flower Monster (Spring)",
+        "seasonalMonsterIce": "Ice Monster (Summer)",
+        "seasonalMonsterPumpkin": "Pumpkin Monster (Autumn)",
+        "seasonalMonsterSnowman": "Snowman Monster (Winter)",
+        "bonusGold": "Gold +30%",
+        "bonusCooldown": "Cooldown -15%",
+        "bonusExp": "Experience +30%",
+        "bonusAll": "All Bonuses +15%"
     }
 }
