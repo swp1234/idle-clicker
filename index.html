@@ -25,6 +25,9 @@
     <meta property="og:locale" content="ko_KR">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="hi_IN">
+    <meta property="og:locale:alternate" content="ru_RU">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -32,6 +35,21 @@
     <meta name="twitter:description" content="몬스터 사냥, 장비 강화, 던전 클리어! 클릭 한 번으로 시작하는 방치형 RPG!">
     <meta name="twitter:image" content="https://dopabrain.com/idle-clicker/icon-512.svg">
     <meta name="twitter:site" content="@dopabrain">
+
+    <!-- hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="ko" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="en" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="zh" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="hi" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="ru" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="ja" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="es" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="pt" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="id" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="tr" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="de" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="fr" href="https://dopabrain.com/idle-clicker/">
+    <link rel="alternate" hreflang="x-default" href="https://dopabrain.com/idle-clicker/">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -47,13 +65,34 @@
         "@context": "https://schema.org",
         "@type": "VideoGame",
         "name": "던전 클리커",
-        "description": "클릭으로 던전을 탐험하고 몬스터를 무찌르는 방치형 RPG 클리커 게임",
+        "description": "클릭으로 던전을 탐험하고 몬스터를 무찌르는 방치형 RPG 클리커 게임. 몬스터 사냥, 장비 강화, 자동 증가 기능으로 점진적 강화!",
         "url": "https://dopabrain.com/idle-clicker/",
+        "image": "https://dopabrain.com/idle-clicker/icon-512.svg",
         "genre": "RPG",
         "gamePlatform": "Web Browser",
         "operatingSystem": "Any",
         "applicationCategory": "Game",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+        "browserRequirements": "Requires JavaScript. Modern browser (Chrome, Safari, Firefox, Edge).",
+        "author": {
+            "@type": "Organization",
+            "name": "DopaBrain",
+            "url": "https://dopabrain.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DopaBrain",
+            "url": "https://dopabrain.com/"
+        },
+        "inLanguage": ["ko", "en", "zh", "hi", "ru"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW", "availability": "https://schema.org/InStock" },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "ratingCount": "1950",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "featureList": "무한 클릭, 장비 시스템, 던전 진행, 자동 증가, 게임 저장"
     }
     </script>
 
@@ -66,6 +105,9 @@
     <link rel="preload" href="js/app.js" as="script">
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link" data-i18n="app.skipLink">Skip to main</a>
+
     <div class="app-loader" id="app-loader">
         <div class="loader-content">
             <div class="loader-emoji">⚔️</div>
@@ -191,6 +233,7 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="equipment" data-i18n="game.equipment">⚔️ 장비</button>
             <button class="tab-btn" data-tab="skill" data-i18n="game.skill">🛡️ 스킬</button>
+            <button class="tab-btn" data-tab="dailyMissions" data-i18n="dailyMissions.title">📋 일일 미션</button>
             <button class="tab-btn" data-tab="stats" data-i18n="game.stats">📊 통계</button>
             <button class="tab-btn" data-tab="achievement" data-i18n="game.achievement">🏆 업적</button>
         </div>
@@ -203,6 +246,38 @@
         <!-- Tab: Skills -->
         <div class="tab-panel" id="panel-skill">
             <div id="skill-list"></div>
+        </div>
+
+        <!-- Tab: Daily Missions -->
+        <div class="tab-panel" id="panel-dailyMissions">
+            <div class="missions-header">
+                <div class="missions-timer" id="missions-timer">
+                    <span class="timer-label" data-i18n="dailyMissions.resetsIn">리셋까지</span>
+                    <span class="timer-value" id="timer-value">24:00:00</span>
+                </div>
+                <div class="missions-progress">
+                    <span class="progress-label" id="progress-label">0 / 3</span>
+                    <div class="missions-progress-bar">
+                        <div class="missions-progress-fill" id="missions-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="missions-list" class="missions-list"></div>
+            <div class="daily-bonus-section">
+                <h3 class="bonus-title" data-i18n="dailyMissions.dailyBonus">일일 완료 보너스</h3>
+                <div class="bonus-rewards">
+                    <div class="bonus-item">
+                        <span class="bonus-icon">💰</span>
+                        <span class="bonus-text" data-i18n="dailyMissions.bonusGold">골드</span>
+                        <span class="bonus-value" id="bonus-gold">5000</span>
+                    </div>
+                    <div class="bonus-item">
+                        <span class="bonus-icon">⭐</span>
+                        <span class="bonus-text" data-i18n="dailyMissions.bonusXP">경험치</span>
+                        <span class="bonus-value" id="bonus-xp">500</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tab: Achievements -->

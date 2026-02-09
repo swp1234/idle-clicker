@@ -443,5 +443,18 @@
         "equipSaleDesc": "30초간 장비 가격 30% 할인!",
         "expBoost": "경험치 부스트",
         "expBoostDesc": "30초간 스킬 경험치 2배!"
+    },
+    "dailyMissions": {
+        "title": "📋 일일 미션",
+        "resetsIn": "리셋까지",
+        "missionCompleted": "미션 완료!",
+        "claim": "수령",
+        "claimed": "수령됨",
+        "dailyBonus": "일일 완료 보너스",
+        "bonusGold": "골드",
+        "bonusXP": "경험치",
+        "kill_100": "몬스터 100마리 처치",
+        "gold_10k": "골드 10,000 획득",
+        "boss_1": "보스 1마리 처치"
     }
 }

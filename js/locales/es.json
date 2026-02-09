@@ -743,5 +743,18 @@
     "equipSaleDesc": "¡Precios de equipos 30% de descuento por 30 segundos!",
     "expBoost": "Impulso de EXP",
     "expBoostDesc": "¡EXP de habilidad 2x por 30 segundos!"
+  },
+  "dailyMissions": {
+    "title": "📋 Misiones Diarias",
+    "resetsIn": "Se reinicia en",
+    "missionCompleted": "¡Misión Completada!",
+    "claim": "Reclamar",
+    "claimed": "Reclamado",
+    "dailyBonus": "Bonificación Diaria de Finalización",
+    "bonusGold": "Oro",
+    "bonusXP": "XP",
+    "kill_100": "Derrota 100 Monstruos",
+    "gold_10k": "Gana 10,000 Oro",
+    "boss_1": "Derrota 1 Jefe"
   }
 }

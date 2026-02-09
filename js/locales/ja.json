@@ -743,5 +743,18 @@
     "equipSaleDesc": "30秒間装備価格30%割引！",
     "expBoost": "経験値ブースト",
     "expBoostDesc": "30秒間スキル経験値2倍！"
+  },
+  "dailyMissions": {
+    "title": "📋 デイリーミッション",
+    "resetsIn": "リセットまで",
+    "missionCompleted": "ミッション完了！",
+    "claim": "報酬を受け取る",
+    "claimed": "受け取り済み",
+    "dailyBonus": "デイリー完了ボーナス",
+    "bonusGold": "ゴールド",
+    "bonusXP": "XP",
+    "kill_100": "モンスター100体を倒す",
+    "gold_10k": "ゴールド10,000を獲得",
+    "boss_1": "ボス1体を倒す"
   }
 }

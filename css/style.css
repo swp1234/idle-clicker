@@ -2310,3 +2310,437 @@ button,a[href],input[type="button"],input[type="submit"],[role="button"]{min-wid
     text-align: right;
     display: inline-block;
 }
+
+/* === Daily Missions UI === */
+#panel-dailyMissions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.missions-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+}
+
+.missions-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.timer-label {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.timer-value {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 16px;
+}
+
+.missions-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.progress-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.missions-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.missions-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.missions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mission-card {
+    padding: 12px;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.mission-card:hover {
+    background: rgba(139, 92, 246, 0.12);
+    border-color: var(--border-glass-hover);
+}
+
+.mission-card.completed {
+    background: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+.mission-card.easy { --diff-color: #fbbf24; }
+.mission-card.normal { --diff-color: #f97316; }
+.mission-card.hard { --diff-color: #ef4444; }
+
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.mission-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.difficulty-icon {
+    font-size: 13px;
+}
+
+.mission-name {
+    color: var(--text);
+}
+
+.mission-checkmark {
+    font-size: 18px;
+    color: var(--green);
+    animation: bounceIn 0.4s ease;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.mission-progress {
+    margin-bottom: 8px;
+}
+
+.progress-bar-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--diff-color), var(--primary));
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    min-width: 45px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+.mission-rewards {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.reward-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.claim-btn {
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--gold), #f59e0b);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.claim-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(251, 191, 36, 0.3);
+}
+
+.claim-btn:active {
+    transform: translateY(0);
+}
+
+.claimed-badge {
+    width: 100%;
+    padding: 8px;
+    background: rgba(52, 211, 153, 0.2);
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    border-radius: 6px;
+    text-align: center;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.daily-bonus-section {
+    padding: 12px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: var(--radius-sm);
+}
+
+.bonus-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.bonus-rewards {
+    display: flex;
+    gap: 8px;
+}
+
+.bonus-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.bonus-icon {
+    font-size: 16px;
+}
+
+.bonus-text {
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+.bonus-value {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 13px;
+}
+
+.mission-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 1000;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.reward-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold), #f59e0b);
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 1000;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Enhanced button accessibility */
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+[role="button"]:active {
+    transform: scale(0.98);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    button,
+    input[type="button"],
+    input[type="submit"],
+    [role="button"] {
+        border: 2px solid currentColor;
+        font-weight: bold;
+    }
+}
+
+/* Enhanced form accessibility */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    font-size: 16px;
+    min-height: 44px;
+    padding: 10px 12px;
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="number"]:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 1px;
+}
+
+/* Error handling accessibility */
+.error-message,
+[aria-invalid="true"] {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+[aria-invalid="true"] {
+    border-color: #dc2626;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Keep essential transitions for state changes */
+    button:active,
+    [role="button"]:active {
+        transform: none;
+    }
+}
+
+/* Non-color focus indicators */
+:focus-visible {
+    outline-width: 3px;
+}
+
+/* Icon patterns for colorblind users */
+.error::before {
+    content: "x ";
+}
+
+.success::before {
+    content: "✓ ";
+}
+
+.warning::before {
+    content: "! ";
+}
+
+.info::before {
+    content: "i ";
+}
+
+/* High contrast scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark, #f1f5f9);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color, #3b82f6);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark, #1e40af);
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-color: var(--primary-color, #3b82f6) var(--bg-dark, #f1f5f9);
+    scrollbar-width: thin;
+}

@@ -443,5 +443,18 @@
         "equipSaleDesc": "Equipment prices 30% off for 30 seconds!",
         "expBoost": "EXP Boost",
         "expBoostDesc": "Skill EXP 2x for 30 seconds!"
+    },
+    "dailyMissions": {
+        "title": "📋 Daily Missions",
+        "resetsIn": "Resets in",
+        "missionCompleted": "Mission Completed!",
+        "claim": "Claim",
+        "claimed": "Claimed",
+        "dailyBonus": "Daily Completion Bonus",
+        "bonusGold": "Gold",
+        "bonusXP": "XP",
+        "kill_100": "Defeat 100 Monsters",
+        "gold_10k": "Earn 10,000 Gold",
+        "boss_1": "Defeat 1 Boss"
     }
 }

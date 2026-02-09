@@ -96,6 +96,16 @@
     let eventEquipmentCostMultiplier = 1;
     let eventSkillExpMultiplier = 1;
 
+    // Daily Missions state
+    let dailyMissions = {
+        lastReset: null,
+        missions: [
+            { id: 'kill_100', name: 'Kill 100 Monsters', target: 100, current: 0, reward: { gold: 1000, xp: 100 }, difficulty: 'easy', completed: false },
+            { id: 'gold_10k', name: 'Earn 10,000 Gold', target: 10000, current: 0, reward: { gold: 2000, xp: 200 }, difficulty: 'normal', completed: false },
+            { id: 'boss_1', name: 'Defeat 1 Boss', target: 1, current: 0, reward: { gold: 3000, xp: 300 }, difficulty: 'hard', completed: false }
+        ]
+    };
+
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
         const monsterMap = {
@@ -238,6 +248,7 @@
 
         loadState();
         initAchievements();
+        initDailyMissions();
 
         // Initialize and start event system after loading state
         if (eventSystem) {
@@ -620,6 +631,9 @@
         gold += reward;
         totalEarned += reward;
 
+        // Update daily mission progress for gold earning
+        updateMissionProgress('gold_10k', reward);
+
         // Gold pulse
         if (goldDisplay) {
             goldDisplay.classList.add('pulse');
@@ -724,6 +738,12 @@
         if (isBoss) bossKills++;
         if (isTierBoss) bossKills++;
         if (killedMonster === 'golden') goldenKills++;
+
+        // Update daily missions
+        updateMissionProgress('kill_100', 1);
+        if (isBoss || isTierBoss) {
+            updateMissionProgress('boss_1', 1);
+        }
 
         if (killCountEl) {
             const stageInfo = getStageInfo(killCount);
@@ -1864,6 +1884,7 @@
             }));
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
             localStorage.setItem('achievements', JSON.stringify(achievements));
+            localStorage.setItem('dungeonClicker_dailyMissions', JSON.stringify(dailyMissions));
         } catch (e) {
             console.warn('Save failed (storage unavailable):', e.message);
         }
@@ -1919,6 +1940,17 @@
                 } catch (e) {
                     console.warn('Achievements corrupted, resetting');
                     achievements = {};
+                }
+            }
+
+            // Load daily missions from localStorage
+            const savedDailyMissions = localStorage.getItem('dungeonClicker_dailyMissions');
+            if (savedDailyMissions) {
+                try {
+                    dailyMissions = JSON.parse(savedDailyMissions);
+                } catch (e) {
+                    console.warn('Daily missions corrupted, resetting');
+                    dailyMissions = getDailyMissionsTemplate();
                 }
             }
         } catch (e) {
@@ -2039,6 +2071,7 @@
             localStorage.removeItem('dungeonClicker_lastTime');
             localStorage.removeItem('achievements');
             localStorage.removeItem('pendingOfflineEarnings');
+            localStorage.removeItem('dungeonClicker_dailyMissions');
             if (window.rankingSystem) {
                 window.rankingSystem.resetRecords();
             }
@@ -2105,13 +2138,202 @@
         window._showPremium = showPremiumAnalysis;
         window._prestige = performPrestige;
         window._showOfflineAd = showOfflineAdAndDouble;
+        window._claimMissionReward = claimMissionReward;
         window._refreshUI = function() {
             renderEquipment();
             renderSkills();
+            renderDailyMissions();
             updateDisplay();
             updatePrestigeDisplay();
             spawnMonster();
         };
+    }
+
+    // === Daily Missions System ===
+    function initDailyMissions() {
+        try {
+            const saved = localStorage.getItem('dungeonClicker_dailyMissions');
+            if (saved) {
+                try {
+                    dailyMissions = JSON.parse(saved);
+                } catch (e) {
+                    console.warn('Daily missions corrupted, resetting');
+                    dailyMissions = getDailyMissionsTemplate();
+                }
+            } else {
+                dailyMissions = getDailyMissionsTemplate();
+            }
+
+            // Check if day has changed (auto reset)
+            const today = getDateString();
+            if (dailyMissions.lastReset !== today) {
+                resetDailyMissions();
+            }
+        } catch (e) {
+            console.warn('Failed to init daily missions:', e);
+            dailyMissions = getDailyMissionsTemplate();
+        }
+        saveDailyMissions();
+        renderDailyMissions();
+        startMissionsTimer();
+    }
+
+    function getDailyMissionsTemplate() {
+        return {
+            lastReset: getDateString(),
+            missions: [
+                { id: 'kill_100', name: 'Kill 100 Monsters', target: 100, current: 0, reward: { gold: 1000, xp: 100 }, difficulty: 'easy', completed: false, claimed: false },
+                { id: 'gold_10k', name: 'Earn 10,000 Gold', target: 10000, current: 0, reward: { gold: 2000, xp: 200 }, difficulty: 'normal', completed: false, claimed: false },
+                { id: 'boss_1', name: 'Defeat 1 Boss', target: 1, current: 0, reward: { gold: 3000, xp: 300 }, difficulty: 'hard', completed: false, claimed: false }
+            ]
+        };
+    }
+
+    function getDateString() {
+        const now = new Date();
+        return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    }
+
+    function resetDailyMissions() {
+        dailyMissions = getDailyMissionsTemplate();
+        saveDailyMissions();
+    }
+
+    function updateMissionProgress(missionId, amount) {
+        const mission = dailyMissions.missions.find(m => m.id === missionId);
+        if (mission && !mission.completed) {
+            mission.current = Math.min(mission.current + amount, mission.target);
+            if (mission.current >= mission.target) {
+                mission.completed = true;
+                showMissionCompletedToast(mission);
+                if (sfx && sfx.success) sfx.success();
+            }
+            saveDailyMissions();
+            renderDailyMissions();
+        }
+    }
+
+    function saveDailyMissions() {
+        try {
+            localStorage.setItem('dungeonClicker_dailyMissions', JSON.stringify(dailyMissions));
+        } catch (e) {
+            console.warn('Failed to save daily missions:', e);
+        }
+    }
+
+    function showMissionCompletedToast(mission) {
+        const toast = document.createElement('div');
+        toast.className = 'mission-toast';
+        toast.innerHTML = `📋 ${i18n.t('dailyMissions.missionCompleted') || 'Mission Completed!'} +${mission.reward.gold} Gold`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+
+    function renderDailyMissions() {
+        const missionsList = document.getElementById('missions-list');
+        if (!missionsList) return;
+
+        missionsList.innerHTML = '';
+        const completedCount = dailyMissions.missions.filter(m => m.completed).length;
+
+        // Update progress
+        const progressLabel = document.getElementById('progress-label');
+        if (progressLabel) progressLabel.textContent = `${completedCount} / ${dailyMissions.missions.length}`;
+
+        const progressFill = document.getElementById('missions-progress-fill');
+        if (progressFill) {
+            const percent = (completedCount / dailyMissions.missions.length) * 100;
+            progressFill.style.width = percent + '%';
+        }
+
+        dailyMissions.missions.forEach(mission => {
+            const card = document.createElement('div');
+            card.className = `mission-card ${mission.completed ? 'completed' : ''} ${mission.difficulty}`;
+
+            const progressPercent = (mission.current / mission.target) * 100;
+            const difficultyIcon = mission.difficulty === 'easy' ? '⭐' : mission.difficulty === 'normal' ? '⭐⭐' : '⭐⭐⭐';
+
+            const missionKey = `dailyMissions.${mission.id}`;
+            const missionName = i18n.t(missionKey) || mission.name;
+
+            card.innerHTML = `
+                <div class="mission-header">
+                    <div class="mission-title">
+                        <span class="difficulty-icon">${difficultyIcon}</span>
+                        <span class="mission-name">${missionName}</span>
+                    </div>
+                    ${mission.completed ? '<div class="mission-checkmark">✓</div>' : ''}
+                </div>
+                <div class="mission-progress">
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progressPercent}%"></div>
+                        </div>
+                        <span class="progress-text">${mission.current} / ${mission.target}</span>
+                    </div>
+                </div>
+                <div class="mission-rewards">
+                    <span class="reward-badge">💰 +${mission.reward.gold}</span>
+                    <span class="reward-badge">⭐ +${mission.reward.xp}</span>
+                </div>
+                ${mission.completed && !mission.claimed ?
+                    `<button class="claim-btn" onclick="window._claimMissionReward('${mission.id}')"><span data-i18n="dailyMissions.claim">수령</span></button>`
+                    : mission.claimed ? '<div class="claimed-badge"><span data-i18n="dailyMissions.claimed">수령됨</span></div>' : ''}
+            `;
+
+            missionsList.appendChild(card);
+        });
+
+        // Update daily bonus info
+        const allCompleted = dailyMissions.missions.every(m => m.completed && m.claimed);
+        const bonusGold = document.getElementById('bonus-gold');
+        const bonusXp = document.getElementById('bonus-xp');
+        if (bonusGold) bonusGold.textContent = dailyMissions.missions.reduce((sum, m) => sum + m.reward.gold, 0);
+        if (bonusXp) bonusXp.textContent = dailyMissions.missions.reduce((sum, m) => sum + m.reward.xp, 0);
+    }
+
+    function claimMissionReward(missionId) {
+        const mission = dailyMissions.missions.find(m => m.id === missionId);
+        if (!mission || !mission.completed || mission.claimed) return;
+
+        mission.claimed = true;
+        gold += mission.reward.gold;
+        totalEarned += mission.reward.gold;
+
+        saveDailyMissions();
+        renderDailyMissions();
+        updateDisplay();
+
+        const toast = document.createElement('div');
+        toast.className = 'reward-toast';
+        toast.textContent = `✓ ${mission.reward.gold} ${i18n.t('game.goldEarned') || 'Gold Earned!'}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+    }
+
+    function startMissionsTimer() {
+        setInterval(() => {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+
+            const diff = tomorrow - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const timerValue = document.getElementById('timer-value');
+            if (timerValue) {
+                timerValue.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            // Check if day changed
+            const today = getDateString();
+            if (dailyMissions.lastReset !== today) {
+                resetDailyMissions();
+            }
+        }, 1000);
     }
 
     // === Achievement System ===

@@ -743,5 +743,18 @@
     "equipSaleDesc": "Harga peralatan diskon 30% selama 30 detik!",
     "expBoost": "Dorongan EXP",
     "expBoostDesc": "Keterampilan EXP 2x selama 30 detik!"
+  },
+  "dailyMissions": {
+    "title": "📋 Misi Harian",
+    "resetsIn": "Ulang dalam",
+    "missionCompleted": "Misi Selesai!",
+    "claim": "Klaim",
+    "claimed": "Diklaim",
+    "dailyBonus": "Bonus Penyelesaian Harian",
+    "bonusGold": "Emas",
+    "bonusXP": "XP",
+    "kill_100": "Kalahkan 100 Monster",
+    "gold_10k": "Dapatkan 10.000 Emas",
+    "boss_1": "Kalahkan 1 Bos"
   }
 }

@@ -743,5 +743,18 @@
     "equipSaleDesc": "30 Sekunden lang 30% Rabatt auf Ausrüstung!",
     "expBoost": "EXP-Schub",
     "expBoostDesc": "30 Sekunden lang 2x Fähigkeits-EXP!"
+  },
+  "dailyMissions": {
+    "title": "📋 Tägliche Missionen",
+    "resetsIn": "Setzt sich zurück in",
+    "missionCompleted": "Mission abgeschlossen!",
+    "claim": "Einfordern",
+    "claimed": "Eingeforder",
+    "dailyBonus": "Täglicher Abschlussbonus",
+    "bonusGold": "Gold",
+    "bonusXP": "XP",
+    "kill_100": "100 Monster besiegen",
+    "gold_10k": "10.000 Gold verdienen",
+    "boss_1": "1 Boss besiegen"
   }
 }

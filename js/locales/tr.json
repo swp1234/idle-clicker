@@ -743,5 +743,18 @@
     "equipSaleDesc": "30 saniye boyunca ekipman fiyatları %30 indirim!",
     "expBoost": "Deneyim Artışı",
     "expBoostDesc": "30 saniye boyunca beceri EXP 2x!"
+  },
+  "dailyMissions": {
+    "title": "📋 Günlük Görevler",
+    "resetsIn": "Şu zamanda sıfırlanır",
+    "missionCompleted": "Görev Tamamlandı!",
+    "claim": "Talep Et",
+    "claimed": "Talep Edildi",
+    "dailyBonus": "Günlük Tamamlama Bonusu",
+    "bonusGold": "Altın",
+    "bonusXP": "XP",
+    "kill_100": "100 Canavar Öldür",
+    "gold_10k": "10.000 Altın Kazan",
+    "boss_1": "1 Boss Öldür"
   }
 }
