@@ -2,9 +2,22 @@
 (async function() {
     'use strict';
 
-    // Initialize i18n
-    await i18n.loadTranslations(i18n.getCurrentLanguage());
-    i18n.updateUI();
+    // Hide loader when page fully loads
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('app-loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 300);
+        }
+    });
+
+    // Initialize i18n with error handling
+    try {
+        await i18n.loadTranslations(i18n.getCurrentLanguage());
+        i18n.updateUI();
+    } catch (e) {
+        console.warn('i18n load failed:', e.message);
+    }
 
     const langToggle = document.getElementById('lang-toggle');
     const langMenu = document.getElementById('lang-menu');
@@ -1567,9 +1580,10 @@
         }
     }
 
-    // Save/Load
+    // Save/Load (with enhanced error handling)
     function saveState() {
         try {
+            if (typeof localStorage === 'undefined') return;
             localStorage.setItem('dungeonClicker', JSON.stringify({
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
@@ -1580,14 +1594,26 @@
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
             localStorage.setItem('achievements', JSON.stringify(achievements));
         } catch (e) {
-            console.warn('Save failed:', e);
+            console.warn('Save failed (storage unavailable):', e.message);
         }
     }
 
     function loadState() {
         try {
-            const d = JSON.parse(localStorage.getItem('dungeonClicker'));
-            if (d) {
+            if (typeof localStorage === 'undefined') return;
+            const saved = localStorage.getItem('dungeonClicker');
+            if (!saved) return;
+
+            let d = null;
+            try {
+                d = JSON.parse(saved);
+            } catch (parseErr) {
+                console.warn('Save data corrupted, resetting:', parseErr.message);
+                localStorage.removeItem('dungeonClicker');
+                return;
+            }
+
+            if (d && typeof d === 'object') {
                 gold = d.gold || 0;
                 totalEarned = d.totalEarned || 0;
                 totalClicks = d.totalClicks || 0;
@@ -1615,11 +1641,12 @@
                 try {
                     achievements = JSON.parse(savedAchievements);
                 } catch (e) {
+                    console.warn('Achievements corrupted, resetting');
                     achievements = {};
                 }
             }
         } catch (e) {
-            console.warn('Load failed:', e);
+            console.warn('Load failed (storage unavailable):', e.message);
         }
     }
 

@@ -1,7 +1,8 @@
 {
     "app": {
         "title": "Dungeon Clicker - Idle RPG Clicker Game | DopaBrain",
-        "description": "Defeat monsters in the dungeon and equip powerful gear! RPG adventure starts with a click. Free idle clicker game!"
+        "description": "Defeat monsters in the dungeon and equip powerful gear! RPG adventure starts with a click. Free idle clicker game!",
+        "loading": "Loading..."
     },
     "game": {
         "title": "Dungeon Clicker",
@@ -391,5 +392,30 @@
         "legend": "Cleared the Legendary Dungeon! Amazing!",
         "divine": "Passed the Divine Trial!",
         "darkness": "Defeated the Dark Lord!"
+    },
+    "tutorial": {
+        "step": "STEP",
+        "skip": "SKIP",
+        "next": "NEXT",
+        "step1": {
+            "title": "Click the Monster!",
+            "text": "Tap the monster to attack. You'll earn gold with every click!"
+        },
+        "step2": {
+            "title": "Buy Equipment!",
+            "text": "Purchase weapons and armor with gold in the Equipment tab to increase your attack power!"
+        },
+        "step3": {
+            "title": "Learn Skills!",
+            "text": "Learn powerful skills in the Skills tab to earn gold automatically!"
+        },
+        "step4": {
+            "title": "Defeat the Boss!",
+            "text": "Defeat the boss in each stage to advance to the next dungeon!"
+        },
+        "step5": {
+            "title": "Achieve Objectives!",
+            "text": "Complete achievements to track your progress and set goals!"
+        }
     }
 }

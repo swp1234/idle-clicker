@@ -389,5 +389,30 @@
         "legend": "¡Despejaste la Mazmorra Legendaria! ¡Increíble!",
         "divine": "¡Pasaste la Prueba Divina!",
         "darkness": "¡Derrotaste al Señor Oscuro!"
+    },
+    "tutorial": {
+        "step": "PASO",
+        "skip": "OMITIR",
+        "next": "SIGUIENTE",
+        "step1": {
+            "title": "¡Haz clic en el monstruo!",
+            "text": "¡Toca el monstruo para atacar! Ganaras oro con cada clic!"
+        },
+        "step2": {
+            "title": "¡Compra equipamiento!",
+            "text": "¡Compra armas y armaduras con oro en la pestaña de equipamiento para aumentar tu poder de ataque!"
+        },
+        "step3": {
+            "title": "¡Aprende habilidades!",
+            "text": "¡Aprende habilidades poderosas en la pestaña de habilidades para ganar oro automaticamente!"
+        },
+        "step4": {
+            "title": "¡Derrota al jefe!",
+            "text": "¡Derrota al jefe en cada etapa para avanzar al siguiente calabozo!"
+        },
+        "step5": {
+            "title": "¡Completa logros!",
+            "text": "¡Completa logros para rastrear tu progreso y establecer objetivos!"
+        }
     }
 }
