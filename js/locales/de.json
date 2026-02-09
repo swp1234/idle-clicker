@@ -69,6 +69,13 @@
         "achievement": "🏆 Errungenschaften",
         "achievementUnlocked": "Errungenschaft freigeschaltet!"
     },
+    "offline": {
+        "title": "Offline-Einkommen",
+        "away": "Du warst {time} lang weg!",
+        "earned": "{gold} Gold",
+        "collect": "Einlösen",
+        "double": "Anzeige ansehen für 2x Einkommen"
+    },
     "achievement": {
         "firstStep": "Erster Schritt",
         "firstStepDesc": "Besiege dein erstes Monster",

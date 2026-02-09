@@ -69,6 +69,13 @@
         "achievement": "🏆 Réalisations",
         "achievementUnlocked": "Réalisation débloquée!"
     },
+    "offline": {
+        "title": "Gains Hors Ligne",
+        "away": "Vous avez été absent pendant {time}!",
+        "earned": "{gold} Or",
+        "collect": "Réclamer",
+        "double": "Regarder une Publicité pour 2x Gains"
+    },
     "achievement": {
         "firstStep": "Premier pas",
         "firstStepDesc": "Vainquez votre premier monstre",

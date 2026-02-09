@@ -69,6 +69,13 @@
         "achievement": "🏆 Başarılar",
         "achievementUnlocked": "Başarı Açıldı!"
     },
+    "offline": {
+        "title": "Çevrimdışı Kazanç",
+        "away": "{time} boyunca uzakta oldunuz!",
+        "earned": "{gold} Altın",
+        "collect": "Topla",
+        "double": "Reklam İzle ve 2x Kazanç Al"
+    },
     "achievement": {
         "firstStep": "İlk Adım",
         "firstStepDesc": "İlk canavarınızı yenin",

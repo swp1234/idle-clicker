@@ -69,6 +69,13 @@
         "achievement": "🏆 Pencapaian",
         "achievementUnlocked": "Pencapaian Terbuka!"
     },
+    "offline": {
+        "title": "Penghasilan Offline",
+        "away": "Anda telah pergi selama {time}!",
+        "earned": "{gold} Emas",
+        "collect": "Kumpulkan",
+        "double": "Tonton Iklan untuk 2x Penghasilan"
+    },
     "achievement": {
         "firstStep": "Langkah Pertama",
         "firstStepDesc": "Kalahkan monster pertama Anda",
