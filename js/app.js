@@ -55,6 +55,10 @@
     let monsterDying = false;
     let currentTier = 1;
     let ambientInterval = null;
+    let clickCombo = 0;
+    let comboTimeout = null;
+    let totalCPS = 0;
+    let cpsDisplay = null;
 
     // Helper: Map Korean monster names to i18n keys
     function getMonsterNameKey(koreanName) {
@@ -477,6 +481,12 @@
         // Death particles (use monster color)
         spawnDeathParticles(monster.color);
 
+        // Add dopamine kill effect
+        if (window.effectsManager && clickArea) {
+          const rect = clickArea.getBoundingClientRect();
+          window.effectsManager.addMonsterKillEffect(rect.width / 2, rect.height / 2);
+        }
+
         // Play sound effects
         if (sfx) {
             if (isBoss) {
@@ -496,6 +506,12 @@
             const monsterNameKey = getMonsterNameKey(monster.name);
             const translatedName = i18n.t(monsterNameKey);
             showMilestone('BOSS ' + translatedName + ' ' + i18n.t('game.kill') + '! +' + formatGoldShort(reward) + ' ' + i18n.t('game.bossDefeated'));
+
+            // Boss kill milestone effect
+            if (window.effectsManager && clickArea) {
+              const rect = clickArea.getBoundingClientRect();
+              window.effectsManager.addMilestoneEffect('BOSS DEFEATED!', rect.width / 2, rect.height / 2);
+            }
         }
 
         killCount++;
@@ -523,6 +539,13 @@
         popup.style.top = '30px';
         clickArea.appendChild(popup);
         setTimeout(() => popup.remove(), 800);
+
+        // Add dopamine click effect
+        if (window.effectsManager) {
+          const isCrit = damage >= clickValue * clickMultiplier * 3;
+          const color = isCrit ? '#FF6600' : '#FFD700';
+          window.effectsManager.addClickEffect(80 + offsetX, 80, damage, color);
+        }
     }
 
     function shakeScreen() {
@@ -638,6 +661,11 @@
             updateDisplay();
             checkMilestones();
 
+            // Update dopamine effects
+            if (window.effectsManager) {
+                window.effectsManager.update(dt);
+            }
+
             if (now - lastSaveTime > 5000) {
                 saveState();
                 lastSaveTime = now;
@@ -672,6 +700,19 @@
         gold -= cost;
         ownedEquipment[equipId] = (ownedEquipment[equipId] || 0) + 1;
         if (sfx) sfx.place();
+
+        // Add dopamine upgrade effect
+        if (window.effectsManager && clickArea) {
+          const rect = clickArea.getBoundingClientRect();
+          const equipName = getEquipName(equip);
+          window.effectsManager.addUpgradeEffect(rect.width / 2, rect.height / 2, equipName);
+          // Screen shake on upgrade
+          if (container) {
+            container.classList.add('shake');
+            setTimeout(() => container.classList.remove('shake'), 150);
+          }
+        }
+
         recalculateAutoIncome();
         renderEquipment();
         updateDisplay();
@@ -739,6 +780,17 @@
             case 'golden':
                 goldenTouchBonus = skill.multiplier;
                 break;
+        }
+
+        // Add dopamine skill unlock effect
+        if (window.effectsManager && clickArea) {
+          const rect = clickArea.getBoundingClientRect();
+          window.effectsManager.addMilestoneEffect('SKILL UNLOCKED!', rect.width / 2, rect.height / 2);
+          // Screen shake on skill unlock
+          if (container) {
+            container.classList.add('shake');
+            setTimeout(() => container.classList.remove('shake'), 150);
+          }
         }
 
         renderSkills();
