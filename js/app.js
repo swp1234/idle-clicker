@@ -1041,8 +1041,8 @@
         // Check achievements
         checkAchievements();
 
-        // Spawn next monster after delay (longer for boss)
-        const spawnDelay = isTierBoss ? 1000 : isBoss ? 700 : 500;
+        // Spawn next monster after delay (shorter for snappy feel)
+        const spawnDelay = isTierBoss ? 600 : isBoss ? 400 : 250;
         setTimeout(() => {
             spawnMonster();
             updateDisplay();

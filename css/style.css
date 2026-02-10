@@ -620,9 +620,9 @@ body {
 /* Monster Knockback */
 @keyframes hitKnockback {
     0%, 100% { transform: translateX(0) scale(1); }
-    30% { transform: translateX(8px) scale(0.95); }
+    30% { transform: translateX(3px) scale(0.98); }
 }
-.monster-emoji.knockback { animation: hitKnockback 0.2s ease; }
+.monster-emoji.knockback { animation: hitKnockback 0.15s ease; }
 
 /* Monster Death */
 @keyframes monsterDeath {
@@ -1228,21 +1228,15 @@ body {
 
 /* === DOPAMINE ENHANCEMENT EFFECTS === */
 
-/* Intense screen shake for major events */
+/* Subtle screen shake for major events */
 @keyframes intensiveShake {
     0%, 100% { transform: translate(0, 0); }
-    10% { transform: translate(-6px, -6px); }
-    20% { transform: translate(6px, 6px); }
-    30% { transform: translate(-4px, 4px); }
-    40% { transform: translate(4px, -4px); }
-    50% { transform: translate(-3px, -3px); }
-    60% { transform: translate(3px, 3px); }
-    70% { transform: translate(-2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    90% { transform: translate(-1px, 0px); }
+    25% { transform: translate(-2px, -1px); }
+    50% { transform: translate(2px, 1px); }
+    75% { transform: translate(-1px, 0px); }
 }
 
-.container.shake { animation: intensiveShake 0.2s ease; }
+.container.shake { animation: intensiveShake 0.12s ease; }
 
 /* Critical hit screen flash */
 @keyframes criticalFlash {
