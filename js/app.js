@@ -1365,7 +1365,7 @@
                     updateRankingUI();
                 }
             }
-        }, 100);
+        }, 50);
     }
 
     function activateGoldenMonster() {

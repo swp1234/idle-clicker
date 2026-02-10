@@ -988,10 +988,10 @@ body {
     .game-title { font-size: 20px; }
     #gold-display, .money-amount { font-size: 26px; }
     #per-sec-display, .money-per-sec { font-size: 12px; }
-    .dungeon-stage { height: 220px; max-width: 340px; }
-    .monster-emoji { width: 90px; height: 90px; font-size: 70px; }
-    .monster-emoji img { width: 80px; height: 80px; }
-    .monster-area { width: 160px; height: 160px; }
+    .dungeon-stage { height: 240px; max-width: 340px; }
+    .monster-emoji { width: 110px; height: 110px; font-size: 80px; }
+    .monster-emoji img { width: 95px; height: 95px; }
+    .monster-area { width: 170px; height: 170px; }
     .monster-name { font-size: 12px; }
     .monster-level { font-size: 10px; padding: 1px 6px; }
     .hp-text { font-size: 9px; }
