@@ -42,6 +42,8 @@
         "goldenAppear": "GOLDEN MONSTER APPEARED",
         "goldenEscape": "⭐ GOLDEN MONSTER ESCAPED!",
         "goldenHint": "Kill for 3x Gold!",
+        "bossEscaped": "Boss Escaped!",
+        "bossRetry": "Boss Challenge",
         "analysisTitle": "Analysis",
         "battleAnalysis": "Battle Analysis",
         "attackPower": "Attack Power",

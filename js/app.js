@@ -83,6 +83,12 @@
     let goldenMonsterLastTick = 0;
     let nextGoldenTime = 0;
 
+    // Boss Timer state
+    let bossTimerActive = false;
+    let bossTimerEnd = 0;
+    let bossTimerDuration = 0;
+    let bossRetryAvailable = false;
+
     // Prestige state
     let prestigePoints = 0;
     let prestigeCount = 0;
@@ -481,7 +487,20 @@
         }
 
         recalculateAutoIncome();
+
+        // Setup boss retry button
+        const bossRetryBtn = document.getElementById('boss-retry-btn');
+        if (bossRetryBtn) {
+            bossRetryBtn.addEventListener('click', () => retryBoss());
+        }
+
         spawnMonster();
+
+        // Restore retry button visibility after load
+        if (bossRetryAvailable) {
+            showBossRetryButton();
+        }
+
         calculateOfflineEarnings();
         updateDisplay();
         updatePrestigeDisplay();
@@ -686,6 +705,12 @@
     let isTierBoss = false;
 
     function spawnMonster() {
+        // If boss retry is pending, spawn filler monster instead
+        if (bossRetryAvailable) {
+            spawnFillerMonster();
+            return;
+        }
+
         currentMonsterIndex = killCount % MONSTERS.length;
         const stageInfo = getStageInfo(killCount);
 
@@ -781,6 +806,11 @@
             sfx.bossAppear();
         }
 
+        // Start boss timer
+        if (isBoss) {
+            startBossTimer(isTierBoss ? 45 : 30);
+        }
+
         // Apply visual theme
         applyMonsterVisuals(monster);
 
@@ -862,6 +892,12 @@
 
     function onMonsterDeath() {
         monsterDying = true;
+
+        // Clear boss timer on boss kill
+        if (isBoss && bossTimerActive) {
+            clearBossTimer();
+        }
+
         const monster = MONSTERS[currentMonsterIndex];
         let reward = getMonsterGoldReward(monster, killCount, isBoss, isTierBoss);
         let killedMonster = 'normal';
@@ -1017,9 +1053,12 @@
             spawnConfetti();
         }
 
-        killCount++;
-        if (isBoss) bossKills++;
-        if (isTierBoss) bossKills++;
+        // Don't advance killCount for filler monsters during boss retry
+        if (!bossRetryAvailable) {
+            killCount++;
+            if (isBoss) bossKills++;
+            if (isTierBoss) bossKills++;
+        }
         if (killedMonster === 'golden') goldenKills++;
 
         // Update daily missions
@@ -1268,6 +1307,150 @@
         if (banner) banner.remove();
     }
 
+    // === Boss Timer System ===
+
+    function startBossTimer(duration) {
+        bossTimerActive = true;
+        bossTimerDuration = duration;
+        bossTimerEnd = Date.now() + duration * 1000;
+
+        const container = document.getElementById('boss-timer-container');
+        if (container) {
+            container.style.display = 'block';
+            const fill = document.getElementById('boss-timer-fill');
+            if (fill) {
+                fill.style.transition = 'none';
+                fill.style.width = '100%';
+                fill.classList.remove('boss-timer-urgent-fill');
+                requestAnimationFrame(() => {
+                    fill.style.transition = `width ${duration}s linear`;
+                    fill.style.width = '0%';
+                });
+            }
+            container.classList.remove('boss-timer-urgent');
+            const text = document.getElementById('boss-timer-text');
+            if (text) text.textContent = '⏱ ' + duration + 's';
+        }
+    }
+
+    function updateBossTimer() {
+        if (!bossTimerActive) return;
+        const remaining = Math.max(0, (bossTimerEnd - Date.now()) / 1000);
+
+        const text = document.getElementById('boss-timer-text');
+        if (text) text.textContent = '⏱ ' + Math.ceil(remaining) + 's';
+
+        const container = document.getElementById('boss-timer-container');
+        const fill = document.getElementById('boss-timer-fill');
+        if (remaining <= 5) {
+            if (container) container.classList.add('boss-timer-urgent');
+            if (fill) fill.classList.add('boss-timer-urgent-fill');
+        }
+
+        if (remaining <= 0) {
+            onBossTimerExpired();
+        }
+    }
+
+    function clearBossTimer() {
+        bossTimerActive = false;
+        const container = document.getElementById('boss-timer-container');
+        if (container) {
+            container.style.display = 'none';
+            container.classList.remove('boss-timer-urgent');
+        }
+    }
+
+    function onBossTimerExpired() {
+        bossTimerActive = false;
+        bossRetryAvailable = true;
+
+        // Boss escape effect
+        const escapeMsg = i18n.t('game.bossEscaped') || 'Boss Escaped!';
+        showMilestone('💨 ' + escapeMsg);
+
+        if (monsterEmojiEl) {
+            monsterEmojiEl.className = 'monster-emoji dying';
+        }
+
+        if (clickArea) {
+            clickArea.classList.remove('boss', 'tier-boss');
+        }
+
+        // Hide timer, show retry
+        clearBossTimer();
+        showBossRetryButton();
+
+        if (sfx) sfx.explosion();
+
+        // Spawn filler monster after delay
+        monsterDying = true;
+        setTimeout(() => {
+            spawnFillerMonster();
+        }, 500);
+    }
+
+    function spawnFillerMonster() {
+        // Spawn a regular monster for farming while boss retry is available
+        const fillerIdx = ((killCount - 1) + MONSTERS.length) % MONSTERS.length;
+        currentMonsterIndex = fillerIdx;
+        const monster = MONSTERS[fillerIdx];
+
+        monsterMaxHP = getMonsterHP(monster, killCount);
+        monsterMaxHP = Math.floor(monsterMaxHP * eventMonsterHPMultiplier);
+        monsterHP = monsterMaxHP;
+        monsterDying = false;
+        isBoss = false;
+        isTierBoss = false;
+        isSeasonalMonster = false;
+
+        if (monsterEmojiEl) {
+            if (typeof MONSTER_SVG !== 'undefined' && MONSTER_SVG[monster.name]) {
+                monsterEmojiEl.innerHTML = MONSTER_SVG[monster.name];
+            } else {
+                monsterEmojiEl.textContent = monster.emoji;
+            }
+            monsterEmojiEl.className = 'monster-emoji spawning';
+            setTimeout(() => monsterEmojiEl.classList.remove('spawning'), 400);
+        }
+
+        const monsterNameKey = getMonsterNameKey(monster.name);
+        const translatedName = i18n.t(monsterNameKey);
+        if (monsterNameEl) {
+            monsterNameEl.textContent = translatedName;
+            monsterNameEl.className = 'monster-name';
+        }
+
+        const level = Math.floor(killCount / MONSTERS.length) + 1;
+        if (monsterLevelEl) monsterLevelEl.textContent = 'Lv.' + level;
+
+        if (clickArea) {
+            clickArea.classList.remove('boss', 'tier-boss');
+        }
+
+        applyMonsterVisuals(monster);
+        updateHPBar();
+    }
+
+    function retryBoss() {
+        bossRetryAvailable = false;
+        hideBossRetryButton();
+        monsterDying = true;
+        setTimeout(() => {
+            spawnMonster(); // killCount unchanged → boss respawns
+        }, 300);
+    }
+
+    function showBossRetryButton() {
+        const btn = document.getElementById('boss-retry-btn');
+        if (btn) btn.style.display = 'flex';
+    }
+
+    function hideBossRetryButton() {
+        const btn = document.getElementById('boss-retry-btn');
+        if (btn) btn.style.display = 'none';
+    }
+
     // Game Loop
     function startGameLoop() {
         let lastClickTime = Date.now();
@@ -1299,6 +1482,11 @@
             // Update golden monster countdown
             if (goldenMonsterActive) {
                 updateGoldenMonsterTimer();
+            }
+
+            // Update boss timer
+            if (bossTimerActive) {
+                updateBossTimer();
             }
 
             // Auto DPS damages monster
@@ -1835,24 +2023,40 @@
             let offlineGold = 0;
             let offlineKills = 0;
 
-            while (remainingDamage > 0 && offlineKills < 1000) {
-                const totalKills = killCount + offlineKills;
-                const mIdx = totalKills % MONSTERS.length;
-                const offStageInfo = getStageInfo(totalKills);
-                const isBossCheck = offStageInfo.isTierBoss || offStageInfo.isMidBoss;
-                const isTierBossCheck = offStageInfo.isTierBoss;
-                const monster = MONSTERS[mIdx];
-                let hp = getMonsterHP(monster, totalKills);
-                if (isTierBossCheck) hp *= 10;
-                else if (isBossCheck) hp *= 5;
+            // If boss retry is pending, farm filler monsters (no stage progression)
+            if (bossRetryAvailable) {
+                const fillerIdx = ((killCount - 1) + MONSTERS.length) % MONSTERS.length;
+                const fillerMonster = MONSTERS[fillerIdx];
+                const fillerHP = getMonsterHP(fillerMonster, killCount);
+                while (remainingDamage > 0 && offlineKills < 1000) {
+                    if (remainingDamage >= fillerHP) {
+                        remainingDamage -= fillerHP;
+                        offlineGold += getMonsterGoldReward(fillerMonster, killCount, false, false);
+                        offlineKills++;
+                    } else {
+                        break;
+                    }
+                }
+            } else {
+                while (remainingDamage > 0 && offlineKills < 1000) {
+                    const totalKills = killCount + offlineKills;
+                    const mIdx = totalKills % MONSTERS.length;
+                    const offStageInfo = getStageInfo(totalKills);
+                    const isBossCheck = offStageInfo.isTierBoss || offStageInfo.isMidBoss;
+                    const isTierBossCheck = offStageInfo.isTierBoss;
+                    const monster = MONSTERS[mIdx];
+                    let hp = getMonsterHP(monster, totalKills);
+                    if (isTierBossCheck) hp *= 10;
+                    else if (isBossCheck) hp *= 5;
 
-                if (remainingDamage >= hp) {
-                    remainingDamage -= hp;
-                    const reward = getMonsterGoldReward(monster, totalKills, isBossCheck, isTierBossCheck);
-                    offlineGold += reward;
-                    offlineKills++;
-                } else {
-                    break;
+                    if (remainingDamage >= hp) {
+                        remainingDamage -= hp;
+                        const reward = getMonsterGoldReward(monster, totalKills, isBossCheck, isTierBossCheck);
+                        offlineGold += reward;
+                        offlineKills++;
+                    } else {
+                        break;
+                    }
                 }
             }
 
@@ -1943,7 +2147,10 @@
 
             gold += claimGold;
             totalEarned += claimGold;
-            killCount += data.kills;
+            // Don't advance killCount if boss retry is pending (filler farming)
+            if (!bossRetryAvailable) {
+                killCount += data.kills;
+            }
 
             if (killCountEl) {
                 const stageInfo = getStageInfo(killCount);
@@ -2216,6 +2423,7 @@
                 pets, activePet, petLevels,
                 guildId, guildLevel, guildExp, guildMaxExp, weeklyMissionKills, weeklyMissionTarget, weeklyMissionCompleted, weeklyMissionResetTime,
                 lastMiniGameTime,
+                bossRetryAvailable,
                 eventState
             }));
             localStorage.setItem('dungeonClicker_lastOnline', Date.now().toString());
@@ -2283,6 +2491,7 @@
                 weeklyMissionCompleted = d.weeklyMissionCompleted || false;
                 weeklyMissionResetTime = d.weeklyMissionResetTime || null;
                 lastMiniGameTime = d.lastMiniGameTime || 0;
+                bossRetryAvailable = d.bossRetryAvailable || false;
 
                 // Load event system state
                 if (eventSystem && d.eventState) {
