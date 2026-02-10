@@ -1013,23 +1013,22 @@ const MONSTER_SVG = {
 
 function getMonsterHP(monster, killCount) {
     const cycle = Math.floor(killCount / MONSTERS.length);
-    // IMPROVED: 10x per New Game+ cycle (was 100x) for better balance and re-growth feel
-    const cycleScale = Math.pow(10, cycle);
-    // Within cycle: +15% HP per tier set of 10 monsters
+    // Gentle scaling: 1.5x per NG+ cycle for sustainable progression
+    const cycleScale = Math.pow(1.5, cycle);
     const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
-    const progressScale = 1 + setInCycle * 0.15;
+    const progressScale = 1 + setInCycle * 0.2;
     return Math.max(monster.baseHP, Math.floor(monster.baseHP * cycleScale * progressScale));
 }
 
 function getMonsterGoldReward(monster, killCount, isBoss, isTierBoss) {
     const cycle = Math.floor(killCount / MONSTERS.length);
-    // IMPROVED: 10x per cycle (was 100x) for better balance
-    const cycleScale = Math.pow(10, cycle);
+    // Match HP scaling for balanced progression
+    const cycleScale = Math.pow(1.5, cycle);
     const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
-    const progressScale = 1 + setInCycle * 0.15;
+    const progressScale = 1 + setInCycle * 0.2;
     const base = Math.max(monster.goldReward, Math.floor(monster.goldReward * cycleScale * progressScale));
-    if (isTierBoss) return base * 10;  // IMPROVED: 10x (was 20x) - still rewarding
-    if (isBoss) return base * 5;       // Mid-boss stays at 5x
+    if (isTierBoss) return base * 10;
+    if (isBoss) return base * 5;
     return base;
 }
 

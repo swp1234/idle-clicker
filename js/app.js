@@ -80,6 +80,7 @@
     let goldenMonsterActive = false;
     let goldenMonsterTimeout = null;
     let goldenMonsterCountdown = 10;
+    let goldenMonsterLastTick = 0;
     let nextGoldenTime = 0;
 
     // Prestige state
@@ -1230,30 +1231,27 @@
         setTimeout(() => indicator.remove(), 600);
     }
 
-    // Golden Monster 타이머 업데이트
+    // Golden Monster timer - time-based (game loop runs every 50ms, NOT per-tick)
     function updateGoldenMonsterTimer() {
         if (!goldenMonsterActive) return;
-        goldenMonsterCountdown--;
-        if (goldenMonsterCountdown <= 0) {
-            // Golden monster escaped
-            showGoldenMonsterEscape();
-            endGoldenMonster();
+        const now = Date.now();
+        if (now - goldenMonsterLastTick >= 1000) {
+            goldenMonsterLastTick = now;
+            goldenMonsterCountdown--;
+            // Update timer display
+            const timerEl = document.getElementById('golden-timer');
+            if (timerEl) timerEl.textContent = goldenMonsterCountdown > 0 ? goldenMonsterCountdown.toString() : '';
+            if (goldenMonsterCountdown <= 0) {
+                showGoldenMonsterEscape();
+                endGoldenMonster();
+            }
         }
     }
 
     function showGoldenMonsterEscape() {
-        const msg = document.createElement('div');
-        msg.style.cssText = `
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(251, 191, 36, 0.2); border: 2px solid #fbbf24;
-            color: #fbbf24; padding: 20px 40px; border-radius: 12px;
-            font-size: 18px; font-weight: 700; z-index: 60;
-            text-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
-            animation: slideUp 0.5s ease forwards;
-        `;
-        msg.textContent = i18n.t('game.goldenEscape') || '⭐ GOLDEN MONSTER ESCAPED!';
-        document.body.appendChild(msg);
-        setTimeout(() => msg.remove(), 2000);
+        // Show escape message as in-game milestone (not fixed overlay)
+        const escapeText = i18n.t('game.goldenEscape') || 'Golden Monster Escaped!';
+        showMilestone('⭐ ' + escapeText);
     }
 
     function endGoldenMonster() {
@@ -1265,6 +1263,9 @@
         if (clickArea) {
             clickArea.classList.remove('golden-monster');
         }
+        // Remove golden banner
+        const banner = document.getElementById('golden-banner');
+        if (banner) banner.remove();
     }
 
     // Game Loop
@@ -1371,9 +1372,9 @@
     function activateGoldenMonster() {
         goldenMonsterActive = true;
         goldenMonsterCountdown = 10;
+        goldenMonsterLastTick = Date.now();
 
         if (monsterEmojiEl) {
-            // 황금 아우라 적용
             monsterEmojiEl.style.filter = `drop-shadow(0 0 20px #fbbf24) drop-shadow(0 0 40px rgba(251, 191, 36, 0.6)) brightness(1.2)`;
         }
 
@@ -1381,60 +1382,48 @@
             clickArea.classList.add('golden-monster');
         }
 
-        // 화면 플래시
+        // Subtle screen flash
         const flash = document.createElement('div');
         flash.style.cssText = `
             position: fixed; inset: 0; pointer-events: none; z-index: 35;
-            background: radial-gradient(circle, rgba(251, 191, 36, 0.5), transparent);
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent);
             animation: screenFlash 0.4s ease forwards;
         `;
         document.body.appendChild(flash);
         setTimeout(() => flash.remove(), 400);
 
-        // 출현 메시지
-        const msg = document.createElement('div');
-        msg.style.cssText = `
-            position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(251, 191, 36, 0.3); border: 3px solid #fbbf24;
-            color: #fbbf24; padding: 16px 32px; border-radius: 12px;
-            font-size: 20px; font-weight: 900; z-index: 60;
-            text-shadow: 0 0 16px rgba(251, 191, 36, 0.8);
-            animation: slideUp 0.5s ease forwards;
-            letter-spacing: 2px;
-        `;
-        msg.textContent = '⭐ ' + (i18n.t('game.goldenAppear') || 'GOLDEN MONSTER') + ' ⭐';
-        document.body.appendChild(msg);
-        setTimeout(() => msg.remove(), 2000);
-
         if (sfx) sfx.goldenMonster();
 
-        // 10초 타이머 카운트다운 UI
-        const timerEl = document.createElement('div');
-        timerEl.id = 'golden-timer';
-        timerEl.style.cssText = `
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-size: 48px; font-weight: 900; color: #fbbf24;
-            text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
-            z-index: 65; pointer-events: none;
+        // In-game golden banner (inside dungeon stage, not fixed overlay)
+        const oldBanner = document.getElementById('golden-banner');
+        if (oldBanner) oldBanner.remove();
+        const banner = document.createElement('div');
+        banner.id = 'golden-banner';
+        banner.style.cssText = `
+            position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(245, 158, 11, 0.15));
+            border: 2px solid #fbbf24; color: #fbbf24;
+            padding: 6px 16px; border-radius: 20px;
+            font-size: 13px; font-weight: 800; z-index: 20;
+            text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+            white-space: nowrap; pointer-events: none;
+            animation: goldenPulse 1s ease-in-out infinite;
         `;
-        document.body.appendChild(timerEl);
+        const goldenLabel = i18n.t('game.goldenAppear') || 'GOLDEN MONSTER';
+        const goldenHint = i18n.t('game.goldenHint') || 'Kill for 3x Gold!';
+        banner.innerHTML = `⭐ ${goldenLabel} ⭐ <span id="golden-timer" style="font-size:16px;margin-left:6px;">10</span>s<br><span style="font-size:11px;opacity:0.85;">${goldenHint}</span>`;
+        if (dungeonStage) {
+            dungeonStage.style.position = 'relative';
+            dungeonStage.appendChild(banner);
+        }
 
-        // 1초마다 카운트다운 표시
-        const timerInterval = setInterval(() => {
-            if (goldenMonsterActive && goldenMonsterCountdown > 0) {
-                timerEl.textContent = goldenMonsterCountdown.toString();
-            } else {
-                clearInterval(timerInterval);
-                timerEl.remove();
-            }
-        }, 100);
-
-        // 10초 후 자동 종료
+        // Safety timeout (11s to let countdown handle normal flow)
         if (goldenMonsterTimeout) clearTimeout(goldenMonsterTimeout);
         goldenMonsterTimeout = setTimeout(() => {
-            endGoldenMonster();
-            timerEl.remove();
-        }, 10000);
+            if (goldenMonsterActive) {
+                endGoldenMonster();
+            }
+        }, 11000);
     }
 
     // CPS Display
@@ -2201,11 +2190,24 @@
     }
 
     // Save/Load (with enhanced error handling)
+    // Full game reset (after balance rewrite)
+    function resetGame() {
+        if (typeof localStorage !== 'undefined') {
+            localStorage.removeItem('dungeonClicker');
+            localStorage.removeItem('dungeonClicker_lastOnline');
+            localStorage.removeItem('achievements');
+            localStorage.removeItem('dungeonClicker_dailyMissions');
+        }
+        location.reload();
+    }
+    window._resetGame = resetGame;
+
     function saveState() {
         try {
             if (typeof localStorage === 'undefined') return;
             const eventState = eventSystem ? eventSystem.saveState() : null;
             localStorage.setItem('dungeonClicker', JSON.stringify({
+                balanceVersion: 2,
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
                 ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
@@ -2236,6 +2238,15 @@
             } catch (parseErr) {
                 console.warn('Save data corrupted, resetting:', parseErr.message);
                 localStorage.removeItem('dungeonClicker');
+                return;
+            }
+
+            // Balance v2: auto-reset saves from broken 10x scaling era
+            if (d && !d.balanceVersion) {
+                console.warn('Old balance save detected, resetting for v2 balance');
+                localStorage.removeItem('dungeonClicker');
+                localStorage.removeItem('achievements');
+                localStorage.removeItem('dungeonClicker_dailyMissions');
                 return;
             }
 
