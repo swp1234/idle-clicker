@@ -1012,21 +1012,54 @@ const MONSTER_SVG = {
 };
 
 function getMonsterHP(monster, killCount) {
-    const cycle = Math.floor(killCount / MONSTERS.length);
-    // Gentle scaling: 1.5x per NG+ cycle for sustainable progression
-    const cycleScale = Math.pow(1.5, cycle);
-    const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
+    const n = MONSTERS.length;
+    const cycle = Math.floor(killCount / n);
+    const posInCycle = killCount % n;
+    const setInCycle = Math.floor(posInCycle / 10);
     const progressScale = 1 + setInCycle * 0.2;
-    return Math.max(monster.baseHP, Math.floor(monster.baseHP * cycleScale * progressScale));
+    const cycleScale = Math.pow(1.5, cycle);
+
+    const originalHP = Math.floor(monster.baseHP * cycleScale * progressScale);
+
+    if (cycle === 0) {
+        return Math.max(monster.baseHP, originalHP);
+    }
+
+    // NG+ fix: prevent HP drop when cycling back to weaker monsters
+    const maxBaseHP = MONSTERS[n - 1].baseHP;
+    const maxProgressScale = 2.8;
+    const prevCycleEndHP = maxBaseHP * Math.pow(1.5, cycle - 1) * maxProgressScale;
+    const thisCycleEndHP = maxBaseHP * cycleScale * maxProgressScale;
+    const t = posInCycle / (n - 1);
+    const floorHP = prevCycleEndHP + (thisCycleEndHP - prevCycleEndHP) * t;
+
+    return Math.max(originalHP, Math.floor(floorHP));
 }
 
 function getMonsterGoldReward(monster, killCount, isBoss, isTierBoss) {
-    const cycle = Math.floor(killCount / MONSTERS.length);
-    // Match HP scaling for balanced progression
-    const cycleScale = Math.pow(1.5, cycle);
-    const setInCycle = Math.floor((killCount % MONSTERS.length) / 10);
+    const n = MONSTERS.length;
+    const cycle = Math.floor(killCount / n);
+    const posInCycle = killCount % n;
+    const setInCycle = Math.floor(posInCycle / 10);
     const progressScale = 1 + setInCycle * 0.2;
-    const base = Math.max(monster.goldReward, Math.floor(monster.goldReward * cycleScale * progressScale));
+    const cycleScale = Math.pow(1.5, cycle);
+
+    const originalGold = Math.floor(monster.goldReward * cycleScale * progressScale);
+
+    let base;
+    if (cycle === 0) {
+        base = Math.max(monster.goldReward, originalGold);
+    } else {
+        // Match HP floor scaling for balanced gold rewards
+        const maxGold = MONSTERS[n - 1].goldReward;
+        const maxProgressScale = 2.8;
+        const prevCycleEndGold = maxGold * Math.pow(1.5, cycle - 1) * maxProgressScale;
+        const thisCycleEndGold = maxGold * cycleScale * maxProgressScale;
+        const t = posInCycle / (n - 1);
+        const floorGold = prevCycleEndGold + (thisCycleEndGold - prevCycleEndGold) * t;
+        base = Math.max(originalGold, Math.floor(floorGold));
+    }
+
     if (isTierBoss) return base * 10;
     if (isBoss) return base * 5;
     return base;
