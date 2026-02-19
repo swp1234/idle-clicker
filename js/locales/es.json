@@ -848,5 +848,9 @@
     "bombMessage": "Juego terminado.",
     "noAttempts": "No hay intentos restantes.",
     "cooldown": "Puedes jugar el mini juego cada 10 minutos"
+  },
+  "share": {
+    "twitter": "𝕏 Twitter",
+    "copyUrl": "📋 Copiar enlace"
   }
 }

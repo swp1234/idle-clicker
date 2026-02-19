@@ -848,5 +848,9 @@
     "bombMessage": "Permainan berakhir.",
     "noAttempts": "Tidak ada usaha tersisa.",
     "cooldown": "Anda dapat bermain mini game setiap 10 menit"
+  },
+  "share": {
+    "twitter": "𝕏 Twitter",
+    "copyUrl": "📋 Salin tautan"
   }
 }

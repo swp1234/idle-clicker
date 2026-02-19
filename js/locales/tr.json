@@ -848,5 +848,9 @@
     "bombMessage": "Oyun bitti.",
     "noAttempts": "Deneme kalmadı.",
     "cooldown": "Her 10 dakikada bir mini oyun oynayabilirsiniz"
+  },
+  "share": {
+    "twitter": "𝕏 Twitter",
+    "copyUrl": "📋 Bağlantıyı kopyala"
   }
 }

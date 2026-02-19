@@ -848,5 +848,9 @@
     "bombMessage": "ゲーム終了。",
     "noAttempts": "試行回数がありません。",
     "cooldown": "10分ごとにミニゲームをプレイできます"
+  },
+  "share": {
+    "twitter": "𝕏 Twitter",
+    "copyUrl": "📋 URLをコピー"
   }
 }
