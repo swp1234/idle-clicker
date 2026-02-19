@@ -1,8 +1,12 @@
 {
     "app": {
-        "title": "Dungeon Clicker - Idle RPG Clicker Game | DopaBrain",
-        "description": "Defeat monsters in the dungeon and equip powerful gear! RPG adventure starts with a click. Free idle clicker game!",
+        "title": "Free Idle Clicker Game Online 🖱️ | Dungeon RPG - DopaBrain",
+        "description": "Play the best free idle clicker game online! Click to battle monsters, unlock epic gear, and conquer dungeons. Incremental RPG with auto-progression. No download needed!",
         "loading": "Loading..."
+    },
+    "share": {
+        "twitter": "𝕏 Twitter",
+        "copyUrl": "📋 Copy URL"
     },
     "game": {
         "title": "Dungeon Clicker",
