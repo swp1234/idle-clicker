@@ -1277,6 +1277,9 @@ body {
     background: rgba(245, 158, 11, 0.3);
     font-weight: 600;
 }
+[data-theme="light"] .lang-option {
+    color: #1a1a2e;
+}
 
 /* Theme Toggle */
 .theme-toggle {
@@ -1372,6 +1375,17 @@ body {
     color: #f0ecd8;
     padding: 4px 0;
     border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+[data-theme="light"] #premium-content {
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(245,158,11,0.3);
+}
+[data-theme="light"] #premium-content .pa-item {
+    color: #1a1a2e;
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] #premium-content .pa-section h3 {
+    color: #b45309;
 }
 
 .hidden { display: none !important; }
