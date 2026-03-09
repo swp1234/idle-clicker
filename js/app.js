@@ -2574,7 +2574,11 @@
             return;
         }
 
-        await showInterstitialAd();
+        if (typeof GameAds !== 'undefined') {
+            await new Promise(resolve => GameAds.showInterstitial({ onComplete: resolve }));
+        } else {
+            await showInterstitialAd();
+        }
 
         const rank = getRankForGold(totalEarned);
         const displayIncome = autoIncomePerSec * speedMultiplier;
@@ -3574,6 +3578,9 @@
     }
 
     // Ensure all init happens after DOM is loaded
+    // Initialize game ads
+    if (typeof GameAds !== 'undefined') GameAds.init();
+
     function safeInit() {
         try {
             init();
