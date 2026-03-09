@@ -2560,11 +2560,25 @@
 
     // Show offline ad and claim doubled earnings
     async function showOfflineAdAndDouble() {
-        await showInterstitialAd();
-        claimOfflineEarnings(true);
-
-        const offlineModal = document.getElementById('offline-modal');
-        if (offlineModal) offlineModal.remove();
+        if (typeof GameAds !== 'undefined') {
+            GameAds.showRewarded({
+                onReward: () => {
+                    claimOfflineEarnings(true);
+                    const offlineModal = document.getElementById('offline-modal');
+                    if (offlineModal) offlineModal.remove();
+                },
+                onSkip: () => {
+                    claimOfflineEarnings(false);
+                    const offlineModal = document.getElementById('offline-modal');
+                    if (offlineModal) offlineModal.remove();
+                }
+            });
+        } else {
+            await showInterstitialAd();
+            claimOfflineEarnings(true);
+            const offlineModal = document.getElementById('offline-modal');
+            if (offlineModal) offlineModal.remove();
+        }
     }
 
     // Premium
