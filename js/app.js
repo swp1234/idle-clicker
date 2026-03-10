@@ -1065,6 +1065,7 @@
         updateMissionProgress('kill_100', 1);
         if (isBoss || isTierBoss) {
             updateMissionProgress('boss_1', 1);
+            if (typeof Haptic !== 'undefined') Haptic.heavy();
         }
 
         // Update guild system
@@ -1254,6 +1255,7 @@
         }
 
         if (sfx) sfx.hit();
+        if (typeof Haptic !== 'undefined') Haptic.light();
         damageMonster(damage, true);
         updateDisplay();
 
@@ -1870,6 +1872,7 @@
         purchasedSkills[skillId] = true;
 
         if (sfx) sfx.skillUnlock();
+        if (typeof Haptic !== 'undefined') Haptic.medium();
 
         // 스킬 효과 적용
         const newLevel = getSkillLevel(skillId);
