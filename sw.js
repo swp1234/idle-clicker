@@ -3,11 +3,12 @@
  * Enables offline functionality with caching and improved performance
  */
 
-const CACHE_NAME = 'idle-clicker-v2';
+const CACHE_NAME = 'idle-clicker-v3';
 const ASSETS = [
     './',
     './index.html',
     './css/style.css',
+    './assets/dungeon-bg-opt.jpg',
     './js/i18n.js',
     './js/app.js',
     './js/game-data.js',
