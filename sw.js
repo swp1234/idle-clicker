@@ -3,7 +3,7 @@
  * Enables offline functionality with caching and improved performance
  */
 
-const CACHE_NAME = 'idle-clicker-v3';
+const CACHE_NAME = 'idle-clicker-v4';
 const ASSETS = [
     './',
     './index.html',
