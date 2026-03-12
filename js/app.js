@@ -1718,7 +1718,7 @@
         calculateSetBonus();
         const equipDef = EQUIPMENT_DEFS.find(e => e.id === equipId);
         const grade = equipDef?.grade || 'common';
-        const gradeName = EQUIPMENT_GRADES[grade]?.name || grade;
+        const gradeName = i18n.t('equipment.' + grade) || EQUIPMENT_GRADES[grade]?.name || grade;
 
         // Check if set bonus completed
         const gradeCounts = {};
@@ -1831,7 +1831,7 @@
                             <div class="equip-name" style="color: ${gradeInfo.textColor};">
                                 ${getEquipName(equip)}
                                 <span class="equip-count">${count > 0 ? 'Lv.' + count : ''}</span>
-                                <span class="equip-grade" style="color: ${gradeInfo.borderColor}; font-size: 11px; font-weight: bold;">${gradeInfo.name}</span>
+                                <span class="equip-grade" style="color: ${gradeInfo.borderColor}; font-size: 11px; font-weight: bold;">${i18n.t('equipment.' + grade) || gradeInfo.name}</span>
                             </div>
                             <div class="equip-desc">${getEquipDesc(equip)}</div>
                             <div class="equip-income">+${formatGoldShort(income)} DPS ${count > 0 ? '(' + totalLabel + ': ' + formatGoldShort(totalIncome) + ')' : ''}</div>
