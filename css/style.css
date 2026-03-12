@@ -334,7 +334,7 @@ body {
 .tier-label {
     position: absolute;
     top: 10px; left: 12px;
-    display: flex; align-items: center; gap: 5px;
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
     background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 14px; padding: 4px 12px;
@@ -342,8 +342,26 @@ body {
     letter-spacing: 0.5px; text-transform: uppercase;
     z-index: 9;
     transition: all 0.5s ease;
+    max-width: 180px;
 }
 .tier-icon { font-size: 13px; }
+.tier-progress {
+    width: 100%; height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    position: relative;
+    margin-top: 2px;
+}
+.tier-progress-fill {
+    height: 100%; border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent, #8b5cf6), #a78bfa);
+    transition: width 0.3s ease;
+}
+.tier-progress-text {
+    position: absolute; right: 0; top: -12px;
+    font-size: 9px; color: rgba(255,255,255,0.5);
+    font-weight: 600;
+}
 
 /* Ambient Particles */
 .ambient-particles {

@@ -841,6 +841,12 @@
             </div>
             ${midpointLabel}
         `;
+
+        // Update tier-label progress bar
+        const tierFill = document.getElementById('tier-progress-fill');
+        const tierText = document.getElementById('tier-progress-text');
+        if (tierFill) tierFill.style.width = (stageInfo.stage * 10) + '%';
+        if (tierText) tierText.textContent = stageInfo.stage + '/10';
     }
 
     function updateHPBar() {
