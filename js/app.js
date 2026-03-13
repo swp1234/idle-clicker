@@ -1470,6 +1470,7 @@
         let clicksPerSecond = 0;
 
         setInterval(() => {
+            try {
             const now = Date.now();
             const dt = (now - lastTickTime) / 1000;
             lastTickTime = now;
@@ -1568,6 +1569,9 @@
                     // Update ranking UI
                     updateRankingUI();
                 }
+            }
+            } catch (e) {
+                console.error('Game loop error:', e);
             }
         }, 50);
     }
