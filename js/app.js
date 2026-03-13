@@ -1255,9 +1255,10 @@
         clearTimeout(comboTimeout);
         comboTimeout = setTimeout(() => { clickCombo = 0; }, 2000);
 
-        // Show combo indicator every 5 clicks
+        // Show combo indicator every 5 clicks, with tiered intensity
         if (clickCombo > 1 && clickCombo % 5 === 0) {
-            showComboIndicator('x' + clickCombo + '!');
+            const tier = clickCombo >= 30 ? 3 : clickCombo >= 15 ? 2 : 1;
+            showComboIndicator('x' + clickCombo + '!', tier);
         }
 
         if (sfx) sfx.hit();
@@ -1269,13 +1270,16 @@
         checkAchievements();
     }
 
-    // Combo display
-    function showComboIndicator(text) {
+    // Combo display with tiered styling
+    function showComboIndicator(text, level) {
         const indicator = document.createElement('div');
-        indicator.className = 'combo-indicator';
+        let cls = 'combo-indicator';
+        if (level >= 3) cls += ' combo-fire';
+        else if (level >= 2) cls += ' combo-hot';
+        indicator.className = cls;
         indicator.textContent = text;
         document.body.appendChild(indicator);
-        setTimeout(() => indicator.remove(), 600);
+        setTimeout(() => indicator.remove(), 800);
     }
 
     // Golden Monster timer - time-based (game loop runs every 50ms, NOT per-tick)
