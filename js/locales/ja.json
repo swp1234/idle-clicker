@@ -1,873 +1,792 @@
 {
-  "achievement": {
-    "bossHunter": "ボスハンター",
-    "bossHunterDesc": "ボス10体を倒す",
-    "click10k": "クリックマスター",
-    "click10kDesc": "10000回クリック",
-    "click1k": "クリック王",
-    "click1kDesc": "1000回クリック",
-    "dps100": "DPS100",
-    "dps100Desc": "自動DPS100達成",
-    "dungeonMaster": "ダンジョンマスター",
-    "dungeonMasterDesc": "ティア10に到達",
-    "equipment10": "装備マスター",
-    "equipment10Desc": "装備を10個購入",
-    "firstStep": "最初の一歩",
-    "firstStepDesc": "最初のモンスターを倒す",
-    "goldenMonster": "ゴールドハンター",
-    "goldenMonsterDesc": "ゴールドモンスター5体倒す",
-    "prestige5": "連続転生",
-    "prestige5Desc": "5回プレステージ",
-    "prestigeFirst": "生まれ変わり",
-    "prestigeFirstDesc": "最初のプレステージ",
-    "skillMaster": "スキルマスター",
-    "skillMasterDesc": "5つのスキルレベル5達成",
-    "slayer100": "戦士の道",
-    "slayer1000": "殺戮者",
-    "slayer1000Desc": "1000体のモンスターを倒す",
-    "slayer100Desc": "100体のモンスターを倒す",
-    "wealth10k": "富豪",
-    "wealth10kDesc": "10000ゴールド獲得",
-    "wealth1m": "大富豪",
-    "wealth1mDesc": "1000000ゴールド獲得"
-  },
-  "app": {
-    "description": "ダンジョンでモンスターを倒して、強力な装備を手に入れる！RPG冒険はワンクリックから始まる。無料アイドルクリッカーゲーム！",
-    "loading": "Loading...",
-    "title": "Dungeon Clicker - アイドルRPGクリッカーゲーム | DopaBrain"
-  },
-  "dailyMissions": {
-    "bonusGold": "ゴールド",
-    "bonusXP": "XP",
-    "boss_1": "ボス1体を倒す",
-    "claim": "報酬を受け取る",
-    "claimed": "受け取り済み",
-    "dailyBonus": "デイリー完了ボーナス",
-    "gold_10k": "ゴールド10,000を獲得",
-    "kill_100": "モンスター100体を倒す",
-    "missionCompleted": "ミッション完了！",
-    "resetsIn": "リセットまで",
-    "title": "📋 デイリーミッション"
-  },
-  "dungeon": {
-    "abyss": "深淵",
-    "chaos": "原初の混沌",
-    "divine": "神々の領域",
-    "dragon": "竜の巣",
-    "endworld": "世界の果て",
-    "forest": "森のダンジョン",
-    "mythic": "神話の領域",
-    "rift": "次元の裂け目",
-    "village": "村の外れ",
-    "volcano": "火山ダンジョン"
-  },
-  "equipment": {
-    "absolute_blade": {
-      "desc": "存在の核を貫く刃",
-      "name": "絶対の刃"
-    },
-    "abyss_eye": {
-      "desc": "すべてを見通す眼",
-      "name": "深淵の眼"
-    },
-    "abyssal_scythe": {
-      "desc": "死神の大鎌",
-      "name": "深淵の鎌"
-    },
-    "acolyte_staff": {
-      "desc": "魔法修行に使われた杖",
-      "name": "侍者の杖"
-    },
-    "ancient_relic": {
-      "desc": "原始的な力が封印された遺物",
-      "name": "古代の遺物"
-    },
-    "ares_shield": {
-      "desc": "戦神の盾",
-      "name": "アレスの盾"
-    },
-    "astral_blade": {
-      "desc": "星光に包まれた聖なる刃",
-      "name": "星光の刃"
-    },
-    "athena_aegis": {
-      "desc": "知恵の女神の完璧な鎧",
-      "name": "アテナのアイギス"
-    },
-    "banshee_wail": {
-      "desc": "貫き通す悲鳴の魔法球",
-      "name": "バンシーの叫び"
-    },
-    "blood_chalice": {
-      "desc": "吸血鬼の王の杯",
-      "name": "血の杯"
-    },
-    "bone_dragon_bow": {
-      "desc": "アンデッド竜からの弓",
-      "name": "骨竜の弓"
-    },
-    "celestial_armor": {
-      "desc": "天の輝きを持つ鎧",
-      "name": "天の鎧"
-    },
-    "chaos_blade": {
-      "desc": "混沌から生まれた不安定な刃",
-      "name": "混沌の刃"
-    },
-    "chaos_orb": {
-      "desc": "圧縮された原始的混沌の球",
-      "name": "混沌の球"
-    },
-    "chaos_origin": {
-      "desc": "始まりと終わりの力",
-      "name": "混沌の起源"
-    },
-    "common": "コモン",
-    "cosmic_tome": {
-      "desc": "宇宙の真理の書",
-      "name": "宇宙の書"
-    },
-    "crystal_staff": {
-      "desc": "次元の結晶から作られた杖",
-      "name": "結晶の杖"
-    },
-    "death_mantle": {
-      "desc": "死の領主のマント",
-      "name": "死の領主のマント"
-    },
-    "demon_horn": {
-      "desc": "悪魔から奪った角",
-      "name": "悪魔の角"
-    },
-    "destroyer_blade": {
-      "desc": "次元を破壊する究極の刃",
-      "name": "破壊者の刃"
-    },
-    "dimension_axe": {
-      "desc": "次元を分割する巨大な斧",
-      "name": "次元の斧"
-    },
-    "divine_shield": {
-      "desc": "すべての攻撃を遮る盾",
-      "name": "神聖な盾"
-    },
-    "dragon_fang": {
-      "desc": "竜の歯から作られた剣",
-      "name": "竜の牙"
-    },
-    "dragon_heart": {
-      "desc": "竜の王の心臓結晶",
-      "name": "竜の心臓"
-    },
-    "dragon_scale": {
-      "desc": "竜の鱗から作られた鎧",
-      "name": "竜鱗の鎧"
-    },
-    "dragonlord_crown": {
-      "desc": "すべての竜を支配する王冠",
-      "name": "竜の王冠"
-    },
-    "druid_robe": {
-      "desc": "自然と交感できる衣",
-      "name": "ドルイドの衣"
-    },
-    "element_gauntlet": {
-      "desc": "4つの元素を融合させた篭手",
-      "name": "元素の篭手"
-    },
-    "elven_boots": {
-      "desc": "エルフの敏捷性がある靴",
-      "name": "エルフの靴"
-    },
-    "emperor_scepter": {
-      "desc": "深淵を支配する笏",
-      "name": "深淵皇帝の笏"
-    },
-    "epic": "エピック",
-    "eternal_eye": {
-      "desc": "永遠を観測する大いなる眼",
-      "name": "永遠の眼"
-    },
-    "eternal_shield": {
-      "desc": "決して壊れない盾",
-      "name": "永遠の盾"
-    },
-    "ether_armor": {
-      "desc": "エーテルから織られた透明な鎧",
-      "name": "エーテルの鎧"
-    },
-    "fate_scale": {
-      "desc": "運命を量る秤",
-      "name": "運命の秤"
-    },
-    "fenrir_claw": {
-      "desc": "神を喰らう狼の爪",
-      "name": "フェンリルの爪"
-    },
-    "final_crown": {
-      "desc": "これが本当の終わり...？",
-      "name": "???の王冠"
-    },
-    "fire_staff": {
-      "desc": "火山の力を込められた杖",
-      "name": "火の杖"
-    },
-    "flame_sword": {
-      "desc": "炎に包まれた魔法の刃",
-      "name": "炎の剣"
-    },
-    "forest_crown": {
-      "desc": "森の支配者の王冠",
-      "name": "森の王冠"
-    },
-    "forest_staff": {
-      "desc": "自然の力を宿した杖",
-      "name": "森の杖"
-    },
-    "gaia_blessing": {
-      "desc": "大地の母の神聖な力",
-      "name": "ガイアの祝福"
-    },
-    "god_blade": {
-      "desc": "神々に祝福された刃",
-      "name": "神の刃"
-    },
-    "hades_helm": {
-      "desc": "冥界の不可視の兜",
-      "name": "ハデスの兜"
-    },
-    "hero_crown": {
-      "desc": "世界の救世主の王冠",
-      "name": "英雄の王冠"
-    },
-    "hunters_bow": {
-      "desc": "熟練した森の狩人の弓",
-      "name": "狩人の弓"
-    },
-    "hydra_fang": {
-      "desc": "再生する牙の武器",
-      "name": "ヒドラの牙"
-    },
-    "inferno_robe": {
-      "desc": "地獄の炎が刺繍された衣",
-      "name": "地獄の衣"
-    },
-    "infinity_orb": {
-      "desc": "無限の魔力を持つ結晶球",
-      "name": "無限の球"
-    },
-    "infinity_shield": {
-      "desc": "永遠に再生する盾",
-      "name": "無限の盾"
-    },
-    "iron_armor": {
-      "desc": "堅い鉄から鍛造された鎧",
-      "name": "鉄製鎧"
-    },
-    "iron_dagger": {
-      "desc": "素早い連続攻撃を可能にする",
-      "name": "鉄製短剣"
-    },
-    "iron_helm": {
-      "desc": "頭部を保護する鉄製ヘルメット",
-      "name": "鉄製兜"
-    },
-    "jormungandr_fang": {
-      "desc": "世界を包む蛇の牙",
-      "name": "ヨルムンガンドの牙"
-    },
-    "judgment_hammer": {
-      "desc": "裁きの神聖な武器",
-      "name": "裁きのハンマー"
-    },
-    "kronos_scythe": {
-      "desc": "時そのものを切る巨大な鎌",
-      "name": "クロノスの鎌"
-    },
-    "lava_shield": {
-      "desc": "溶けない溶岩石の盾",
-      "name": "溶岩盾"
-    },
-    "leather_shield": {
-      "desc": "基本的な防御を提供",
-      "name": "革の盾"
-    },
-    "legendary": "レジェンダリー",
-    "magma_gauntlet": {
-      "desc": "溶岩で鍛造された篭手",
-      "name": "マグマ篭手"
-    },
-    "master_blade": {
-      "desc": "村の最高傑作",
-      "name": "職人の刃"
-    },
-    "necro_tome": {
-      "desc": "禁じられた死霊魔法の書",
-      "name": "死霊魔法書"
-    },
-    "oak_shield": {
-      "desc": "世界樹の欠片から作られた盾",
-      "name": "樫の大盾"
-    },
-    "obsidian_blade": {
-      "desc": "火山から生まれた黒曜石の刃",
-      "name": "黒曜石の刃"
-    },
-    "odin_spear": {
-      "desc": "絶対に外れない神聖な槍",
-      "name": "オーディンの槍"
-    },
-    "phoenix_feather": {
-      "desc": "フェニックスの神聖な羽",
-      "name": "フェニックスの羽"
-    },
-    "poison_blade": {
-      "desc": "毒を塗られた鋭い刃",
-      "name": "毒刃"
-    },
-    "poseidon_trident": {
-      "desc": "海を統治する三叉槍",
-      "name": "ポセイドンの三叉槍"
-    },
-    "primal_staff": {
-      "desc": "原始的な元素を持つ杖",
-      "name": "原初の杖"
-    },
-    "primordial_crown": {
-      "desc": "原初の存在の王冠",
-      "name": "原初の王冠"
-    },
-    "rare": "レア",
-    "recruit_bow": {
-      "desc": "村の弓兵の弓",
-      "name": "警備員の弓"
-    },
-    "rift_blade": {
-      "desc": "次元を切り裂く刃",
-      "name": "次元の刃"
-    },
-    "rift_crown": {
-      "desc": "次元支配者の王冠",
-      "name": "次元王の王冠"
-    },
-    "salamander_mail": {
-      "desc": "火に強い鱗甲",
-      "name": "サラマンダーメイル"
-    },
-    "seraphim_wings": {
-      "desc": "大天使の翼の装飾",
-      "name": "セラフィムの翼"
-    },
-    "setBonus": "⭐ セット完成! DPS +20%",
-    "shadow_blade": {
-      "desc": "暗闇から生まれた刃",
-      "name": "影の刃"
-    },
-    "soul_gem": {
-      "desc": "魂の力を増幅する宝石",
-      "name": "魂の宝石"
-    },
-    "spirit_bow": {
-      "desc": "精霊に祝福された神秘の弓",
-      "name": "精霊の弓"
-    },
-    "squire_plate": {
-      "desc": "騎士見習いの重い鎧",
-      "name": "従者板鎧"
-    },
-    "star_bow": {
-      "desc": "星の力を射出する弓",
-      "name": "星の弓"
-    },
-    "star_giant_axe": {
-      "desc": "星から削り出された巨大な斧",
-      "name": "星の巨人の斧"
-    },
-    "steel_sword": {
-      "desc": "職人が手掛けた鋼の剣",
-      "name": "鋼製ロングソード"
-    },
-    "sun_staff": {
-      "desc": "太陽の力を集める杖",
-      "name": "太陽の杖"
-    },
-    "surtr_flame": {
-      "desc": "世界を焼く巨人の剣",
-      "name": "スルトの炎の剣"
-    },
-    "thor_hammer": {
-      "desc": "雷の神の神聖なハンマー",
-      "name": "トールのハンマー"
-    },
-    "thorn_whip": {
-      "desc": "棘に覆われた魔法の鞭",
-      "name": "棘の鞭"
-    },
-    "time_dagger": {
-      "desc": "時を止める短剣",
-      "name": "時間の短剣"
-    },
-    "time_dragon_fang": {
-      "desc": "時を超越する竜の牙",
-      "name": "時間竜の牙"
-    },
-    "time_end_blade": {
-      "desc": "時が止まった場所からの刃",
-      "name": "時の終わりの刃"
-    },
-    "titan_hammer": {
-      "desc": "かつてタイタンが使った巨大なハンマー",
-      "name": "タイタンのハンマー"
-    },
-    "uncommon": "アンコモン",
-    "universe_heart": {
-      "desc": "宇宙の核エネルギー結晶",
-      "name": "宇宙の心臓"
-    },
-    "void_armor": {
-      "desc": "深淵の虚無から来た鎧",
-      "name": "虚無の鎧"
-    },
-    "void_gauntlet": {
-      "desc": "虚無の力を放つ篭手",
-      "name": "虚無の篭手"
-    },
-    "volcano_hammer": {
-      "desc": "火山の怒りの巨大なハンマー",
-      "name": "火山のハンマー"
-    },
-    "volcano_heart": {
-      "desc": "深い地の底から採取された核結晶",
-      "name": "火山の心臓"
-    },
-    "wolf_cloak": {
-      "desc": "狼の毛皮から作られたマント",
-      "name": "狼の毛皮マント"
-    },
-    "wooden_sword": {
-      "desc": "最初の武器、冒険の始まり",
-      "name": "木製の剣"
-    },
-    "world_tree_bow": {
-      "desc": "世界樹から作られた神聖な弓",
-      "name": "世界樹の弓"
-    },
-    "world_turtle": {
-      "desc": "世界の亀の破片",
-      "name": "亀の殻"
-    },
-    "wyrmfire_staff": {
-      "desc": "竜の息を持つ杖",
-      "name": "竜火の杖"
-    },
-    "wyvern_lance": {
-      "desc": "ワイバーンの骨から作られた槍",
-      "name": "ワイバーンの槍"
-    },
-    "zeus_bolt": {
-      "desc": "空の王が投げた雷矢",
-      "name": "ゼウスの雷矢"
+    "achievement": {
+        "bossHunter": "ボスハンター",
+        "bossHunterDesc": "ボス10体を倒す",
+        "click10k": "クリックマスター",
+        "click10kDesc": "10000回クリック",
+        "click1k": "クリック王",
+        "click1kDesc": "1000回クリック",
+        "dps100": "DPS100",
+        "dps100Desc": "自動DPS100達成",
+        "dungeonMaster": "ダンジョンマスター",
+        "dungeonMasterDesc": "ティア10に到達",
+        "equipment10": "装備マスター",
+        "equipment10Desc": "装備を10個購入",
+        "firstStep": "最初の一歩",
+        "firstStepDesc": "最初のモンスターを倒す",
+        "goldenMonster": "ゴールドハンター",
+        "goldenMonsterDesc": "ゴールドモンスター5体倒す",
+        "prestige5": "連続転生",
+        "prestige5Desc": "5回プレステージ",
+        "prestigeFirst": "生まれ変わり",
+        "prestigeFirstDesc": "最初のプレステージ",
+        "skillMaster": "スキルマスター",
+        "skillMasterDesc": "5つのスキルレベル5達成",
+        "slayer100": "戦士の道",
+        "slayer1000": "殺戮者",
+        "slayer1000Desc": "1000体のモンスターを倒す",
+        "slayer100Desc": "100体のモンスターを倒す",
+        "wealth10k": "富豪",
+        "wealth10kDesc": "10000ゴールド獲得",
+        "wealth1m": "大富豪",
+        "wealth1mDesc": "1000000ゴールド獲得",
+        "speedClicker": "スピードクリッカー",
+        "speedClickerDesc": "毎秒10クリック達成",
+        "firstPurchase": "初購入",
+        "firstPurchaseDesc": "最初の装備を購入",
+        "millionaire": "ミリオネア",
+        "millionaireDesc": "100万ゴールドを保有",
+        "comboMaster": "コンボマスター",
+        "comboMasterDesc": "30コンボ達成",
+        "petOwner": "ペットオーナー",
+        "petOwnerDesc": "最初のペットを解放"
+    },
+    "app": {
+        "description": "ダンジョンでモンスターを倒して、強力な装備を手に入れる！RPG冒険はワンクリックから始まる。無料アイドルクリッカーゲーム！",
+        "loading": "Loading...",
+        "title": "Dungeon Clicker - アイドルRPGクリッカーゲーム | DopaBrain"
+    },
+    "dailyMissions": {
+        "bonusGold": "ゴールド",
+        "bonusXP": "XP",
+        "boss_1": "ボス1体を倒す",
+        "claim": "報酬を受け取る",
+        "claimed": "受け取り済み",
+        "dailyBonus": "デイリー完了ボーナス",
+        "gold_10k": "ゴールド10,000を獲得",
+        "kill_100": "モンスター100体を倒す",
+        "missionCompleted": "ミッション完了！",
+        "resetsIn": "リセットまで",
+        "title": "📋 デイリーミッション"
+    },
+    "dungeon": {
+        "abyss": "深淵",
+        "chaos": "原初の混沌",
+        "divine": "神々の領域",
+        "dragon": "竜の巣",
+        "endworld": "世界の果て",
+        "forest": "森のダンジョン",
+        "mythic": "神話の領域",
+        "rift": "次元の裂け目",
+        "village": "村の外れ",
+        "volcano": "火山ダンジョン"
+    },
+    "equipment": {
+        "absolute_blade": {
+            "desc": "存在の核を貫く刃",
+            "name": "絶対の刃"
+        },
+        "abyss_eye": {
+            "desc": "すべてを見通す眼",
+            "name": "深淵の眼"
+        },
+        "abyssal_scythe": {
+            "desc": "死神の大鎌",
+            "name": "深淵の鎌"
+        },
+        "acolyte_staff": {
+            "desc": "魔法修行に使われた杖",
+            "name": "侍者の杖"
+        },
+        "ancient_relic": {
+            "desc": "原始的な力が封印された遺物",
+            "name": "古代の遺物"
+        },
+        "ares_shield": {
+            "desc": "戦神の盾",
+            "name": "アレスの盾"
+        },
+        "astral_blade": {
+            "desc": "星光に包まれた聖なる刃",
+            "name": "星光の刃"
+        },
+        "athena_aegis": {
+            "desc": "知恵の女神の完璧な鎧",
+            "name": "アテナのアイギス"
+        },
+        "banshee_wail": {
+            "desc": "貫き通す悲鳴の魔法球",
+            "name": "バンシーの叫び"
+        },
+        "blood_chalice": {
+            "desc": "吸血鬼の王の杯",
+            "name": "血の杯"
+        },
+        "bone_dragon_bow": {
+            "desc": "アンデッド竜からの弓",
+            "name": "骨竜の弓"
+        },
+        "celestial_armor": {
+            "desc": "天の輝きを持つ鎧",
+            "name": "天の鎧"
+        },
+        "chaos_blade": {
+            "desc": "混沌から生まれた不安定な刃",
+            "name": "混沌の刃"
+        },
+        "chaos_orb": {
+            "desc": "圧縮された原始的混沌の球",
+            "name": "混沌の球"
+        },
+        "chaos_origin": {
+            "desc": "始まりと終わりの力",
+            "name": "混沌の起源"
+        },
+        "common": "コモン",
+        "cosmic_tome": {
+            "desc": "宇宙の真理の書",
+            "name": "宇宙の書"
+        },
+        "crystal_staff": {
+            "desc": "次元の結晶から作られた杖",
+            "name": "結晶の杖"
+        },
+        "death_mantle": {
+            "desc": "死の領主のマント",
+            "name": "死の領主のマント"
+        },
+        "demon_horn": {
+            "desc": "悪魔から奪った角",
+            "name": "悪魔の角"
+        },
+        "destroyer_blade": {
+            "desc": "次元を破壊する究極の刃",
+            "name": "破壊者の刃"
+        },
+        "dimension_axe": {
+            "desc": "次元を分割する巨大な斧",
+            "name": "次元の斧"
+        },
+        "divine_shield": {
+            "desc": "すべての攻撃を遮る盾",
+            "name": "神聖な盾"
+        },
+        "dragon_fang": {
+            "desc": "竜の歯から作られた剣",
+            "name": "竜の牙"
+        },
+        "dragon_heart": {
+            "desc": "竜の王の心臓結晶",
+            "name": "竜の心臓"
+        },
+        "dragon_scale": {
+            "desc": "竜の鱗から作られた鎧",
+            "name": "竜鱗の鎧"
+        },
+        "dragonlord_crown": {
+            "desc": "すべての竜を支配する王冠",
+            "name": "竜の王冠"
+        },
+        "druid_robe": {
+            "desc": "自然と交感できる衣",
+            "name": "ドルイドの衣"
+        },
+        "element_gauntlet": {
+            "desc": "4つの元素を融合させた篭手",
+            "name": "元素の篭手"
+        },
+        "elven_boots": {
+            "desc": "エルフの敏捷性がある靴",
+            "name": "エルフの靴"
+        },
+        "emperor_scepter": {
+            "desc": "深淵を支配する笏",
+            "name": "深淵皇帝の笏"
+        },
+        "epic": "エピック",
+        "eternal_eye": {
+            "desc": "永遠を観測する大いなる眼",
+            "name": "永遠の眼"
+        },
+        "eternal_shield": {
+            "desc": "決して壊れない盾",
+            "name": "永遠の盾"
+        },
+        "ether_armor": {
+            "desc": "エーテルから織られた透明な鎧",
+            "name": "エーテルの鎧"
+        },
+        "fate_scale": {
+            "desc": "運命を量る秤",
+            "name": "運命の秤"
+        },
+        "fenrir_claw": {
+            "desc": "神を喰らう狼の爪",
+            "name": "フェンリルの爪"
+        },
+        "final_crown": {
+            "desc": "これが本当の終わり...？",
+            "name": "???の王冠"
+        },
+        "fire_staff": {
+            "desc": "火山の力を込められた杖",
+            "name": "火の杖"
+        },
+        "flame_sword": {
+            "desc": "炎に包まれた魔法の刃",
+            "name": "炎の剣"
+        },
+        "forest_crown": {
+            "desc": "森の支配者の王冠",
+            "name": "森の王冠"
+        },
+        "forest_staff": {
+            "desc": "自然の力を宿した杖",
+            "name": "森の杖"
+        },
+        "gaia_blessing": {
+            "desc": "大地の母の神聖な力",
+            "name": "ガイアの祝福"
+        },
+        "god_blade": {
+            "desc": "神々に祝福された刃",
+            "name": "神の刃"
+        },
+        "hades_helm": {
+            "desc": "冥界の不可視の兜",
+            "name": "ハデスの兜"
+        },
+        "hero_crown": {
+            "desc": "世界の救世主の王冠",
+            "name": "英雄の王冠"
+        },
+        "hunters_bow": {
+            "desc": "熟練した森の狩人の弓",
+            "name": "狩人の弓"
+        },
+        "hydra_fang": {
+            "desc": "再生する牙の武器",
+            "name": "ヒドラの牙"
+        },
+        "inferno_robe": {
+            "desc": "地獄の炎が刺繍された衣",
+            "name": "地獄の衣"
+        },
+        "infinity_orb": {
+            "desc": "無限の魔力を持つ結晶球",
+            "name": "無限の球"
+        },
+        "infinity_shield": {
+            "desc": "永遠に再生する盾",
+            "name": "無限の盾"
+        },
+        "iron_armor": {
+            "desc": "堅い鉄から鍛造された鎧",
+            "name": "鉄製鎧"
+        },
+        "iron_dagger": {
+            "desc": "素早い連続攻撃を可能にする",
+            "name": "鉄製短剣"
+        },
+        "iron_helm": {
+            "desc": "頭部を保護する鉄製ヘルメット",
+            "name": "鉄製兜"
+        },
+        "jormungandr_fang": {
+            "desc": "世界を包む蛇の牙",
+            "name": "ヨルムンガンドの牙"
+        },
+        "judgment_hammer": {
+            "desc": "裁きの神聖な武器",
+            "name": "裁きのハンマー"
+        },
+        "kronos_scythe": {
+            "desc": "時そのものを切る巨大な鎌",
+            "name": "クロノスの鎌"
+        },
+        "lava_shield": {
+            "desc": "溶けない溶岩石の盾",
+            "name": "溶岩盾"
+        },
+        "leather_shield": {
+            "desc": "基本的な防御を提供",
+            "name": "革の盾"
+        },
+        "legendary": "レジェンダリー",
+        "magma_gauntlet": {
+            "desc": "溶岩で鍛造された篭手",
+            "name": "マグマ篭手"
+        },
+        "master_blade": {
+            "desc": "村の最高傑作",
+            "name": "職人の刃"
+        },
+        "necro_tome": {
+            "desc": "禁じられた死霊魔法の書",
+            "name": "死霊魔法書"
+        },
+        "oak_shield": {
+            "desc": "世界樹の欠片から作られた盾",
+            "name": "樫の大盾"
+        },
+        "obsidian_blade": {
+            "desc": "火山から生まれた黒曜石の刃",
+            "name": "黒曜石の刃"
+        },
+        "odin_spear": {
+            "desc": "絶対に外れない神聖な槍",
+            "name": "オーディンの槍"
+        },
+        "phoenix_feather": {
+            "desc": "フェニックスの神聖な羽",
+            "name": "フェニックスの羽"
+        },
+        "poison_blade": {
+            "desc": "毒を塗られた鋭い刃",
+            "name": "毒刃"
+        },
+        "poseidon_trident": {
+            "desc": "海を統治する三叉槍",
+            "name": "ポセイドンの三叉槍"
+        },
+        "primal_staff": {
+            "desc": "原始的な元素を持つ杖",
+            "name": "原初の杖"
+        },
+        "primordial_crown": {
+            "desc": "原初の存在の王冠",
+            "name": "原初の王冠"
+        },
+        "rare": "レア",
+        "recruit_bow": {
+            "desc": "村の弓兵の弓",
+            "name": "警備員の弓"
+        },
+        "rift_blade": {
+            "desc": "次元を切り裂く刃",
+            "name": "次元の刃"
+        },
+        "rift_crown": {
+            "desc": "次元支配者の王冠",
+            "name": "次元王の王冠"
+        },
+        "salamander_mail": {
+            "desc": "火に強い鱗甲",
+            "name": "サラマンダーメイル"
+        },
+        "seraphim_wings": {
+            "desc": "大天使の翼の装飾",
+            "name": "セラフィムの翼"
+        },
+        "setBonus": "⭐ セット完成! DPS +20%",
+        "shadow_blade": {
+            "desc": "暗闇から生まれた刃",
+            "name": "影の刃"
+        },
+        "soul_gem": {
+            "desc": "魂の力を増幅する宝石",
+            "name": "魂の宝石"
+        },
+        "spirit_bow": {
+            "desc": "精霊に祝福された神秘の弓",
+            "name": "精霊の弓"
+        },
+        "squire_plate": {
+            "desc": "騎士見習いの重い鎧",
+            "name": "従者板鎧"
+        },
+        "star_bow": {
+            "desc": "星の力を射出する弓",
+            "name": "星の弓"
+        },
+        "star_giant_axe": {
+            "desc": "星から削り出された巨大な斧",
+            "name": "星の巨人の斧"
+        },
+        "steel_sword": {
+            "desc": "職人が手掛けた鋼の剣",
+            "name": "鋼製ロングソード"
+        },
+        "sun_staff": {
+            "desc": "太陽の力を集める杖",
+            "name": "太陽の杖"
+        },
+        "surtr_flame": {
+            "desc": "世界を焼く巨人の剣",
+            "name": "スルトの炎の剣"
+        },
+        "thor_hammer": {
+            "desc": "雷の神の神聖なハンマー",
+            "name": "トールのハンマー"
+        },
+        "thorn_whip": {
+            "desc": "棘に覆われた魔法の鞭",
+            "name": "棘の鞭"
+        },
+        "time_dagger": {
+            "desc": "時を止める短剣",
+            "name": "時間の短剣"
+        },
+        "time_dragon_fang": {
+            "desc": "時を超越する竜の牙",
+            "name": "時間竜の牙"
+        },
+        "time_end_blade": {
+            "desc": "時が止まった場所からの刃",
+            "name": "時の終わりの刃"
+        },
+        "titan_hammer": {
+            "desc": "かつてタイタンが使った巨大なハンマー",
+            "name": "タイタンのハンマー"
+        },
+        "uncommon": "アンコモン",
+        "universe_heart": {
+            "desc": "宇宙の核エネルギー結晶",
+            "name": "宇宙の心臓"
+        },
+        "void_armor": {
+            "desc": "深淵の虚無から来た鎧",
+            "name": "虚無の鎧"
+        },
+        "void_gauntlet": {
+            "desc": "虚無の力を放つ篭手",
+            "name": "虚無の篭手"
+        },
+        "volcano_hammer": {
+            "desc": "火山の怒りの巨大なハンマー",
+            "name": "火山のハンマー"
+        },
+        "volcano_heart": {
+            "desc": "深い地の底から採取された核結晶",
+            "name": "火山の心臓"
+        },
+        "wolf_cloak": {
+            "desc": "狼の毛皮から作られたマント",
+            "name": "狼の毛皮マント"
+        },
+        "wooden_sword": {
+            "desc": "最初の武器、冒険の始まり",
+            "name": "木製の剣"
+        },
+        "world_tree_bow": {
+            "desc": "世界樹から作られた神聖な弓",
+            "name": "世界樹の弓"
+        },
+        "world_turtle": {
+            "desc": "世界の亀の破片",
+            "name": "亀の殻"
+        },
+        "wyrmfire_staff": {
+            "desc": "竜の息を持つ杖",
+            "name": "竜火の杖"
+        },
+        "wyvern_lance": {
+            "desc": "ワイバーンの骨から作られた槍",
+            "name": "ワイバーンの槍"
+        },
+        "zeus_bolt": {
+            "desc": "空の王が投げた雷矢",
+            "name": "ゼウスの雷矢"
+        }
+    },
+    "event": {
+        "equipSale": "装備セール",
+        "equipSaleDesc": "30秒間装備価格30%割引！",
+        "expBoost": "経験値ブースト",
+        "expBoostDesc": "30秒間スキル経験値2倍！",
+        "goldRush": "ゴールドラッシュ",
+        "goldRushDesc": "30秒間ゴールド獲得量2倍！",
+        "monsterFest": "モンスターフェスティバル",
+        "monsterFestDesc": "30秒間モンスターHP50%減少！"
+    },
+    "game": {
+        "achievement": "🏆 アチーブメント",
+        "achievementUnlocked": "アチーブメント解除！",
+        "ad": "広告",
+        "allEquip": "すべての装備を集めました！レベルを上げて強くなりましょう！",
+        "analysisTitle": "分析",
+        "attackPower": "攻撃力",
+        "autoDPS": "自動DPS",
+        "autoIncome": "自動DPS",
+        "back": "DopaBrain ホーム",
+        "battleAnalysis": "戦闘分析",
+        "bossDefeated": "撃破！+",
+        "bossLabel": "ボス",
+        "clickPower": "攻撃力",
+        "close": "閉じる",
+        "confirmReset": "本当にすべての進行状況をリセットしますか？\nこの操作は元に戻せません。",
+        "copyright": "© 2026 DopaBrain",
+        "currentOpponent": "現在の対戦相手",
+        "equipCount": "装備数",
+        "equipment": "⚔️ 装備",
+        "goldEarned": "ゴールド！",
+        "goldEarned2": "ゴールド獲得！",
+        "goldenAppear": "ゴールデンモンスター出現",
+        "goldenEscape": "⭐ ゴールデンモンスター逃げた！",
+        "goldenHint": "倒すとゴールド3倍！",
+        "bossEscaped": "ボスが逃げた！",
+        "bossRetry": "ボス挑戦",
+        "goldenMonster": "ゴールデンモンスター",
+        "growthGuide": "成長ガイド",
+        "halfway": "半分到達！",
+        "kill": "撃破",
+        "linkCopied": "リンクがコピーされました！",
+        "maxRank": "最高ランクに到達しました！",
+        "monsterKill": "体撃破,",
+        "monsterKilled": "撃破モンスター",
+        "nextEquip": "次の装備「",
+        "nextPrestige": "次のプレステージで獲得するポイント",
+        "nextRank": "次のランクまであと",
+        "noEquip": "まだ装備がありません",
+        "offlineEarnings": "オフライン",
+        "ownedEquip": "所有装備",
+        "perSec": "/秒",
+        "playMore": "まずダンジョンを探検してください！",
+        "prestige": "プレステージ",
+        "prestigeBonus": "永久ボーナス",
+        "prestigeConfirm": "本当にプレステージしますか？すべての進捗がリセットされます！",
+        "prestigeCount": "プレステージ回数",
+        "prestigeDesc": "すべての進捗をリセットして永久ボーナスを獲得する",
+        "prestigePoints": "プレステージポイント",
+        "prestigeRequire": "ティア5以上でプレステージ可能",
+        "prestigeTitle": "プレステージ情報",
+        "rank": "ダンジョンランク",
+        "reset": "リセット",
+        "share": "共有する",
+        "skill": "🛡️ スキル",
+        "stats": "📊 ステータス",
+        "subtitle": "クリックでダンジョンを征服しよう",
+        "tapHint": "タップして攻撃！",
+        "tierBossLabel": "ティアボス",
+        "tierCleared": "クリア",
+        "title": "Dungeon Clicker",
+        "topEquip": "トップ3装備",
+        "total": "合計",
+        "totalAttacks": "攻撃回数合計",
+        "totalClicks": "攻撃回数合計",
+        "totalEarned": "獲得ゴールド合計",
+        "totalGoldEarned": "獲得ゴールド合計",
+        "tryMore": "こちらも試してみてください！",
+        "prestigeTease": "転生可能!Tier {tier}でポイントを獲得"
+    },
+    "milestones": {
+        "abyss": "Cleared the Abyss Dungeon! You have the qualifications of a knight.",
+        "darkness": "Defeated the Dark Lord!",
+        "divine": "Passed the Divine Trial!",
+        "dragon": "Conquered the Dragon's Nest!",
+        "first": "Cleared the first dungeon!",
+        "forest": "Conquered the Forest Dungeon! Upgrade your equipment.",
+        "legend": "Cleared the Legendary Dungeon! Amazing!",
+        "volcano": "Broke through the Volcano Dungeon! Your combat power is growing."
+    },
+    "monsters": {
+        "flowerMonster": "花モンスター",
+        "iceMonster": "氷モンスター",
+        "pumpkinMonster": "カボチャモンスター",
+        "snowmanMonster": "雪だるまモンスター"
+    },
+    "offline": {
+        "away": "{time} の間、席を外していました！",
+        "collect": "受け取る",
+        "double": "広告を見て2倍獲得",
+        "earned": "{gold} ゴールド",
+        "title": "オフライン収入",
+        "monstersSlain": "体討伐"
+    },
+    "pet": {
+        "active": "アクティブ",
+        "activePet": "アクティブペット",
+        "allStats": "全ステータス",
+        "attackPower": "攻撃力",
+        "autoAttack": "自動攻撃",
+        "cat": "ネコ",
+        "catDesc": "毎秒自動で攻撃します",
+        "critChance": "クリティカル確率",
+        "dog": "イヌ",
+        "dogDesc": "ゴールド獲得量20%増加",
+        "dragon": "ドラゴン",
+        "dragonDesc": "攻撃力30%増加",
+        "eagle": "ワシ",
+        "eagleDesc": "クリティカル確率15%増加",
+        "goldBonus": "ゴールドボーナス",
+        "insufficientGold": "ゴールドが不足しています！",
+        "level": "レベル",
+        "levelUp": "レベルアップ",
+        "locked": "ロック",
+        "none": "なし",
+        "select": "選択",
+        "selected": "選択済み！",
+        "title": "ペット",
+        "unicorn": "ユニコーン",
+        "unicornDesc": "全ステータス10%増加",
+        "unlock": "解除 (50,000G)",
+        "unlocked": "解除済み！"
+    },
+    "ranking": {
+        "highestDPS": "最高DPS",
+        "highestTier": "最高ティア",
+        "maxGoldHeld": "最大所持ゴールド",
+        "maxRank": "最高ランク達成！",
+        "maxSingleHit": "最大単一ダメージ",
+        "mostKills": "最多キル数",
+        "personalRecords": "個人記録",
+        "rankBRONZE": "ブロンズ",
+        "rankDIAMOND": "ダイヤモンド",
+        "rankGOLD": "ゴールド",
+        "rankMASTER": "マスター",
+        "rankPLATINUM": "プラチナ",
+        "rankSILVER": "シルバー",
+        "totalPrestige": "合計プレスティジ"
+    },
+    "ranks": {
+        "adventurer": "Adventurer",
+        "archmage": "Archmage",
+        "beginner": "Village Novice",
+        "dragonslayer": "Dragon Slayer",
+        "godscall": "God's Delegate",
+        "guardian": "World's Guardian",
+        "hero": "Hero",
+        "knight": "Knight",
+        "legend": "Legendary Hero",
+        "trainee": "Trainee",
+        "warrior": "Warrior"
+    },
+    "recommendations": {
+        "colorMemory": "Color Memory",
+        "colorMemoryDesc": "Memory challenge game",
+        "emojiMerge": "絵文字マージ",
+        "emojiMergeDesc": "絵文字進化パズル",
+        "emotionTemp": "感情温度計",
+        "emotionTempDesc": "あなたの感情温度は何度?",
+        "mbtiLove": "MBTI恋愛相性",
+        "mbtiLoveDesc": "完璧なペアを見つけてください",
+        "quizApp": "雑学クイズ",
+        "quizAppDesc": "ランダム雑学クイズ",
+        "stackTower": "Stack Tower",
+        "stackTowerDesc": "ブロック積み重ねゲーム",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "ジグザグランニングゲーム"
+    },
+    "skill": {
+        "maxLevel": "Max Level!"
+    },
+    "skills": {
+        "army": "Warriors",
+        "army_desc": "Greatly Increase Auto Attack",
+        "boss_hunter": "Boss Hunter",
+        "boss_hunter_desc": "DPS Click Bonus",
+        "critical": "Critical Strike",
+        "critical_desc": "Increase Attack Power",
+        "haste": "Haste",
+        "haste_desc": "Increase Attack Speed",
+        "learned": "Learned",
+        "legion": "Legendary Legion",
+        "legion_desc": "Maximize Auto Attack",
+        "lightning": "Lightning Slash",
+        "lightning_desc": "Maximize Attack Power",
+        "maxLevel": "Max Level!",
+        "power_slash": "Power Slash",
+        "power_slash_desc": "Greatly Increase Attack Power",
+        "summon": "Summon Hero",
+        "summon_desc": "Increase Auto Attack"
+    },
+    "tutorial": {
+        "next": "次へ",
+        "skip": "スキップ",
+        "step": "ステップ",
+        "step1": {
+            "text": "モンスターをタップして攻撃してください。クリックするたびにゴールドが得られます！",
+            "title": "モンスターをクリックしてください！"
+        },
+        "step2": {
+            "text": "装備タブで武器と防具を購入すると、攻撃力が上がります！",
+            "title": "装備を購入しましょう！"
+        },
+        "step3": {
+            "text": "スキルタブで強力なスキルを習得すると、自動的にゴールドを獲得します！",
+            "title": "スキルで自動DPSを上げてください！"
+        },
+        "step4": {
+            "text": "各ステージのボスを倒すと、次のダンジョンに進められます！",
+            "title": "ボスを倒してください！"
+        },
+        "step5": {
+            "text": "アチーブメントを達成すると、ゲームの進行状況を追跡し、目標を設定できます！",
+            "title": "アチーブメントを達成してください！"
+        }
+    },
+    "seasons": {
+        "spring": "春",
+        "summer": "夏",
+        "autumn": "秋",
+        "winter": "冬",
+        "seasonalMonster": "季節モンスター",
+        "seasonalMonsterFlower": "花モンスター (春)",
+        "seasonalMonsterIce": "氷モンスター (夏)",
+        "seasonalMonsterPumpkin": "カボチャモンスター (秋)",
+        "seasonalMonsterSnowman": "雪だるまモンスター (冬)",
+        "bonusGold": "ゴールド +30%",
+        "bonusCooldown": "クールダウン -15%",
+        "bonusExp": "経験値 +30%",
+        "bonusAll": "すべてのボーナス +15%"
+    },
+    "guild": {
+        "title": "ギルド",
+        "selectGuild": "ギルドを選択",
+        "selectGuildDesc": "参加するギルドを選択してください",
+        "flameGuild": "炎のギルド",
+        "flameBuff": "攻撃力 +10%",
+        "frostGuild": "氷のギルド",
+        "frostBuff": "ゴールド +10%",
+        "natureGuild": "自然のギルド",
+        "natureBuff": "HP回復 +10%",
+        "stormGuild": "嵐のギルド",
+        "stormBuff": "攻撃速度 +10%",
+        "shadowGuild": "影のギルド",
+        "shadowBuff": "クリティカル +10%",
+        "level": "レベル",
+        "guildBonus": "ギルドボーナス",
+        "experience": "ギルド経験値",
+        "expNote": "モンスターを倒してギルド経験値を獲得します",
+        "levelUp": "ギルドレベルアップ!",
+        "weeklyMission": "週間ミッション",
+        "weeklyTarget": "今週",
+        "monsters": "体のモンスター倒し",
+        "missionReward": "完了でボーナス獲得",
+        "missionCompleted": "完了!",
+        "missionComplete": "週間ミッション完了!",
+        "leaveGuild": "ギルドを退出"
+    },
+    "minigame": {
+        "title": "宝箱を探す",
+        "play": "ミニゲーム!",
+        "attemptsLeft": "残り試行回数",
+        "confirm": "OK",
+        "treasureFound": "宝を見つけました!",
+        "treasureReward": "ゴールド報酬を獲得しました!",
+        "bombFound": "爆弾が爆発しました!",
+        "bombMessage": "ゲーム終了。",
+        "noAttempts": "試行回数がありません。",
+        "cooldown": "10分ごとにミニゲームをプレイできます"
+    },
+    "share": {
+        "twitter": "𝕏 Twitter",
+        "copyUrl": "📋 URLをコピー"
+    },
+    "error": {
+        "storage": "プライベートモードでは一部機能が制限されます。",
+        "data": "データ読み込みエラー。ページを更新してください。",
+        "canvas": "グラフィック描画の問題。もう一度お試しください。",
+        "audio": "音声が利用できません。続行できます。",
+        "network": "接続を確認して再試行してください。",
+        "general": "問題が発生しました。更新するか再試行してください。"
+    },
+    "result": {
+        "moreGames": "もっとゲーム"
+    },
+    "related": {
+        "stackTower": "スタックタワー",
+        "flappyBird": "フラッピーバード",
+        "emojiMerge": "絵文字マージ",
+        "blockPuzzle": "ブロックパズル"
+    },
+    "goldMilestone": {
+        "g1k": "1,000ゴールド達成!",
+        "g10k": "10,000ゴールド突破!",
+        "g100k": "10万ゴールド!リッチになってきた!",
+        "g1m": "100万ゴールド!ミリオネア!",
+        "g10m": "1000万ゴールド!伝説の富!",
+        "g100m": "1億ゴールド!神話級の富!",
+        "g1b": "10億ゴールド!宇宙の支配者!"
     }
-  },
-  "event": {
-    "equipSale": "装備セール",
-    "equipSaleDesc": "30秒間装備価格30%割引！",
-    "expBoost": "経験値ブースト",
-    "expBoostDesc": "30秒間スキル経験値2倍！",
-    "goldRush": "ゴールドラッシュ",
-    "goldRushDesc": "30秒間ゴールド獲得量2倍！",
-    "monsterFest": "モンスターフェスティバル",
-    "monsterFestDesc": "30秒間モンスターHP50%減少！"
-  },
-  "game": {
-    "achievement": "🏆 アチーブメント",
-    "achievementUnlocked": "アチーブメント解除！",
-    "ad": "広告",
-    "allEquip": "すべての装備を集めました！レベルを上げて強くなりましょう！",
-    "analysisTitle": "分析",
-    "attackPower": "攻撃力",
-    "autoDPS": "自動DPS",
-    "autoIncome": "自動DPS",
-    "back": "DopaBrain ホーム",
-    "battleAnalysis": "戦闘分析",
-    "bossDefeated": "撃破！+",
-    "bossLabel": "ボス",
-    "clickPower": "攻撃力",
-    "close": "閉じる",
-    "confirmReset": "本当にすべての進行状況をリセットしますか？\nこの操作は元に戻せません。",
-    "copyright": "© 2026 DopaBrain",
-    "currentOpponent": "現在の対戦相手",
-    "equipCount": "装備数",
-    "equipment": "⚔️ 装備",
-    "goldEarned": "ゴールド！",
-    "goldEarned2": "ゴールド獲得！",
-    "goldenAppear": "ゴールデンモンスター出現",
-    "goldenEscape": "⭐ ゴールデンモンスター逃げた！",
-    "goldenHint": "倒すとゴールド3倍！",
-    "bossEscaped": "ボスが逃げた！",
-    "bossRetry": "ボス挑戦",
-    "goldenMonster": "ゴールデンモンスター",
-    "growthGuide": "成長ガイド",
-    "halfway": "半分到達！",
-    "kill": "撃破",
-    "linkCopied": "リンクがコピーされました！",
-    "maxRank": "最高ランクに到達しました！",
-    "monsterKill": "体撃破,",
-    "monsterKilled": "撃破モンスター",
-    "nextEquip": "次の装備「",
-    "nextPrestige": "次のプレステージで獲得するポイント",
-    "nextRank": "次のランクまであと",
-    "noEquip": "まだ装備がありません",
-    "offlineEarnings": "オフライン",
-    "ownedEquip": "所有装備",
-    "perSec": "/秒",
-    "playMore": "まずダンジョンを探検してください！",
-    "prestige": "プレステージ",
-    "prestigeBonus": "永久ボーナス",
-    "prestigeConfirm": "本当にプレステージしますか？すべての進捗がリセットされます！",
-    "prestigeCount": "プレステージ回数",
-    "prestigeDesc": "すべての進捗をリセットして永久ボーナスを獲得する",
-    "prestigePoints": "プレステージポイント",
-    "prestigeRequire": "ティア5以上でプレステージ可能",
-    "prestigeTitle": "プレステージ情報",
-    "rank": "ダンジョンランク",
-    "reset": "リセット",
-    "share": "共有する",
-    "skill": "🛡️ スキル",
-    "stats": "📊 ステータス",
-    "subtitle": "クリックでダンジョンを征服しよう",
-    "tapHint": "タップして攻撃！",
-    "tierBossLabel": "ティアボス",
-    "tierCleared": "クリア",
-    "title": "Dungeon Clicker",
-    "topEquip": "トップ3装備",
-    "total": "合計",
-    "totalAttacks": "攻撃回数合計",
-    "totalClicks": "攻撃回数合計",
-    "totalEarned": "獲得ゴールド合計",
-    "totalGoldEarned": "獲得ゴールド合計",
-    "tryMore": "こちらも試してみてください！"
-  },
-  "milestones": {
-    "abyss": "Cleared the Abyss Dungeon! You have the qualifications of a knight.",
-    "darkness": "Defeated the Dark Lord!",
-    "divine": "Passed the Divine Trial!",
-    "dragon": "Conquered the Dragon's Nest!",
-    "first": "Cleared the first dungeon!",
-    "forest": "Conquered the Forest Dungeon! Upgrade your equipment.",
-    "legend": "Cleared the Legendary Dungeon! Amazing!",
-    "volcano": "Broke through the Volcano Dungeon! Your combat power is growing."
-  },
-  "monsters": {
-    "absolute": "絶対的存在",
-    "abyss_emperor": "深淵皇帝",
-    "ancient_dragon": "古代龍",
-    "apocalypse_guardian": "黙示録の守護者",
-    "archangel": "大天使",
-    "ares": "アレス",
-    "athena": "アテナ",
-    "banshee": "バンシー",
-    "basilisk": "バジリスク",
-    "bat": "コウモリ",
-    "bear": "熊",
-    "boar": "イノシシ",
-    "bone_dragon": "骨の龍",
-    "carnivorous": "食人植物",
-    "chaos": "カオス",
-    "chaos_incarnation": "混沌の化身",
-    "chaos_knight": "混沌の騎士",
-    "cosmic_jellyfish": "宇宙クラゲ",
-    "crystal_giant": "結晶巨人",
-    "cursed_knight": "呪われた騎士",
-    "dark_lord": "暗黒の領主",
-    "death_knight": "デスナイト",
-    "demon": "悪魔",
-    "dimension_breaker": "次元破裂者",
-    "dimension_demon": "次元の魔王",
-    "dimension_destroyer": "次元破壊者",
-    "dimension_guardian": "次元の守護者",
-    "dragon": "ドラゴン",
-    "dragon_guardian": "龍の守護者",
-    "dragon_lord": "龍の王",
-    "element_titan": "元素タイタン",
-    "eternal_guardian": "永遠の守護者",
-    "eternal_watcher": "永遠の見守り手",
-    "ether_dragon": "エーテル龍",
-    "fairy": "妖精盗賊",
-    "fate_judge": "運命の審判官",
-    "fenrir": "フェンリル",
-    "fire_lord": "炎の領主",
-    "flame_bat": "炎のコウモリ",
-    "flame_knight": "炎の騎士",
-    "flame_spirit": "炎の精霊",
-    "gaia": "ガイア",
-    "goblin": "ゴブリン",
-    "hades": "ハデス",
-    "hydra": "ヒドラ",
-    "ice_dragon": "氷の龍",
-    "ifrit": "イフリート",
-    "infinity_being": "無限の存在",
-    "jormungandr": "ヨルムンガンド",
-    "kobold": "コボルト",
-    "kraken": "クラーケン",
-    "kronos": "クロノス",
-    "lava_golem": "溶岩ゴーレム",
-    "lava_slime": "溶岩スライム",
-    "lich": "リッチ",
-    "light_guardian": "光の守護者",
-    "magma_worm": "マグマワーム",
-    "mummy": "ミイラ",
-    "mushroom": "キノコの怪物",
-    "necromancer": "ネクロマンサー",
-    "odin": "オーディン",
-    "orc": "オーク",
-    "phoenix": "フェニックス",
-    "poison_dragon": "毒龍",
-    "poseidon": "ポセイドン",
-    "primordial_being": "原初の存在",
-    "primordial_chaos": "原初的混沌",
-    "primordial_flame": "原初の炎",
-    "rat": "ネズミ",
-    "scorpion": "サソリ",
-    "shadow_assassin": "影のアサシン",
-    "skeleton": "スケルトン兵士",
-    "slime": "スライム",
-    "snake": "ヘビ",
-    "spider": "毒グモ",
-    "star_giant": "星の巨人",
-    "star_predator": "星の捕食者",
-    "sun_incarnation": "太陽の化身",
-    "surtr": "スルト",
-    "tentacle": "深淵の触手",
-    "thief": "盗賊",
-    "thor": "トール",
-    "time_dragon": "時間龍",
-    "time_end": "時間の終焉",
-    "time_keeper": "時間の番人",
-    "titan": "タイタン",
-    "treent": "樹人",
-    "troll": "トロール",
-    "universe_heart": "宇宙の心",
-    "unknown": "???",
-    "vampire": "ヴァンパイア",
-    "void_destroyer": "虚無の破壊者",
-    "void_lord": "虚無の領主",
-    "volcano_lizard": "火山トカゲ",
-    "witch": "森の魔女",
-    "wolf": "オオカミ",
-    "world_snake": "世界蛇",
-    "world_turtle": "世界亀",
-    "wyvern": "ワイバーン",
-    "zeus": "ゼウス"
-  },
-  "offline": {
-    "away": "{time} の間、席を外していました！",
-    "collect": "受け取る",
-    "double": "広告を見て2倍獲得",
-    "earned": "{gold} ゴールド",
-    "title": "オフライン収入"
-  },
-  "pet": {
-    "active": "アクティブ",
-    "activePet": "アクティブペット",
-    "allStats": "全ステータス",
-    "attackPower": "攻撃力",
-    "autoAttack": "自動攻撃",
-    "cat": "ネコ",
-    "catDesc": "毎秒自動で攻撃します",
-    "critChance": "クリティカル確率",
-    "dog": "イヌ",
-    "dogDesc": "ゴールド獲得量20%増加",
-    "dragon": "ドラゴン",
-    "dragonDesc": "攻撃力30%増加",
-    "eagle": "ワシ",
-    "eagleDesc": "クリティカル確率15%増加",
-    "goldBonus": "ゴールドボーナス",
-    "insufficientGold": "ゴールドが不足しています！",
-    "level": "レベル",
-    "levelUp": "レベルアップ",
-    "locked": "ロック",
-    "none": "なし",
-    "select": "選択",
-    "selected": "選択済み！",
-    "title": "ペット",
-    "unicorn": "ユニコーン",
-    "unicornDesc": "全ステータス10%増加",
-    "unlock": "解除 (50,000G)",
-    "unlocked": "解除済み！"
-  },
-  "ranking": {
-    "highestDPS": "最高DPS",
-    "highestTier": "最高ティア",
-    "maxGoldHeld": "最大所持ゴールド",
-    "maxRank": "最高ランク達成！",
-    "maxSingleHit": "最大単一ダメージ",
-    "mostKills": "最多キル数",
-    "personalRecords": "個人記録",
-    "rankBRONZE": "ブロンズ",
-    "rankDIAMOND": "ダイヤモンド",
-    "rankGOLD": "ゴールド",
-    "rankMASTER": "マスター",
-    "rankPLATINUM": "プラチナ",
-    "rankSILVER": "シルバー",
-    "totalPrestige": "合計プレスティジ"
-  },
-  "ranks": {
-    "adventurer": "Adventurer",
-    "archmage": "Archmage",
-    "beginner": "Village Novice",
-    "dragonslayer": "Dragon Slayer",
-    "godscall": "God's Delegate",
-    "guardian": "World's Guardian",
-    "hero": "Hero",
-    "knight": "Knight",
-    "legend": "Legendary Hero",
-    "trainee": "Trainee",
-    "warrior": "Warrior"
-  },
-  "recommendations": {
-    "colorMemory": "Color Memory",
-    "colorMemoryDesc": "Memory challenge game",
-    "emojiMerge": "絵文字マージ",
-    "emojiMergeDesc": "絵文字進化パズル",
-    "emotionTemp": "感情温度計",
-    "emotionTempDesc": "あなたの感情温度は何度?",
-    "mbtiLove": "MBTI恋愛相性",
-    "mbtiLoveDesc": "完璧なペアを見つけてください",
-    "quizApp": "雑学クイズ",
-    "quizAppDesc": "ランダム雑学クイズ",
-    "stackTower": "Stack Tower",
-    "stackTowerDesc": "ブロック積み重ねゲーム",
-    "zigzagRunner": "Zigzag Runner",
-    "zigzagRunnerDesc": "ジグザグランニングゲーム"
-  },
-  "skill": {
-    "maxLevel": "Max Level!"
-  },
-  "skills": {
-    "army": "Warriors",
-    "army_desc": "Greatly Increase Auto Attack",
-    "boss_hunter": "Boss Hunter",
-    "boss_hunter_desc": "DPS Click Bonus",
-    "critical": "Critical Strike",
-    "critical_desc": "Increase Attack Power",
-    "haste": "Haste",
-    "haste_desc": "Increase Attack Speed",
-    "learned": "Learned",
-    "legion": "Legendary Legion",
-    "legion_desc": "Maximize Auto Attack",
-    "lightning": "Lightning Slash",
-    "lightning_desc": "Maximize Attack Power",
-    "maxLevel": "Max Level!",
-    "power_slash": "Power Slash",
-    "power_slash_desc": "Greatly Increase Attack Power",
-    "summon": "Summon Hero",
-    "summon_desc": "Increase Auto Attack"
-  },
-  "tutorial": {
-    "next": "次へ",
-    "skip": "スキップ",
-    "step": "ステップ",
-    "step1": {
-      "text": "モンスターをタップして攻撃してください。クリックするたびにゴールドが得られます！",
-      "title": "モンスターをクリックしてください！"
-    },
-    "step2": {
-      "text": "装備タブで武器と防具を購入すると、攻撃力が上がります！",
-      "title": "装備を購入しましょう！"
-    },
-    "step3": {
-      "text": "スキルタブで強力なスキルを習得すると、自動的にゴールドを獲得します！",
-      "title": "スキルで自動DPSを上げてください！"
-    },
-    "step4": {
-      "text": "各ステージのボスを倒すと、次のダンジョンに進められます！",
-      "title": "ボスを倒してください！"
-    },
-    "step5": {
-      "text": "アチーブメントを達成すると、ゲームの進行状況を追跡し、目標を設定できます！",
-      "title": "アチーブメントを達成してください！"
-    }
-  },
-  "monsters": {
-    "flowerMonster": "花モンスター",
-    "iceMonster": "氷モンスター",
-    "pumpkinMonster": "カボチャモンスター",
-    "snowmanMonster": "雪だるまモンスター"
-  },
-  "seasons": {
-    "spring": "春",
-    "summer": "夏",
-    "autumn": "秋",
-    "winter": "冬",
-    "seasonalMonster": "季節モンスター",
-    "seasonalMonsterFlower": "花モンスター (春)",
-    "seasonalMonsterIce": "氷モンスター (夏)",
-    "seasonalMonsterPumpkin": "カボチャモンスター (秋)",
-    "seasonalMonsterSnowman": "雪だるまモンスター (冬)",
-    "bonusGold": "ゴールド +30%",
-    "bonusCooldown": "クールダウン -15%",
-    "bonusExp": "経験値 +30%",
-    "bonusAll": "すべてのボーナス +15%"
-  },
-  "guild": {
-    "title": "ギルド",
-    "selectGuild": "ギルドを選択",
-    "selectGuildDesc": "参加するギルドを選択してください",
-    "flameGuild": "炎のギルド",
-    "flameBuff": "攻撃力 +10%",
-    "frostGuild": "氷のギルド",
-    "frostBuff": "ゴールド +10%",
-    "natureGuild": "自然のギルド",
-    "natureBuff": "HP回復 +10%",
-    "stormGuild": "嵐のギルド",
-    "stormBuff": "攻撃速度 +10%",
-    "shadowGuild": "影のギルド",
-    "shadowBuff": "クリティカル +10%",
-    "level": "レベル",
-    "guildBonus": "ギルドボーナス",
-    "experience": "ギルド経験値",
-    "expNote": "モンスターを倒してギルド経験値を獲得します",
-    "levelUp": "ギルドレベルアップ!",
-    "weeklyMission": "週間ミッション",
-    "weeklyTarget": "今週",
-    "monsters": "体のモンスター倒し",
-    "missionReward": "完了でボーナス獲得",
-    "missionCompleted": "完了!",
-    "missionComplete": "週間ミッション完了!",
-    "leaveGuild": "ギルドを退出"
-  },
-  "minigame": {
-    "title": "宝箱を探す",
-    "play": "ミニゲーム!",
-    "attemptsLeft": "残り試行回数",
-    "confirm": "OK",
-    "treasureFound": "宝を見つけました!",
-    "treasureReward": "ゴールド報酬を獲得しました!",
-    "bombFound": "爆弾が爆発しました!",
-    "bombMessage": "ゲーム終了。",
-    "noAttempts": "試行回数がありません。",
-    "cooldown": "10分ごとにミニゲームをプレイできます"
-  },
-  "share": {
-    "twitter": "𝕏 Twitter",
-    "copyUrl": "📋 URLをコピー"
-  },
-  "error": {
-    "storage": "プライベートモードでは一部機能が制限されます。",
-    "data": "データ読み込みエラー。ページを更新してください。",
-    "canvas": "グラフィック描画の問題。もう一度お試しください。",
-    "audio": "音声が利用できません。続行できます。",
-    "network": "接続を確認して再試行してください。",
-    "general": "問題が発生しました。更新するか再試行してください。"
-  },
-  "result": {
-    "moreGames": "もっとゲーム"
-  },
-  "related": {
-    "stackTower": "スタックタワー",
-    "flappyBird": "フラッピーバード",
-    "emojiMerge": "絵文字マージ",
-    "blockPuzzle": "ブロックパズル"
-  }
 }

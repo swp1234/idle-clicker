@@ -1,873 +1,792 @@
 {
-  "achievement": {
-    "bossHunter": "Boss Avı",
-    "bossHunterDesc": "10 boss yenin",
-    "click10k": "Tıklama Ustası",
-    "click10kDesc": "10000 kez tıklayın",
-    "click1k": "Tıklama Krali",
-    "click1kDesc": "1000 kez tıklayın",
-    "dps100": "DPS 100",
-    "dps100Desc": "100 otomatik DPS ulaşın",
-    "dungeonMaster": "Zindan Ustası",
-    "dungeonMasterDesc": "Tier 10'a ulaşın",
-    "equipment10": "Ekipman Ustası",
-    "equipment10Desc": "10 ekipman satın alın",
-    "firstStep": "İlk Adım",
-    "firstStepDesc": "İlk canavarınızı yenin",
-    "goldenMonster": "Altın Avı",
-    "goldenMonsterDesc": "5 altın canavar yenin",
-    "prestige5": "Seri Yeniden Doğum",
-    "prestige5Desc": "5 kez prestij",
-    "prestigeFirst": "Yeniden Doğan",
-    "prestigeFirstDesc": "İlk prestij",
-    "skillMaster": "Beceri Ustası",
-    "skillMasterDesc": "5 beceri seviye 5",
-    "slayer100": "Savaşçının Yolu",
-    "slayer1000": "Katil",
-    "slayer1000Desc": "1000 canavar yenin",
-    "slayer100Desc": "100 canavar yenin",
-    "wealth10k": "Zengin",
-    "wealth10kDesc": "10000 altın kazanın",
-    "wealth1m": "Milyarder",
-    "wealth1mDesc": "1000000 altın kazanın"
-  },
-  "app": {
-    "description": "Zındanda canavarları yeniden yeniyle doldur ve güçlü silahlar ekvip et! RPG macerasını tıkla ile başlat. Ücretsiz boş clicker oyunu!",
-    "loading": "Loading...",
-    "title": "Dungeon Clicker - Boşta RPG Clicker Oyunu | DopaBrain"
-  },
-  "dailyMissions": {
-    "bonusGold": "Altın",
-    "bonusXP": "XP",
-    "boss_1": "1 Boss Öldür",
-    "claim": "Talep Et",
-    "claimed": "Talep Edildi",
-    "dailyBonus": "Günlük Tamamlama Bonusu",
-    "gold_10k": "10.000 Altın Kazan",
-    "kill_100": "100 Canavar Öldür",
-    "missionCompleted": "Görev Tamamlandı!",
-    "resetsIn": "Şu zamanda sıfırlanır",
-    "title": "📋 Günlük Görevler"
-  },
-  "dungeon": {
-    "abyss": "Uçurum",
-    "chaos": "İlkel Kaos",
-    "divine": "İlahi Krallık",
-    "dragon": "Ejder Yuvası",
-    "endworld": "Dünyanın Sonu",
-    "forest": "Orman Zındanı",
-    "mythic": "Mitolojik Krallık",
-    "rift": "Boyutsal Çatlak",
-    "village": "Köy Kenarları",
-    "volcano": "Volkan Zındanı"
-  },
-  "equipment": {
-    "absolute_blade": {
-      "desc": "Varoluşun özünü piercing kılıç",
-      "name": "Mutlak Kılıç"
-    },
-    "abyss_eye": {
-      "desc": "Her şeyi gören bir göz",
-      "name": "Abyss Gözü"
-    },
-    "abyssal_scythe": {
-      "desc": "Azrail'in büyük orakçısı",
-      "name": "Arka Orakçı"
-    },
-    "acolyte_staff": {
-      "desc": "Sihir eğitimi için kullanılan değnek",
-      "name": "Çırak Değnekleri"
-    },
-    "ancient_relic": {
-      "desc": "Mühürlü primordial güçle artifact",
-      "name": "Antik Emanet"
-    },
-    "ares_shield": {
-      "desc": "Savaş tanrısı kalkanı",
-      "name": "Ares' Kalkanı"
-    },
-    "astral_blade": {
-      "desc": "Yıldız ışığını kucaklayan kutsal kılıç",
-      "name": "Astral Kılıç"
-    },
-    "athena_aegis": {
-      "desc": "Bilgelik tanrıçasının mükemmel zırh",
-      "name": "Athena'nın Aegisi"
-    },
-    "banshee_wail": {
-      "desc": "Işıltan çığlık sihirli orb",
-      "name": "Banshee Çığlığı"
-    },
-    "blood_chalice": {
-      "desc": "Vampir lordunun kadehi",
-      "name": "Kan Kadehi"
-    },
-    "bone_dragon_bow": {
-      "desc": "İçindeki ölü ejderden yay",
-      "name": "Kemik Ejder Yayı"
-    },
-    "celestial_armor": {
-      "desc": "Göksel ışıyla zırh",
-      "name": "Göksel Zırh"
-    },
-    "chaos_blade": {
-      "desc": "Kaostan doğan kararsız kılıç",
-      "name": "Kaos Kılıcı"
-    },
-    "chaos_orb": {
-      "desc": "Yoğunlaştırılmış primordial kaos orbu",
-      "name": "Kaos Orb"
-    },
-    "chaos_origin": {
-      "desc": "Başlangıç ve sonun gücü",
-      "name": "Kaosin Kökeni"
-    },
-    "common": "Sıradan",
-    "cosmic_tome": {
-      "desc": "Evrensel gerçeklerin kitabı",
-      "name": "Kozmik Kitap"
-    },
-    "crystal_staff": {
-      "desc": "Boyutsal kristallerden değnek",
-      "name": "Kristal Değnekleri"
-    },
-    "death_mantle": {
-      "desc": "Ölüm lordunun pelerini",
-      "name": "Ölüm Lordunun Pelerini"
-    },
-    "demon_horn": {
-      "desc": "Bir iblisten ele geçirilen boynuz",
-      "name": "Iblis Boynuzu"
-    },
-    "destroyer_blade": {
-      "desc": "Boyutları yıkan nihai kılıç",
-      "name": "Yıkıcının Kılıcı"
-    },
-    "dimension_axe": {
-      "desc": "Boyutları bölen dev balta",
-      "name": "Boyut Baltası"
-    },
-    "divine_shield": {
-      "desc": "Herhangi bir saldırıyı engelleyen kalkan",
-      "name": "İlahi Kalkanı"
-    },
-    "dragon_fang": {
-      "desc": "Ejder dişlerinden yapılmış kılıç",
-      "name": "Ejder Dişi"
-    },
-    "dragon_heart": {
-      "desc": "Ejder Lordunun kalp kristali",
-      "name": "Ejder Kalbi"
-    },
-    "dragon_scale": {
-      "desc": "Ejder pullarından yapılmış zırh",
-      "name": "Ejder Pulu Zırh"
-    },
-    "dragonlord_crown": {
-      "desc": "Tüm ejderleri yöneten taç",
-      "name": "Ejder Lordunun Tacı"
-    },
-    "druid_robe": {
-      "desc": "Doğa ile iletişim kuran elbise",
-      "name": "Druid Elbisesi"
-    },
-    "element_gauntlet": {
-      "desc": "Dört elementi birleştiren eldiven",
-      "name": "Eleman Eldiveni"
-    },
-    "elven_boots": {
-      "desc": "Elf çevikliğine sahip çizmeler",
-      "name": "Elf Çizmeleri"
-    },
-    "emperor_scepter": {
-      "desc": "Abyss hükümranlığı asası",
-      "name": "Abyss İmparatorunun Asası"
-    },
-    "epic": "Efsanevi",
-    "eternal_eye": {
-      "desc": "Sonsuluğu gözlemleyen büyük göz",
-      "name": "Ebedi Göz"
-    },
-    "eternal_shield": {
-      "desc": "Asla kırılmayan kalkan",
-      "name": "Ebedi Kalkanı"
-    },
-    "ether_armor": {
-      "desc": "Eterden dokuma saydamsız zırh",
-      "name": "Eter Zırh"
-    },
-    "fate_scale": {
-      "desc": "Kaderle tartı ölçütü terazisi",
-      "name": "Kader Terazisi"
-    },
-    "fenrir_claw": {
-      "desc": "Tanrı yiyen kurt pençesi",
-      "name": "Fenrir'in Pençesi"
-    },
-    "final_crown": {
-      "desc": "Bu gerçek sonu mu...?",
-      "name": "???'nın Tacı"
-    },
-    "fire_staff": {
-      "desc": "Volkanikal güçle dolu değnek",
-      "name": "Ateş Değnekleri"
-    },
-    "flame_sword": {
-      "desc": "Ateşle alevlenen sihirli kılıç",
-      "name": "Alev Kılıcı"
-    },
-    "forest_crown": {
-      "desc": "Orman hâkimi tacı",
-      "name": "Orman Kralı Tacı"
-    },
-    "forest_staff": {
-      "desc": "Doğanın gücüyle dolu değnek",
-      "name": "Orman Değnekleri"
-    },
-    "gaia_blessing": {
-      "desc": "Ana Yer'in kutsal gücü",
-      "name": "Gaia'nın Kutsaması"
-    },
-    "god_blade": {
-      "desc": "Tanrılar tarafından kutsanan kılıç",
-      "name": "Tanrı Kılıcı"
-    },
-    "hades_helm": {
-      "desc": "Öteki dünyadan görünmezlik miğferi",
-      "name": "Hades'in Miğferi"
-    },
-    "hero_crown": {
-      "desc": "Dünyanın kurtarıcısının tacı",
-      "name": "Kahraman Tacı"
-    },
-    "hunters_bow": {
-      "desc": "Deneyimli orman avcısı yayı",
-      "name": "Avcının Yayı"
-    },
-    "hydra_fang": {
-      "desc": "Yeniden büyüyen dişlerden silah",
-      "name": "Hydra Dişi"
-    },
-    "inferno_robe": {
-      "desc": "Cehennem ateşi işlemeli elbise",
-      "name": "İnferno Elbisesi"
-    },
-    "infinity_orb": {
-      "desc": "Sonsuz sihirli kristal orb",
-      "name": "Sonsuzluk Orb"
-    },
-    "infinity_shield": {
-      "desc": "Sonsuz olarak iyileşen kalkan",
-      "name": "Sonsuzluk Kalkanı"
-    },
-    "iron_armor": {
-      "desc": "Sağlam demirden dövülmüş zırh",
-      "name": "Demir Zırh"
-    },
-    "iron_dagger": {
-      "desc": "Hızlı ardışık saldırıları mümkün kılar",
-      "name": "Demir Hançer"
-    },
-    "iron_helm": {
-      "desc": "Başın korunması için demir miğfer",
-      "name": "Demir Miğfer"
-    },
-    "jormungandr_fang": {
-      "desc": "Dünyayı saran yılanın dişi",
-      "name": "Jörmungandr'in Dişi"
-    },
-    "judgment_hammer": {
-      "desc": "Yargılamanın ilahi silahı",
-      "name": "Yargılama Çekici"
-    },
-    "kronos_scythe": {
-      "desc": "Zamanı kendisinin kesen dev orakçı",
-      "name": "Kronos'un Orakçısı"
-    },
-    "lava_shield": {
-      "desc": "Eritilmez lav taşı kalkan",
-      "name": "Lav Kalkanı"
-    },
-    "leather_shield": {
-      "desc": "Temel savunma sağlar",
-      "name": "Deri Kalkanı"
-    },
-    "legendary": "Efsane",
-    "magma_gauntlet": {
-      "desc": "Lavda dövülmüş eldiven",
-      "name": "Magma Eldiveni"
-    },
-    "master_blade": {
-      "desc": "Köyün en iyi eseri",
-      "name": "Ustanın Kılıcı"
-    },
-    "necro_tome": {
-      "desc": "Yasaklanmış nekromancy kitabı",
-      "name": "Nekro Kitabı"
-    },
-    "oak_shield": {
-      "desc": "Dünya Ağacı parçalarından yapılmış kalkan",
-      "name": "Meşe Büyük Kalkanı"
-    },
-    "obsidian_blade": {
-      "desc": "Volkan tarafından doğmuş obsidyen kenar",
-      "name": "Obsidyen Kılıç"
-    },
-    "odin_spear": {
-      "desc": "Asla ıskına gelmez ilahi mızrak",
-      "name": "Odin'in Mızrağı"
-    },
-    "phoenix_feather": {
-      "desc": "Phoenix'in kutsal tüyü",
-      "name": "Phoenix Tüyü"
-    },
-    "poison_blade": {
-      "desc": "Zehirle kaplanmış keskin bir kılıç",
-      "name": "Zehirli Kılıç"
-    },
-    "poseidon_trident": {
-      "desc": "Denizleri yöneten üç dişli mızrak",
-      "name": "Poseidon'un Üç Dişli Mızrağı"
-    },
-    "primal_staff": {
-      "desc": "Primordial elementleri içeren değnek",
-      "name": "İlkel Değnekleri"
-    },
-    "primordial_crown": {
-      "desc": "Primordial varlığının tacı",
-      "name": "İlkel Taç"
-    },
-    "rare": "Nadir",
-    "recruit_bow": {
-      "desc": "Köy muhafızı okçuları yayı",
-      "name": "Muhafız Yayı"
-    },
-    "rift_blade": {
-      "desc": "Boyutları kesen kılıç",
-      "name": "Çatlak Kılıcı"
-    },
-    "rift_crown": {
-      "desc": "Boyut hâkiminin tacı",
-      "name": "Boyut Kralı Tacı"
-    },
-    "salamander_mail": {
-      "desc": "Ateşe dayanıklı pul zırh",
-      "name": "Salamander Zırh"
-    },
-    "seraphim_wings": {
-      "desc": "Seraphim melek ornament kanat",
-      "name": "Seraphim Kanatları"
-    },
-    "setBonus": "⭐ TAKIMI TAMAMLANDI! DPS +20%",
-    "shadow_blade": {
-      "desc": "Karanlıktan doğmuş bir kılıç",
-      "name": "Gölge Kılıcı"
-    },
-    "soul_gem": {
-      "desc": "Ruh gücünü güçlendiren taş",
-      "name": "Ruh Taşı"
-    },
-    "spirit_bow": {
-      "desc": "Ruhlar tarafından kutsanan mistik yay",
-      "name": "Ruh Yayı"
-    },
-    "squire_plate": {
-      "desc": "Şövalye muavininin ağır zırh",
-      "name": "Çirkin Plaka"
-    },
-    "star_bow": {
-      "desc": "Yıldız enerjisini atan yay",
-      "name": "Yıldız Yayı"
-    },
-    "star_giant_axe": {
-      "desc": "Yıldızdan oyulmuş dev balta",
-      "name": "Yıldız Devinin Baltası"
-    },
-    "steel_sword": {
-      "desc": "Bir ustanın yapımı çelik kılıç",
-      "name": "Çelik Uzun Kılıç"
-    },
-    "sun_staff": {
-      "desc": "Güneş gücünü toplayan değnek",
-      "name": "Güneş Değnekleri"
-    },
-    "surtr_flame": {
-      "desc": "Dünyayı yakan dev kılıç",
-      "name": "Surtr'un Alev Kılıcı"
-    },
-    "thor_hammer": {
-      "desc": "Gök gürültüsü ilahi çekici",
-      "name": "Thor'un Çekici"
-    },
-    "thorn_whip": {
-      "desc": "Dikenlerle kaplı sihirli kamçı",
-      "name": "Dikenli Kamçı"
-    },
-    "time_dagger": {
-      "desc": "Zamanı durduran hançer",
-      "name": "Zaman Hançeri"
-    },
-    "time_dragon_fang": {
-      "desc": "Zamanı aşan ejderin dişi",
-      "name": "Zaman Ejderi Dişi"
-    },
-    "time_end_blade": {
-      "desc": "Zamanın durduğu yerden kılıç",
-      "name": "Zamanın Sonu Kılıcı"
-    },
-    "titan_hammer": {
-      "desc": "Titanlar tarafından kullanılan muazzam çekiç",
-      "name": "Titan Çekici"
-    },
-    "uncommon": "Sıradışı",
-    "universe_heart": {
-      "desc": "Kozmosun temel enerji kristali",
-      "name": "Evren Kalbi"
-    },
-    "void_armor": {
-      "desc": "Abyss void'dan zırh",
-      "name": "Void Zırh"
-    },
-    "void_gauntlet": {
-      "desc": "Void gücünü salan eldiven",
-      "name": "Void Eldiveni"
-    },
-    "volcano_hammer": {
-      "desc": "Volkanik füryanın kocaman çekici",
-      "name": "Volkan Çekici"
-    },
-    "volcano_heart": {
-      "desc": "Volkan derinliklerinden elde edilen temel kristal",
-      "name": "Volkan Kalbi"
-    },
-    "wolf_cloak": {
-      "desc": "Kurt derinden yapılmış pelerine",
-      "name": "Kurt Derisi Pelerini"
-    },
-    "wooden_sword": {
-      "desc": "İlk silahın, maceranın başlangıcı",
-      "name": "Ahşap Kılıç"
-    },
-    "world_tree_bow": {
-      "desc": "Dünya Ağacından ilahi yay",
-      "name": "Dünya Ağacı Yayı"
-    },
-    "world_turtle": {
-      "desc": "Dünya kaplumbağasından parça",
-      "name": "Kaplumbağa Kabuğu"
-    },
-    "wyrmfire_staff": {
-      "desc": "Ejder nefesiyle değnek",
-      "name": "Wyrmfire Değnekleri"
-    },
-    "wyvern_lance": {
-      "desc": "Wyvern kemiğinden yapılmış mızrak",
-      "name": "Wyvern Mızrağı"
-    },
-    "zeus_bolt": {
-      "desc": "Göğün kralı tarafından atılan cıvata",
-      "name": "Zeus'un Yıldırımı"
+    "achievement": {
+        "bossHunter": "Boss Avı",
+        "bossHunterDesc": "10 boss yenin",
+        "click10k": "Tıklama Ustası",
+        "click10kDesc": "10000 kez tıklayın",
+        "click1k": "Tıklama Krali",
+        "click1kDesc": "1000 kez tıklayın",
+        "dps100": "DPS 100",
+        "dps100Desc": "100 otomatik DPS ulaşın",
+        "dungeonMaster": "Zindan Ustası",
+        "dungeonMasterDesc": "Tier 10'a ulaşın",
+        "equipment10": "Ekipman Ustası",
+        "equipment10Desc": "10 ekipman satın alın",
+        "firstStep": "İlk Adım",
+        "firstStepDesc": "İlk canavarınızı yenin",
+        "goldenMonster": "Altın Avı",
+        "goldenMonsterDesc": "5 altın canavar yenin",
+        "prestige5": "Seri Yeniden Doğum",
+        "prestige5Desc": "5 kez prestij",
+        "prestigeFirst": "Yeniden Doğan",
+        "prestigeFirstDesc": "İlk prestij",
+        "skillMaster": "Beceri Ustası",
+        "skillMasterDesc": "5 beceri seviye 5",
+        "slayer100": "Savaşçının Yolu",
+        "slayer1000": "Katil",
+        "slayer1000Desc": "1000 canavar yenin",
+        "slayer100Desc": "100 canavar yenin",
+        "wealth10k": "Zengin",
+        "wealth10kDesc": "10000 altın kazanın",
+        "wealth1m": "Milyarder",
+        "wealth1mDesc": "1000000 altın kazanın",
+        "speedClicker": "Hizli Tiklayici",
+        "speedClickerDesc": "Saniyede 10 tiklama ulasin",
+        "firstPurchase": "Ilk Satin Alma",
+        "firstPurchaseDesc": "Ilk ekipmanini satin al",
+        "millionaire": "Milyoner",
+        "millionaireDesc": "1.000.000 altin birden tut",
+        "comboMaster": "Kombo Ustasi",
+        "comboMasterDesc": "30 kombo serisine ulasin",
+        "petOwner": "Evcil Hayvan Sahibi",
+        "petOwnerDesc": "Ilk evcil hayvanini ac"
+    },
+    "app": {
+        "description": "Zındanda canavarları yeniden yeniyle doldur ve güçlü silahlar ekvip et! RPG macerasını tıkla ile başlat. Ücretsiz boş clicker oyunu!",
+        "loading": "Loading...",
+        "title": "Dungeon Clicker - Boşta RPG Clicker Oyunu | DopaBrain"
+    },
+    "dailyMissions": {
+        "bonusGold": "Altın",
+        "bonusXP": "XP",
+        "boss_1": "1 Boss Öldür",
+        "claim": "Talep Et",
+        "claimed": "Talep Edildi",
+        "dailyBonus": "Günlük Tamamlama Bonusu",
+        "gold_10k": "10.000 Altın Kazan",
+        "kill_100": "100 Canavar Öldür",
+        "missionCompleted": "Görev Tamamlandı!",
+        "resetsIn": "Şu zamanda sıfırlanır",
+        "title": "📋 Günlük Görevler"
+    },
+    "dungeon": {
+        "abyss": "Uçurum",
+        "chaos": "İlkel Kaos",
+        "divine": "İlahi Krallık",
+        "dragon": "Ejder Yuvası",
+        "endworld": "Dünyanın Sonu",
+        "forest": "Orman Zındanı",
+        "mythic": "Mitolojik Krallık",
+        "rift": "Boyutsal Çatlak",
+        "village": "Köy Kenarları",
+        "volcano": "Volkan Zındanı"
+    },
+    "equipment": {
+        "absolute_blade": {
+            "desc": "Varoluşun özünü piercing kılıç",
+            "name": "Mutlak Kılıç"
+        },
+        "abyss_eye": {
+            "desc": "Her şeyi gören bir göz",
+            "name": "Abyss Gözü"
+        },
+        "abyssal_scythe": {
+            "desc": "Azrail'in büyük orakçısı",
+            "name": "Arka Orakçı"
+        },
+        "acolyte_staff": {
+            "desc": "Sihir eğitimi için kullanılan değnek",
+            "name": "Çırak Değnekleri"
+        },
+        "ancient_relic": {
+            "desc": "Mühürlü primordial güçle artifact",
+            "name": "Antik Emanet"
+        },
+        "ares_shield": {
+            "desc": "Savaş tanrısı kalkanı",
+            "name": "Ares' Kalkanı"
+        },
+        "astral_blade": {
+            "desc": "Yıldız ışığını kucaklayan kutsal kılıç",
+            "name": "Astral Kılıç"
+        },
+        "athena_aegis": {
+            "desc": "Bilgelik tanrıçasının mükemmel zırh",
+            "name": "Athena'nın Aegisi"
+        },
+        "banshee_wail": {
+            "desc": "Işıltan çığlık sihirli orb",
+            "name": "Banshee Çığlığı"
+        },
+        "blood_chalice": {
+            "desc": "Vampir lordunun kadehi",
+            "name": "Kan Kadehi"
+        },
+        "bone_dragon_bow": {
+            "desc": "İçindeki ölü ejderden yay",
+            "name": "Kemik Ejder Yayı"
+        },
+        "celestial_armor": {
+            "desc": "Göksel ışıyla zırh",
+            "name": "Göksel Zırh"
+        },
+        "chaos_blade": {
+            "desc": "Kaostan doğan kararsız kılıç",
+            "name": "Kaos Kılıcı"
+        },
+        "chaos_orb": {
+            "desc": "Yoğunlaştırılmış primordial kaos orbu",
+            "name": "Kaos Orb"
+        },
+        "chaos_origin": {
+            "desc": "Başlangıç ve sonun gücü",
+            "name": "Kaosin Kökeni"
+        },
+        "common": "Sıradan",
+        "cosmic_tome": {
+            "desc": "Evrensel gerçeklerin kitabı",
+            "name": "Kozmik Kitap"
+        },
+        "crystal_staff": {
+            "desc": "Boyutsal kristallerden değnek",
+            "name": "Kristal Değnekleri"
+        },
+        "death_mantle": {
+            "desc": "Ölüm lordunun pelerini",
+            "name": "Ölüm Lordunun Pelerini"
+        },
+        "demon_horn": {
+            "desc": "Bir iblisten ele geçirilen boynuz",
+            "name": "Iblis Boynuzu"
+        },
+        "destroyer_blade": {
+            "desc": "Boyutları yıkan nihai kılıç",
+            "name": "Yıkıcının Kılıcı"
+        },
+        "dimension_axe": {
+            "desc": "Boyutları bölen dev balta",
+            "name": "Boyut Baltası"
+        },
+        "divine_shield": {
+            "desc": "Herhangi bir saldırıyı engelleyen kalkan",
+            "name": "İlahi Kalkanı"
+        },
+        "dragon_fang": {
+            "desc": "Ejder dişlerinden yapılmış kılıç",
+            "name": "Ejder Dişi"
+        },
+        "dragon_heart": {
+            "desc": "Ejder Lordunun kalp kristali",
+            "name": "Ejder Kalbi"
+        },
+        "dragon_scale": {
+            "desc": "Ejder pullarından yapılmış zırh",
+            "name": "Ejder Pulu Zırh"
+        },
+        "dragonlord_crown": {
+            "desc": "Tüm ejderleri yöneten taç",
+            "name": "Ejder Lordunun Tacı"
+        },
+        "druid_robe": {
+            "desc": "Doğa ile iletişim kuran elbise",
+            "name": "Druid Elbisesi"
+        },
+        "element_gauntlet": {
+            "desc": "Dört elementi birleştiren eldiven",
+            "name": "Eleman Eldiveni"
+        },
+        "elven_boots": {
+            "desc": "Elf çevikliğine sahip çizmeler",
+            "name": "Elf Çizmeleri"
+        },
+        "emperor_scepter": {
+            "desc": "Abyss hükümranlığı asası",
+            "name": "Abyss İmparatorunun Asası"
+        },
+        "epic": "Efsanevi",
+        "eternal_eye": {
+            "desc": "Sonsuluğu gözlemleyen büyük göz",
+            "name": "Ebedi Göz"
+        },
+        "eternal_shield": {
+            "desc": "Asla kırılmayan kalkan",
+            "name": "Ebedi Kalkanı"
+        },
+        "ether_armor": {
+            "desc": "Eterden dokuma saydamsız zırh",
+            "name": "Eter Zırh"
+        },
+        "fate_scale": {
+            "desc": "Kaderle tartı ölçütü terazisi",
+            "name": "Kader Terazisi"
+        },
+        "fenrir_claw": {
+            "desc": "Tanrı yiyen kurt pençesi",
+            "name": "Fenrir'in Pençesi"
+        },
+        "final_crown": {
+            "desc": "Bu gerçek sonu mu...?",
+            "name": "???'nın Tacı"
+        },
+        "fire_staff": {
+            "desc": "Volkanikal güçle dolu değnek",
+            "name": "Ateş Değnekleri"
+        },
+        "flame_sword": {
+            "desc": "Ateşle alevlenen sihirli kılıç",
+            "name": "Alev Kılıcı"
+        },
+        "forest_crown": {
+            "desc": "Orman hâkimi tacı",
+            "name": "Orman Kralı Tacı"
+        },
+        "forest_staff": {
+            "desc": "Doğanın gücüyle dolu değnek",
+            "name": "Orman Değnekleri"
+        },
+        "gaia_blessing": {
+            "desc": "Ana Yer'in kutsal gücü",
+            "name": "Gaia'nın Kutsaması"
+        },
+        "god_blade": {
+            "desc": "Tanrılar tarafından kutsanan kılıç",
+            "name": "Tanrı Kılıcı"
+        },
+        "hades_helm": {
+            "desc": "Öteki dünyadan görünmezlik miğferi",
+            "name": "Hades'in Miğferi"
+        },
+        "hero_crown": {
+            "desc": "Dünyanın kurtarıcısının tacı",
+            "name": "Kahraman Tacı"
+        },
+        "hunters_bow": {
+            "desc": "Deneyimli orman avcısı yayı",
+            "name": "Avcının Yayı"
+        },
+        "hydra_fang": {
+            "desc": "Yeniden büyüyen dişlerden silah",
+            "name": "Hydra Dişi"
+        },
+        "inferno_robe": {
+            "desc": "Cehennem ateşi işlemeli elbise",
+            "name": "İnferno Elbisesi"
+        },
+        "infinity_orb": {
+            "desc": "Sonsuz sihirli kristal orb",
+            "name": "Sonsuzluk Orb"
+        },
+        "infinity_shield": {
+            "desc": "Sonsuz olarak iyileşen kalkan",
+            "name": "Sonsuzluk Kalkanı"
+        },
+        "iron_armor": {
+            "desc": "Sağlam demirden dövülmüş zırh",
+            "name": "Demir Zırh"
+        },
+        "iron_dagger": {
+            "desc": "Hızlı ardışık saldırıları mümkün kılar",
+            "name": "Demir Hançer"
+        },
+        "iron_helm": {
+            "desc": "Başın korunması için demir miğfer",
+            "name": "Demir Miğfer"
+        },
+        "jormungandr_fang": {
+            "desc": "Dünyayı saran yılanın dişi",
+            "name": "Jörmungandr'in Dişi"
+        },
+        "judgment_hammer": {
+            "desc": "Yargılamanın ilahi silahı",
+            "name": "Yargılama Çekici"
+        },
+        "kronos_scythe": {
+            "desc": "Zamanı kendisinin kesen dev orakçı",
+            "name": "Kronos'un Orakçısı"
+        },
+        "lava_shield": {
+            "desc": "Eritilmez lav taşı kalkan",
+            "name": "Lav Kalkanı"
+        },
+        "leather_shield": {
+            "desc": "Temel savunma sağlar",
+            "name": "Deri Kalkanı"
+        },
+        "legendary": "Efsane",
+        "magma_gauntlet": {
+            "desc": "Lavda dövülmüş eldiven",
+            "name": "Magma Eldiveni"
+        },
+        "master_blade": {
+            "desc": "Köyün en iyi eseri",
+            "name": "Ustanın Kılıcı"
+        },
+        "necro_tome": {
+            "desc": "Yasaklanmış nekromancy kitabı",
+            "name": "Nekro Kitabı"
+        },
+        "oak_shield": {
+            "desc": "Dünya Ağacı parçalarından yapılmış kalkan",
+            "name": "Meşe Büyük Kalkanı"
+        },
+        "obsidian_blade": {
+            "desc": "Volkan tarafından doğmuş obsidyen kenar",
+            "name": "Obsidyen Kılıç"
+        },
+        "odin_spear": {
+            "desc": "Asla ıskına gelmez ilahi mızrak",
+            "name": "Odin'in Mızrağı"
+        },
+        "phoenix_feather": {
+            "desc": "Phoenix'in kutsal tüyü",
+            "name": "Phoenix Tüyü"
+        },
+        "poison_blade": {
+            "desc": "Zehirle kaplanmış keskin bir kılıç",
+            "name": "Zehirli Kılıç"
+        },
+        "poseidon_trident": {
+            "desc": "Denizleri yöneten üç dişli mızrak",
+            "name": "Poseidon'un Üç Dişli Mızrağı"
+        },
+        "primal_staff": {
+            "desc": "Primordial elementleri içeren değnek",
+            "name": "İlkel Değnekleri"
+        },
+        "primordial_crown": {
+            "desc": "Primordial varlığının tacı",
+            "name": "İlkel Taç"
+        },
+        "rare": "Nadir",
+        "recruit_bow": {
+            "desc": "Köy muhafızı okçuları yayı",
+            "name": "Muhafız Yayı"
+        },
+        "rift_blade": {
+            "desc": "Boyutları kesen kılıç",
+            "name": "Çatlak Kılıcı"
+        },
+        "rift_crown": {
+            "desc": "Boyut hâkiminin tacı",
+            "name": "Boyut Kralı Tacı"
+        },
+        "salamander_mail": {
+            "desc": "Ateşe dayanıklı pul zırh",
+            "name": "Salamander Zırh"
+        },
+        "seraphim_wings": {
+            "desc": "Seraphim melek ornament kanat",
+            "name": "Seraphim Kanatları"
+        },
+        "setBonus": "⭐ TAKIMI TAMAMLANDI! DPS +20%",
+        "shadow_blade": {
+            "desc": "Karanlıktan doğmuş bir kılıç",
+            "name": "Gölge Kılıcı"
+        },
+        "soul_gem": {
+            "desc": "Ruh gücünü güçlendiren taş",
+            "name": "Ruh Taşı"
+        },
+        "spirit_bow": {
+            "desc": "Ruhlar tarafından kutsanan mistik yay",
+            "name": "Ruh Yayı"
+        },
+        "squire_plate": {
+            "desc": "Şövalye muavininin ağır zırh",
+            "name": "Çirkin Plaka"
+        },
+        "star_bow": {
+            "desc": "Yıldız enerjisini atan yay",
+            "name": "Yıldız Yayı"
+        },
+        "star_giant_axe": {
+            "desc": "Yıldızdan oyulmuş dev balta",
+            "name": "Yıldız Devinin Baltası"
+        },
+        "steel_sword": {
+            "desc": "Bir ustanın yapımı çelik kılıç",
+            "name": "Çelik Uzun Kılıç"
+        },
+        "sun_staff": {
+            "desc": "Güneş gücünü toplayan değnek",
+            "name": "Güneş Değnekleri"
+        },
+        "surtr_flame": {
+            "desc": "Dünyayı yakan dev kılıç",
+            "name": "Surtr'un Alev Kılıcı"
+        },
+        "thor_hammer": {
+            "desc": "Gök gürültüsü ilahi çekici",
+            "name": "Thor'un Çekici"
+        },
+        "thorn_whip": {
+            "desc": "Dikenlerle kaplı sihirli kamçı",
+            "name": "Dikenli Kamçı"
+        },
+        "time_dagger": {
+            "desc": "Zamanı durduran hançer",
+            "name": "Zaman Hançeri"
+        },
+        "time_dragon_fang": {
+            "desc": "Zamanı aşan ejderin dişi",
+            "name": "Zaman Ejderi Dişi"
+        },
+        "time_end_blade": {
+            "desc": "Zamanın durduğu yerden kılıç",
+            "name": "Zamanın Sonu Kılıcı"
+        },
+        "titan_hammer": {
+            "desc": "Titanlar tarafından kullanılan muazzam çekiç",
+            "name": "Titan Çekici"
+        },
+        "uncommon": "Sıradışı",
+        "universe_heart": {
+            "desc": "Kozmosun temel enerji kristali",
+            "name": "Evren Kalbi"
+        },
+        "void_armor": {
+            "desc": "Abyss void'dan zırh",
+            "name": "Void Zırh"
+        },
+        "void_gauntlet": {
+            "desc": "Void gücünü salan eldiven",
+            "name": "Void Eldiveni"
+        },
+        "volcano_hammer": {
+            "desc": "Volkanik füryanın kocaman çekici",
+            "name": "Volkan Çekici"
+        },
+        "volcano_heart": {
+            "desc": "Volkan derinliklerinden elde edilen temel kristal",
+            "name": "Volkan Kalbi"
+        },
+        "wolf_cloak": {
+            "desc": "Kurt derinden yapılmış pelerine",
+            "name": "Kurt Derisi Pelerini"
+        },
+        "wooden_sword": {
+            "desc": "İlk silahın, maceranın başlangıcı",
+            "name": "Ahşap Kılıç"
+        },
+        "world_tree_bow": {
+            "desc": "Dünya Ağacından ilahi yay",
+            "name": "Dünya Ağacı Yayı"
+        },
+        "world_turtle": {
+            "desc": "Dünya kaplumbağasından parça",
+            "name": "Kaplumbağa Kabuğu"
+        },
+        "wyrmfire_staff": {
+            "desc": "Ejder nefesiyle değnek",
+            "name": "Wyrmfire Değnekleri"
+        },
+        "wyvern_lance": {
+            "desc": "Wyvern kemiğinden yapılmış mızrak",
+            "name": "Wyvern Mızrağı"
+        },
+        "zeus_bolt": {
+            "desc": "Göğün kralı tarafından atılan cıvata",
+            "name": "Zeus'un Yıldırımı"
+        }
+    },
+    "event": {
+        "equipSale": "Ekipman İndirimi",
+        "equipSaleDesc": "30 saniye boyunca ekipman fiyatları %30 indirim!",
+        "expBoost": "Deneyim Artışı",
+        "expBoostDesc": "30 saniye boyunca beceri EXP 2x!",
+        "goldRush": "Altın Çılgınlığı",
+        "goldRushDesc": "30 saniye boyunca altın kazancı 2x!",
+        "monsterFest": "Canavar Festivali",
+        "monsterFestDesc": "30 saniye boyunca canavar HP %50 azaltıldı!"
+    },
+    "game": {
+        "achievement": "🏆 Başarılar",
+        "achievementUnlocked": "Başarı Açıldı!",
+        "ad": "Reklam",
+        "allEquip": "Tüm ekipmanları topladınız! Daha güçlü olmak için seviye atın!",
+        "analysisTitle": "Analiz",
+        "attackPower": "Saldırı Gücü",
+        "autoDPS": "Otomatik Hasar",
+        "autoIncome": "Otomatik Hasar",
+        "back": "DopaBrain Ana Sayfa",
+        "battleAnalysis": "Savaş Analizi",
+        "bossDefeated": "Yenildi! +",
+        "bossLabel": "PATRON",
+        "clickPower": "Saldırı Gücü",
+        "close": "Kapat",
+        "confirmReset": "Tüm ilerlemenizi sıfırlamak istediğinizden emin misiniz?\nBu işlem geri alınamaz.",
+        "copyright": "© 2026 DopaBrain",
+        "currentOpponent": "Mevcut Rakip",
+        "equipCount": "Ekipman Sayısı",
+        "equipment": "⚔️ Ekipman",
+        "goldEarned": "Altın!",
+        "goldEarned2": "Altın kazanıldı!",
+        "goldenAppear": "Altın Canavar Göründü",
+        "goldenEscape": "⭐ Altın Canavar Kaçtı!",
+        "goldenHint": "3x Altın için öldür!",
+        "bossEscaped": "Boss kaçtı!",
+        "bossRetry": "Boss Meydan Okuma",
+        "goldenMonster": "Altın Canavar",
+        "growthGuide": "Büyüme Kılavuzu",
+        "halfway": "Yarı yol gitti!",
+        "kill": "Yenildi",
+        "linkCopied": "Bağlantı kopyalandı!",
+        "maxRank": "Maksimum sıra başarıldı!",
+        "monsterKill": "canavar yenildi,",
+        "monsterKilled": "Yenilen Canavarlar",
+        "nextEquip": "Sonraki ekipmanın kilidini açmak savaş gücünü büyük ölçüde artıracak!",
+        "nextPrestige": "Sonraki Prestijde kazanılan puanlar",
+        "nextRank": "Sonraki sıraya kadar altın:",
+        "noEquip": "Henüz ekipman yok",
+        "offlineEarnings": "Çevrimdışı",
+        "ownedEquip": "Sahip Olunan Ekipman",
+        "perSec": "/sn",
+        "playMore": "Önce zındanı keşfedin!",
+        "prestige": "Prestij",
+        "prestigeBonus": "Kalıcı Bonus",
+        "prestigeConfirm": "Prestij yapmak istediğinizden emin misiniz? Tüm ilerleme sıfırlanacaktır!",
+        "prestigeCount": "Prestij Sayısı",
+        "prestigeDesc": "Tüm ilerlemeyi sıfırla ve kalıcı bonuslar kazanılr",
+        "prestigePoints": "Prestij Puanları",
+        "prestigeRequire": "Prestij için Tier 5 veya daha yüksek",
+        "prestigeTitle": "Prestij Bilgisi",
+        "rank": "Zından Sırası",
+        "reset": "Sıfırla",
+        "share": "Paylaş",
+        "skill": "🛡️ Yetenekler",
+        "stats": "📊 İstatistikler",
+        "subtitle": "Zındanı tıklamalarla fethet",
+        "tapHint": "SALDIRMAK İÇİN DOKUN!",
+        "tierBossLabel": "BÖLÜM PATRONU",
+        "tierCleared": "TEMİZLENDİ",
+        "title": "Dungeon Clicker",
+        "topEquip": "En İyi 3 Ekipman",
+        "total": "Toplam",
+        "totalAttacks": "Toplam Saldırı",
+        "totalClicks": "Toplam Saldırı",
+        "totalEarned": "Toplam Altın",
+        "totalGoldEarned": "Toplam Kazanılan Altın",
+        "tryMore": "Bunları da Dene!",
+        "prestigeTease": "Prestij mevcut! Tier {tier} de puan kazanin"
+    },
+    "milestones": {
+        "abyss": "Uçurum Zındanını temizlediniz! Şövalyelik vasıflarınız var.",
+        "darkness": "Karanlık Lordunu yendiniz!",
+        "divine": "İlahi Denemeden geçtiniz!",
+        "dragon": "Ejder Yuvasını fethetiniz!",
+        "first": "İlk zındanı temizlediniz!",
+        "forest": "Orman Zındanını fethetiniz! Ekipmanınızı yükseltin.",
+        "legend": "Efsanevi Zındanı temizlediniz! Harika!",
+        "volcano": "Volkan Zındanını kırdınız! Savaş gücünüz artıyor."
+    },
+    "monsters": {
+        "flowerMonster": "Çiçek Canavar",
+        "iceMonster": "Buz Canavar",
+        "pumpkinMonster": "Kabak Canavar",
+        "snowmanMonster": "Kardan Adam Canavar"
+    },
+    "offline": {
+        "away": "{time} boyunca uzakta oldunuz!",
+        "collect": "Topla",
+        "double": "Reklam İzle ve 2x Kazanç Al",
+        "earned": "{gold} Altın",
+        "title": "Çevrimdışı Kazanç",
+        "monstersSlain": "canavar olduruldu"
+    },
+    "pet": {
+        "active": "Aktif",
+        "activePet": "Aktif Evcil Hayvan",
+        "allStats": "Tüm Özellikler",
+        "attackPower": "Saldırı Gücü",
+        "autoAttack": "Otomatik Saldırı",
+        "cat": "Kedi",
+        "catDesc": "Her saniye otomatik saldırı",
+        "critChance": "Kritik Şansı",
+        "dog": "Köpek",
+        "dogDesc": "%20 altın bonusu",
+        "dragon": "Ejder",
+        "dragonDesc": "%30 saldırı gücü artışı",
+        "eagle": "Kartal",
+        "eagleDesc": "%15 kritik şansı artışı",
+        "goldBonus": "Altın Bonusu",
+        "insufficientGold": "Altın yetersiz!",
+        "level": "Seviye",
+        "levelUp": "Seviye Yükselt",
+        "locked": "Kilitli",
+        "none": "Yok",
+        "select": "Seç",
+        "selected": "Seçildi!",
+        "title": "Evcil Hayvanlar",
+        "unicorn": "Unicorn",
+        "unicornDesc": "%10 tüm özellik artışı",
+        "unlock": "Kilidi Aç (50.000G)",
+        "unlocked": "Kilidi Açıldı!"
+    },
+    "ranking": {
+        "highestDPS": "Highest DPS",
+        "highestTier": "Highest Tier",
+        "maxGoldHeld": "Max Gold Held",
+        "maxRank": "Max Rank Achieved!",
+        "maxSingleHit": "Max Single Hit",
+        "mostKills": "Most Kills",
+        "personalRecords": "Personal Records",
+        "rankBRONZE": "Bronze",
+        "rankDIAMOND": "Diamond",
+        "rankGOLD": "Gold",
+        "rankMASTER": "Master",
+        "rankPLATINUM": "Platinum",
+        "rankSILVER": "Silver",
+        "totalPrestige": "Total Prestiges"
+    },
+    "ranks": {
+        "adventurer": "Maceracı",
+        "archmage": "Başmage",
+        "beginner": "Köy Acemisi",
+        "dragonslayer": "Ejder Öldürücüsü",
+        "godscall": "Tanrı Delegesi",
+        "guardian": "Dünya Koruyucusu",
+        "hero": "Kahraman",
+        "knight": "Şövalye",
+        "legend": "Efsanevi Kahraman",
+        "trainee": "Çırak",
+        "warrior": "Savaşçı"
+    },
+    "recommendations": {
+        "colorMemory": "Color Memory",
+        "colorMemoryDesc": "Memory challenge game",
+        "emojiMerge": "Emoji Merge",
+        "emojiMergeDesc": "Emoji evrim bulmacası",
+        "emotionTemp": "Duygu Termometresi",
+        "emotionTempDesc": "Duygusal sıcaklığınız kaç derece?",
+        "mbtiLove": "MBTI Aşk Uyumluluğu",
+        "mbtiLoveDesc": "Mükemmel eşleşmeni bul",
+        "quizApp": "Bilgi Yarışması",
+        "quizAppDesc": "Rastgele bilgi yarışması",
+        "stackTower": "Stack Tower",
+        "stackTowerDesc": "Blok yığınlama oyunu",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Zikzak koşu oyunu"
+    },
+    "skill": {
+        "maxLevel": "Maksimum Seviye!"
+    },
+    "skills": {
+        "army": "Savaşçılar",
+        "army_desc": "Otomatik Saldırıyı Çok Artır",
+        "boss_hunter": "Boss Avcısı",
+        "boss_hunter_desc": "Tıklamada Hasar Bonusu",
+        "critical": "Kritik Vuruş",
+        "critical_desc": "Saldırı Gücünü Artır",
+        "haste": "Hız",
+        "haste_desc": "Saldırı Hızını Artır",
+        "learned": "Öğrenildi",
+        "legion": "Efsanevi Lejyon",
+        "legion_desc": "Otomatik Saldırıyı Maksimize Et",
+        "lightning": "Yıldırım Kesimi",
+        "lightning_desc": "Saldırı Gücünü Maksimize Et",
+        "maxLevel": "Maksimum Seviye!",
+        "power_slash": "Güçlü Kesim",
+        "power_slash_desc": "Saldırı Gücünü Çok Artır",
+        "summon": "Kahramanı Çağır",
+        "summon_desc": "Otomatik Saldırıyı Artır"
+    },
+    "tutorial": {
+        "next": "İLERİ",
+        "skip": "ATLA",
+        "step": "ADIM",
+        "step1": {
+            "text": "Saldırmak için canavarı dokunun. Her tıklamada altın kazanacaksınız!",
+            "title": "Canavara Tıkla!"
+        },
+        "step2": {
+            "text": "Ekipman sekmesinde altınla silah ve zırh satın alarak saldırı gücünüzü artırın!",
+            "title": "Ekipman Satın Al!"
+        },
+        "step3": {
+            "text": "Beceri sekmesinde güçlü becerileri öğrenerek otomatik olarak altın kazanın!",
+            "title": "Becerileri Öğren!"
+        },
+        "step4": {
+            "text": "Her aşamadaki şefi yenerek bir sonraki zındana ilerleyin!",
+            "title": "Şefi Yenin!"
+        },
+        "step5": {
+            "text": "İlerlemesini takip etmek ve hedefler belirlemek için başarıları elde edin!",
+            "title": "Başarıları Elde Edin!"
+        }
+    },
+    "seasons": {
+        "spring": "Bahar",
+        "summer": "Yaz",
+        "autumn": "Sonbahar",
+        "winter": "Kış",
+        "seasonalMonster": "Mevsimsel Canavar",
+        "seasonalMonsterFlower": "Çiçek Canavar (Bahar)",
+        "seasonalMonsterIce": "Buz Canavar (Yaz)",
+        "seasonalMonsterPumpkin": "Kabak Canavar (Sonbahar)",
+        "seasonalMonsterSnowman": "Kardan Adam Canavar (Kış)",
+        "bonusGold": "Altın +30%",
+        "bonusCooldown": "Soğutma -15%",
+        "bonusExp": "Deneyim +30%",
+        "bonusAll": "Tüm Bonuslar +15%"
+    },
+    "guild": {
+        "title": "Lonca",
+        "selectGuild": "Lonca Seç",
+        "selectGuildDesc": "Katılmak için bir lonca seçin",
+        "flameGuild": "Alev Loncası",
+        "flameBuff": "Saldırı Gücü +10%",
+        "frostGuild": "Dondurma Loncası",
+        "frostBuff": "Altın +10%",
+        "natureGuild": "Doğa Loncası",
+        "natureBuff": "Sağlık Iyileşmesi +10%",
+        "stormGuild": "Fırtına Loncası",
+        "stormBuff": "Saldırı Hızı +10%",
+        "shadowGuild": "Gölge Loncası",
+        "shadowBuff": "Kritik +10%",
+        "level": "Seviye",
+        "guildBonus": "Lonca Bonusu",
+        "experience": "Lonca Deneyimi",
+        "expNote": "Canavarları yenerek lonca deneyimi kazanın",
+        "levelUp": "Lonca Seviye Yükseltme!",
+        "weeklyMission": "Haftalık Görev",
+        "weeklyTarget": "Bu Hafta",
+        "monsters": "canavar yenildi",
+        "missionReward": "Tamamlayınca bonus alın",
+        "missionCompleted": "Tamamlandı!",
+        "missionComplete": "Haftalık Görev Tamamlandı!",
+        "leaveGuild": "Loncayı Terk Et"
+    },
+    "minigame": {
+        "title": "Hazine Sandığını Bul",
+        "play": "Mini Oyun!",
+        "attemptsLeft": "Kalan Denemeler",
+        "confirm": "Tamam",
+        "treasureFound": "Hazineyi buldunuz!",
+        "treasureReward": "Altın ödülü kazandınız!",
+        "bombFound": "Bomba patladı!",
+        "bombMessage": "Oyun bitti.",
+        "noAttempts": "Deneme kalmadı.",
+        "cooldown": "Her 10 dakikada bir mini oyun oynayabilirsiniz"
+    },
+    "share": {
+        "twitter": "𝕏 Twitter",
+        "copyUrl": "📋 Bağlantıyı kopyala"
+    },
+    "error": {
+        "storage": "Gizli modda bazı özellikler sınırlı olabilir.",
+        "data": "Veri yükleme hatası. Lütfen sayfayı yenileyin.",
+        "canvas": "Grafik oluşturma sorunu. Lütfen tekrar deneyin.",
+        "audio": "Ses kullanılamıyor. Devam edebilirsiniz.",
+        "network": "Bağlantınızı kontrol edip tekrar deneyin.",
+        "general": "Bir şeyler ters gitti. Yenileyip tekrar deneyin."
+    },
+    "result": {
+        "moreGames": "Daha fazla oyun"
+    },
+    "related": {
+        "stackTower": "Yığın Kule",
+        "flappyBird": "Flappy Bird",
+        "emojiMerge": "Emoji Birleştir",
+        "blockPuzzle": "Blok Bulmaca"
+    },
+    "goldMilestone": {
+        "g1k": "1.000 Altin ulasildi!",
+        "g10k": "10.000 Altin kazanildi!",
+        "g100k": "100K Altin! Zenginlesiyorsun!",
+        "g1m": "1M Altin! Milyoner!",
+        "g10m": "10M Altin! Efsanevi servet!",
+        "g100m": "100M Altin! Efsanevi zenginlik!",
+        "g1b": "1B Altin! Evrenin hakimi!"
     }
-  },
-  "event": {
-    "equipSale": "Ekipman İndirimi",
-    "equipSaleDesc": "30 saniye boyunca ekipman fiyatları %30 indirim!",
-    "expBoost": "Deneyim Artışı",
-    "expBoostDesc": "30 saniye boyunca beceri EXP 2x!",
-    "goldRush": "Altın Çılgınlığı",
-    "goldRushDesc": "30 saniye boyunca altın kazancı 2x!",
-    "monsterFest": "Canavar Festivali",
-    "monsterFestDesc": "30 saniye boyunca canavar HP %50 azaltıldı!"
-  },
-  "game": {
-    "achievement": "🏆 Başarılar",
-    "achievementUnlocked": "Başarı Açıldı!",
-    "ad": "Reklam",
-    "allEquip": "Tüm ekipmanları topladınız! Daha güçlü olmak için seviye atın!",
-    "analysisTitle": "Analiz",
-    "attackPower": "Saldırı Gücü",
-    "autoDPS": "Otomatik Hasar",
-    "autoIncome": "Otomatik Hasar",
-    "back": "DopaBrain Ana Sayfa",
-    "battleAnalysis": "Savaş Analizi",
-    "bossDefeated": "Yenildi! +",
-    "bossLabel": "PATRON",
-    "clickPower": "Saldırı Gücü",
-    "close": "Kapat",
-    "confirmReset": "Tüm ilerlemenizi sıfırlamak istediğinizden emin misiniz?\nBu işlem geri alınamaz.",
-    "copyright": "© 2026 DopaBrain",
-    "currentOpponent": "Mevcut Rakip",
-    "equipCount": "Ekipman Sayısı",
-    "equipment": "⚔️ Ekipman",
-    "goldEarned": "Altın!",
-    "goldEarned2": "Altın kazanıldı!",
-    "goldenAppear": "Altın Canavar Göründü",
-    "goldenEscape": "⭐ Altın Canavar Kaçtı!",
-    "goldenHint": "3x Altın için öldür!",
-    "bossEscaped": "Boss kaçtı!",
-    "bossRetry": "Boss Meydan Okuma",
-    "goldenMonster": "Altın Canavar",
-    "growthGuide": "Büyüme Kılavuzu",
-    "halfway": "Yarı yol gitti!",
-    "kill": "Yenildi",
-    "linkCopied": "Bağlantı kopyalandı!",
-    "maxRank": "Maksimum sıra başarıldı!",
-    "monsterKill": "canavar yenildi,",
-    "monsterKilled": "Yenilen Canavarlar",
-    "nextEquip": "Sonraki ekipmanın kilidini açmak savaş gücünü büyük ölçüde artıracak!",
-    "nextPrestige": "Sonraki Prestijde kazanılan puanlar",
-    "nextRank": "Sonraki sıraya kadar altın:",
-    "noEquip": "Henüz ekipman yok",
-    "offlineEarnings": "Çevrimdışı",
-    "ownedEquip": "Sahip Olunan Ekipman",
-    "perSec": "/sn",
-    "playMore": "Önce zındanı keşfedin!",
-    "prestige": "Prestij",
-    "prestigeBonus": "Kalıcı Bonus",
-    "prestigeConfirm": "Prestij yapmak istediğinizden emin misiniz? Tüm ilerleme sıfırlanacaktır!",
-    "prestigeCount": "Prestij Sayısı",
-    "prestigeDesc": "Tüm ilerlemeyi sıfırla ve kalıcı bonuslar kazanılr",
-    "prestigePoints": "Prestij Puanları",
-    "prestigeRequire": "Prestij için Tier 5 veya daha yüksek",
-    "prestigeTitle": "Prestij Bilgisi",
-    "rank": "Zından Sırası",
-    "reset": "Sıfırla",
-    "share": "Paylaş",
-    "skill": "🛡️ Yetenekler",
-    "stats": "📊 İstatistikler",
-    "subtitle": "Zındanı tıklamalarla fethet",
-    "tapHint": "SALDIRMAK İÇİN DOKUN!",
-    "tierBossLabel": "BÖLÜM PATRONU",
-    "tierCleared": "TEMİZLENDİ",
-    "title": "Dungeon Clicker",
-    "topEquip": "En İyi 3 Ekipman",
-    "total": "Toplam",
-    "totalAttacks": "Toplam Saldırı",
-    "totalClicks": "Toplam Saldırı",
-    "totalEarned": "Toplam Altın",
-    "totalGoldEarned": "Toplam Kazanılan Altın",
-    "tryMore": "Bunları da Dene!"
-  },
-  "milestones": {
-    "abyss": "Uçurum Zındanını temizlediniz! Şövalyelik vasıflarınız var.",
-    "darkness": "Karanlık Lordunu yendiniz!",
-    "divine": "İlahi Denemeden geçtiniz!",
-    "dragon": "Ejder Yuvasını fethetiniz!",
-    "first": "İlk zındanı temizlediniz!",
-    "forest": "Orman Zındanını fethetiniz! Ekipmanınızı yükseltin.",
-    "legend": "Efsanevi Zındanı temizlediniz! Harika!",
-    "volcano": "Volkan Zındanını kırdınız! Savaş gücünüz artıyor."
-  },
-  "monsters": {
-    "absolute": "Mutlak Varlık",
-    "abyss_emperor": "Uçurum İmparatoru",
-    "ancient_dragon": "Antik Ejder",
-    "apocalypse_guardian": "Kıyamet Koruyucusu",
-    "archangel": "Başmelek",
-    "ares": "Ares",
-    "athena": "Athena",
-    "banshee": "Banshee",
-    "basilisk": "Basilisk",
-    "bat": "Yarasa",
-    "bear": "Ayı",
-    "boar": "Yaban Domuzu",
-    "bone_dragon": "Kemik Ejderi",
-    "carnivorous": "Etçil Bitki",
-    "chaos": "Kaos",
-    "chaos_incarnation": "Kaos Enkarnasyonu",
-    "chaos_knight": "Kaos Şövalyesi",
-    "cosmic_jellyfish": "Kozmik Denizanası",
-    "crystal_giant": "Kristal Devi",
-    "cursed_knight": "Lanetli Şövalye",
-    "dark_lord": "Karanlık Lordu",
-    "death_knight": "Ölüm Şövalyesi",
-    "demon": "İblis",
-    "dimension_breaker": "Boyut Kırıcı",
-    "dimension_demon": "Boyutsal İblis",
-    "dimension_destroyer": "Boyutsal Yıkıcı",
-    "dimension_guardian": "Boyutsal Koruyucu",
-    "dragon": "Ejder",
-    "dragon_guardian": "Ejder Koruyucusu",
-    "dragon_lord": "Ejder Lordu",
-    "element_titan": "Eleman Titanı",
-    "eternal_guardian": "Ebedi Koruyucu",
-    "eternal_watcher": "Ebedi İzleyici",
-    "ether_dragon": "Eter Ejderi",
-    "fairy": "Hile Perileri",
-    "fate_judge": "Kader Yargıcı",
-    "fenrir": "Fenrir",
-    "fire_lord": "Ateş Lordu",
-    "flame_bat": "Ateş Yarası",
-    "flame_knight": "Ateş Şövalyesi",
-    "flame_spirit": "Ateş Ruhu",
-    "gaia": "Gaia",
-    "goblin": "Goblin",
-    "hades": "Hades",
-    "hydra": "Hidra",
-    "ice_dragon": "Buz Ejderi",
-    "ifrit": "İfrit",
-    "infinity_being": "Sonsuzluk Varlığı",
-    "jormungandr": "Jörmungandr",
-    "kobold": "Kobold",
-    "kraken": "Kraken",
-    "kronos": "Kronos",
-    "lava_golem": "Lav Golemi",
-    "lava_slime": "Lav Slime",
-    "lich": "Lich",
-    "light_guardian": "Işık Koruyucusu",
-    "magma_worm": "Magma Solucanı",
-    "mummy": "Mumya",
-    "mushroom": "Mantar Canavarı",
-    "necromancer": "Nekromancer",
-    "odin": "Odin",
-    "orc": "Ork",
-    "phoenix": "Anka Kuşu",
-    "poison_dragon": "Zehir Ejderi",
-    "poseidon": "Poseidon",
-    "primordial_being": "İlkel Varlık",
-    "primordial_chaos": "İlkel Kaos",
-    "primordial_flame": "İlkel Alev",
-    "rat": "Sıçan",
-    "scorpion": "Akrep",
-    "shadow_assassin": "Gölge Suikastçısı",
-    "skeleton": "İskelet Savaşçı",
-    "slime": "Slime",
-    "snake": "Yılan",
-    "spider": "Zehirli Örümcek",
-    "star_giant": "Yıldız Devi",
-    "star_predator": "Yıldız Avcısı",
-    "sun_incarnation": "Güneş Enkarnasyonu",
-    "surtr": "Surtr",
-    "tentacle": "Uçurum Dokunaçları",
-    "thief": "Hırsız",
-    "thor": "Thor",
-    "time_dragon": "Zaman Ejderi",
-    "time_end": "Zamanın Sonu",
-    "time_keeper": "Zaman Koruyucusu",
-    "titan": "Titan",
-    "treent": "Ağaç Ruhu",
-    "troll": "Trol",
-    "universe_heart": "Evrenin Kalbi",
-    "unknown": "???",
-    "vampire": "Vampir",
-    "void_destroyer": "Boşluk Yıkıcı",
-    "void_lord": "Boşluk Lordu",
-    "volcano_lizard": "Volkan Kertenkele",
-    "witch": "Orman Cadısı",
-    "wolf": "Kurt",
-    "world_snake": "Dünya Yılanı",
-    "world_turtle": "Dünya Kaplumbağası",
-    "wyvern": "Wyvern",
-    "zeus": "Zeus"
-  },
-  "offline": {
-    "away": "{time} boyunca uzakta oldunuz!",
-    "collect": "Topla",
-    "double": "Reklam İzle ve 2x Kazanç Al",
-    "earned": "{gold} Altın",
-    "title": "Çevrimdışı Kazanç"
-  },
-  "pet": {
-    "active": "Aktif",
-    "activePet": "Aktif Evcil Hayvan",
-    "allStats": "Tüm Özellikler",
-    "attackPower": "Saldırı Gücü",
-    "autoAttack": "Otomatik Saldırı",
-    "cat": "Kedi",
-    "catDesc": "Her saniye otomatik saldırı",
-    "critChance": "Kritik Şansı",
-    "dog": "Köpek",
-    "dogDesc": "%20 altın bonusu",
-    "dragon": "Ejder",
-    "dragonDesc": "%30 saldırı gücü artışı",
-    "eagle": "Kartal",
-    "eagleDesc": "%15 kritik şansı artışı",
-    "goldBonus": "Altın Bonusu",
-    "insufficientGold": "Altın yetersiz!",
-    "level": "Seviye",
-    "levelUp": "Seviye Yükselt",
-    "locked": "Kilitli",
-    "none": "Yok",
-    "select": "Seç",
-    "selected": "Seçildi!",
-    "title": "Evcil Hayvanlar",
-    "unicorn": "Unicorn",
-    "unicornDesc": "%10 tüm özellik artışı",
-    "unlock": "Kilidi Aç (50.000G)",
-    "unlocked": "Kilidi Açıldı!"
-  },
-  "ranking": {
-    "highestDPS": "Highest DPS",
-    "highestTier": "Highest Tier",
-    "maxGoldHeld": "Max Gold Held",
-    "maxRank": "Max Rank Achieved!",
-    "maxSingleHit": "Max Single Hit",
-    "mostKills": "Most Kills",
-    "personalRecords": "Personal Records",
-    "rankBRONZE": "Bronze",
-    "rankDIAMOND": "Diamond",
-    "rankGOLD": "Gold",
-    "rankMASTER": "Master",
-    "rankPLATINUM": "Platinum",
-    "rankSILVER": "Silver",
-    "totalPrestige": "Total Prestiges"
-  },
-  "ranks": {
-    "adventurer": "Maceracı",
-    "archmage": "Başmage",
-    "beginner": "Köy Acemisi",
-    "dragonslayer": "Ejder Öldürücüsü",
-    "godscall": "Tanrı Delegesi",
-    "guardian": "Dünya Koruyucusu",
-    "hero": "Kahraman",
-    "knight": "Şövalye",
-    "legend": "Efsanevi Kahraman",
-    "trainee": "Çırak",
-    "warrior": "Savaşçı"
-  },
-  "recommendations": {
-    "colorMemory": "Color Memory",
-    "colorMemoryDesc": "Memory challenge game",
-    "emojiMerge": "Emoji Merge",
-    "emojiMergeDesc": "Emoji evrim bulmacası",
-    "emotionTemp": "Duygu Termometresi",
-    "emotionTempDesc": "Duygusal sıcaklığınız kaç derece?",
-    "mbtiLove": "MBTI Aşk Uyumluluğu",
-    "mbtiLoveDesc": "Mükemmel eşleşmeni bul",
-    "quizApp": "Bilgi Yarışması",
-    "quizAppDesc": "Rastgele bilgi yarışması",
-    "stackTower": "Stack Tower",
-    "stackTowerDesc": "Blok yığınlama oyunu",
-    "zigzagRunner": "Zigzag Runner",
-    "zigzagRunnerDesc": "Zikzak koşu oyunu"
-  },
-  "skill": {
-    "maxLevel": "Maksimum Seviye!"
-  },
-  "skills": {
-    "army": "Savaşçılar",
-    "army_desc": "Otomatik Saldırıyı Çok Artır",
-    "boss_hunter": "Boss Avcısı",
-    "boss_hunter_desc": "Tıklamada Hasar Bonusu",
-    "critical": "Kritik Vuruş",
-    "critical_desc": "Saldırı Gücünü Artır",
-    "haste": "Hız",
-    "haste_desc": "Saldırı Hızını Artır",
-    "learned": "Öğrenildi",
-    "legion": "Efsanevi Lejyon",
-    "legion_desc": "Otomatik Saldırıyı Maksimize Et",
-    "lightning": "Yıldırım Kesimi",
-    "lightning_desc": "Saldırı Gücünü Maksimize Et",
-    "maxLevel": "Maksimum Seviye!",
-    "power_slash": "Güçlü Kesim",
-    "power_slash_desc": "Saldırı Gücünü Çok Artır",
-    "summon": "Kahramanı Çağır",
-    "summon_desc": "Otomatik Saldırıyı Artır"
-  },
-  "tutorial": {
-    "next": "İLERİ",
-    "skip": "ATLA",
-    "step": "ADIM",
-    "step1": {
-      "text": "Saldırmak için canavarı dokunun. Her tıklamada altın kazanacaksınız!",
-      "title": "Canavara Tıkla!"
-    },
-    "step2": {
-      "text": "Ekipman sekmesinde altınla silah ve zırh satın alarak saldırı gücünüzü artırın!",
-      "title": "Ekipman Satın Al!"
-    },
-    "step3": {
-      "text": "Beceri sekmesinde güçlü becerileri öğrenerek otomatik olarak altın kazanın!",
-      "title": "Becerileri Öğren!"
-    },
-    "step4": {
-      "text": "Her aşamadaki şefi yenerek bir sonraki zındana ilerleyin!",
-      "title": "Şefi Yenin!"
-    },
-    "step5": {
-      "text": "İlerlemesini takip etmek ve hedefler belirlemek için başarıları elde edin!",
-      "title": "Başarıları Elde Edin!"
-    }
-  },
-  "monsters": {
-    "flowerMonster": "Çiçek Canavar",
-    "iceMonster": "Buz Canavar",
-    "pumpkinMonster": "Kabak Canavar",
-    "snowmanMonster": "Kardan Adam Canavar"
-  },
-  "seasons": {
-    "spring": "Bahar",
-    "summer": "Yaz",
-    "autumn": "Sonbahar",
-    "winter": "Kış",
-    "seasonalMonster": "Mevsimsel Canavar",
-    "seasonalMonsterFlower": "Çiçek Canavar (Bahar)",
-    "seasonalMonsterIce": "Buz Canavar (Yaz)",
-    "seasonalMonsterPumpkin": "Kabak Canavar (Sonbahar)",
-    "seasonalMonsterSnowman": "Kardan Adam Canavar (Kış)",
-    "bonusGold": "Altın +30%",
-    "bonusCooldown": "Soğutma -15%",
-    "bonusExp": "Deneyim +30%",
-    "bonusAll": "Tüm Bonuslar +15%"
-  },
-  "guild": {
-    "title": "Lonca",
-    "selectGuild": "Lonca Seç",
-    "selectGuildDesc": "Katılmak için bir lonca seçin",
-    "flameGuild": "Alev Loncası",
-    "flameBuff": "Saldırı Gücü +10%",
-    "frostGuild": "Dondurma Loncası",
-    "frostBuff": "Altın +10%",
-    "natureGuild": "Doğa Loncası",
-    "natureBuff": "Sağlık Iyileşmesi +10%",
-    "stormGuild": "Fırtına Loncası",
-    "stormBuff": "Saldırı Hızı +10%",
-    "shadowGuild": "Gölge Loncası",
-    "shadowBuff": "Kritik +10%",
-    "level": "Seviye",
-    "guildBonus": "Lonca Bonusu",
-    "experience": "Lonca Deneyimi",
-    "expNote": "Canavarları yenerek lonca deneyimi kazanın",
-    "levelUp": "Lonca Seviye Yükseltme!",
-    "weeklyMission": "Haftalık Görev",
-    "weeklyTarget": "Bu Hafta",
-    "monsters": "canavar yenildi",
-    "missionReward": "Tamamlayınca bonus alın",
-    "missionCompleted": "Tamamlandı!",
-    "missionComplete": "Haftalık Görev Tamamlandı!",
-    "leaveGuild": "Loncayı Terk Et"
-  },
-  "minigame": {
-    "title": "Hazine Sandığını Bul",
-    "play": "Mini Oyun!",
-    "attemptsLeft": "Kalan Denemeler",
-    "confirm": "Tamam",
-    "treasureFound": "Hazineyi buldunuz!",
-    "treasureReward": "Altın ödülü kazandınız!",
-    "bombFound": "Bomba patladı!",
-    "bombMessage": "Oyun bitti.",
-    "noAttempts": "Deneme kalmadı.",
-    "cooldown": "Her 10 dakikada bir mini oyun oynayabilirsiniz"
-  },
-  "share": {
-    "twitter": "𝕏 Twitter",
-    "copyUrl": "📋 Bağlantıyı kopyala"
-  },
-  "error": {
-    "storage": "Gizli modda bazı özellikler sınırlı olabilir.",
-    "data": "Veri yükleme hatası. Lütfen sayfayı yenileyin.",
-    "canvas": "Grafik oluşturma sorunu. Lütfen tekrar deneyin.",
-    "audio": "Ses kullanılamıyor. Devam edebilirsiniz.",
-    "network": "Bağlantınızı kontrol edip tekrar deneyin.",
-    "general": "Bir şeyler ters gitti. Yenileyip tekrar deneyin."
-  },
-  "result": {
-    "moreGames": "Daha fazla oyun"
-  },
-  "related": {
-    "stackTower": "Yığın Kule",
-    "flappyBird": "Flappy Bird",
-    "emojiMerge": "Emoji Birleştir",
-    "blockPuzzle": "Blok Bulmaca"
-  }
 }

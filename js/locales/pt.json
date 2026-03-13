@@ -1,873 +1,792 @@
 {
-  "achievement": {
-    "bossHunter": "Caçador de Chefes",
-    "bossHunterDesc": "Derrote 10 chefes",
-    "click10k": "Mestre do Clique",
-    "click10kDesc": "Clique 10000 vezes",
-    "click1k": "Rei do Clique",
-    "click1kDesc": "Clique 1000 vezes",
-    "dps100": "DPS 100",
-    "dps100Desc": "Alcance 100 DPS automático",
-    "dungeonMaster": "Mestre da Masmorra",
-    "dungeonMasterDesc": "Alcance Camada 10",
-    "equipment10": "Mestre de Equipamento",
-    "equipment10Desc": "Compre 10 equipamentos",
-    "firstStep": "Primeiro Passo",
-    "firstStepDesc": "Derrote seu primeiro monstro",
-    "goldenMonster": "Caçador Dourado",
-    "goldenMonsterDesc": "Derrote 5 monstros dourados",
-    "prestige5": "Renascimento Serial",
-    "prestige5Desc": "Prestígio 5 vezes",
-    "prestigeFirst": "Renascido",
-    "prestigeFirstDesc": "Primeiro prestígio",
-    "skillMaster": "Mestre de Habilidades",
-    "skillMasterDesc": "5 habilidades nível 5",
-    "slayer100": "Caminho do Guerreiro",
-    "slayer1000": "Matador",
-    "slayer1000Desc": "Derrote 1000 monstros",
-    "slayer100Desc": "Derrote 100 monstros",
-    "wealth10k": "Rico",
-    "wealth10kDesc": "Ganhe 10000 ouro",
-    "wealth1m": "Bilionário",
-    "wealth1mDesc": "Ganhe 1000000 ouro"
-  },
-  "app": {
-    "description": "Derrote monstros na masmorra e equipe-se com engrenagem poderosa! A aventura RPG começa com um clique. Jogo clicker inativo gratuito!",
-    "loading": "Loading...",
-    "title": "Dungeon Clicker - Jogo Clicker RPG Inativo | DopaBrain"
-  },
-  "dailyMissions": {
-    "bonusGold": "Ouro",
-    "bonusXP": "XP",
-    "boss_1": "Derrote 1 Chefe",
-    "claim": "Reclamar",
-    "claimed": "Reclamado",
-    "dailyBonus": "Bônus de Conclusão Diária",
-    "gold_10k": "Ganhe 10.000 Ouro",
-    "kill_100": "Derrote 100 Monstros",
-    "missionCompleted": "Missão Completa!",
-    "resetsIn": "Reinicia em",
-    "title": "📋 Missões Diárias"
-  },
-  "dungeon": {
-    "abyss": "Abismo",
-    "chaos": "Caos Primordial",
-    "divine": "Reino Divino",
-    "dragon": "Ninho do Dragão",
-    "endworld": "Fim do Mundo",
-    "forest": "Masmorra Florestal",
-    "mythic": "Reino Mítico",
-    "rift": "Fissura Dimensional",
-    "village": "Arredores da Vila",
-    "volcano": "Masmorra Vulcânica"
-  },
-  "equipment": {
-    "absolute_blade": {
-      "desc": "Lâmina que perfura o núcleo da existência",
-      "name": "Lâmina Absoluta"
-    },
-    "abyss_eye": {
-      "desc": "Um olho que vê através de tudo",
-      "name": "Olho do Abismo"
-    },
-    "abyssal_scythe": {
-      "desc": "A grande foice da morte",
-      "name": "Foice Abismal"
-    },
-    "acolyte_staff": {
-      "desc": "Cajado usado para treinamento de magia",
-      "name": "Cajado de Acólito"
-    },
-    "ancient_relic": {
-      "desc": "Relíquia com poder primordial selado",
-      "name": "Relíquia Antiga"
-    },
-    "ares_shield": {
-      "desc": "Escudo do deus da guerra",
-      "name": "Escudo de Ares"
-    },
-    "astral_blade": {
-      "desc": "Lâmina sagrada abraçando luz estelar",
-      "name": "Lâmina Astral"
-    },
-    "athena_aegis": {
-      "desc": "Armadura perfeita da deusa da sabedoria",
-      "name": "Égide de Atena"
-    },
-    "banshee_wail": {
-      "desc": "Orbe mágico de gritos penetrantes",
-      "name": "Grito de Banshee"
-    },
-    "blood_chalice": {
-      "desc": "Cálice do senhor vampiro",
-      "name": "Cálice de Sangue"
-    },
-    "bone_dragon_bow": {
-      "desc": "Arco de um dragão morto-vivo",
-      "name": "Arco de Dragão de Osso"
-    },
-    "celestial_armor": {
-      "desc": "Armadura com brilho celestial",
-      "name": "Armadura Celestial"
-    },
-    "chaos_blade": {
-      "desc": "Lâmina instável nascida do caos",
-      "name": "Lâmina do Caos"
-    },
-    "chaos_orb": {
-      "desc": "Orbe de caos primordial condensado",
-      "name": "Orbe do Caos"
-    },
-    "chaos_origin": {
-      "desc": "O poder do começo e do fim",
-      "name": "Origem do Caos"
-    },
-    "common": "Comum",
-    "cosmic_tome": {
-      "desc": "Livro de verdades universais",
-      "name": "Tomo Cósmico"
-    },
-    "crystal_staff": {
-      "desc": "Cajado de cristais dimensionais",
-      "name": "Cajado de Cristal"
-    },
-    "death_mantle": {
-      "desc": "Manto do senhor da morte",
-      "name": "Manto do Senhor da Morte"
-    },
-    "demon_horn": {
-      "desc": "Chifre tomado de um demônio",
-      "name": "Chifre de Demônio"
-    },
-    "destroyer_blade": {
-      "desc": "Lâmina suprema que destrói dimensões",
-      "name": "Lâmina do Destruidor"
-    },
-    "dimension_axe": {
-      "desc": "Machado gigante que divide dimensões",
-      "name": "Machado Dimensional"
-    },
-    "divine_shield": {
-      "desc": "Escudo que bloqueia qualquer ataque",
-      "name": "Escudo Divino"
-    },
-    "dragon_fang": {
-      "desc": "Espada feita de dentes de dragão",
-      "name": "Espada de Presa de Dragão"
-    },
-    "dragon_heart": {
-      "desc": "Cristal do coração do Senhor Dragão",
-      "name": "Coração de Dragão"
-    },
-    "dragon_scale": {
-      "desc": "Armadura feita de escamas de dragão",
-      "name": "Armadura de Escama de Dragão"
-    },
-    "dragonlord_crown": {
-      "desc": "Coroa que governa todos os dragões",
-      "name": "Coroa do Senhor Dragão"
-    },
-    "druid_robe": {
-      "desc": "Uma veste que se comunica com a natureza",
-      "name": "Veste do Druida"
-    },
-    "element_gauntlet": {
-      "desc": "Manopla que funde quatro elementos",
-      "name": "Manopla de Elemento"
-    },
-    "elven_boots": {
-      "desc": "Botas com agilidade élfica",
-      "name": "Botas Élficas"
-    },
-    "emperor_scepter": {
-      "desc": "Cetro que governa o abismo",
-      "name": "Cetro do Imperador do Abismo"
-    },
-    "epic": "Épico",
-    "eternal_eye": {
-      "desc": "Um grande olho observando a eternidade",
-      "name": "Olho Eterno"
-    },
-    "eternal_shield": {
-      "desc": "Escudo que nunca se quebra",
-      "name": "Escudo Eterno"
-    },
-    "ether_armor": {
-      "desc": "Armadura transparente tecida de éter",
-      "name": "Armadura de Éter"
-    },
-    "fate_scale": {
-      "desc": "Balança de julgamento que pesa o destino",
-      "name": "Balança do Destino"
-    },
-    "fenrir_claw": {
-      "desc": "Garra do lobo que devora deuses",
-      "name": "Garra de Fenrir"
-    },
-    "final_crown": {
-      "desc": "É este o verdadeiro fim...?",
-      "name": "Coroa de ???"
-    },
-    "fire_staff": {
-      "desc": "Cajado imbuído com poder vulcânico",
-      "name": "Cajado de Fogo"
-    },
-    "flame_sword": {
-      "desc": "Uma lâmina mágica envolvida em fogo",
-      "name": "Espada de Chama"
-    },
-    "forest_crown": {
-      "desc": "Coroa do governante da floresta",
-      "name": "Coroa do Rei da Floresta"
-    },
-    "forest_staff": {
-      "desc": "Cajado imbuído com o poder da natureza",
-      "name": "Cajado da Floresta"
-    },
-    "gaia_blessing": {
-      "desc": "Poder sagrado da Mãe Terra",
-      "name": "Bênção de Gaia"
-    },
-    "god_blade": {
-      "desc": "Uma lâmina abençoada pelos deuses",
-      "name": "Lâmina de Deus"
-    },
-    "hades_helm": {
-      "desc": "Capacete de invisibilidade do submundo",
-      "name": "Capacete de Hades"
-    },
-    "hero_crown": {
-      "desc": "Coroa do salvador do mundo",
-      "name": "Coroa do Herói"
-    },
-    "hunters_bow": {
-      "desc": "Arco de um caçador florestal experiente",
-      "name": "Arco do Caçador"
-    },
-    "hydra_fang": {
-      "desc": "Arma de presas regeneradoras",
-      "name": "Presa de Hidra"
-    },
-    "inferno_robe": {
-      "desc": "Veste bordada com fogo do inferno",
-      "name": "Veste Infernal"
-    },
-    "infinity_orb": {
-      "desc": "Orbe cristalino de magia infinita",
-      "name": "Orbe da Infinidade"
-    },
-    "infinity_shield": {
-      "desc": "Escudo que se regenera eternamente",
-      "name": "Escudo da Infinidade"
-    },
-    "iron_armor": {
-      "desc": "Armadura forjada em ferro sólido",
-      "name": "Armadura de Ferro"
-    },
-    "iron_dagger": {
-      "desc": "Permite ataques sucessivos rápidos",
-      "name": "Punhal de Ferro"
-    },
-    "iron_helm": {
-      "desc": "Um capacete de ferro para proteção da cabeça",
-      "name": "Capacete de Ferro"
-    },
-    "jormungandr_fang": {
-      "desc": "Presa da serpente mundial",
-      "name": "Presa de Jörmungandr"
-    },
-    "judgment_hammer": {
-      "desc": "Arma divina do julgamento",
-      "name": "Martelo do Julgamento"
-    },
-    "kronos_scythe": {
-      "desc": "Foice gigante que corta o próprio tempo",
-      "name": "Foice de Kronos"
-    },
-    "lava_shield": {
-      "desc": "Um escudo de pedra de lava que não derrete",
-      "name": "Escudo de Lava"
-    },
-    "leather_shield": {
-      "desc": "Fornece defesa básica",
-      "name": "Escudo de Couro"
-    },
-    "legendary": "Lendário",
-    "magma_gauntlet": {
-      "desc": "Manopla forjada em lava",
-      "name": "Manopla de Magma"
-    },
-    "master_blade": {
-      "desc": "A obra-prima mais fina da aldeia",
-      "name": "Espada do Mestre"
-    },
-    "necro_tome": {
-      "desc": "Livro proibido de necromancia",
-      "name": "Tomo Necromante"
-    },
-    "oak_shield": {
-      "desc": "Escudo feito de peças da Árvore do Mundo",
-      "name": "Grande Escudo de Carvalho"
-    },
-    "obsidian_blade": {
-      "desc": "Aresta de obsidiana nascida do vulcão",
-      "name": "Lâmina de Obsidiana"
-    },
-    "odin_spear": {
-      "desc": "Uma lança divina que nunca erra",
-      "name": "Lança de Odin"
-    },
-    "phoenix_feather": {
-      "desc": "Pena sagrada do fênix",
-      "name": "Pena de Fênix"
-    },
-    "poison_blade": {
-      "desc": "Uma lâmina afiada coberta de veneno",
-      "name": "Lâmina Envenenada"
-    },
-    "poseidon_trident": {
-      "desc": "Tridente que governa os mares",
-      "name": "Tridente de Poseidon"
-    },
-    "primal_staff": {
-      "desc": "Cajado com elementos primordiais",
-      "name": "Cajado Primordial"
-    },
-    "primordial_crown": {
-      "desc": "Coroa do ser primordial",
-      "name": "Coroa Primordial"
-    },
-    "rare": "Raro",
-    "recruit_bow": {
-      "desc": "Arco dos arqueiros guardas da aldeia",
-      "name": "Arco do Guarda"
-    },
-    "rift_blade": {
-      "desc": "Uma lâmina que corta dimensões",
-      "name": "Lâmina de Fissura"
-    },
-    "rift_crown": {
-      "desc": "Coroa do governante dimensional",
-      "name": "Coroa do Rei da Fissura"
-    },
-    "salamander_mail": {
-      "desc": "Armadura de escamas imune ao fogo",
-      "name": "Cota de Salamandra"
-    },
-    "seraphim_wings": {
-      "desc": "Ornamento de asas de um arcanjo",
-      "name": "Asas de Serafim"
-    },
-    "setBonus": "⭐ CONJUNTO COMPLETO! DPS +20%",
-    "shadow_blade": {
-      "desc": "Uma lâmina nascida da escuridão",
-      "name": "Lâmina de Sombra"
-    },
-    "soul_gem": {
-      "desc": "Gema que amplifica o poder da alma",
-      "name": "Gema de Alma"
-    },
-    "spirit_bow": {
-      "desc": "Um arco místico abençoado por espíritos",
-      "name": "Arco Espiritual"
-    },
-    "squire_plate": {
-      "desc": "Armadura pesada de um aprendiz de cavaleiro",
-      "name": "Placa de Escudeiro"
-    },
-    "star_bow": {
-      "desc": "Arco que dispara energia estelar",
-      "name": "Arco Estelar"
-    },
-    "star_giant_axe": {
-      "desc": "Machado gigante esculpido de uma estrela",
-      "name": "Machado do Gigante Estelar"
-    },
-    "steel_sword": {
-      "desc": "Uma espada de aço forjada por um mestre",
-      "name": "Espada Longa de Aço"
-    },
-    "sun_staff": {
-      "desc": "Cajado que reúne poder solar",
-      "name": "Cajado do Sol"
-    },
-    "surtr_flame": {
-      "desc": "Espada gigante do gigante que queima o mundo",
-      "name": "Espada de Chama de Surtr"
-    },
-    "thor_hammer": {
-      "desc": "Martelo divino do trovão",
-      "name": "Martelo de Thor"
-    },
-    "thorn_whip": {
-      "desc": "Um chicote mágico coberto de espinhos",
-      "name": "Chicote de Espinhos"
-    },
-    "time_dagger": {
-      "desc": "Um punhal que para o tempo",
-      "name": "Punhal do Tempo"
-    },
-    "time_dragon_fang": {
-      "desc": "Presa de um dragão que transcende o tempo",
-      "name": "Presa de Dragão do Tempo"
-    },
-    "time_end_blade": {
-      "desc": "Uma lâmina de onde o tempo parou",
-      "name": "Lâmina do Fim do Tempo"
-    },
-    "titan_hammer": {
-      "desc": "Martelo massivo outrora usado por titãs",
-      "name": "Martelo de Titã"
-    },
-    "uncommon": "Incomum",
-    "universe_heart": {
-      "desc": "Cristal de energia central do cosmos",
-      "name": "Coração do Universo"
-    },
-    "void_armor": {
-      "desc": "Armadura do vazio abismal",
-      "name": "Armadura do Vazio"
-    },
-    "void_gauntlet": {
-      "desc": "Manopla que libera poder do vazio",
-      "name": "Manopla do Vazio"
-    },
-    "volcano_hammer": {
-      "desc": "Martelo massivo de fúria vulcânica",
-      "name": "Martelo do Vulcão"
-    },
-    "volcano_heart": {
-      "desc": "Cristal de núcleo das profundezas",
-      "name": "Coração do Vulcão"
-    },
-    "wolf_cloak": {
-      "desc": "Capa feita de pele de lobo",
-      "name": "Capa de Pele de Lobo"
-    },
-    "wooden_sword": {
-      "desc": "Sua primeira arma, o início da aventura",
-      "name": "Espada de Madeira"
-    },
-    "world_tree_bow": {
-      "desc": "Arco divino da Árvore do Mundo",
-      "name": "Arco da Árvore do Mundo"
-    },
-    "world_turtle": {
-      "desc": "Fragmento da tartaruga mundial",
-      "name": "Casco de Tartaruga"
-    },
-    "wyrmfire_staff": {
-      "desc": "Cajado com o hálito do dragão",
-      "name": "Cajado de Fogo de Dragão"
-    },
-    "wyvern_lance": {
-      "desc": "Lança feita de osso de wyvern",
-      "name": "Lança de Wyvern"
-    },
-    "zeus_bolt": {
-      "desc": "Raio lançado pelo rei do céu",
-      "name": "Raio de Zeus"
+    "achievement": {
+        "bossHunter": "Caçador de Chefes",
+        "bossHunterDesc": "Derrote 10 chefes",
+        "click10k": "Mestre do Clique",
+        "click10kDesc": "Clique 10000 vezes",
+        "click1k": "Rei do Clique",
+        "click1kDesc": "Clique 1000 vezes",
+        "dps100": "DPS 100",
+        "dps100Desc": "Alcance 100 DPS automático",
+        "dungeonMaster": "Mestre da Masmorra",
+        "dungeonMasterDesc": "Alcance Camada 10",
+        "equipment10": "Mestre de Equipamento",
+        "equipment10Desc": "Compre 10 equipamentos",
+        "firstStep": "Primeiro Passo",
+        "firstStepDesc": "Derrote seu primeiro monstro",
+        "goldenMonster": "Caçador Dourado",
+        "goldenMonsterDesc": "Derrote 5 monstros dourados",
+        "prestige5": "Renascimento Serial",
+        "prestige5Desc": "Prestígio 5 vezes",
+        "prestigeFirst": "Renascido",
+        "prestigeFirstDesc": "Primeiro prestígio",
+        "skillMaster": "Mestre de Habilidades",
+        "skillMasterDesc": "5 habilidades nível 5",
+        "slayer100": "Caminho do Guerreiro",
+        "slayer1000": "Matador",
+        "slayer1000Desc": "Derrote 1000 monstros",
+        "slayer100Desc": "Derrote 100 monstros",
+        "wealth10k": "Rico",
+        "wealth10kDesc": "Ganhe 10000 ouro",
+        "wealth1m": "Bilionário",
+        "wealth1mDesc": "Ganhe 1000000 ouro",
+        "speedClicker": "Clicador Rapido",
+        "speedClickerDesc": "Alcance 10 cliques por segundo",
+        "firstPurchase": "Primeira Compra",
+        "firstPurchaseDesc": "Compre seu primeiro equipamento",
+        "millionaire": "Milionario",
+        "millionaireDesc": "Tenha 1.000.000 de ouro",
+        "comboMaster": "Mestre do Combo",
+        "comboMasterDesc": "Alcance 30 combos seguidos",
+        "petOwner": "Dono de Pet",
+        "petOwnerDesc": "Desbloqueie seu primeiro pet"
+    },
+    "app": {
+        "description": "Derrote monstros na masmorra e equipe-se com engrenagem poderosa! A aventura RPG começa com um clique. Jogo clicker inativo gratuito!",
+        "loading": "Loading...",
+        "title": "Dungeon Clicker - Jogo Clicker RPG Inativo | DopaBrain"
+    },
+    "dailyMissions": {
+        "bonusGold": "Ouro",
+        "bonusXP": "XP",
+        "boss_1": "Derrote 1 Chefe",
+        "claim": "Reclamar",
+        "claimed": "Reclamado",
+        "dailyBonus": "Bônus de Conclusão Diária",
+        "gold_10k": "Ganhe 10.000 Ouro",
+        "kill_100": "Derrote 100 Monstros",
+        "missionCompleted": "Missão Completa!",
+        "resetsIn": "Reinicia em",
+        "title": "📋 Missões Diárias"
+    },
+    "dungeon": {
+        "abyss": "Abismo",
+        "chaos": "Caos Primordial",
+        "divine": "Reino Divino",
+        "dragon": "Ninho do Dragão",
+        "endworld": "Fim do Mundo",
+        "forest": "Masmorra Florestal",
+        "mythic": "Reino Mítico",
+        "rift": "Fissura Dimensional",
+        "village": "Arredores da Vila",
+        "volcano": "Masmorra Vulcânica"
+    },
+    "equipment": {
+        "absolute_blade": {
+            "desc": "Lâmina que perfura o núcleo da existência",
+            "name": "Lâmina Absoluta"
+        },
+        "abyss_eye": {
+            "desc": "Um olho que vê através de tudo",
+            "name": "Olho do Abismo"
+        },
+        "abyssal_scythe": {
+            "desc": "A grande foice da morte",
+            "name": "Foice Abismal"
+        },
+        "acolyte_staff": {
+            "desc": "Cajado usado para treinamento de magia",
+            "name": "Cajado de Acólito"
+        },
+        "ancient_relic": {
+            "desc": "Relíquia com poder primordial selado",
+            "name": "Relíquia Antiga"
+        },
+        "ares_shield": {
+            "desc": "Escudo do deus da guerra",
+            "name": "Escudo de Ares"
+        },
+        "astral_blade": {
+            "desc": "Lâmina sagrada abraçando luz estelar",
+            "name": "Lâmina Astral"
+        },
+        "athena_aegis": {
+            "desc": "Armadura perfeita da deusa da sabedoria",
+            "name": "Égide de Atena"
+        },
+        "banshee_wail": {
+            "desc": "Orbe mágico de gritos penetrantes",
+            "name": "Grito de Banshee"
+        },
+        "blood_chalice": {
+            "desc": "Cálice do senhor vampiro",
+            "name": "Cálice de Sangue"
+        },
+        "bone_dragon_bow": {
+            "desc": "Arco de um dragão morto-vivo",
+            "name": "Arco de Dragão de Osso"
+        },
+        "celestial_armor": {
+            "desc": "Armadura com brilho celestial",
+            "name": "Armadura Celestial"
+        },
+        "chaos_blade": {
+            "desc": "Lâmina instável nascida do caos",
+            "name": "Lâmina do Caos"
+        },
+        "chaos_orb": {
+            "desc": "Orbe de caos primordial condensado",
+            "name": "Orbe do Caos"
+        },
+        "chaos_origin": {
+            "desc": "O poder do começo e do fim",
+            "name": "Origem do Caos"
+        },
+        "common": "Comum",
+        "cosmic_tome": {
+            "desc": "Livro de verdades universais",
+            "name": "Tomo Cósmico"
+        },
+        "crystal_staff": {
+            "desc": "Cajado de cristais dimensionais",
+            "name": "Cajado de Cristal"
+        },
+        "death_mantle": {
+            "desc": "Manto do senhor da morte",
+            "name": "Manto do Senhor da Morte"
+        },
+        "demon_horn": {
+            "desc": "Chifre tomado de um demônio",
+            "name": "Chifre de Demônio"
+        },
+        "destroyer_blade": {
+            "desc": "Lâmina suprema que destrói dimensões",
+            "name": "Lâmina do Destruidor"
+        },
+        "dimension_axe": {
+            "desc": "Machado gigante que divide dimensões",
+            "name": "Machado Dimensional"
+        },
+        "divine_shield": {
+            "desc": "Escudo que bloqueia qualquer ataque",
+            "name": "Escudo Divino"
+        },
+        "dragon_fang": {
+            "desc": "Espada feita de dentes de dragão",
+            "name": "Espada de Presa de Dragão"
+        },
+        "dragon_heart": {
+            "desc": "Cristal do coração do Senhor Dragão",
+            "name": "Coração de Dragão"
+        },
+        "dragon_scale": {
+            "desc": "Armadura feita de escamas de dragão",
+            "name": "Armadura de Escama de Dragão"
+        },
+        "dragonlord_crown": {
+            "desc": "Coroa que governa todos os dragões",
+            "name": "Coroa do Senhor Dragão"
+        },
+        "druid_robe": {
+            "desc": "Uma veste que se comunica com a natureza",
+            "name": "Veste do Druida"
+        },
+        "element_gauntlet": {
+            "desc": "Manopla que funde quatro elementos",
+            "name": "Manopla de Elemento"
+        },
+        "elven_boots": {
+            "desc": "Botas com agilidade élfica",
+            "name": "Botas Élficas"
+        },
+        "emperor_scepter": {
+            "desc": "Cetro que governa o abismo",
+            "name": "Cetro do Imperador do Abismo"
+        },
+        "epic": "Épico",
+        "eternal_eye": {
+            "desc": "Um grande olho observando a eternidade",
+            "name": "Olho Eterno"
+        },
+        "eternal_shield": {
+            "desc": "Escudo que nunca se quebra",
+            "name": "Escudo Eterno"
+        },
+        "ether_armor": {
+            "desc": "Armadura transparente tecida de éter",
+            "name": "Armadura de Éter"
+        },
+        "fate_scale": {
+            "desc": "Balança de julgamento que pesa o destino",
+            "name": "Balança do Destino"
+        },
+        "fenrir_claw": {
+            "desc": "Garra do lobo que devora deuses",
+            "name": "Garra de Fenrir"
+        },
+        "final_crown": {
+            "desc": "É este o verdadeiro fim...?",
+            "name": "Coroa de ???"
+        },
+        "fire_staff": {
+            "desc": "Cajado imbuído com poder vulcânico",
+            "name": "Cajado de Fogo"
+        },
+        "flame_sword": {
+            "desc": "Uma lâmina mágica envolvida em fogo",
+            "name": "Espada de Chama"
+        },
+        "forest_crown": {
+            "desc": "Coroa do governante da floresta",
+            "name": "Coroa do Rei da Floresta"
+        },
+        "forest_staff": {
+            "desc": "Cajado imbuído com o poder da natureza",
+            "name": "Cajado da Floresta"
+        },
+        "gaia_blessing": {
+            "desc": "Poder sagrado da Mãe Terra",
+            "name": "Bênção de Gaia"
+        },
+        "god_blade": {
+            "desc": "Uma lâmina abençoada pelos deuses",
+            "name": "Lâmina de Deus"
+        },
+        "hades_helm": {
+            "desc": "Capacete de invisibilidade do submundo",
+            "name": "Capacete de Hades"
+        },
+        "hero_crown": {
+            "desc": "Coroa do salvador do mundo",
+            "name": "Coroa do Herói"
+        },
+        "hunters_bow": {
+            "desc": "Arco de um caçador florestal experiente",
+            "name": "Arco do Caçador"
+        },
+        "hydra_fang": {
+            "desc": "Arma de presas regeneradoras",
+            "name": "Presa de Hidra"
+        },
+        "inferno_robe": {
+            "desc": "Veste bordada com fogo do inferno",
+            "name": "Veste Infernal"
+        },
+        "infinity_orb": {
+            "desc": "Orbe cristalino de magia infinita",
+            "name": "Orbe da Infinidade"
+        },
+        "infinity_shield": {
+            "desc": "Escudo que se regenera eternamente",
+            "name": "Escudo da Infinidade"
+        },
+        "iron_armor": {
+            "desc": "Armadura forjada em ferro sólido",
+            "name": "Armadura de Ferro"
+        },
+        "iron_dagger": {
+            "desc": "Permite ataques sucessivos rápidos",
+            "name": "Punhal de Ferro"
+        },
+        "iron_helm": {
+            "desc": "Um capacete de ferro para proteção da cabeça",
+            "name": "Capacete de Ferro"
+        },
+        "jormungandr_fang": {
+            "desc": "Presa da serpente mundial",
+            "name": "Presa de Jörmungandr"
+        },
+        "judgment_hammer": {
+            "desc": "Arma divina do julgamento",
+            "name": "Martelo do Julgamento"
+        },
+        "kronos_scythe": {
+            "desc": "Foice gigante que corta o próprio tempo",
+            "name": "Foice de Kronos"
+        },
+        "lava_shield": {
+            "desc": "Um escudo de pedra de lava que não derrete",
+            "name": "Escudo de Lava"
+        },
+        "leather_shield": {
+            "desc": "Fornece defesa básica",
+            "name": "Escudo de Couro"
+        },
+        "legendary": "Lendário",
+        "magma_gauntlet": {
+            "desc": "Manopla forjada em lava",
+            "name": "Manopla de Magma"
+        },
+        "master_blade": {
+            "desc": "A obra-prima mais fina da aldeia",
+            "name": "Espada do Mestre"
+        },
+        "necro_tome": {
+            "desc": "Livro proibido de necromancia",
+            "name": "Tomo Necromante"
+        },
+        "oak_shield": {
+            "desc": "Escudo feito de peças da Árvore do Mundo",
+            "name": "Grande Escudo de Carvalho"
+        },
+        "obsidian_blade": {
+            "desc": "Aresta de obsidiana nascida do vulcão",
+            "name": "Lâmina de Obsidiana"
+        },
+        "odin_spear": {
+            "desc": "Uma lança divina que nunca erra",
+            "name": "Lança de Odin"
+        },
+        "phoenix_feather": {
+            "desc": "Pena sagrada do fênix",
+            "name": "Pena de Fênix"
+        },
+        "poison_blade": {
+            "desc": "Uma lâmina afiada coberta de veneno",
+            "name": "Lâmina Envenenada"
+        },
+        "poseidon_trident": {
+            "desc": "Tridente que governa os mares",
+            "name": "Tridente de Poseidon"
+        },
+        "primal_staff": {
+            "desc": "Cajado com elementos primordiais",
+            "name": "Cajado Primordial"
+        },
+        "primordial_crown": {
+            "desc": "Coroa do ser primordial",
+            "name": "Coroa Primordial"
+        },
+        "rare": "Raro",
+        "recruit_bow": {
+            "desc": "Arco dos arqueiros guardas da aldeia",
+            "name": "Arco do Guarda"
+        },
+        "rift_blade": {
+            "desc": "Uma lâmina que corta dimensões",
+            "name": "Lâmina de Fissura"
+        },
+        "rift_crown": {
+            "desc": "Coroa do governante dimensional",
+            "name": "Coroa do Rei da Fissura"
+        },
+        "salamander_mail": {
+            "desc": "Armadura de escamas imune ao fogo",
+            "name": "Cota de Salamandra"
+        },
+        "seraphim_wings": {
+            "desc": "Ornamento de asas de um arcanjo",
+            "name": "Asas de Serafim"
+        },
+        "setBonus": "⭐ CONJUNTO COMPLETO! DPS +20%",
+        "shadow_blade": {
+            "desc": "Uma lâmina nascida da escuridão",
+            "name": "Lâmina de Sombra"
+        },
+        "soul_gem": {
+            "desc": "Gema que amplifica o poder da alma",
+            "name": "Gema de Alma"
+        },
+        "spirit_bow": {
+            "desc": "Um arco místico abençoado por espíritos",
+            "name": "Arco Espiritual"
+        },
+        "squire_plate": {
+            "desc": "Armadura pesada de um aprendiz de cavaleiro",
+            "name": "Placa de Escudeiro"
+        },
+        "star_bow": {
+            "desc": "Arco que dispara energia estelar",
+            "name": "Arco Estelar"
+        },
+        "star_giant_axe": {
+            "desc": "Machado gigante esculpido de uma estrela",
+            "name": "Machado do Gigante Estelar"
+        },
+        "steel_sword": {
+            "desc": "Uma espada de aço forjada por um mestre",
+            "name": "Espada Longa de Aço"
+        },
+        "sun_staff": {
+            "desc": "Cajado que reúne poder solar",
+            "name": "Cajado do Sol"
+        },
+        "surtr_flame": {
+            "desc": "Espada gigante do gigante que queima o mundo",
+            "name": "Espada de Chama de Surtr"
+        },
+        "thor_hammer": {
+            "desc": "Martelo divino do trovão",
+            "name": "Martelo de Thor"
+        },
+        "thorn_whip": {
+            "desc": "Um chicote mágico coberto de espinhos",
+            "name": "Chicote de Espinhos"
+        },
+        "time_dagger": {
+            "desc": "Um punhal que para o tempo",
+            "name": "Punhal do Tempo"
+        },
+        "time_dragon_fang": {
+            "desc": "Presa de um dragão que transcende o tempo",
+            "name": "Presa de Dragão do Tempo"
+        },
+        "time_end_blade": {
+            "desc": "Uma lâmina de onde o tempo parou",
+            "name": "Lâmina do Fim do Tempo"
+        },
+        "titan_hammer": {
+            "desc": "Martelo massivo outrora usado por titãs",
+            "name": "Martelo de Titã"
+        },
+        "uncommon": "Incomum",
+        "universe_heart": {
+            "desc": "Cristal de energia central do cosmos",
+            "name": "Coração do Universo"
+        },
+        "void_armor": {
+            "desc": "Armadura do vazio abismal",
+            "name": "Armadura do Vazio"
+        },
+        "void_gauntlet": {
+            "desc": "Manopla que libera poder do vazio",
+            "name": "Manopla do Vazio"
+        },
+        "volcano_hammer": {
+            "desc": "Martelo massivo de fúria vulcânica",
+            "name": "Martelo do Vulcão"
+        },
+        "volcano_heart": {
+            "desc": "Cristal de núcleo das profundezas",
+            "name": "Coração do Vulcão"
+        },
+        "wolf_cloak": {
+            "desc": "Capa feita de pele de lobo",
+            "name": "Capa de Pele de Lobo"
+        },
+        "wooden_sword": {
+            "desc": "Sua primeira arma, o início da aventura",
+            "name": "Espada de Madeira"
+        },
+        "world_tree_bow": {
+            "desc": "Arco divino da Árvore do Mundo",
+            "name": "Arco da Árvore do Mundo"
+        },
+        "world_turtle": {
+            "desc": "Fragmento da tartaruga mundial",
+            "name": "Casco de Tartaruga"
+        },
+        "wyrmfire_staff": {
+            "desc": "Cajado com o hálito do dragão",
+            "name": "Cajado de Fogo de Dragão"
+        },
+        "wyvern_lance": {
+            "desc": "Lança feita de osso de wyvern",
+            "name": "Lança de Wyvern"
+        },
+        "zeus_bolt": {
+            "desc": "Raio lançado pelo rei do céu",
+            "name": "Raio de Zeus"
+        }
+    },
+    "event": {
+        "equipSale": "Venda de Equipamentos",
+        "equipSaleDesc": "Preços de equipamentos 30% de desconto por 30 segundos!",
+        "expBoost": "Impulsionador de EXP",
+        "expBoostDesc": "EXP de habilidade 2x por 30 segundos!",
+        "goldRush": "Corrida do Ouro",
+        "goldRushDesc": "Ganhos de ouro 2x por 30 segundos!",
+        "monsterFest": "Festival de Monstros",
+        "monsterFestDesc": "HP do monstro 50% reduzido por 30 segundos!"
+    },
+    "game": {
+        "achievement": "🏆 Realizações",
+        "achievementUnlocked": "Realização desbloqueada!",
+        "ad": "Anúncio",
+        "allEquip": "Você coletou todo o equipamento! Suba de nível para ficar mais forte!",
+        "analysisTitle": "Análise",
+        "attackPower": "Poder de Ataque",
+        "autoDPS": "DPS Automático",
+        "autoIncome": "DPS Automático",
+        "back": "Página Inicial do DopaBrain",
+        "battleAnalysis": "Análise de Batalha",
+        "bossDefeated": "Derrotado! +",
+        "bossLabel": "CHEFE",
+        "clickPower": "Poder de Ataque",
+        "close": "Fechar",
+        "confirmReset": "Tem certeza de que deseja reiniciar todo o seu progresso?\nEsta ação não pode ser desfeita.",
+        "copyright": "© 2026 DopaBrain",
+        "currentOpponent": "Oponente Atual",
+        "equipCount": "Contagem de Equipamento",
+        "equipment": "⚔️ Equipamento",
+        "goldEarned": "Ouro!",
+        "goldEarned2": "Ouro ganho!",
+        "goldenAppear": "Monstro Dourado Apareceu",
+        "goldenEscape": "⭐ Monstro Dourado Escapou!",
+        "goldenHint": "Mate para 3x Ouro!",
+        "bossEscaped": "O chefe fugiu!",
+        "bossRetry": "Desafiar chefe",
+        "goldenMonster": "Monstro Dourado",
+        "growthGuide": "Guia de Crescimento",
+        "halfway": "Metade do caminho!",
+        "kill": "Derrotados",
+        "linkCopied": "Link copiado!",
+        "maxRank": "Nível máximo alcançado!",
+        "monsterKill": "monstros derrotados,",
+        "monsterKilled": "Monstros Derrotados",
+        "nextEquip": "Desbloquear o próximo equipamento aumentará muito seu poder de combate!",
+        "nextPrestige": "Pontos obtidos no próximo prestígio",
+        "nextRank": "Ouro até o próximo nível:",
+        "noEquip": "Nenhum equipamento ainda",
+        "offlineEarnings": "Offline",
+        "ownedEquip": "Equipamento Possuído",
+        "perSec": "/seg",
+        "playMore": "Explore a masmorra primeiro!",
+        "prestige": "Prestígio",
+        "prestigeBonus": "Bônus Permanente",
+        "prestigeConfirm": "Tem certeza de que deseja fazer prestígio? Todo o progresso será redefinido!",
+        "prestigeCount": "Contagem de Prestígio",
+        "prestigeDesc": "Reinicie todo o progresso e obtenha bônus permanentes",
+        "prestigePoints": "Pontos de Prestígio",
+        "prestigeRequire": "Camada 5 ou superior para prestígio",
+        "prestigeTitle": "Informações de Prestígio",
+        "rank": "Classificação da Masmorra",
+        "reset": "Reiniciar",
+        "share": "Compartilhar",
+        "skill": "🛡️ Habilidades",
+        "stats": "📊 Estatísticas",
+        "subtitle": "Conquiste a masmorra com cliques",
+        "tapHint": "TOQUE PARA ATACAR!",
+        "tierBossLabel": "CHEFE DE NÍVEL",
+        "tierCleared": "COMPLETO",
+        "title": "Dungeon Clicker",
+        "topEquip": "Top 3 Equipamentos",
+        "total": "Total",
+        "totalAttacks": "Total de Ataques",
+        "totalClicks": "Total de Ataques",
+        "totalEarned": "Ouro Total",
+        "totalGoldEarned": "Ouro Total Ganho",
+        "tryMore": "Experimente Mais!",
+        "prestigeTease": "Prestigio disponivel! Ganhe pontos no Tier {tier}"
+    },
+    "milestones": {
+        "abyss": "Limpou a Masmorra do Abismo! Você tem as qualificações de um cavaleiro.",
+        "darkness": "Derrotou o Senhor Escuro!",
+        "divine": "Passou pela Provação Divina!",
+        "dragon": "Conquistou o Ninho do Dragão!",
+        "first": "Limpou a primeira masmorra!",
+        "forest": "Conquistou a Masmorra Florestal! Melhore seu equipamento.",
+        "legend": "Limpou a Masmorra Lendária! Incrível!",
+        "volcano": "Rompeu pela Masmorra Vulcânica! Seu poder de combate está crescendo."
+    },
+    "monsters": {
+        "flowerMonster": "Monstro da Flor",
+        "iceMonster": "Monstro do Gelo",
+        "pumpkinMonster": "Monstro da Abóbora",
+        "snowmanMonster": "Monstro do Boneco de Neve"
+    },
+    "offline": {
+        "away": "Você esteve longe por {time}!",
+        "collect": "Coletar",
+        "double": "Assistir Anúncio para 2x Ganhos",
+        "earned": "{gold} Ouro",
+        "title": "Ganhos Offline",
+        "monstersSlain": "monstros abatidos"
+    },
+    "pet": {
+        "active": "Ativo",
+        "activePet": "Pet Ativo",
+        "allStats": "Todos os Status",
+        "attackPower": "Poder de Ataque",
+        "autoAttack": "Ataque Automático",
+        "cat": "Gato",
+        "catDesc": "Ataca automaticamente a cada segundo",
+        "critChance": "Chance Crítica",
+        "dog": "Cachorro",
+        "dogDesc": "20% de bônus de ouro",
+        "dragon": "Dragão",
+        "dragonDesc": "30% de aumento no poder de ataque",
+        "eagle": "Águia",
+        "eagleDesc": "15% de aumento na chance crítica",
+        "goldBonus": "Bônus de Ouro",
+        "insufficientGold": "Ouro insuficiente!",
+        "level": "Nível",
+        "levelUp": "Subir de Nível",
+        "locked": "Bloqueado",
+        "none": "Nenhum",
+        "select": "Selecionar",
+        "selected": "Selecionado!",
+        "title": "Pets",
+        "unicorn": "Unicórnio",
+        "unicornDesc": "10% de aumento em todos os status",
+        "unlock": "Desbloquear (50.000G)",
+        "unlocked": "Desbloqueado!"
+    },
+    "ranking": {
+        "highestDPS": "DPS Mais Alto",
+        "highestTier": "Nível Mais Alto",
+        "maxGoldHeld": "Ouro Máximo Retido",
+        "maxRank": "Classificação Máxima Atingida!",
+        "maxSingleHit": "Dano Máximo por Golpe",
+        "mostKills": "Mais Mortes",
+        "personalRecords": "Registros Pessoais",
+        "rankBRONZE": "Bronze",
+        "rankDIAMOND": "Diamante",
+        "rankGOLD": "Ouro",
+        "rankMASTER": "Mestre",
+        "rankPLATINUM": "Platina",
+        "rankSILVER": "Prata",
+        "totalPrestige": "Total de Prestígios"
+    },
+    "ranks": {
+        "adventurer": "Aventureiro",
+        "archmage": "Arquimago",
+        "beginner": "Novato da Vila",
+        "dragonslayer": "Caçador de Dragões",
+        "godscall": "Delegado de Deus",
+        "guardian": "Guardião do Mundo",
+        "hero": "Herói",
+        "knight": "Cavaleiro",
+        "legend": "Herói Lendário",
+        "trainee": "Aprendiz",
+        "warrior": "Guerreiro"
+    },
+    "recommendations": {
+        "colorMemory": "Color Memory",
+        "colorMemoryDesc": "Memory challenge game",
+        "emojiMerge": "Emoji Merge",
+        "emojiMergeDesc": "Puzzle de evolução de emojis",
+        "emotionTemp": "Termômetro de Emoção",
+        "emotionTempDesc": "Qual é sua temperatura emocional?",
+        "mbtiLove": "Compatibilidade Amorosa MBTI",
+        "mbtiLoveDesc": "Encontre sua alma gêmea",
+        "quizApp": "Quiz de Conhecimento",
+        "quizAppDesc": "Quiz de conhecimentos aleatórios",
+        "stackTower": "Stack Tower",
+        "stackTowerDesc": "Jogo de empilhamento de blocos",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Jogo de corrida em zigue-zague"
+    },
+    "skill": {
+        "maxLevel": "Nível Máximo!"
+    },
+    "skills": {
+        "army": "Guerreiros",
+        "army_desc": "Aumentar Muito Ataque Automático",
+        "boss_hunter": "Caçador de Chefes",
+        "boss_hunter_desc": "Bônus de DPS ao Clicar",
+        "critical": "Golpe Crítico",
+        "critical_desc": "Aumentar Poder de Ataque",
+        "haste": "Pressa",
+        "haste_desc": "Aumentar Velocidade de Ataque",
+        "learned": "Aprendido",
+        "legion": "Legião Lendária",
+        "legion_desc": "Maximizar Ataque Automático",
+        "lightning": "Golpe Relâmpago",
+        "lightning_desc": "Maximizar Poder de Ataque",
+        "maxLevel": "Nível Máximo!",
+        "power_slash": "Golpe Poderoso",
+        "power_slash_desc": "Aumentar Muito Poder de Ataque",
+        "summon": "Invocar Herói",
+        "summon_desc": "Aumentar Ataque Automático"
+    },
+    "tutorial": {
+        "next": "PRÓXIMO",
+        "skip": "PULAR",
+        "step": "ETAPA",
+        "step1": {
+            "text": "Toque o monstro para atacar. Você ganhará ouro a cada clique!",
+            "title": "Clique no Monstro!"
+        },
+        "step2": {
+            "text": "Compre armas e armaduras com ouro na aba de Equipamento para aumentar seu poder de ataque!",
+            "title": "Compre Equipamento!"
+        },
+        "step3": {
+            "text": "Aprenda habilidades poderosas na aba de Habilidades para ganhar ouro automaticamente!",
+            "title": "Aprenda Habilidades!"
+        },
+        "step4": {
+            "text": "Derrote o chefe em cada estágio para avançar para o próximo calabouço!",
+            "title": "Derrote o Chefe!"
+        },
+        "step5": {
+            "text": "Alcance objetivos para rastrear seu progresso e definir metas!",
+            "title": "Alcance Objetivos!"
+        }
+    },
+    "seasons": {
+        "spring": "Primavera",
+        "summer": "Verão",
+        "autumn": "Outono",
+        "winter": "Inverno",
+        "seasonalMonster": "Monstro Sazonal",
+        "seasonalMonsterFlower": "Monstro da Flor (Primavera)",
+        "seasonalMonsterIce": "Monstro do Gelo (Verão)",
+        "seasonalMonsterPumpkin": "Monstro da Abóbora (Outono)",
+        "seasonalMonsterSnowman": "Monstro do Boneco de Neve (Inverno)",
+        "bonusGold": "Ouro +30%",
+        "bonusCooldown": "Recarga -15%",
+        "bonusExp": "Experiência +30%",
+        "bonusAll": "Todos os Bônus +15%"
+    },
+    "guild": {
+        "title": "Guilda",
+        "selectGuild": "Selecionar Guilda",
+        "selectGuildDesc": "Escolha uma guilda para se juntar",
+        "flameGuild": "Guilda do Fogo",
+        "flameBuff": "Poder de Ataque +10%",
+        "frostGuild": "Guilda do Gelo",
+        "frostBuff": "Ouro +10%",
+        "natureGuild": "Guilda da Natureza",
+        "natureBuff": "Regeneração de Vida +10%",
+        "stormGuild": "Guilda da Tempestade",
+        "stormBuff": "Velocidade de Ataque +10%",
+        "shadowGuild": "Guilda da Sombra",
+        "shadowBuff": "Crítico +10%",
+        "level": "Nível",
+        "guildBonus": "Bônus da Guilda",
+        "experience": "Experiência da Guilda",
+        "expNote": "Ganhe experiência da guilda ao derrotar monstros",
+        "levelUp": "Guilda Subiu de Nível!",
+        "weeklyMission": "Missão Semanal",
+        "weeklyTarget": "Esta Semana",
+        "monsters": "monstros derrotados",
+        "missionReward": "Obtenha bônus ao completar",
+        "missionCompleted": "Concluído!",
+        "missionComplete": "Missão Semanal Concluída!",
+        "leaveGuild": "Sair da Guilda"
+    },
+    "minigame": {
+        "title": "Encontrar baú de tesouro",
+        "play": "Mini jogo!",
+        "attemptsLeft": "Tentativas restantes",
+        "confirm": "OK",
+        "treasureFound": "Você encontrou o tesouro!",
+        "treasureReward": "Recompensa de ouro obtida!",
+        "bombFound": "Bomba explodiu!",
+        "bombMessage": "Jogo encerrado.",
+        "noAttempts": "Sem tentativas restantes.",
+        "cooldown": "Você pode jogar mini jogo a cada 10 minutos"
+    },
+    "share": {
+        "twitter": "𝕏 Twitter",
+        "copyUrl": "📋 Copiar link"
+    },
+    "error": {
+        "storage": "Algumas funções podem ser limitadas no modo privado.",
+        "data": "Erro ao carregar dados. Atualize a página.",
+        "canvas": "Problema de renderização. Tente novamente.",
+        "audio": "Áudio indisponível. Você pode continuar.",
+        "network": "Verifique sua conexão e tente novamente.",
+        "general": "Algo deu errado. Atualize ou tente novamente."
+    },
+    "result": {
+        "moreGames": "Mais jogos"
+    },
+    "related": {
+        "stackTower": "Torre Empilhável",
+        "flappyBird": "Flappy Bird",
+        "emojiMerge": "Fusão Emoji",
+        "blockPuzzle": "Puzzle de Blocos"
+    },
+    "goldMilestone": {
+        "g1k": "1.000 Ouro alcancado!",
+        "g10k": "10.000 Ouro conquistado!",
+        "g100k": "100K Ouro! Ficando rico!",
+        "g1m": "1M Ouro! Milionario!",
+        "g10m": "10M Ouro! Fortuna lendaria!",
+        "g100m": "100M Ouro! Riqueza mitica!",
+        "g1b": "1B Ouro! Governante do universo!"
     }
-  },
-  "event": {
-    "equipSale": "Venda de Equipamentos",
-    "equipSaleDesc": "Preços de equipamentos 30% de desconto por 30 segundos!",
-    "expBoost": "Impulsionador de EXP",
-    "expBoostDesc": "EXP de habilidade 2x por 30 segundos!",
-    "goldRush": "Corrida do Ouro",
-    "goldRushDesc": "Ganhos de ouro 2x por 30 segundos!",
-    "monsterFest": "Festival de Monstros",
-    "monsterFestDesc": "HP do monstro 50% reduzido por 30 segundos!"
-  },
-  "game": {
-    "achievement": "🏆 Realizações",
-    "achievementUnlocked": "Realização desbloqueada!",
-    "ad": "Anúncio",
-    "allEquip": "Você coletou todo o equipamento! Suba de nível para ficar mais forte!",
-    "analysisTitle": "Análise",
-    "attackPower": "Poder de Ataque",
-    "autoDPS": "DPS Automático",
-    "autoIncome": "DPS Automático",
-    "back": "Página Inicial do DopaBrain",
-    "battleAnalysis": "Análise de Batalha",
-    "bossDefeated": "Derrotado! +",
-    "bossLabel": "CHEFE",
-    "clickPower": "Poder de Ataque",
-    "close": "Fechar",
-    "confirmReset": "Tem certeza de que deseja reiniciar todo o seu progresso?\nEsta ação não pode ser desfeita.",
-    "copyright": "© 2026 DopaBrain",
-    "currentOpponent": "Oponente Atual",
-    "equipCount": "Contagem de Equipamento",
-    "equipment": "⚔️ Equipamento",
-    "goldEarned": "Ouro!",
-    "goldEarned2": "Ouro ganho!",
-    "goldenAppear": "Monstro Dourado Apareceu",
-    "goldenEscape": "⭐ Monstro Dourado Escapou!",
-    "goldenHint": "Mate para 3x Ouro!",
-    "bossEscaped": "O chefe fugiu!",
-    "bossRetry": "Desafiar chefe",
-    "goldenMonster": "Monstro Dourado",
-    "growthGuide": "Guia de Crescimento",
-    "halfway": "Metade do caminho!",
-    "kill": "Derrotados",
-    "linkCopied": "Link copiado!",
-    "maxRank": "Nível máximo alcançado!",
-    "monsterKill": "monstros derrotados,",
-    "monsterKilled": "Monstros Derrotados",
-    "nextEquip": "Desbloquear o próximo equipamento aumentará muito seu poder de combate!",
-    "nextPrestige": "Pontos obtidos no próximo prestígio",
-    "nextRank": "Ouro até o próximo nível:",
-    "noEquip": "Nenhum equipamento ainda",
-    "offlineEarnings": "Offline",
-    "ownedEquip": "Equipamento Possuído",
-    "perSec": "/seg",
-    "playMore": "Explore a masmorra primeiro!",
-    "prestige": "Prestígio",
-    "prestigeBonus": "Bônus Permanente",
-    "prestigeConfirm": "Tem certeza de que deseja fazer prestígio? Todo o progresso será redefinido!",
-    "prestigeCount": "Contagem de Prestígio",
-    "prestigeDesc": "Reinicie todo o progresso e obtenha bônus permanentes",
-    "prestigePoints": "Pontos de Prestígio",
-    "prestigeRequire": "Camada 5 ou superior para prestígio",
-    "prestigeTitle": "Informações de Prestígio",
-    "rank": "Classificação da Masmorra",
-    "reset": "Reiniciar",
-    "share": "Compartilhar",
-    "skill": "🛡️ Habilidades",
-    "stats": "📊 Estatísticas",
-    "subtitle": "Conquiste a masmorra com cliques",
-    "tapHint": "TOQUE PARA ATACAR!",
-    "tierBossLabel": "CHEFE DE NÍVEL",
-    "tierCleared": "COMPLETO",
-    "title": "Dungeon Clicker",
-    "topEquip": "Top 3 Equipamentos",
-    "total": "Total",
-    "totalAttacks": "Total de Ataques",
-    "totalClicks": "Total de Ataques",
-    "totalEarned": "Ouro Total",
-    "totalGoldEarned": "Ouro Total Ganho",
-    "tryMore": "Experimente Mais!"
-  },
-  "milestones": {
-    "abyss": "Limpou a Masmorra do Abismo! Você tem as qualificações de um cavaleiro.",
-    "darkness": "Derrotou o Senhor Escuro!",
-    "divine": "Passou pela Provação Divina!",
-    "dragon": "Conquistou o Ninho do Dragão!",
-    "first": "Limpou a primeira masmorra!",
-    "forest": "Conquistou a Masmorra Florestal! Melhore seu equipamento.",
-    "legend": "Limpou a Masmorra Lendária! Incrível!",
-    "volcano": "Rompeu pela Masmorra Vulcânica! Seu poder de combate está crescendo."
-  },
-  "monsters": {
-    "absolute": "Ser Absoluto",
-    "abyss_emperor": "Imperador do Abismo",
-    "ancient_dragon": "Dragão Antigo",
-    "apocalypse_guardian": "Guardião do Apocalipse",
-    "archangel": "Arcanjo",
-    "ares": "Ares",
-    "athena": "Atena",
-    "banshee": "Banshee",
-    "basilisk": "Basilisco",
-    "bat": "Morcego",
-    "bear": "Urso",
-    "boar": "Javali Selvagem",
-    "bone_dragon": "Dragão de Osso",
-    "carnivorous": "Planta Carnívora",
-    "chaos": "Caos",
-    "chaos_incarnation": "Encarnação do Caos",
-    "chaos_knight": "Cavaleiro do Caos",
-    "cosmic_jellyfish": "Medusa Cósmica",
-    "crystal_giant": "Gigante Cristalino",
-    "cursed_knight": "Cavaleiro Amaldiçoado",
-    "dark_lord": "Senhor Escuro",
-    "death_knight": "Cavaleiro da Morte",
-    "demon": "Demônio",
-    "dimension_breaker": "Quebrador Dimensional",
-    "dimension_demon": "Demônio Dimensional",
-    "dimension_destroyer": "Destruidor Dimensional",
-    "dimension_guardian": "Guardião Dimensional",
-    "dragon": "Dragão",
-    "dragon_guardian": "Guardião Dragão",
-    "dragon_lord": "Senhor Dragão",
-    "element_titan": "Titã Elemental",
-    "eternal_guardian": "Guardião Eterno",
-    "eternal_watcher": "Observador Eterno",
-    "ether_dragon": "Dragão Etéreo",
-    "fairy": "Fada Pícara",
-    "fate_judge": "Juiz do Destino",
-    "fenrir": "Fenrir",
-    "fire_lord": "Senhor do Fogo",
-    "flame_bat": "Morcego de Fogo",
-    "flame_knight": "Cavaleiro de Fogo",
-    "flame_spirit": "Espírito da Chama",
-    "gaia": "Gaia",
-    "goblin": "Goblin",
-    "hades": "Hades",
-    "hydra": "Hidra",
-    "ice_dragon": "Dragão de Gelo",
-    "ifrit": "Ifrit",
-    "infinity_being": "Ser Infinito",
-    "jormungandr": "Jörmungandr",
-    "kobold": "Kobold",
-    "kraken": "Kraken",
-    "kronos": "Kronos",
-    "lava_golem": "Golem de Lava",
-    "lava_slime": "Lodo de Lava",
-    "lich": "Lich",
-    "light_guardian": "Guardião da Luz",
-    "magma_worm": "Verme de Magma",
-    "mummy": "Múmia",
-    "mushroom": "Monstro Cogumelo",
-    "necromancer": "Necromante",
-    "odin": "Odin",
-    "orc": "Orc",
-    "phoenix": "Fênix",
-    "poison_dragon": "Dragão Venenoso",
-    "poseidon": "Poseidon",
-    "primordial_being": "Ser Primordial",
-    "primordial_chaos": "Caos Primordial",
-    "primordial_flame": "Chama Primordial",
-    "rat": "Rato",
-    "scorpion": "Escorpião",
-    "shadow_assassin": "Assassino da Sombra",
-    "skeleton": "Guerreiro Esqueleto",
-    "slime": "Lodo",
-    "snake": "Serpente",
-    "spider": "Aranha Venenosa",
-    "star_giant": "Gigante Estelar",
-    "star_predator": "Predador Estelar",
-    "sun_incarnation": "Encarnação do Sol",
-    "surtr": "Surtr",
-    "tentacle": "Tentáculo do Abismo",
-    "thief": "Ladrão",
-    "thor": "Thor",
-    "time_dragon": "Dragão do Tempo",
-    "time_end": "Fim do Tempo",
-    "time_keeper": "Guardião do Tempo",
-    "titan": "Titã",
-    "treent": "Espírito da Árvore",
-    "troll": "Troll",
-    "universe_heart": "Coração do Universo",
-    "unknown": "???",
-    "vampire": "Vampiro",
-    "void_destroyer": "Destruidor do Vazio",
-    "void_lord": "Senhor do Vazio",
-    "volcano_lizard": "Lagarto Vulcânico",
-    "witch": "Bruxa da Floresta",
-    "wolf": "Lobo",
-    "world_snake": "Serpente Mundial",
-    "world_turtle": "Tartaruga Mundial",
-    "wyvern": "Wyvern",
-    "zeus": "Zeus"
-  },
-  "offline": {
-    "away": "Você esteve longe por {time}!",
-    "collect": "Coletar",
-    "double": "Assistir Anúncio para 2x Ganhos",
-    "earned": "{gold} Ouro",
-    "title": "Ganhos Offline"
-  },
-  "pet": {
-    "active": "Ativo",
-    "activePet": "Pet Ativo",
-    "allStats": "Todos os Status",
-    "attackPower": "Poder de Ataque",
-    "autoAttack": "Ataque Automático",
-    "cat": "Gato",
-    "catDesc": "Ataca automaticamente a cada segundo",
-    "critChance": "Chance Crítica",
-    "dog": "Cachorro",
-    "dogDesc": "20% de bônus de ouro",
-    "dragon": "Dragão",
-    "dragonDesc": "30% de aumento no poder de ataque",
-    "eagle": "Águia",
-    "eagleDesc": "15% de aumento na chance crítica",
-    "goldBonus": "Bônus de Ouro",
-    "insufficientGold": "Ouro insuficiente!",
-    "level": "Nível",
-    "levelUp": "Subir de Nível",
-    "locked": "Bloqueado",
-    "none": "Nenhum",
-    "select": "Selecionar",
-    "selected": "Selecionado!",
-    "title": "Pets",
-    "unicorn": "Unicórnio",
-    "unicornDesc": "10% de aumento em todos os status",
-    "unlock": "Desbloquear (50.000G)",
-    "unlocked": "Desbloqueado!"
-  },
-  "ranking": {
-    "highestDPS": "DPS Mais Alto",
-    "highestTier": "Nível Mais Alto",
-    "maxGoldHeld": "Ouro Máximo Retido",
-    "maxRank": "Classificação Máxima Atingida!",
-    "maxSingleHit": "Dano Máximo por Golpe",
-    "mostKills": "Mais Mortes",
-    "personalRecords": "Registros Pessoais",
-    "rankBRONZE": "Bronze",
-    "rankDIAMOND": "Diamante",
-    "rankGOLD": "Ouro",
-    "rankMASTER": "Mestre",
-    "rankPLATINUM": "Platina",
-    "rankSILVER": "Prata",
-    "totalPrestige": "Total de Prestígios"
-  },
-  "ranks": {
-    "adventurer": "Aventureiro",
-    "archmage": "Arquimago",
-    "beginner": "Novato da Vila",
-    "dragonslayer": "Caçador de Dragões",
-    "godscall": "Delegado de Deus",
-    "guardian": "Guardião do Mundo",
-    "hero": "Herói",
-    "knight": "Cavaleiro",
-    "legend": "Herói Lendário",
-    "trainee": "Aprendiz",
-    "warrior": "Guerreiro"
-  },
-  "recommendations": {
-    "colorMemory": "Color Memory",
-    "colorMemoryDesc": "Memory challenge game",
-    "emojiMerge": "Emoji Merge",
-    "emojiMergeDesc": "Puzzle de evolução de emojis",
-    "emotionTemp": "Termômetro de Emoção",
-    "emotionTempDesc": "Qual é sua temperatura emocional?",
-    "mbtiLove": "Compatibilidade Amorosa MBTI",
-    "mbtiLoveDesc": "Encontre sua alma gêmea",
-    "quizApp": "Quiz de Conhecimento",
-    "quizAppDesc": "Quiz de conhecimentos aleatórios",
-    "stackTower": "Stack Tower",
-    "stackTowerDesc": "Jogo de empilhamento de blocos",
-    "zigzagRunner": "Zigzag Runner",
-    "zigzagRunnerDesc": "Jogo de corrida em zigue-zague"
-  },
-  "skill": {
-    "maxLevel": "Nível Máximo!"
-  },
-  "skills": {
-    "army": "Guerreiros",
-    "army_desc": "Aumentar Muito Ataque Automático",
-    "boss_hunter": "Caçador de Chefes",
-    "boss_hunter_desc": "Bônus de DPS ao Clicar",
-    "critical": "Golpe Crítico",
-    "critical_desc": "Aumentar Poder de Ataque",
-    "haste": "Pressa",
-    "haste_desc": "Aumentar Velocidade de Ataque",
-    "learned": "Aprendido",
-    "legion": "Legião Lendária",
-    "legion_desc": "Maximizar Ataque Automático",
-    "lightning": "Golpe Relâmpago",
-    "lightning_desc": "Maximizar Poder de Ataque",
-    "maxLevel": "Nível Máximo!",
-    "power_slash": "Golpe Poderoso",
-    "power_slash_desc": "Aumentar Muito Poder de Ataque",
-    "summon": "Invocar Herói",
-    "summon_desc": "Aumentar Ataque Automático"
-  },
-  "tutorial": {
-    "next": "PRÓXIMO",
-    "skip": "PULAR",
-    "step": "ETAPA",
-    "step1": {
-      "text": "Toque o monstro para atacar. Você ganhará ouro a cada clique!",
-      "title": "Clique no Monstro!"
-    },
-    "step2": {
-      "text": "Compre armas e armaduras com ouro na aba de Equipamento para aumentar seu poder de ataque!",
-      "title": "Compre Equipamento!"
-    },
-    "step3": {
-      "text": "Aprenda habilidades poderosas na aba de Habilidades para ganhar ouro automaticamente!",
-      "title": "Aprenda Habilidades!"
-    },
-    "step4": {
-      "text": "Derrote o chefe em cada estágio para avançar para o próximo calabouço!",
-      "title": "Derrote o Chefe!"
-    },
-    "step5": {
-      "text": "Alcance objetivos para rastrear seu progresso e definir metas!",
-      "title": "Alcance Objetivos!"
-    }
-  },
-  "monsters": {
-    "flowerMonster": "Monstro da Flor",
-    "iceMonster": "Monstro do Gelo",
-    "pumpkinMonster": "Monstro da Abóbora",
-    "snowmanMonster": "Monstro do Boneco de Neve"
-  },
-  "seasons": {
-    "spring": "Primavera",
-    "summer": "Verão",
-    "autumn": "Outono",
-    "winter": "Inverno",
-    "seasonalMonster": "Monstro Sazonal",
-    "seasonalMonsterFlower": "Monstro da Flor (Primavera)",
-    "seasonalMonsterIce": "Monstro do Gelo (Verão)",
-    "seasonalMonsterPumpkin": "Monstro da Abóbora (Outono)",
-    "seasonalMonsterSnowman": "Monstro do Boneco de Neve (Inverno)",
-    "bonusGold": "Ouro +30%",
-    "bonusCooldown": "Recarga -15%",
-    "bonusExp": "Experiência +30%",
-    "bonusAll": "Todos os Bônus +15%"
-  },
-  "guild": {
-    "title": "Guilda",
-    "selectGuild": "Selecionar Guilda",
-    "selectGuildDesc": "Escolha uma guilda para se juntar",
-    "flameGuild": "Guilda do Fogo",
-    "flameBuff": "Poder de Ataque +10%",
-    "frostGuild": "Guilda do Gelo",
-    "frostBuff": "Ouro +10%",
-    "natureGuild": "Guilda da Natureza",
-    "natureBuff": "Regeneração de Vida +10%",
-    "stormGuild": "Guilda da Tempestade",
-    "stormBuff": "Velocidade de Ataque +10%",
-    "shadowGuild": "Guilda da Sombra",
-    "shadowBuff": "Crítico +10%",
-    "level": "Nível",
-    "guildBonus": "Bônus da Guilda",
-    "experience": "Experiência da Guilda",
-    "expNote": "Ganhe experiência da guilda ao derrotar monstros",
-    "levelUp": "Guilda Subiu de Nível!",
-    "weeklyMission": "Missão Semanal",
-    "weeklyTarget": "Esta Semana",
-    "monsters": "monstros derrotados",
-    "missionReward": "Obtenha bônus ao completar",
-    "missionCompleted": "Concluído!",
-    "missionComplete": "Missão Semanal Concluída!",
-    "leaveGuild": "Sair da Guilda"
-  },
-  "minigame": {
-    "title": "Encontrar baú de tesouro",
-    "play": "Mini jogo!",
-    "attemptsLeft": "Tentativas restantes",
-    "confirm": "OK",
-    "treasureFound": "Você encontrou o tesouro!",
-    "treasureReward": "Recompensa de ouro obtida!",
-    "bombFound": "Bomba explodiu!",
-    "bombMessage": "Jogo encerrado.",
-    "noAttempts": "Sem tentativas restantes.",
-    "cooldown": "Você pode jogar mini jogo a cada 10 minutos"
-  },
-  "share": {
-    "twitter": "𝕏 Twitter",
-    "copyUrl": "📋 Copiar link"
-  },
-  "error": {
-    "storage": "Algumas funções podem ser limitadas no modo privado.",
-    "data": "Erro ao carregar dados. Atualize a página.",
-    "canvas": "Problema de renderização. Tente novamente.",
-    "audio": "Áudio indisponível. Você pode continuar.",
-    "network": "Verifique sua conexão e tente novamente.",
-    "general": "Algo deu errado. Atualize ou tente novamente."
-  },
-  "result": {
-    "moreGames": "Mais jogos"
-  },
-  "related": {
-    "stackTower": "Torre Empilhável",
-    "flappyBird": "Flappy Bird",
-    "emojiMerge": "Fusão Emoji",
-    "blockPuzzle": "Puzzle de Blocos"
-  }
 }

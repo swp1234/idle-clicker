@@ -75,14 +75,16 @@
         "prestigeTitle": "환생 정보",
         "nextPrestige": "다음 환생 시 획득 포인트",
         "achievement": "🏆 업적",
-        "achievementUnlocked": "업적 달성!"
+        "achievementUnlocked": "업적 달성!",
+        "prestigeTease": "환생 가능! Tier {tier}에서 포인트를 획득하세요"
     },
     "offline": {
         "title": "오프라인 수입",
         "away": "{time} 동안 자리를 비웠습니다!",
         "earned": "{gold} 골드",
         "collect": "받기",
-        "double": "광고 보고 2배 받기"
+        "double": "광고 보고 2배 받기",
+        "monstersSlain": "마리 처치"
     },
     "achievement": {
         "firstStep": "첫 발걸음",
@@ -114,7 +116,17 @@
         "dps100": "DPS 100",
         "dps100Desc": "자동 DPS 100 달성",
         "dungeonMaster": "던전 마스터",
-        "dungeonMasterDesc": "Tier 10 도달"
+        "dungeonMasterDesc": "Tier 10 도달",
+        "speedClicker": "스피드 클리커",
+        "speedClickerDesc": "10 클릭/초 달성",
+        "firstPurchase": "첫 구매",
+        "firstPurchaseDesc": "첫 장비 구매",
+        "millionaire": "백만장자",
+        "millionaireDesc": "골드 보유량 1,000,000 달성",
+        "comboMaster": "콤보 마스터",
+        "comboMasterDesc": "30 연속 콤보 달성",
+        "petOwner": "펫 주인",
+        "petOwnerDesc": "첫 펫 해금"
     },
     "dungeon": {
         "village": "마을 주변",
@@ -129,106 +141,10 @@
         "endworld": "세계의 끝"
     },
     "monsters": {
-        "slime": "슬라임",
-        "goblin": "고블린",
-        "bat": "박쥐",
-        "rat": "들쥐",
-        "scorpion": "전갈",
-        "snake": "뱀",
-        "mushroom": "버섯괴물",
-        "skeleton": "해골 전사",
-        "boar": "멧돼지",
-        "thief": "도적",
-        "wolf": "늑대",
-        "spider": "독거미",
-        "troll": "트롤",
-        "orc": "오크",
-        "treent": "나무 정령",
-        "bear": "곰",
-        "fairy": "요정 도둑",
-        "carnivorous": "식인 식물",
-        "kobold": "코볼트",
-        "witch": "숲 마녀",
-        "flame_spirit": "화염 정령",
-        "lava_golem": "용암 골렘",
-        "phoenix": "불사조",
-        "flame_bat": "화염 박쥐",
-        "volcano_lizard": "화산 도마뱀",
-        "lava_slime": "용암 슬라임",
-        "ifrit": "이프리트",
-        "flame_knight": "화염 기사",
-        "magma_worm": "마그마 웜",
-        "fire_lord": "불의 군주",
-        "lich": "리치",
-        "vampire": "뱀파이어",
-        "demon": "악마",
-        "shadow_assassin": "그림자 암살자",
-        "banshee": "밴시",
-        "mummy": "미이라",
-        "death_knight": "데스 나이트",
-        "tentacle": "심연의 촉수",
-        "cursed_knight": "저주받은 기사",
-        "necromancer": "네크로맨서",
-        "dragon": "드래곤",
-        "ancient_dragon": "고대 용",
-        "ice_dragon": "얼음 드래곤",
-        "poison_dragon": "독 드래곤",
-        "bone_dragon": "뼈 드래곤",
-        "dragon_guardian": "용의 수호자",
-        "wyvern": "와이번",
-        "hydra": "히드라",
-        "basilisk": "바실리스크",
-        "dragon_lord": "드래곤 로드",
-        "titan": "타이탄",
-        "dark_lord": "어둠의 군주",
-        "archangel": "대천사",
-        "kraken": "크라켄",
-        "world_snake": "세계 뱀",
-        "chaos_knight": "혼돈의 기사",
-        "light_guardian": "빛의 수호자",
-        "void_destroyer": "허공의 파괴자",
-        "sun_incarnation": "태양의 화신",
-        "apocalypse_guardian": "종말의 수호자",
-        "dimension_breaker": "차원 균열자",
-        "time_keeper": "시간의 파수꾼",
-        "void_lord": "공허의 군주",
-        "star_predator": "별의 포식자",
-        "dimension_demon": "차원의 마왕",
-        "cosmic_jellyfish": "우주 해파리",
-        "crystal_giant": "결정 거인",
-        "ether_dragon": "에테르 드래곤",
-        "dimension_guardian": "차원 수문장",
-        "infinity_being": "무한의 존재",
-        "primordial_chaos": "원초적 혼돈",
-        "primordial_flame": "태초의 불꽃",
-        "world_turtle": "세계 거북",
-        "time_dragon": "시간의 용",
-        "star_giant": "별의 거인",
-        "element_titan": "원소 타이탄",
-        "fate_judge": "운명의 심판자",
-        "chaos_incarnation": "혼돈의 화신",
-        "eternal_watcher": "영원의 감시자",
-        "primordial_being": "태초의 존재",
-        "odin": "오딘",
-        "thor": "토르",
-        "hades": "하데스",
-        "poseidon": "포세이돈",
-        "ares": "아레스",
-        "athena": "아테나",
-        "zeus": "제우스",
-        "kronos": "크로노스",
-        "gaia": "가이아",
-        "chaos": "카오스",
-        "jormungandr": "세계의 뱀 요르문간드",
-        "surtr": "파괴신 수르트",
-        "fenrir": "세계 늑대 펜리르",
-        "abyss_emperor": "심연의 황제",
-        "dimension_destroyer": "차원의 파괴자",
-        "eternal_guardian": "영겁의 수호자",
-        "universe_heart": "우주의 심장",
-        "time_end": "시간의 종말",
-        "absolute": "절대적 존재",
-        "unknown": "??? (최종)"
+        "flowerMonster": "꽃 몬스터",
+        "iceMonster": "얼음 몬스터",
+        "pumpkinMonster": "호박 몬스터",
+        "snowmanMonster": "눈사람 몬스터"
     },
     "skills": {
         "critical": "크리티컬 스트라이크",
@@ -283,106 +199,406 @@
         "epic": "전설",
         "legendary": "신화",
         "setBonus": "⭐ 세트 완성! +20% DPS",
-        "wooden_sword": {"name": "나무 검", "desc": "모험의 시작, 첫 번째 무기"},
-        "leather_shield": {"name": "가죽 방패", "desc": "기본적인 방어력을 제공"},
-        "iron_dagger": {"name": "철 단검", "desc": "빠른 연속 공격이 가능"},
-        "iron_helm": {"name": "철 투구", "desc": "머리를 보호하는 철 투구"},
-        "iron_armor": {"name": "철 갑옷", "desc": "단단한 철로 제련된 갑옷"},
-        "steel_sword": {"name": "강철 장검", "desc": "장인이 벼린 강철의 검"},
-        "recruit_bow": {"name": "수비대의 활", "desc": "마을 수비대 궁수의 활"},
-        "acolyte_staff": {"name": "수습 지팡이", "desc": "마법 수련에 쓰이는 지팡이"},
-        "squire_plate": {"name": "견습 기사 갑옷", "desc": "기사 수련생의 무거운 갑옷"},
-        "master_blade": {"name": "대장장이의 명검", "desc": "마을 최고 장인의 역작"},
-        "hunters_bow": {"name": "사냥꾼의 활", "desc": "숲의 노련한 사냥꾼의 활"},
-        "wolf_cloak": {"name": "늑대 가죽 망토", "desc": "늑대의 가죽으로 만든 망토"},
-        "poison_blade": {"name": "독날 검", "desc": "독이 묻은 날카로운 검"},
-        "thorn_whip": {"name": "가시 채찍", "desc": "가시로 뒤덮인 마법 채찍"},
-        "forest_staff": {"name": "숲의 지팡이", "desc": "자연의 힘이 깃든 지팡이"},
-        "elven_boots": {"name": "엘프 부츠", "desc": "엘프의 민첩함이 깃든 부츠"},
-        "oak_shield": {"name": "참나무 대방패", "desc": "세계수 조각으로 만든 방패"},
-        "spirit_bow": {"name": "정령의 활", "desc": "정령이 축복한 신비의 활"},
-        "druid_robe": {"name": "드루이드 로브", "desc": "자연과 소통하는 마법 로브"},
-        "forest_crown": {"name": "숲 왕의 왕관", "desc": "숲을 다스리는 왕의 왕관"},
-        "flame_sword": {"name": "화염 검", "desc": "불꽃이 타오르는 마검"},
-        "lava_shield": {"name": "용암 방패", "desc": "녹지 않는 용암석 방패"},
-        "fire_staff": {"name": "화염 지팡이", "desc": "화산의 마력이 담긴 지팡이"},
-        "obsidian_blade": {"name": "흑요석 검", "desc": "화산에서 태어난 흑요석 칼날"},
-        "magma_gauntlet": {"name": "마그마 건틀릿", "desc": "용암으로 단련된 장갑"},
-        "salamander_mail": {"name": "불도마뱀 갑옷", "desc": "화염에 면역인 비늘 갑옷"},
-        "volcano_hammer": {"name": "화산 망치", "desc": "화산의 분노를 담은 대형 망치"},
-        "phoenix_feather": {"name": "불사조 깃털", "desc": "불사조의 신성한 깃털 장식"},
-        "inferno_robe": {"name": "지옥불 로브", "desc": "지옥불이 수놓인 마법 로브"},
-        "volcano_heart": {"name": "화산의 심장", "desc": "화산 깊은 곳의 핵심 결정"},
-        "shadow_blade": {"name": "그림자 검", "desc": "어둠에서 태어난 검"},
-        "soul_gem": {"name": "영혼석", "desc": "영혼의 힘을 증폭시키는 보석"},
-        "necro_tome": {"name": "사령술서", "desc": "죽은 자를 부리는 금서"},
-        "abyssal_scythe": {"name": "심연의 낫", "desc": "저승사자의 대낫"},
-        "void_armor": {"name": "공허의 갑옷", "desc": "심연의 공허로 만든 갑옷"},
-        "banshee_wail": {"name": "밴시의 울음", "desc": "귀를 찢는 비명의 마법 구슬"},
-        "blood_chalice": {"name": "피의 성배", "desc": "뱀파이어 군주의 성배"},
-        "demon_horn": {"name": "악마의 뿔", "desc": "악마에게서 빼앗은 뿔 장식"},
-        "abyss_eye": {"name": "심연의 눈", "desc": "모든 것을 꿰뚫어 보는 눈"},
-        "death_mantle": {"name": "죽음의 군주 망토", "desc": "죽음을 지배하는 군주의 망토"},
-        "dragon_fang": {"name": "드래곤 송곳니", "desc": "드래곤의 이빨로 만든 검"},
-        "dragon_scale": {"name": "드래곤 비늘 갑옷", "desc": "용의 비늘로 만든 갑옷"},
-        "wyrmfire_staff": {"name": "용화 지팡이", "desc": "용의 숨결이 담긴 지팡이"},
-        "wyvern_lance": {"name": "와이번 창", "desc": "와이번의 뼈로 만든 창"},
-        "hydra_fang": {"name": "히드라의 이빨", "desc": "자라나는 독니로 만든 무기"},
-        "ancient_relic": {"name": "고대의 유물", "desc": "태초의 힘이 봉인된 유물"},
-        "bone_dragon_bow": {"name": "뼈 드래곤 활", "desc": "언데드 드래곤의 뼈 활"},
-        "titan_hammer": {"name": "타이탄 망치", "desc": "거신이 사용하던 대형 망치"},
-        "dragon_heart": {"name": "용의 심장", "desc": "드래곤 로드의 심장 결정"},
-        "dragonlord_crown": {"name": "용왕의 왕관", "desc": "모든 용을 지배하는 왕관"},
-        "god_blade": {"name": "신의 검", "desc": "신이 내린 축복의 검"},
-        "celestial_armor": {"name": "천상의 갑옷", "desc": "하늘의 광채를 담은 갑옷"},
-        "infinity_orb": {"name": "무한의 오브", "desc": "무한한 마력의 수정구"},
-        "seraphim_wings": {"name": "세라핌의 날개", "desc": "천사장의 날개 장식"},
-        "world_tree_bow": {"name": "세계수의 활", "desc": "세계수 가지로 만든 신궁"},
-        "astral_blade": {"name": "성광의 검", "desc": "별빛을 품은 성스러운 검"},
-        "divine_shield": {"name": "신성 방패", "desc": "어떤 공격도 막아내는 방패"},
-        "sun_staff": {"name": "태양의 지팡이", "desc": "태양의 힘을 모으는 지팡이"},
-        "judgment_hammer": {"name": "심판의 망치", "desc": "신이 내린 심판의 무기"},
-        "hero_crown": {"name": "영웅의 왕관", "desc": "세계를 구한 영웅의 왕관"},
-        "rift_blade": {"name": "균열의 검", "desc": "차원을 베는 검"},
-        "time_dagger": {"name": "시간의 단검", "desc": "시간을 멈추는 단검"},
-        "void_gauntlet": {"name": "공허 건틀릿", "desc": "공허의 힘을 뿜는 장갑"},
-        "star_bow": {"name": "별의 활", "desc": "별의 에너지를 쏘는 활"},
-        "crystal_staff": {"name": "결정 지팡이", "desc": "차원 결정으로 만든 지팡이"},
-        "ether_armor": {"name": "에테르 갑옷", "desc": "에테르로 짠 투명한 갑옷"},
-        "dimension_axe": {"name": "차원 도끼", "desc": "차원을 가르는 거대 도끼"},
-        "cosmic_tome": {"name": "우주의 서", "desc": "우주의 진리가 적힌 서적"},
-        "infinity_shield": {"name": "무한 방패", "desc": "무한히 재생하는 방패"},
-        "rift_crown": {"name": "차원왕의 왕관", "desc": "차원을 지배하는 자의 왕관"},
-        "chaos_blade": {"name": "혼돈의 검", "desc": "혼돈에서 태어난 불안정한 검"},
-        "primal_staff": {"name": "원초의 지팡이", "desc": "태초의 원소력이 깃든 지팡이"},
-        "world_turtle": {"name": "거북 등껍질", "desc": "세계를 등에 진 거북의 조각"},
-        "time_dragon_fang": {"name": "시간용의 송곳니", "desc": "시간을 초월한 용의 이빨"},
-        "star_giant_axe": {"name": "별 거인의 도끼", "desc": "별을 깎아 만든 거대 도끼"},
-        "element_gauntlet": {"name": "원소 타이탄 장갑", "desc": "4원소의 힘이 융합된 장갑"},
-        "fate_scale": {"name": "운명의 천칭", "desc": "운명을 재는 심판의 천칭"},
-        "chaos_orb": {"name": "혼돈의 오브", "desc": "태초의 혼돈이 응축된 구체"},
-        "eternal_eye": {"name": "영원의 눈", "desc": "영원을 관측하는 거대한 눈"},
-        "primordial_crown": {"name": "태초의 왕관", "desc": "태초의 존재가 쓰던 왕관"},
-        "odin_spear": {"name": "오딘의 창", "desc": "절대 빗나가지 않는 신의 창"},
-        "thor_hammer": {"name": "토르의 망치", "desc": "번개를 내리치는 신의 망치"},
-        "hades_helm": {"name": "하데스의 투구", "desc": "투명해지는 명계의 투구"},
-        "poseidon_trident": {"name": "포세이돈의 삼지창", "desc": "바다를 지배하는 삼지창"},
-        "ares_shield": {"name": "아레스의 방패", "desc": "전쟁의 신이 들던 방패"},
-        "athena_aegis": {"name": "아테나의 이지스", "desc": "지혜의 여신의 완벽한 방어구"},
-        "zeus_bolt": {"name": "제우스의 벼락", "desc": "하늘의 왕이 던지는 벼락"},
-        "kronos_scythe": {"name": "크로노스의 낫", "desc": "시간 자체를 베는 거대한 낫"},
-        "gaia_blessing": {"name": "가이아의 축복", "desc": "대지의 어머니의 신성한 힘"},
-        "chaos_origin": {"name": "카오스의 근원", "desc": "만물의 시작이자 끝의 힘"},
-        "jormungandr_fang": {"name": "요르문간드의 이빨", "desc": "세계를 감싸는 뱀의 이빨"},
-        "surtr_flame": {"name": "수르트의 불꽃검", "desc": "세계를 불태우는 거인의 검"},
-        "fenrir_claw": {"name": "펜리르의 발톱", "desc": "신도 삼킨 늑대의 발톱"},
-        "emperor_scepter": {"name": "심연 황제의 홀", "desc": "심연의 모든 것을 지배하는 홀"},
-        "destroyer_blade": {"name": "파괴자의 검", "desc": "차원을 파괴하는 궁극의 검"},
-        "eternal_shield": {"name": "영겁의 방패", "desc": "영원히 부서지지 않는 방패"},
-        "universe_heart": {"name": "우주의 심장", "desc": "우주의 핵심 에너지 결정"},
-        "time_end_blade": {"name": "시간의 종말 검", "desc": "시간이 멈춘 곳에서 온 검"},
-        "absolute_blade": {"name": "절대자의 검", "desc": "존재의 근원을 관통하는 검"},
-        "final_crown": {"name": "???의 왕관", "desc": "이것이 진정한 끝인가...?"}
+        "wooden_sword": {
+            "name": "나무 검",
+            "desc": "모험의 시작, 첫 번째 무기"
+        },
+        "leather_shield": {
+            "name": "가죽 방패",
+            "desc": "기본적인 방어력을 제공"
+        },
+        "iron_dagger": {
+            "name": "철 단검",
+            "desc": "빠른 연속 공격이 가능"
+        },
+        "iron_helm": {
+            "name": "철 투구",
+            "desc": "머리를 보호하는 철 투구"
+        },
+        "iron_armor": {
+            "name": "철 갑옷",
+            "desc": "단단한 철로 제련된 갑옷"
+        },
+        "steel_sword": {
+            "name": "강철 장검",
+            "desc": "장인이 벼린 강철의 검"
+        },
+        "recruit_bow": {
+            "name": "수비대의 활",
+            "desc": "마을 수비대 궁수의 활"
+        },
+        "acolyte_staff": {
+            "name": "수습 지팡이",
+            "desc": "마법 수련에 쓰이는 지팡이"
+        },
+        "squire_plate": {
+            "name": "견습 기사 갑옷",
+            "desc": "기사 수련생의 무거운 갑옷"
+        },
+        "master_blade": {
+            "name": "대장장이의 명검",
+            "desc": "마을 최고 장인의 역작"
+        },
+        "hunters_bow": {
+            "name": "사냥꾼의 활",
+            "desc": "숲의 노련한 사냥꾼의 활"
+        },
+        "wolf_cloak": {
+            "name": "늑대 가죽 망토",
+            "desc": "늑대의 가죽으로 만든 망토"
+        },
+        "poison_blade": {
+            "name": "독날 검",
+            "desc": "독이 묻은 날카로운 검"
+        },
+        "thorn_whip": {
+            "name": "가시 채찍",
+            "desc": "가시로 뒤덮인 마법 채찍"
+        },
+        "forest_staff": {
+            "name": "숲의 지팡이",
+            "desc": "자연의 힘이 깃든 지팡이"
+        },
+        "elven_boots": {
+            "name": "엘프 부츠",
+            "desc": "엘프의 민첩함이 깃든 부츠"
+        },
+        "oak_shield": {
+            "name": "참나무 대방패",
+            "desc": "세계수 조각으로 만든 방패"
+        },
+        "spirit_bow": {
+            "name": "정령의 활",
+            "desc": "정령이 축복한 신비의 활"
+        },
+        "druid_robe": {
+            "name": "드루이드 로브",
+            "desc": "자연과 소통하는 마법 로브"
+        },
+        "forest_crown": {
+            "name": "숲 왕의 왕관",
+            "desc": "숲을 다스리는 왕의 왕관"
+        },
+        "flame_sword": {
+            "name": "화염 검",
+            "desc": "불꽃이 타오르는 마검"
+        },
+        "lava_shield": {
+            "name": "용암 방패",
+            "desc": "녹지 않는 용암석 방패"
+        },
+        "fire_staff": {
+            "name": "화염 지팡이",
+            "desc": "화산의 마력이 담긴 지팡이"
+        },
+        "obsidian_blade": {
+            "name": "흑요석 검",
+            "desc": "화산에서 태어난 흑요석 칼날"
+        },
+        "magma_gauntlet": {
+            "name": "마그마 건틀릿",
+            "desc": "용암으로 단련된 장갑"
+        },
+        "salamander_mail": {
+            "name": "불도마뱀 갑옷",
+            "desc": "화염에 면역인 비늘 갑옷"
+        },
+        "volcano_hammer": {
+            "name": "화산 망치",
+            "desc": "화산의 분노를 담은 대형 망치"
+        },
+        "phoenix_feather": {
+            "name": "불사조 깃털",
+            "desc": "불사조의 신성한 깃털 장식"
+        },
+        "inferno_robe": {
+            "name": "지옥불 로브",
+            "desc": "지옥불이 수놓인 마법 로브"
+        },
+        "volcano_heart": {
+            "name": "화산의 심장",
+            "desc": "화산 깊은 곳의 핵심 결정"
+        },
+        "shadow_blade": {
+            "name": "그림자 검",
+            "desc": "어둠에서 태어난 검"
+        },
+        "soul_gem": {
+            "name": "영혼석",
+            "desc": "영혼의 힘을 증폭시키는 보석"
+        },
+        "necro_tome": {
+            "name": "사령술서",
+            "desc": "죽은 자를 부리는 금서"
+        },
+        "abyssal_scythe": {
+            "name": "심연의 낫",
+            "desc": "저승사자의 대낫"
+        },
+        "void_armor": {
+            "name": "공허의 갑옷",
+            "desc": "심연의 공허로 만든 갑옷"
+        },
+        "banshee_wail": {
+            "name": "밴시의 울음",
+            "desc": "귀를 찢는 비명의 마법 구슬"
+        },
+        "blood_chalice": {
+            "name": "피의 성배",
+            "desc": "뱀파이어 군주의 성배"
+        },
+        "demon_horn": {
+            "name": "악마의 뿔",
+            "desc": "악마에게서 빼앗은 뿔 장식"
+        },
+        "abyss_eye": {
+            "name": "심연의 눈",
+            "desc": "모든 것을 꿰뚫어 보는 눈"
+        },
+        "death_mantle": {
+            "name": "죽음의 군주 망토",
+            "desc": "죽음을 지배하는 군주의 망토"
+        },
+        "dragon_fang": {
+            "name": "드래곤 송곳니",
+            "desc": "드래곤의 이빨로 만든 검"
+        },
+        "dragon_scale": {
+            "name": "드래곤 비늘 갑옷",
+            "desc": "용의 비늘로 만든 갑옷"
+        },
+        "wyrmfire_staff": {
+            "name": "용화 지팡이",
+            "desc": "용의 숨결이 담긴 지팡이"
+        },
+        "wyvern_lance": {
+            "name": "와이번 창",
+            "desc": "와이번의 뼈로 만든 창"
+        },
+        "hydra_fang": {
+            "name": "히드라의 이빨",
+            "desc": "자라나는 독니로 만든 무기"
+        },
+        "ancient_relic": {
+            "name": "고대의 유물",
+            "desc": "태초의 힘이 봉인된 유물"
+        },
+        "bone_dragon_bow": {
+            "name": "뼈 드래곤 활",
+            "desc": "언데드 드래곤의 뼈 활"
+        },
+        "titan_hammer": {
+            "name": "타이탄 망치",
+            "desc": "거신이 사용하던 대형 망치"
+        },
+        "dragon_heart": {
+            "name": "용의 심장",
+            "desc": "드래곤 로드의 심장 결정"
+        },
+        "dragonlord_crown": {
+            "name": "용왕의 왕관",
+            "desc": "모든 용을 지배하는 왕관"
+        },
+        "god_blade": {
+            "name": "신의 검",
+            "desc": "신이 내린 축복의 검"
+        },
+        "celestial_armor": {
+            "name": "천상의 갑옷",
+            "desc": "하늘의 광채를 담은 갑옷"
+        },
+        "infinity_orb": {
+            "name": "무한의 오브",
+            "desc": "무한한 마력의 수정구"
+        },
+        "seraphim_wings": {
+            "name": "세라핌의 날개",
+            "desc": "천사장의 날개 장식"
+        },
+        "world_tree_bow": {
+            "name": "세계수의 활",
+            "desc": "세계수 가지로 만든 신궁"
+        },
+        "astral_blade": {
+            "name": "성광의 검",
+            "desc": "별빛을 품은 성스러운 검"
+        },
+        "divine_shield": {
+            "name": "신성 방패",
+            "desc": "어떤 공격도 막아내는 방패"
+        },
+        "sun_staff": {
+            "name": "태양의 지팡이",
+            "desc": "태양의 힘을 모으는 지팡이"
+        },
+        "judgment_hammer": {
+            "name": "심판의 망치",
+            "desc": "신이 내린 심판의 무기"
+        },
+        "hero_crown": {
+            "name": "영웅의 왕관",
+            "desc": "세계를 구한 영웅의 왕관"
+        },
+        "rift_blade": {
+            "name": "균열의 검",
+            "desc": "차원을 베는 검"
+        },
+        "time_dagger": {
+            "name": "시간의 단검",
+            "desc": "시간을 멈추는 단검"
+        },
+        "void_gauntlet": {
+            "name": "공허 건틀릿",
+            "desc": "공허의 힘을 뿜는 장갑"
+        },
+        "star_bow": {
+            "name": "별의 활",
+            "desc": "별의 에너지를 쏘는 활"
+        },
+        "crystal_staff": {
+            "name": "결정 지팡이",
+            "desc": "차원 결정으로 만든 지팡이"
+        },
+        "ether_armor": {
+            "name": "에테르 갑옷",
+            "desc": "에테르로 짠 투명한 갑옷"
+        },
+        "dimension_axe": {
+            "name": "차원 도끼",
+            "desc": "차원을 가르는 거대 도끼"
+        },
+        "cosmic_tome": {
+            "name": "우주의 서",
+            "desc": "우주의 진리가 적힌 서적"
+        },
+        "infinity_shield": {
+            "name": "무한 방패",
+            "desc": "무한히 재생하는 방패"
+        },
+        "rift_crown": {
+            "name": "차원왕의 왕관",
+            "desc": "차원을 지배하는 자의 왕관"
+        },
+        "chaos_blade": {
+            "name": "혼돈의 검",
+            "desc": "혼돈에서 태어난 불안정한 검"
+        },
+        "primal_staff": {
+            "name": "원초의 지팡이",
+            "desc": "태초의 원소력이 깃든 지팡이"
+        },
+        "world_turtle": {
+            "name": "거북 등껍질",
+            "desc": "세계를 등에 진 거북의 조각"
+        },
+        "time_dragon_fang": {
+            "name": "시간용의 송곳니",
+            "desc": "시간을 초월한 용의 이빨"
+        },
+        "star_giant_axe": {
+            "name": "별 거인의 도끼",
+            "desc": "별을 깎아 만든 거대 도끼"
+        },
+        "element_gauntlet": {
+            "name": "원소 타이탄 장갑",
+            "desc": "4원소의 힘이 융합된 장갑"
+        },
+        "fate_scale": {
+            "name": "운명의 천칭",
+            "desc": "운명을 재는 심판의 천칭"
+        },
+        "chaos_orb": {
+            "name": "혼돈의 오브",
+            "desc": "태초의 혼돈이 응축된 구체"
+        },
+        "eternal_eye": {
+            "name": "영원의 눈",
+            "desc": "영원을 관측하는 거대한 눈"
+        },
+        "primordial_crown": {
+            "name": "태초의 왕관",
+            "desc": "태초의 존재가 쓰던 왕관"
+        },
+        "odin_spear": {
+            "name": "오딘의 창",
+            "desc": "절대 빗나가지 않는 신의 창"
+        },
+        "thor_hammer": {
+            "name": "토르의 망치",
+            "desc": "번개를 내리치는 신의 망치"
+        },
+        "hades_helm": {
+            "name": "하데스의 투구",
+            "desc": "투명해지는 명계의 투구"
+        },
+        "poseidon_trident": {
+            "name": "포세이돈의 삼지창",
+            "desc": "바다를 지배하는 삼지창"
+        },
+        "ares_shield": {
+            "name": "아레스의 방패",
+            "desc": "전쟁의 신이 들던 방패"
+        },
+        "athena_aegis": {
+            "name": "아테나의 이지스",
+            "desc": "지혜의 여신의 완벽한 방어구"
+        },
+        "zeus_bolt": {
+            "name": "제우스의 벼락",
+            "desc": "하늘의 왕이 던지는 벼락"
+        },
+        "kronos_scythe": {
+            "name": "크로노스의 낫",
+            "desc": "시간 자체를 베는 거대한 낫"
+        },
+        "gaia_blessing": {
+            "name": "가이아의 축복",
+            "desc": "대지의 어머니의 신성한 힘"
+        },
+        "chaos_origin": {
+            "name": "카오스의 근원",
+            "desc": "만물의 시작이자 끝의 힘"
+        },
+        "jormungandr_fang": {
+            "name": "요르문간드의 이빨",
+            "desc": "세계를 감싸는 뱀의 이빨"
+        },
+        "surtr_flame": {
+            "name": "수르트의 불꽃검",
+            "desc": "세계를 불태우는 거인의 검"
+        },
+        "fenrir_claw": {
+            "name": "펜리르의 발톱",
+            "desc": "신도 삼킨 늑대의 발톱"
+        },
+        "emperor_scepter": {
+            "name": "심연 황제의 홀",
+            "desc": "심연의 모든 것을 지배하는 홀"
+        },
+        "destroyer_blade": {
+            "name": "파괴자의 검",
+            "desc": "차원을 파괴하는 궁극의 검"
+        },
+        "eternal_shield": {
+            "name": "영겁의 방패",
+            "desc": "영원히 부서지지 않는 방패"
+        },
+        "universe_heart": {
+            "name": "우주의 심장",
+            "desc": "우주의 핵심 에너지 결정"
+        },
+        "time_end_blade": {
+            "name": "시간의 종말 검",
+            "desc": "시간이 멈춘 곳에서 온 검"
+        },
+        "absolute_blade": {
+            "name": "절대자의 검",
+            "desc": "존재의 근원을 관통하는 검"
+        },
+        "final_crown": {
+            "name": "???의 왕관",
+            "desc": "이것이 진정한 끝인가...?"
+        }
     },
     "recommendations": {
         "emojiMerge": "이모지 머지",
@@ -493,12 +709,6 @@
         "levelUp": "레벨 업",
         "insufficientGold": "골드가 부족합니다!"
     },
-    "monsters": {
-        "flowerMonster": "꽃 몬스터",
-        "iceMonster": "얼음 몬스터",
-        "pumpkinMonster": "호박 몬스터",
-        "snowmanMonster": "눈사람 몬스터"
-    },
     "seasons": {
         "spring": "봄",
         "summer": "여름",
@@ -553,21 +763,30 @@
         "noAttempts": "기회가 끝났습니다.",
         "cooldown": "10분마다 미니게임을 플레이할 수 있습니다"
     },
-  "error": {
-    "storage": "개인 정보 보호 모드에서는 일부 기능이 제한될 수 있습니다.",
-    "data": "데이터 로드 중 문제가 발생했습니다. 새로고침해주세요.",
-    "canvas": "그래픽 렌더링 중 문제가 발생했습니다. 다시 시도해주세요.",
-    "audio": "음성 기능을 사용할 수 없습니다. 계속 진행하실 수 있습니다.",
-    "network": "네트워크 연결을 확인해주세요.",
-    "general": "문제가 발생했습니다. 새로고침하거나 다시 시도해주세요."
-  },
-  "result": {
-    "moreGames": "더 많은 게임"
-  },
-  "related": {
-    "stackTower": "스택 타워",
-    "flappyBird": "플래피 버드",
-    "emojiMerge": "이모지 머지",
-    "blockPuzzle": "블록 퍼즐"
-  }
+    "error": {
+        "storage": "개인 정보 보호 모드에서는 일부 기능이 제한될 수 있습니다.",
+        "data": "데이터 로드 중 문제가 발생했습니다. 새로고침해주세요.",
+        "canvas": "그래픽 렌더링 중 문제가 발생했습니다. 다시 시도해주세요.",
+        "audio": "음성 기능을 사용할 수 없습니다. 계속 진행하실 수 있습니다.",
+        "network": "네트워크 연결을 확인해주세요.",
+        "general": "문제가 발생했습니다. 새로고침하거나 다시 시도해주세요."
+    },
+    "result": {
+        "moreGames": "더 많은 게임"
+    },
+    "related": {
+        "stackTower": "스택 타워",
+        "flappyBird": "플래피 버드",
+        "emojiMerge": "이모지 머지",
+        "blockPuzzle": "블록 퍼즐"
+    },
+    "goldMilestone": {
+        "g1k": "1,000 골드 달성!",
+        "g10k": "10,000 골드 돌파!",
+        "g100k": "100,000 골드! 부자가 되고 있어요!",
+        "g1m": "1,000,000 골드! 백만장자!",
+        "g10m": "10,000,000 골드! 전설의 부자!",
+        "g100m": "100,000,000 골드! 신화적 부!",
+        "g1b": "1,000,000,000 골드! 우주의 지배자!"
+    }
 }

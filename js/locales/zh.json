@@ -1,873 +1,792 @@
 {
-  "achievement": {
-    "bossHunter": "猎杀者",
-    "bossHunterDesc": "击败10个boss",
-    "click10k": "点击大师",
-    "click10kDesc": "点击10000次",
-    "click1k": "点击王",
-    "click1kDesc": "点击1000次",
-    "dps100": "DPS100",
-    "dps100Desc": "达到100自动DPS",
-    "dungeonMaster": "地牢大师",
-    "dungeonMasterDesc": "到达第10层",
-    "equipment10": "装备达人",
-    "equipment10Desc": "购买10个装备",
-    "firstStep": "初试锋芒",
-    "firstStepDesc": "击败第一个怪物",
-    "goldenMonster": "黄金猎手",
-    "goldenMonsterDesc": "击败5个黄金怪物",
-    "prestige5": "连续转生",
-    "prestige5Desc": "转生5次",
-    "prestigeFirst": "重生者",
-    "prestigeFirstDesc": "第一次转生",
-    "skillMaster": "技能大师",
-    "skillMasterDesc": "5个技能升到等级5",
-    "slayer100": "战士之路",
-    "slayer1000": "屠夫",
-    "slayer1000Desc": "击败1000个怪物",
-    "slayer100Desc": "击败100个怪物",
-    "wealth10k": "富豪",
-    "wealth10kDesc": "获得10000金币",
-    "wealth1m": "亿万富豪",
-    "wealth1mDesc": "获得1000000金币"
-  },
-  "app": {
-    "description": "在地下城中击败怪物并装备强大的装备!RPG冒险从一次点击开始。免费空闲点击游戏!",
-    "loading": "Loading...",
-    "title": "地下城点击器 - 空闲RPG点击游戏 | DopaBrain"
-  },
-  "dailyMissions": {
-    "bonusGold": "金币",
-    "bonusXP": "经验",
-    "boss_1": "击败1个BOSS",
-    "claim": "领取",
-    "claimed": "已领取",
-    "dailyBonus": "每日完成奖励",
-    "gold_10k": "获得10,000金币",
-    "kill_100": "击败100个怪物",
-    "missionCompleted": "任务完成！",
-    "resetsIn": "重置倒计时",
-    "title": "📋 每日任务"
-  },
-  "dungeon": {
-    "abyss": "深渊",
-    "chaos": "原始混沌",
-    "divine": "神圣领域",
-    "dragon": "龙巢",
-    "endworld": "世界末日",
-    "forest": "森林地下城",
-    "mythic": "神话领域",
-    "rift": "次元裂隙",
-    "village": "村庄外围",
-    "volcano": "火山地下城"
-  },
-  "equipment": {
-    "absolute_blade": {
-      "desc": "穿透存在根源的剑",
-      "name": "绝对者之剑"
-    },
-    "abyss_eye": {
-      "desc": "看透一切的眼睛",
-      "name": "深渊之眼"
-    },
-    "abyssal_scythe": {
-      "desc": "阎王的大镰刀",
-      "name": "深渊镰"
-    },
-    "acolyte_staff": {
-      "desc": "用于魔法训练的杖",
-      "name": "学徒杖"
-    },
-    "ancient_relic": {
-      "desc": "封印太初力量的遗物",
-      "name": "古代遗物"
-    },
-    "ares_shield": {
-      "desc": "战神持过的盾",
-      "name": "阿瑞斯盾"
-    },
-    "astral_blade": {
-      "desc": "承载星光的圣剑",
-      "name": "星光剑"
-    },
-    "athena_aegis": {
-      "desc": "智慧女神的完美防具",
-      "name": "雅典娜宝甲"
-    },
-    "banshee_wail": {
-      "desc": "刺耳哭声的魔法球",
-      "name": "女妖的哭声"
-    },
-    "blood_chalice": {
-      "desc": "吸血鬼领主的圣杯",
-      "name": "血之圣杯"
-    },
-    "bone_dragon_bow": {
-      "desc": "不死龙的骨弓",
-      "name": "骨龙弓"
-    },
-    "celestial_armor": {
-      "desc": "承载天光的铠甲",
-      "name": "天界甲"
-    },
-    "chaos_blade": {
-      "desc": "由混沌诞生的不稳定之剑",
-      "name": "混沌剑"
-    },
-    "chaos_orb": {
-      "desc": "凝聚太初混沌的球体",
-      "name": "混沌球"
-    },
-    "chaos_origin": {
-      "desc": "万物起始与终结的力量",
-      "name": "混沌之源"
-    },
-    "common": "普通",
-    "cosmic_tome": {
-      "desc": "记载宇宙真理的书籍",
-      "name": "宇宙之书"
-    },
-    "crystal_staff": {
-      "desc": "由次元晶体制成的杖",
-      "name": "晶杖"
-    },
-    "death_mantle": {
-      "desc": "统治死亡的主人的披风",
-      "name": "死亡之主披风"
-    },
-    "demon_horn": {
-      "desc": "从恶魔那里夺来的角饰",
-      "name": "恶魔之角"
-    },
-    "destroyer_blade": {
-      "desc": "破坏次元的究极之剑",
-      "name": "毁灭者剑"
-    },
-    "dimension_axe": {
-      "desc": "斩开次元的巨大斧",
-      "name": "次元斧"
-    },
-    "divine_shield": {
-      "desc": "能挡下任何攻击的盾",
-      "name": "神圣盾"
-    },
-    "dragon_fang": {
-      "desc": "用龙的牙齿制成的剑",
-      "name": "龙牙"
-    },
-    "dragon_heart": {
-      "desc": "龙之王的心脏晶体",
-      "name": "龙之心"
-    },
-    "dragon_scale": {
-      "desc": "由龙鳞制成的铠甲",
-      "name": "龙鳞甲"
-    },
-    "dragonlord_crown": {
-      "desc": "统治所有龙的王冠",
-      "name": "龙王王冠"
-    },
-    "druid_robe": {
-      "desc": "与自然沟通的魔法袍",
-      "name": "德鲁伊袍"
-    },
-    "element_gauntlet": {
-      "desc": "融合四元素力的手套",
-      "name": "元素手套"
-    },
-    "elven_boots": {
-      "desc": "拥有精灵敏捷的靴子",
-      "name": "精灵靴"
-    },
-    "emperor_scepter": {
-      "desc": "统治深渊一切的权杖",
-      "name": "深渊皇帝权杖"
-    },
-    "epic": "史诗",
-    "eternal_eye": {
-      "desc": "观测永恒的巨大眼睛",
-      "name": "永恒之眼"
-    },
-    "eternal_shield": {
-      "desc": "永远不会破碎的盾",
-      "name": "永恒盾"
-    },
-    "ether_armor": {
-      "desc": "用以太编织的透明甲",
-      "name": "以太甲"
-    },
-    "fate_scale": {
-      "desc": "衡量命运的审判天平",
-      "name": "命运天平"
-    },
-    "fenrir_claw": {
-      "desc": "吞没诸神的狼爪",
-      "name": "芬里尔爪"
-    },
-    "final_crown": {
-      "desc": "这真的是最后吗...?",
-      "name": "???的王冠"
-    },
-    "fire_staff": {
-      "desc": "充满火山魔力的杖",
-      "name": "火焰杖"
-    },
-    "flame_sword": {
-      "desc": "燃烧着火焰的魔剑",
-      "name": "火焰剑"
-    },
-    "forest_crown": {
-      "desc": "统治森林的王的王冠",
-      "name": "森林王冠"
-    },
-    "forest_staff": {
-      "desc": "注入自然力量的杖",
-      "name": "森林杖"
-    },
-    "gaia_blessing": {
-      "desc": "大地之母的神圣力量",
-      "name": "盖亚祝福"
-    },
-    "god_blade": {
-      "desc": "神赐予的祝福之剑",
-      "name": "神之剑"
-    },
-    "hades_helm": {
-      "desc": "能隐身的冥界头盔",
-      "name": "哈迪斯头盔"
-    },
-    "hero_crown": {
-      "desc": "拯救世界的英雄的王冠",
-      "name": "英雄王冠"
-    },
-    "hunters_bow": {
-      "desc": "森林老练猎人的弓",
-      "name": "猎人弓"
-    },
-    "hydra_fang": {
-      "desc": "由生长的毒牙制成的武器",
-      "name": "九头蛇牙"
-    },
-    "inferno_robe": {
-      "desc": "绣有地狱火的魔法袍",
-      "name": "炼狱袍"
-    },
-    "infinity_orb": {
-      "desc": "拥有无限魔力的晶球",
-      "name": "无限球"
-    },
-    "infinity_shield": {
-      "desc": "无限再生的盾",
-      "name": "无限盾"
-    },
-    "iron_armor": {
-      "desc": "由坚硬的铁制成的铠甲",
-      "name": "铁甲"
-    },
-    "iron_dagger": {
-      "desc": "可以进行快速连续攻击",
-      "name": "铁匕首"
-    },
-    "iron_helm": {
-      "desc": "保护头部的铁头盔",
-      "name": "铁盔"
-    },
-    "jormungandr_fang": {
-      "desc": "环绕世界的蛇的牙齿",
-      "name": "约尔蒙冈德牙"
-    },
-    "judgment_hammer": {
-      "desc": "神赐予的审判武器",
-      "name": "审判锤"
-    },
-    "kronos_scythe": {
-      "desc": "斩时间本身的巨大镰刀",
-      "name": "克罗诺斯镰"
-    },
-    "lava_shield": {
-      "desc": "不会熔化的熔岩盾",
-      "name": "岩浆盾"
-    },
-    "leather_shield": {
-      "desc": "提供基本防御",
-      "name": "皮盾"
-    },
-    "legendary": "传奇",
-    "magma_gauntlet": {
-      "desc": "由岩浆锻造的手套",
-      "name": "岩浆手套"
-    },
-    "master_blade": {
-      "desc": "镇上最好的工匠的杰作",
-      "name": "工匠名刃"
-    },
-    "necro_tome": {
-      "desc": "控制死者的禁书",
-      "name": "死灵术书"
-    },
-    "oak_shield": {
-      "desc": "由世界树碎片制成的盾",
-      "name": "橡木盾"
-    },
-    "obsidian_blade": {
-      "desc": "由火山中诞生的黑曜石刀刃",
-      "name": "黑曜石刃"
-    },
-    "odin_spear": {
-      "desc": "永不落空的神枪",
-      "name": "奥丁枪"
-    },
-    "phoenix_feather": {
-      "desc": "凤凰的神圣羽毛装饰",
-      "name": "凤凰羽毛"
-    },
-    "poison_blade": {
-      "desc": "涂了毒的锋利长剑",
-      "name": "毒刃"
-    },
-    "poseidon_trident": {
-      "desc": "统治大海的三叉戟",
-      "name": "波塞冬三叉戟"
-    },
-    "primal_staff": {
-      "desc": "注入太初元素力的杖",
-      "name": "原初杖"
-    },
-    "primordial_crown": {
-      "desc": "太初存在戴过的王冠",
-      "name": "太初王冠"
-    },
-    "rare": "稀有",
-    "recruit_bow": {
-      "desc": "城镇卫兵弓箭手的弓",
-      "name": "卫兵弓"
-    },
-    "rift_blade": {
-      "desc": "能斩开次元的剑",
-      "name": "裂隙剑"
-    },
-    "rift_crown": {
-      "desc": "统治次元的王冠",
-      "name": "次元王冠"
-    },
-    "salamander_mail": {
-      "desc": "对火焰免疫的鳞甲",
-      "name": "火蜥蜴甲"
-    },
-    "seraphim_wings": {
-      "desc": "天使长的翅膀装饰",
-      "name": "炽天使翅膀"
-    },
-    "setBonus": "⭐ 套装完成！ +20% DPS",
-    "shadow_blade": {
-      "desc": "从黑暗中诞生的剑",
-      "name": "影子剑"
-    },
-    "soul_gem": {
-      "desc": "增强灵魂力量的宝石",
-      "name": "灵魂石"
-    },
-    "spirit_bow": {
-      "desc": "被精灵祝福的神秘之弓",
-      "name": "灵弓"
-    },
-    "squire_plate": {
-      "desc": "骑士学徒的沉重铠甲",
-      "name": "侍从甲"
-    },
-    "star_bow": {
-      "desc": "射出星辰能量的弓",
-      "name": "星弓"
-    },
-    "star_giant_axe": {
-      "desc": "用星辰打磨的巨斧",
-      "name": "星巨人斧"
-    },
-    "steel_sword": {
-      "desc": "工匠打磨的钢制长剑",
-      "name": "钢刀"
-    },
-    "sun_staff": {
-      "desc": "汇聚太阳之力的杖",
-      "name": "太阳杖"
-    },
-    "surtr_flame": {
-      "desc": "巨人焚世的火焰剑",
-      "name": "苏尔特火焰剑"
-    },
-    "thor_hammer": {
-      "desc": "降下闪电的神锤",
-      "name": "托尔锤"
-    },
-    "thorn_whip": {
-      "desc": "被荆棘覆盖的魔法鞭",
-      "name": "荆棘鞭"
-    },
-    "time_dagger": {
-      "desc": "能停止时间的匕首",
-      "name": "时间匕首"
-    },
-    "time_dragon_fang": {
-      "desc": "超越时间的龙牙",
-      "name": "时间龙牙"
-    },
-    "time_end_blade": {
-      "desc": "来自时间停止之地的剑",
-      "name": "时间终结剑"
-    },
-    "titan_hammer": {
-      "desc": "巨神使用的大锤",
-      "name": "泰坦锤"
-    },
-    "uncommon": "高级",
-    "universe_heart": {
-      "desc": "宇宙核心能量晶体",
-      "name": "宇宙之心"
-    },
-    "void_armor": {
-      "desc": "由深渊虚空制成的铠甲",
-      "name": "虚空甲"
-    },
-    "void_gauntlet": {
-      "desc": "喷出虚空力量的手套",
-      "name": "虚空手套"
-    },
-    "volcano_hammer": {
-      "desc": "承载火山之怒的大锤",
-      "name": "火山锤"
-    },
-    "volcano_heart": {
-      "desc": "火山深处的核心晶体",
-      "name": "火山之心"
-    },
-    "wolf_cloak": {
-      "desc": "用狼皮制成的斗篷",
-      "name": "狼皮斗篷"
-    },
-    "wooden_sword": {
-      "desc": "冒险的开始，第一把武器",
-      "name": "木剑"
-    },
-    "world_tree_bow": {
-      "desc": "由世界树枝制成的神弓",
-      "name": "世界树弓"
-    },
-    "world_turtle": {
-      "desc": "背负世界的龟的碎片",
-      "name": "龟壳"
-    },
-    "wyrmfire_staff": {
-      "desc": "注入龙息的杖",
-      "name": "龙火杖"
-    },
-    "wyvern_lance": {
-      "desc": "由飞龙骨制成的枪",
-      "name": "飞龙枪"
-    },
-    "zeus_bolt": {
-      "desc": "天空之王投掷的闪电",
-      "name": "宙斯闪电"
+    "achievement": {
+        "bossHunter": "猎杀者",
+        "bossHunterDesc": "击败10个boss",
+        "click10k": "点击大师",
+        "click10kDesc": "点击10000次",
+        "click1k": "点击王",
+        "click1kDesc": "点击1000次",
+        "dps100": "DPS100",
+        "dps100Desc": "达到100自动DPS",
+        "dungeonMaster": "地牢大师",
+        "dungeonMasterDesc": "到达第10层",
+        "equipment10": "装备达人",
+        "equipment10Desc": "购买10个装备",
+        "firstStep": "初试锋芒",
+        "firstStepDesc": "击败第一个怪物",
+        "goldenMonster": "黄金猎手",
+        "goldenMonsterDesc": "击败5个黄金怪物",
+        "prestige5": "连续转生",
+        "prestige5Desc": "转生5次",
+        "prestigeFirst": "重生者",
+        "prestigeFirstDesc": "第一次转生",
+        "skillMaster": "技能大师",
+        "skillMasterDesc": "5个技能升到等级5",
+        "slayer100": "战士之路",
+        "slayer1000": "屠夫",
+        "slayer1000Desc": "击败1000个怪物",
+        "slayer100Desc": "击败100个怪物",
+        "wealth10k": "富豪",
+        "wealth10kDesc": "获得10000金币",
+        "wealth1m": "亿万富豪",
+        "wealth1mDesc": "获得1000000金币",
+        "speedClicker": "极速点击",
+        "speedClickerDesc": "达到每秒10次点击",
+        "firstPurchase": "首次购买",
+        "firstPurchaseDesc": "购买第一件装备",
+        "millionaire": "百万富翁",
+        "millionaireDesc": "同时持有1,000,000金币",
+        "comboMaster": "连击大师",
+        "comboMasterDesc": "达成30连击",
+        "petOwner": "宠物主人",
+        "petOwnerDesc": "解锁第一只宠物"
+    },
+    "app": {
+        "description": "在地下城中击败怪物并装备强大的装备!RPG冒险从一次点击开始。免费空闲点击游戏!",
+        "loading": "Loading...",
+        "title": "地下城点击器 - 空闲RPG点击游戏 | DopaBrain"
+    },
+    "dailyMissions": {
+        "bonusGold": "金币",
+        "bonusXP": "经验",
+        "boss_1": "击败1个BOSS",
+        "claim": "领取",
+        "claimed": "已领取",
+        "dailyBonus": "每日完成奖励",
+        "gold_10k": "获得10,000金币",
+        "kill_100": "击败100个怪物",
+        "missionCompleted": "任务完成！",
+        "resetsIn": "重置倒计时",
+        "title": "📋 每日任务"
+    },
+    "dungeon": {
+        "abyss": "深渊",
+        "chaos": "原始混沌",
+        "divine": "神圣领域",
+        "dragon": "龙巢",
+        "endworld": "世界末日",
+        "forest": "森林地下城",
+        "mythic": "神话领域",
+        "rift": "次元裂隙",
+        "village": "村庄外围",
+        "volcano": "火山地下城"
+    },
+    "equipment": {
+        "absolute_blade": {
+            "desc": "穿透存在根源的剑",
+            "name": "绝对者之剑"
+        },
+        "abyss_eye": {
+            "desc": "看透一切的眼睛",
+            "name": "深渊之眼"
+        },
+        "abyssal_scythe": {
+            "desc": "阎王的大镰刀",
+            "name": "深渊镰"
+        },
+        "acolyte_staff": {
+            "desc": "用于魔法训练的杖",
+            "name": "学徒杖"
+        },
+        "ancient_relic": {
+            "desc": "封印太初力量的遗物",
+            "name": "古代遗物"
+        },
+        "ares_shield": {
+            "desc": "战神持过的盾",
+            "name": "阿瑞斯盾"
+        },
+        "astral_blade": {
+            "desc": "承载星光的圣剑",
+            "name": "星光剑"
+        },
+        "athena_aegis": {
+            "desc": "智慧女神的完美防具",
+            "name": "雅典娜宝甲"
+        },
+        "banshee_wail": {
+            "desc": "刺耳哭声的魔法球",
+            "name": "女妖的哭声"
+        },
+        "blood_chalice": {
+            "desc": "吸血鬼领主的圣杯",
+            "name": "血之圣杯"
+        },
+        "bone_dragon_bow": {
+            "desc": "不死龙的骨弓",
+            "name": "骨龙弓"
+        },
+        "celestial_armor": {
+            "desc": "承载天光的铠甲",
+            "name": "天界甲"
+        },
+        "chaos_blade": {
+            "desc": "由混沌诞生的不稳定之剑",
+            "name": "混沌剑"
+        },
+        "chaos_orb": {
+            "desc": "凝聚太初混沌的球体",
+            "name": "混沌球"
+        },
+        "chaos_origin": {
+            "desc": "万物起始与终结的力量",
+            "name": "混沌之源"
+        },
+        "common": "普通",
+        "cosmic_tome": {
+            "desc": "记载宇宙真理的书籍",
+            "name": "宇宙之书"
+        },
+        "crystal_staff": {
+            "desc": "由次元晶体制成的杖",
+            "name": "晶杖"
+        },
+        "death_mantle": {
+            "desc": "统治死亡的主人的披风",
+            "name": "死亡之主披风"
+        },
+        "demon_horn": {
+            "desc": "从恶魔那里夺来的角饰",
+            "name": "恶魔之角"
+        },
+        "destroyer_blade": {
+            "desc": "破坏次元的究极之剑",
+            "name": "毁灭者剑"
+        },
+        "dimension_axe": {
+            "desc": "斩开次元的巨大斧",
+            "name": "次元斧"
+        },
+        "divine_shield": {
+            "desc": "能挡下任何攻击的盾",
+            "name": "神圣盾"
+        },
+        "dragon_fang": {
+            "desc": "用龙的牙齿制成的剑",
+            "name": "龙牙"
+        },
+        "dragon_heart": {
+            "desc": "龙之王的心脏晶体",
+            "name": "龙之心"
+        },
+        "dragon_scale": {
+            "desc": "由龙鳞制成的铠甲",
+            "name": "龙鳞甲"
+        },
+        "dragonlord_crown": {
+            "desc": "统治所有龙的王冠",
+            "name": "龙王王冠"
+        },
+        "druid_robe": {
+            "desc": "与自然沟通的魔法袍",
+            "name": "德鲁伊袍"
+        },
+        "element_gauntlet": {
+            "desc": "融合四元素力的手套",
+            "name": "元素手套"
+        },
+        "elven_boots": {
+            "desc": "拥有精灵敏捷的靴子",
+            "name": "精灵靴"
+        },
+        "emperor_scepter": {
+            "desc": "统治深渊一切的权杖",
+            "name": "深渊皇帝权杖"
+        },
+        "epic": "史诗",
+        "eternal_eye": {
+            "desc": "观测永恒的巨大眼睛",
+            "name": "永恒之眼"
+        },
+        "eternal_shield": {
+            "desc": "永远不会破碎的盾",
+            "name": "永恒盾"
+        },
+        "ether_armor": {
+            "desc": "用以太编织的透明甲",
+            "name": "以太甲"
+        },
+        "fate_scale": {
+            "desc": "衡量命运的审判天平",
+            "name": "命运天平"
+        },
+        "fenrir_claw": {
+            "desc": "吞没诸神的狼爪",
+            "name": "芬里尔爪"
+        },
+        "final_crown": {
+            "desc": "这真的是最后吗...?",
+            "name": "???的王冠"
+        },
+        "fire_staff": {
+            "desc": "充满火山魔力的杖",
+            "name": "火焰杖"
+        },
+        "flame_sword": {
+            "desc": "燃烧着火焰的魔剑",
+            "name": "火焰剑"
+        },
+        "forest_crown": {
+            "desc": "统治森林的王的王冠",
+            "name": "森林王冠"
+        },
+        "forest_staff": {
+            "desc": "注入自然力量的杖",
+            "name": "森林杖"
+        },
+        "gaia_blessing": {
+            "desc": "大地之母的神圣力量",
+            "name": "盖亚祝福"
+        },
+        "god_blade": {
+            "desc": "神赐予的祝福之剑",
+            "name": "神之剑"
+        },
+        "hades_helm": {
+            "desc": "能隐身的冥界头盔",
+            "name": "哈迪斯头盔"
+        },
+        "hero_crown": {
+            "desc": "拯救世界的英雄的王冠",
+            "name": "英雄王冠"
+        },
+        "hunters_bow": {
+            "desc": "森林老练猎人的弓",
+            "name": "猎人弓"
+        },
+        "hydra_fang": {
+            "desc": "由生长的毒牙制成的武器",
+            "name": "九头蛇牙"
+        },
+        "inferno_robe": {
+            "desc": "绣有地狱火的魔法袍",
+            "name": "炼狱袍"
+        },
+        "infinity_orb": {
+            "desc": "拥有无限魔力的晶球",
+            "name": "无限球"
+        },
+        "infinity_shield": {
+            "desc": "无限再生的盾",
+            "name": "无限盾"
+        },
+        "iron_armor": {
+            "desc": "由坚硬的铁制成的铠甲",
+            "name": "铁甲"
+        },
+        "iron_dagger": {
+            "desc": "可以进行快速连续攻击",
+            "name": "铁匕首"
+        },
+        "iron_helm": {
+            "desc": "保护头部的铁头盔",
+            "name": "铁盔"
+        },
+        "jormungandr_fang": {
+            "desc": "环绕世界的蛇的牙齿",
+            "name": "约尔蒙冈德牙"
+        },
+        "judgment_hammer": {
+            "desc": "神赐予的审判武器",
+            "name": "审判锤"
+        },
+        "kronos_scythe": {
+            "desc": "斩时间本身的巨大镰刀",
+            "name": "克罗诺斯镰"
+        },
+        "lava_shield": {
+            "desc": "不会熔化的熔岩盾",
+            "name": "岩浆盾"
+        },
+        "leather_shield": {
+            "desc": "提供基本防御",
+            "name": "皮盾"
+        },
+        "legendary": "传奇",
+        "magma_gauntlet": {
+            "desc": "由岩浆锻造的手套",
+            "name": "岩浆手套"
+        },
+        "master_blade": {
+            "desc": "镇上最好的工匠的杰作",
+            "name": "工匠名刃"
+        },
+        "necro_tome": {
+            "desc": "控制死者的禁书",
+            "name": "死灵术书"
+        },
+        "oak_shield": {
+            "desc": "由世界树碎片制成的盾",
+            "name": "橡木盾"
+        },
+        "obsidian_blade": {
+            "desc": "由火山中诞生的黑曜石刀刃",
+            "name": "黑曜石刃"
+        },
+        "odin_spear": {
+            "desc": "永不落空的神枪",
+            "name": "奥丁枪"
+        },
+        "phoenix_feather": {
+            "desc": "凤凰的神圣羽毛装饰",
+            "name": "凤凰羽毛"
+        },
+        "poison_blade": {
+            "desc": "涂了毒的锋利长剑",
+            "name": "毒刃"
+        },
+        "poseidon_trident": {
+            "desc": "统治大海的三叉戟",
+            "name": "波塞冬三叉戟"
+        },
+        "primal_staff": {
+            "desc": "注入太初元素力的杖",
+            "name": "原初杖"
+        },
+        "primordial_crown": {
+            "desc": "太初存在戴过的王冠",
+            "name": "太初王冠"
+        },
+        "rare": "稀有",
+        "recruit_bow": {
+            "desc": "城镇卫兵弓箭手的弓",
+            "name": "卫兵弓"
+        },
+        "rift_blade": {
+            "desc": "能斩开次元的剑",
+            "name": "裂隙剑"
+        },
+        "rift_crown": {
+            "desc": "统治次元的王冠",
+            "name": "次元王冠"
+        },
+        "salamander_mail": {
+            "desc": "对火焰免疫的鳞甲",
+            "name": "火蜥蜴甲"
+        },
+        "seraphim_wings": {
+            "desc": "天使长的翅膀装饰",
+            "name": "炽天使翅膀"
+        },
+        "setBonus": "⭐ 套装完成！ +20% DPS",
+        "shadow_blade": {
+            "desc": "从黑暗中诞生的剑",
+            "name": "影子剑"
+        },
+        "soul_gem": {
+            "desc": "增强灵魂力量的宝石",
+            "name": "灵魂石"
+        },
+        "spirit_bow": {
+            "desc": "被精灵祝福的神秘之弓",
+            "name": "灵弓"
+        },
+        "squire_plate": {
+            "desc": "骑士学徒的沉重铠甲",
+            "name": "侍从甲"
+        },
+        "star_bow": {
+            "desc": "射出星辰能量的弓",
+            "name": "星弓"
+        },
+        "star_giant_axe": {
+            "desc": "用星辰打磨的巨斧",
+            "name": "星巨人斧"
+        },
+        "steel_sword": {
+            "desc": "工匠打磨的钢制长剑",
+            "name": "钢刀"
+        },
+        "sun_staff": {
+            "desc": "汇聚太阳之力的杖",
+            "name": "太阳杖"
+        },
+        "surtr_flame": {
+            "desc": "巨人焚世的火焰剑",
+            "name": "苏尔特火焰剑"
+        },
+        "thor_hammer": {
+            "desc": "降下闪电的神锤",
+            "name": "托尔锤"
+        },
+        "thorn_whip": {
+            "desc": "被荆棘覆盖的魔法鞭",
+            "name": "荆棘鞭"
+        },
+        "time_dagger": {
+            "desc": "能停止时间的匕首",
+            "name": "时间匕首"
+        },
+        "time_dragon_fang": {
+            "desc": "超越时间的龙牙",
+            "name": "时间龙牙"
+        },
+        "time_end_blade": {
+            "desc": "来自时间停止之地的剑",
+            "name": "时间终结剑"
+        },
+        "titan_hammer": {
+            "desc": "巨神使用的大锤",
+            "name": "泰坦锤"
+        },
+        "uncommon": "高级",
+        "universe_heart": {
+            "desc": "宇宙核心能量晶体",
+            "name": "宇宙之心"
+        },
+        "void_armor": {
+            "desc": "由深渊虚空制成的铠甲",
+            "name": "虚空甲"
+        },
+        "void_gauntlet": {
+            "desc": "喷出虚空力量的手套",
+            "name": "虚空手套"
+        },
+        "volcano_hammer": {
+            "desc": "承载火山之怒的大锤",
+            "name": "火山锤"
+        },
+        "volcano_heart": {
+            "desc": "火山深处的核心晶体",
+            "name": "火山之心"
+        },
+        "wolf_cloak": {
+            "desc": "用狼皮制成的斗篷",
+            "name": "狼皮斗篷"
+        },
+        "wooden_sword": {
+            "desc": "冒险的开始，第一把武器",
+            "name": "木剑"
+        },
+        "world_tree_bow": {
+            "desc": "由世界树枝制成的神弓",
+            "name": "世界树弓"
+        },
+        "world_turtle": {
+            "desc": "背负世界的龟的碎片",
+            "name": "龟壳"
+        },
+        "wyrmfire_staff": {
+            "desc": "注入龙息的杖",
+            "name": "龙火杖"
+        },
+        "wyvern_lance": {
+            "desc": "由飞龙骨制成的枪",
+            "name": "飞龙枪"
+        },
+        "zeus_bolt": {
+            "desc": "天空之王投掷的闪电",
+            "name": "宙斯闪电"
+        }
+    },
+    "event": {
+        "equipSale": "装备折扣",
+        "equipSaleDesc": "30秒内装备价格打七折！",
+        "expBoost": "经验加成",
+        "expBoostDesc": "30秒内技能经验翻倍！",
+        "goldRush": "黄金冲刺",
+        "goldRushDesc": "30秒内金币收益翻倍！",
+        "monsterFest": "怪物节",
+        "monsterFestDesc": "30秒内怪物血量减半！"
+    },
+    "game": {
+        "achievement": "🏆 成就",
+        "achievementUnlocked": "成就解锁！",
+        "ad": "广告",
+        "allEquip": "您已收集所有装备！升级以变得更强！",
+        "analysisTitle": "分析",
+        "attackPower": "攻击力",
+        "autoDPS": "自动DPS",
+        "autoIncome": "自动DPS",
+        "back": "DopaBrain主页",
+        "battleAnalysis": "战斗分析",
+        "bossDefeated": "已击败！ +",
+        "bossLabel": "首领",
+        "clickPower": "攻击力",
+        "close": "关闭",
+        "confirmReset": "您确定要重置所有进度吗？\n此操作无法撤销。",
+        "copyright": "© 2026 DopaBrain",
+        "currentOpponent": "当前对手",
+        "equipCount": "装备数量",
+        "equipment": "⚔️ 装备",
+        "goldEarned": "金币！",
+        "goldEarned2": "金币已获得！",
+        "goldenAppear": "黄金怪物出现",
+        "goldenEscape": "⭐ 黄金怪物逃走了！",
+        "goldenHint": "击杀获得3倍金币！",
+        "bossEscaped": "Boss逃跑了！",
+        "bossRetry": "挑战Boss",
+        "goldenMonster": "黄金怪物",
+        "growthGuide": "成长指南",
+        "halfway": "通关一半！",
+        "kill": "已击败",
+        "linkCopied": "链接已复制！",
+        "maxRank": "已达到最高级别！",
+        "monsterKill": "怪物已击败,",
+        "monsterKilled": "击败的怪物",
+        "nextEquip": "解锁下一个装备将大大提高您的战斗力！",
+        "nextPrestige": "下次转生获得的点数",
+        "nextRank": "距下一级别的金币：",
+        "noEquip": "还没有装备",
+        "offlineEarnings": "离线",
+        "ownedEquip": "拥有的装备",
+        "perSec": "/秒",
+        "playMore": "先探索地下城！",
+        "prestige": "转生",
+        "prestigeBonus": "永久加成",
+        "prestigeConfirm": "您确定要转生吗？所有进度将被重置！",
+        "prestigeCount": "转生次数",
+        "prestigeDesc": "重置所有进度并获得永久加成",
+        "prestigePoints": "转生点数",
+        "prestigeRequire": "第5层或更高层级时可转生",
+        "prestigeTitle": "转生信息",
+        "rank": "地下城等级",
+        "reset": "重置",
+        "share": "分享",
+        "skill": "🛡️ 技能",
+        "stats": "📊 统计",
+        "subtitle": "用点击征服地下城",
+        "tapHint": "点击攻击！",
+        "tierBossLabel": "阶段BOSS",
+        "tierCleared": "通关",
+        "title": "地下城点击器",
+        "topEquip": "前3名装备",
+        "total": "合计",
+        "totalAttacks": "总攻击数",
+        "totalClicks": "总攻击",
+        "totalEarned": "总金币",
+        "totalGoldEarned": "总金币获得",
+        "tryMore": "也尝试这些！",
+        "prestigeTease": "转生可用!在Tier {tier}获得点数"
+    },
+    "milestones": {
+        "abyss": "通过了深渊地下城！你有成为骑士的资格。",
+        "darkness": "击败了黑暗之王！",
+        "divine": "通过了神圣试炼！",
+        "dragon": "征服了龙巢！",
+        "first": "你通过了第一个地下城！",
+        "forest": "征服了森林地下城！升级你的装备。",
+        "legend": "通过了传奇地下城！太棒了！",
+        "volcano": "突破了火山地下城！战力在增长。"
+    },
+    "monsters": {
+        "flowerMonster": "花怪",
+        "iceMonster": "冰怪",
+        "pumpkinMonster": "南瓜怪",
+        "snowmanMonster": "雪人怪"
+    },
+    "offline": {
+        "away": "你已离线 {time}！",
+        "collect": "领取",
+        "double": "看广告获得2倍收入",
+        "earned": "{gold} 金币",
+        "title": "离线收入",
+        "monstersSlain": "怪物击杀"
+    },
+    "pet": {
+        "active": "活跃",
+        "activePet": "活跃宠物",
+        "allStats": "全属性",
+        "attackPower": "攻击力",
+        "autoAttack": "自动攻击",
+        "cat": "猫",
+        "catDesc": "每秒自动攻击一次",
+        "critChance": "暴击概率",
+        "dog": "狗",
+        "dogDesc": "增加20%金币收益",
+        "dragon": "龙",
+        "dragonDesc": "增加30%攻击力",
+        "eagle": "鹰",
+        "eagleDesc": "增加15%暴击概率",
+        "goldBonus": "金币加成",
+        "insufficientGold": "金币不足！",
+        "level": "等级",
+        "levelUp": "升级",
+        "locked": "已锁定",
+        "none": "无",
+        "select": "选择",
+        "selected": "已选择！",
+        "title": "🐱 宠物",
+        "unicorn": "独角兽",
+        "unicornDesc": "增加10%全属性",
+        "unlock": "解锁 (50,000G)",
+        "unlocked": "已解锁！"
+    },
+    "ranking": {
+        "highestDPS": "最高DPS",
+        "highestTier": "最高阶段",
+        "maxGoldHeld": "最大持有金币",
+        "maxRank": "达到最高级别！",
+        "maxSingleHit": "最大单次伤害",
+        "mostKills": "最多击败",
+        "personalRecords": "个人记录",
+        "rankBRONZE": "青铜级",
+        "rankDIAMOND": "钻石级",
+        "rankGOLD": "黄金级",
+        "rankMASTER": "宗师级",
+        "rankPLATINUM": "白金级",
+        "rankSILVER": "白银级",
+        "totalPrestige": "最多转生"
+    },
+    "ranks": {
+        "adventurer": "冒险家",
+        "archmage": "大法师",
+        "beginner": "初学者",
+        "dragonslayer": "龙杀手",
+        "godscall": "神之使者",
+        "guardian": "世界守护者",
+        "hero": "英雄",
+        "knight": "骑士",
+        "legend": "传奇英雄",
+        "trainee": "学徒",
+        "warrior": "战士"
+    },
+    "recommendations": {
+        "colorMemory": "Color Memory",
+        "colorMemoryDesc": "Memory challenge game",
+        "emojiMerge": "表情符号合并",
+        "emojiMergeDesc": "表情符号进化拼图",
+        "emotionTemp": "情绪温度计",
+        "emotionTempDesc": "你的情绪温度是多少?",
+        "mbtiLove": "MBTI爱情匹配",
+        "mbtiLoveDesc": "找到你完美的伴侣",
+        "quizApp": "常识问答",
+        "quizAppDesc": "随机常识测验",
+        "stackTower": "Stack Tower",
+        "stackTowerDesc": "方块堆积游戏",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "之字形跑步游戏"
+    },
+    "skill": {
+        "maxLevel": "最大等级！"
+    },
+    "skills": {
+        "army": "勇士团",
+        "army_desc": "自动攻击大幅提升",
+        "boss_hunter": "猎杀BOSS",
+        "boss_hunter_desc": "点击DPS加成",
+        "critical": "致命打击",
+        "critical_desc": "攻击力提升",
+        "haste": "加速",
+        "haste_desc": "攻击速度提升",
+        "learned": "已习得",
+        "legion": "传奇军团",
+        "legion_desc": "自动攻击极大提升",
+        "lightning": "闪电斩",
+        "lightning_desc": "攻击力极大提升",
+        "maxLevel": "已达最大等级！",
+        "power_slash": "强力斩击",
+        "power_slash_desc": "攻击力大幅提升",
+        "summon": "英雄召唤",
+        "summon_desc": "自动攻击提升"
+    },
+    "tutorial": {
+        "next": "下一步",
+        "skip": "跳过",
+        "step": "步骤",
+        "step1": {
+            "text": "点击怪物进行攻击。每次点击都会获得金币！",
+            "title": "点击怪物！"
+        },
+        "step2": {
+            "text": "在装备标签中用金币购买武器和防具，增加攻击力！",
+            "title": "购买装备！"
+        },
+        "step3": {
+            "text": "在技能标签中学习强大的技能，自动获得金币！",
+            "title": "用技能提高自动DPS！"
+        },
+        "step4": {
+            "text": "击败每个阶段的BOSS，进入下一个地下城！",
+            "title": "击败BOSS！"
+        },
+        "step5": {
+            "text": "达成成就可以追踪游戏进度并设定目标！",
+            "title": "达成成就！"
+        }
+    },
+    "seasons": {
+        "spring": "春季",
+        "summer": "夏季",
+        "autumn": "秋季",
+        "winter": "冬季",
+        "seasonalMonster": "季节怪物",
+        "seasonalMonsterFlower": "花怪 (春季)",
+        "seasonalMonsterIce": "冰怪 (夏季)",
+        "seasonalMonsterPumpkin": "南瓜怪 (秋季)",
+        "seasonalMonsterSnowman": "雪人怪 (冬季)",
+        "bonusGold": "黄金 +30%",
+        "bonusCooldown": "冷却 -15%",
+        "bonusExp": "经验 +30%",
+        "bonusAll": "所有奖励 +15%"
+    },
+    "guild": {
+        "title": "公会",
+        "selectGuild": "选择公会",
+        "selectGuildDesc": "选择一个公会加入",
+        "flameGuild": "烈焰公会",
+        "flameBuff": "攻击力 +10%",
+        "frostGuild": "霜冻公会",
+        "frostBuff": "金币 +10%",
+        "natureGuild": "自然公会",
+        "natureBuff": "生命恢复 +10%",
+        "stormGuild": "风暴公会",
+        "stormBuff": "攻击速度 +10%",
+        "shadowGuild": "暗影公会",
+        "shadowBuff": "暴击 +10%",
+        "level": "等级",
+        "guildBonus": "公会奖励",
+        "experience": "公会经验",
+        "expNote": "击败怪物获得公会经验",
+        "levelUp": "公会升级！",
+        "weeklyMission": "周间任务",
+        "weeklyTarget": "本周",
+        "monsters": "只怪物已击败",
+        "missionReward": "完成即可获得奖励",
+        "missionCompleted": "已完成！",
+        "missionComplete": "周间任务已完成！",
+        "leaveGuild": "退出公会"
+    },
+    "minigame": {
+        "title": "寻找宝箱",
+        "play": "小游戏!",
+        "attemptsLeft": "剩余尝试",
+        "confirm": "确认",
+        "treasureFound": "你找到了宝藏!",
+        "treasureReward": "获得金币奖励!",
+        "bombFound": "炸弹爆炸了!",
+        "bombMessage": "游戏结束。",
+        "noAttempts": "没有剩余尝试。",
+        "cooldown": "每10分钟可以玩一次小游戏"
+    },
+    "share": {
+        "twitter": "𝕏 Twitter",
+        "copyUrl": "📋 复制链接"
+    },
+    "error": {
+        "storage": "隐私模式下部分功能可能受限。",
+        "data": "数据加载错误，请刷新页面。",
+        "canvas": "图形渲染问题，请重试。",
+        "audio": "音频不可用，可继续使用。",
+        "network": "请检查网络连接后重试。",
+        "general": "出现问题，请刷新或重试。"
+    },
+    "result": {
+        "moreGames": "更多游戏"
+    },
+    "related": {
+        "stackTower": "叠叠塔",
+        "flappyBird": "飞翔的小鸟",
+        "emojiMerge": "表情合成",
+        "blockPuzzle": "方块拼图"
+    },
+    "goldMilestone": {
+        "g1k": "达成1,000金币!",
+        "g10k": "突码10,000金币!",
+        "g100k": "10万金币!越来越富了!",
+        "g1m": "100万金币!百万富翁!",
+        "g10m": "1000万金币!传奇财富!",
+        "g100m": "1亿金币!神话级财富!",
+        "g1b": "10亿金币!宇宙统治者!"
     }
-  },
-  "event": {
-    "equipSale": "装备折扣",
-    "equipSaleDesc": "30秒内装备价格打七折！",
-    "expBoost": "经验加成",
-    "expBoostDesc": "30秒内技能经验翻倍！",
-    "goldRush": "黄金冲刺",
-    "goldRushDesc": "30秒内金币收益翻倍！",
-    "monsterFest": "怪物节",
-    "monsterFestDesc": "30秒内怪物血量减半！"
-  },
-  "game": {
-    "achievement": "🏆 成就",
-    "achievementUnlocked": "成就解锁！",
-    "ad": "广告",
-    "allEquip": "您已收集所有装备！升级以变得更强！",
-    "analysisTitle": "分析",
-    "attackPower": "攻击力",
-    "autoDPS": "自动DPS",
-    "autoIncome": "自动DPS",
-    "back": "DopaBrain主页",
-    "battleAnalysis": "战斗分析",
-    "bossDefeated": "已击败！ +",
-    "bossLabel": "首领",
-    "clickPower": "攻击力",
-    "close": "关闭",
-    "confirmReset": "您确定要重置所有进度吗？\n此操作无法撤销。",
-    "copyright": "© 2026 DopaBrain",
-    "currentOpponent": "当前对手",
-    "equipCount": "装备数量",
-    "equipment": "⚔️ 装备",
-    "goldEarned": "金币！",
-    "goldEarned2": "金币已获得！",
-    "goldenAppear": "黄金怪物出现",
-    "goldenEscape": "⭐ 黄金怪物逃走了！",
-    "goldenHint": "击杀获得3倍金币！",
-    "bossEscaped": "Boss逃跑了！",
-    "bossRetry": "挑战Boss",
-    "goldenMonster": "黄金怪物",
-    "growthGuide": "成长指南",
-    "halfway": "通关一半！",
-    "kill": "已击败",
-    "linkCopied": "链接已复制！",
-    "maxRank": "已达到最高级别！",
-    "monsterKill": "怪物已击败,",
-    "monsterKilled": "击败的怪物",
-    "nextEquip": "解锁下一个装备将大大提高您的战斗力！",
-    "nextPrestige": "下次转生获得的点数",
-    "nextRank": "距下一级别的金币：",
-    "noEquip": "还没有装备",
-    "offlineEarnings": "离线",
-    "ownedEquip": "拥有的装备",
-    "perSec": "/秒",
-    "playMore": "先探索地下城！",
-    "prestige": "转生",
-    "prestigeBonus": "永久加成",
-    "prestigeConfirm": "您确定要转生吗？所有进度将被重置！",
-    "prestigeCount": "转生次数",
-    "prestigeDesc": "重置所有进度并获得永久加成",
-    "prestigePoints": "转生点数",
-    "prestigeRequire": "第5层或更高层级时可转生",
-    "prestigeTitle": "转生信息",
-    "rank": "地下城等级",
-    "reset": "重置",
-    "share": "分享",
-    "skill": "🛡️ 技能",
-    "stats": "📊 统计",
-    "subtitle": "用点击征服地下城",
-    "tapHint": "点击攻击！",
-    "tierBossLabel": "阶段BOSS",
-    "tierCleared": "通关",
-    "title": "地下城点击器",
-    "topEquip": "前3名装备",
-    "total": "合计",
-    "totalAttacks": "总攻击数",
-    "totalClicks": "总攻击",
-    "totalEarned": "总金币",
-    "totalGoldEarned": "总金币获得",
-    "tryMore": "也尝试这些！"
-  },
-  "milestones": {
-    "abyss": "通过了深渊地下城！你有成为骑士的资格。",
-    "darkness": "击败了黑暗之王！",
-    "divine": "通过了神圣试炼！",
-    "dragon": "征服了龙巢！",
-    "first": "你通过了第一个地下城！",
-    "forest": "征服了森林地下城！升级你的装备。",
-    "legend": "通过了传奇地下城！太棒了！",
-    "volcano": "突破了火山地下城！战力在增长。"
-  },
-  "monsters": {
-    "absolute": "绝对存在",
-    "abyss_emperor": "深渊皇帝",
-    "ancient_dragon": "远古龙",
-    "apocalypse_guardian": "末日守护者",
-    "archangel": "大天使",
-    "ares": "阿瑞斯",
-    "athena": "雅典娜",
-    "banshee": "女妖",
-    "basilisk": "蛇怪",
-    "bat": "蝙蝠",
-    "bear": "熊",
-    "boar": "野猪",
-    "bone_dragon": "骨龙",
-    "carnivorous": "食肉植物",
-    "chaos": "卡俄斯",
-    "chaos_incarnation": "混沌化身",
-    "chaos_knight": "混沌骑士",
-    "cosmic_jellyfish": "宇宙水母",
-    "crystal_giant": "结晶巨人",
-    "cursed_knight": "诅咒骑士",
-    "dark_lord": "黑暗之王",
-    "death_knight": "死亡骑士",
-    "demon": "恶魔",
-    "dimension_breaker": "次元破裂者",
-    "dimension_demon": "次元恶魔",
-    "dimension_destroyer": "次元毁灭者",
-    "dimension_guardian": "次元守护者",
-    "dragon": "龙",
-    "dragon_guardian": "龙守护者",
-    "dragon_lord": "龙之王",
-    "element_titan": "元素泰坦",
-    "eternal_guardian": "永恒卫士",
-    "eternal_watcher": "永恒守望者",
-    "ether_dragon": "以太龙",
-    "fairy": "妖精盗贼",
-    "fate_judge": "命运法官",
-    "fenrir": "芬里尔",
-    "fire_lord": "火之王",
-    "flame_bat": "火焰蝙蝠",
-    "flame_knight": "烈焰骑士",
-    "flame_spirit": "火焰精灵",
-    "gaia": "盖亚",
-    "goblin": "哥布林",
-    "hades": "哈迪斯",
-    "hydra": "九头蛇",
-    "ice_dragon": "冰龙",
-    "ifrit": "伊芙利特",
-    "infinity_being": "无限存在",
-    "jormungandr": "约尔蒙冈德",
-    "kobold": "地精",
-    "kraken": "克拉肯",
-    "kronos": "克罗诺斯",
-    "lava_golem": "熔岩魔像",
-    "lava_slime": "熔岩史莱姆",
-    "lich": "巫妖",
-    "light_guardian": "光之守护者",
-    "magma_worm": "岩浆虫",
-    "mummy": "木乃伊",
-    "mushroom": "蘑菇怪",
-    "necromancer": "死灵法师",
-    "odin": "奥丁",
-    "orc": "兽人",
-    "phoenix": "凤凰",
-    "poison_dragon": "毒龙",
-    "poseidon": "波塞冬",
-    "primordial_being": "原始存在",
-    "primordial_chaos": "原始混沌",
-    "primordial_flame": "原初烈焰",
-    "rat": "大鼠",
-    "scorpion": "蝎子",
-    "shadow_assassin": "影子刺客",
-    "skeleton": "骷髅战士",
-    "slime": "史莱姆",
-    "snake": "蛇",
-    "spider": "毒蜘蛛",
-    "star_giant": "星之巨人",
-    "star_predator": "星之掠食者",
-    "sun_incarnation": "太阳化身",
-    "surtr": "苏尔特尔",
-    "tentacle": "深渊触手",
-    "thief": "盗贼",
-    "thor": "托尔",
-    "time_dragon": "时间龙",
-    "time_end": "时间终结",
-    "time_keeper": "时间守护者",
-    "titan": "泰坦",
-    "treent": "树精",
-    "troll": "巨魔",
-    "universe_heart": "宇宙心脏",
-    "unknown": "??? (最终)",
-    "vampire": "吸血鬼",
-    "void_destroyer": "虚空毁灭者",
-    "void_lord": "虚空之王",
-    "volcano_lizard": "火山蜥蜴",
-    "witch": "森林女巫",
-    "wolf": "狼",
-    "world_snake": "世界巨蛇",
-    "world_turtle": "世界龟",
-    "wyvern": "飞龙",
-    "zeus": "宙斯"
-  },
-  "offline": {
-    "away": "你已离线 {time}！",
-    "collect": "领取",
-    "double": "看广告获得2倍收入",
-    "earned": "{gold} 金币",
-    "title": "离线收入"
-  },
-  "pet": {
-    "active": "活跃",
-    "activePet": "活跃宠物",
-    "allStats": "全属性",
-    "attackPower": "攻击力",
-    "autoAttack": "自动攻击",
-    "cat": "猫",
-    "catDesc": "每秒自动攻击一次",
-    "critChance": "暴击概率",
-    "dog": "狗",
-    "dogDesc": "增加20%金币收益",
-    "dragon": "龙",
-    "dragonDesc": "增加30%攻击力",
-    "eagle": "鹰",
-    "eagleDesc": "增加15%暴击概率",
-    "goldBonus": "金币加成",
-    "insufficientGold": "金币不足！",
-    "level": "等级",
-    "levelUp": "升级",
-    "locked": "已锁定",
-    "none": "无",
-    "select": "选择",
-    "selected": "已选择！",
-    "title": "🐱 宠物",
-    "unicorn": "独角兽",
-    "unicornDesc": "增加10%全属性",
-    "unlock": "解锁 (50,000G)",
-    "unlocked": "已解锁！"
-  },
-  "ranking": {
-    "highestDPS": "最高DPS",
-    "highestTier": "最高阶段",
-    "maxGoldHeld": "最大持有金币",
-    "maxRank": "达到最高级别！",
-    "maxSingleHit": "最大单次伤害",
-    "mostKills": "最多击败",
-    "personalRecords": "个人记录",
-    "rankBRONZE": "青铜级",
-    "rankDIAMOND": "钻石级",
-    "rankGOLD": "黄金级",
-    "rankMASTER": "宗师级",
-    "rankPLATINUM": "白金级",
-    "rankSILVER": "白银级",
-    "totalPrestige": "最多转生"
-  },
-  "ranks": {
-    "adventurer": "冒险家",
-    "archmage": "大法师",
-    "beginner": "初学者",
-    "dragonslayer": "龙杀手",
-    "godscall": "神之使者",
-    "guardian": "世界守护者",
-    "hero": "英雄",
-    "knight": "骑士",
-    "legend": "传奇英雄",
-    "trainee": "学徒",
-    "warrior": "战士"
-  },
-  "recommendations": {
-    "colorMemory": "Color Memory",
-    "colorMemoryDesc": "Memory challenge game",
-    "emojiMerge": "表情符号合并",
-    "emojiMergeDesc": "表情符号进化拼图",
-    "emotionTemp": "情绪温度计",
-    "emotionTempDesc": "你的情绪温度是多少?",
-    "mbtiLove": "MBTI爱情匹配",
-    "mbtiLoveDesc": "找到你完美的伴侣",
-    "quizApp": "常识问答",
-    "quizAppDesc": "随机常识测验",
-    "stackTower": "Stack Tower",
-    "stackTowerDesc": "方块堆积游戏",
-    "zigzagRunner": "Zigzag Runner",
-    "zigzagRunnerDesc": "之字形跑步游戏"
-  },
-  "skill": {
-    "maxLevel": "最大等级！"
-  },
-  "skills": {
-    "army": "勇士团",
-    "army_desc": "自动攻击大幅提升",
-    "boss_hunter": "猎杀BOSS",
-    "boss_hunter_desc": "点击DPS加成",
-    "critical": "致命打击",
-    "critical_desc": "攻击力提升",
-    "haste": "加速",
-    "haste_desc": "攻击速度提升",
-    "learned": "已习得",
-    "legion": "传奇军团",
-    "legion_desc": "自动攻击极大提升",
-    "lightning": "闪电斩",
-    "lightning_desc": "攻击力极大提升",
-    "maxLevel": "已达最大等级！",
-    "power_slash": "强力斩击",
-    "power_slash_desc": "攻击力大幅提升",
-    "summon": "英雄召唤",
-    "summon_desc": "自动攻击提升"
-  },
-  "tutorial": {
-    "next": "下一步",
-    "skip": "跳过",
-    "step": "步骤",
-    "step1": {
-      "text": "点击怪物进行攻击。每次点击都会获得金币！",
-      "title": "点击怪物！"
-    },
-    "step2": {
-      "text": "在装备标签中用金币购买武器和防具，增加攻击力！",
-      "title": "购买装备！"
-    },
-    "step3": {
-      "text": "在技能标签中学习强大的技能，自动获得金币！",
-      "title": "用技能提高自动DPS！"
-    },
-    "step4": {
-      "text": "击败每个阶段的BOSS，进入下一个地下城！",
-      "title": "击败BOSS！"
-    },
-    "step5": {
-      "text": "达成成就可以追踪游戏进度并设定目标！",
-      "title": "达成成就！"
-    }
-  },
-  "monsters": {
-    "flowerMonster": "花怪",
-    "iceMonster": "冰怪",
-    "pumpkinMonster": "南瓜怪",
-    "snowmanMonster": "雪人怪"
-  },
-  "seasons": {
-    "spring": "春季",
-    "summer": "夏季",
-    "autumn": "秋季",
-    "winter": "冬季",
-    "seasonalMonster": "季节怪物",
-    "seasonalMonsterFlower": "花怪 (春季)",
-    "seasonalMonsterIce": "冰怪 (夏季)",
-    "seasonalMonsterPumpkin": "南瓜怪 (秋季)",
-    "seasonalMonsterSnowman": "雪人怪 (冬季)",
-    "bonusGold": "黄金 +30%",
-    "bonusCooldown": "冷却 -15%",
-    "bonusExp": "经验 +30%",
-    "bonusAll": "所有奖励 +15%"
-  },
-  "guild": {
-    "title": "公会",
-    "selectGuild": "选择公会",
-    "selectGuildDesc": "选择一个公会加入",
-    "flameGuild": "烈焰公会",
-    "flameBuff": "攻击力 +10%",
-    "frostGuild": "霜冻公会",
-    "frostBuff": "金币 +10%",
-    "natureGuild": "自然公会",
-    "natureBuff": "生命恢复 +10%",
-    "stormGuild": "风暴公会",
-    "stormBuff": "攻击速度 +10%",
-    "shadowGuild": "暗影公会",
-    "shadowBuff": "暴击 +10%",
-    "level": "等级",
-    "guildBonus": "公会奖励",
-    "experience": "公会经验",
-    "expNote": "击败怪物获得公会经验",
-    "levelUp": "公会升级！",
-    "weeklyMission": "周间任务",
-    "weeklyTarget": "本周",
-    "monsters": "只怪物已击败",
-    "missionReward": "完成即可获得奖励",
-    "missionCompleted": "已完成！",
-    "missionComplete": "周间任务已完成！",
-    "leaveGuild": "退出公会"
-  },
-  "minigame": {
-    "title": "寻找宝箱",
-    "play": "小游戏!",
-    "attemptsLeft": "剩余尝试",
-    "confirm": "确认",
-    "treasureFound": "你找到了宝藏!",
-    "treasureReward": "获得金币奖励!",
-    "bombFound": "炸弹爆炸了!",
-    "bombMessage": "游戏结束。",
-    "noAttempts": "没有剩余尝试。",
-    "cooldown": "每10分钟可以玩一次小游戏"
-  },
-  "share": {
-    "twitter": "𝕏 Twitter",
-    "copyUrl": "📋 复制链接"
-  },
-  "error": {
-    "storage": "隐私模式下部分功能可能受限。",
-    "data": "数据加载错误，请刷新页面。",
-    "canvas": "图形渲染问题，请重试。",
-    "audio": "音频不可用，可继续使用。",
-    "network": "请检查网络连接后重试。",
-    "general": "出现问题，请刷新或重试。"
-  },
-  "result": {
-    "moreGames": "更多游戏"
-  },
-  "related": {
-    "stackTower": "叠叠塔",
-    "flappyBird": "飞翔的小鸟",
-    "emojiMerge": "表情合成",
-    "blockPuzzle": "方块拼图"
-  }
 }

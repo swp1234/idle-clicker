@@ -61,6 +61,7 @@
     let lastSaveTime = Date.now();
     let lastTickTime = Date.now();
     let milestoneIndex = 0;
+    let goldMilestoneIndex = 0; // Track gold currency milestones
     let activeTab = 'equipment';
     let setBonus = 0;  // 장비 세트 보너스 배수 (기본 1.0, 세트당 1.2)
 
@@ -1534,6 +1535,7 @@
 
             updateDisplay();
             checkMilestones();
+            checkGoldMilestones();
 
             // Update dopamine effects
             if (window.effectsManager) {
@@ -1993,6 +1995,9 @@
 
         // Update ranking display
         updateRankingUI();
+
+        // Update prestige tease banner
+        updatePrestigeTease();
     }
 
     // Milestones
@@ -2021,6 +2026,99 @@
             toast.classList.remove('show');
             setTimeout(() => toast.remove(), 300);
         }, 3000);
+    }
+
+    // Gold currency milestones with celebration
+    function checkGoldMilestones() {
+        if (typeof GOLD_MILESTONES === 'undefined') return;
+        while (goldMilestoneIndex < GOLD_MILESTONES.length && gold >= GOLD_MILESTONES[goldMilestoneIndex].amount) {
+            const milestone = GOLD_MILESTONES[goldMilestoneIndex];
+            const msg = i18n.t(milestone.i18nKey) || milestone.i18nKey;
+            showGoldMilestoneCelebration(msg, milestone.icon, milestone.color);
+            goldMilestoneIndex++;
+        }
+    }
+
+    function showGoldMilestoneCelebration(message, icon, color) {
+        // Full-screen celebration overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'gold-milestone-overlay';
+        overlay.innerHTML = `
+            <div class="gold-milestone-content">
+                <div class="gold-milestone-icon">${icon}</div>
+                <div class="gold-milestone-text" style="color: ${color}">${message}</div>
+                <div class="gold-milestone-sparkles"></div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // Spawn confetti particles
+        spawnMilestoneConfetti(color);
+
+        // Sound effect
+        if (sfx && sfx.success) sfx.success();
+
+        // Auto-dismiss
+        setTimeout(() => overlay.classList.add('show'), 10);
+        setTimeout(() => {
+            overlay.classList.add('fade-out');
+            setTimeout(() => overlay.remove(), 500);
+        }, 2500);
+
+        // Add dopamine effect in monster area
+        if (window.effectsManager && clickArea) {
+            const rect = clickArea.getBoundingClientRect();
+            window.effectsManager.addMilestoneEffect(message, rect.width / 2, rect.height / 2);
+        }
+    }
+
+    function spawnMilestoneConfetti(color) {
+        const colors = [color, '#FFD700', '#FF6600', '#8b5cf6', '#ef4444', '#22c55e'];
+        for (let i = 0; i < 40; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'milestone-confetti-particle';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = (30 + Math.random() * 40) + '%';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+            confetti.style.animationDuration = (1 + Math.random() * 1.5) + 's';
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 100 + Math.random() * 200;
+            confetti.style.setProperty('--cx', Math.cos(angle) * dist + 'px');
+            confetti.style.setProperty('--cy', Math.sin(angle) * dist - 100 + 'px');
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 2500);
+        }
+    }
+
+    // Prestige tease banner
+    function updatePrestigeTease() {
+        let banner = document.getElementById('prestige-tease-banner');
+        if (currentTier >= 4 && currentTier < 5 && prestigeCount === 0) {
+            // Show tease when approaching Tier 5 for first time
+            if (!banner) {
+                banner = document.createElement('div');
+                banner.id = 'prestige-tease-banner';
+                banner.className = 'prestige-tease-banner';
+                const text = (i18n.t('game.prestigeTease') || 'Prestige available at Tier {tier}').replace('{tier}', '5');
+                banner.innerHTML = `<span class="prestige-tease-icon">♻️</span> <span>${text}</span>`;
+                const moneySection = document.querySelector('.money-section');
+                if (moneySection) moneySection.after(banner);
+            }
+        } else if (currentTier >= 5 && prestigeCount === 0) {
+            // Show "ready to prestige" when at Tier 5+
+            if (!banner) {
+                banner = document.createElement('div');
+                banner.id = 'prestige-tease-banner';
+                banner.className = 'prestige-tease-banner prestige-ready';
+                const text = (i18n.t('game.prestigeTease') || 'Prestige available! Earn points at Tier {tier}').replace('{tier}', currentTier.toString());
+                banner.innerHTML = `<span class="prestige-tease-icon pulse">♻️</span> <span>${text}</span>`;
+                const moneySection = document.querySelector('.money-section');
+                if (moneySection) moneySection.after(banner);
+            }
+        } else if (banner) {
+            banner.remove();
+        }
     }
 
     // Offline
@@ -2089,11 +2187,12 @@
         }
     }
 
-    // Show offline earnings modal
+    // Show offline earnings modal with animated counting
     function showOfflineEarningsModal(offlineGold, offlineKills, offlineSeconds) {
         const hours = Math.floor(offlineSeconds / 3600);
         const mins = Math.floor((offlineSeconds % 3600) / 60);
         const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+        const monstersText = i18n.t('offline.monstersSlain') || i18n.t('game.kill') || 'monsters slain';
 
         const overlay = document.createElement('div');
         overlay.className = 'offline-modal-overlay';
@@ -2107,13 +2206,13 @@
                     <span class="offline-modal-icon">⏰</span>
                 </div>
                 <h2 class="offline-modal-title" data-i18n="offline.title">오프라인 수입</h2>
-                <p class="offline-modal-away" data-i18n="offline.away">${timeStr} 동안 자리를 비웠습니다!</p>
+                <p class="offline-modal-away">${(i18n.t('offline.away') || '{time} away!').replace('{time}', timeStr)}</p>
                 <div class="offline-modal-earnings">
                     <div class="offline-modal-gold">
-                        💰 <span data-i18n="offline.earned">${formatGold(offlineGold)} 골드</span>
+                        💰 <span class="offline-gold-counter" id="offline-gold-counter">0</span>
                     </div>
                     <div class="offline-modal-details">
-                        ${offlineKills} ${i18n.t('game.kill') || '처치'}
+                        ⚔️ <span class="offline-kills-counter" id="offline-kills-counter">0</span> ${monstersText}
                     </div>
                 </div>
                 <div class="offline-modal-buttons">
@@ -2136,6 +2235,12 @@
         // Add animation
         setTimeout(() => modal.classList.add('show'), 10);
 
+        // Animated counting effect
+        setTimeout(() => {
+            animateCounter('offline-gold-counter', 0, offlineGold, 1500, formatGold);
+            animateCounter('offline-kills-counter', 0, offlineKills, 1200);
+        }, 400);
+
         // Collect button
         const collectBtn = document.getElementById('offline-collect-btn');
         if (collectBtn) {
@@ -2144,6 +2249,28 @@
                 overlay.remove();
             });
         }
+    }
+
+    // Animated counter for numbers
+    function animateCounter(elementId, start, end, duration, formatter) {
+        const el = document.getElementById(elementId);
+        if (!el) return;
+        const startTime = performance.now();
+        function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(start + (end - start) * eased);
+            el.textContent = formatter ? formatter(current) : current.toLocaleString();
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                el.textContent = formatter ? formatter(end) : end.toLocaleString();
+                el.classList.add('counter-complete');
+            }
+        }
+        requestAnimationFrame(step);
     }
 
     // Claim offline earnings
@@ -2431,7 +2558,7 @@
                 balanceVersion: 2,
                 gold, totalEarned, totalClicks, clickValue,
                 clickMultiplier, autoMultiplier, speedMultiplier, goldenTouchBonus,
-                ownedEquipment, purchasedSkills, skillLevels, milestoneIndex,
+                ownedEquipment, purchasedSkills, skillLevels, milestoneIndex, goldMilestoneIndex,
                 killCount, currentMonsterIndex, currentTier, prestigePoints, prestigeCount, setBonus,
                 bossKills, goldenKills,
                 pets, activePet, petLevels,
@@ -2485,6 +2612,7 @@
                 purchasedSkills = d.purchasedSkills || {};
                 skillLevels = d.skillLevels || {};
                 milestoneIndex = d.milestoneIndex || 0;
+                goldMilestoneIndex = d.goldMilestoneIndex || 0;
                 killCount = d.killCount || 0;
                 currentMonsterIndex = d.currentMonsterIndex || 0;
                 currentTier = d.currentTier || 1;
@@ -3290,10 +3418,15 @@
             purchasedSkills = {};
             skillLevels = {};
             milestoneIndex = 0;
+            goldMilestoneIndex = 0;
             killCount = 0;
             currentMonsterIndex = 0;
             clickCombo = 0;
             goldenMonsterActive = false;
+
+            // Remove prestige tease banner
+            const teaseBanner = document.getElementById('prestige-tease-banner');
+            if (teaseBanner) teaseBanner.remove();
 
             recalculateAutoIncome();
             spawnMonster();

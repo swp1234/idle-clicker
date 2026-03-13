@@ -1118,4 +1118,22 @@ const ACHIEVEMENTS = [
     { id: 'golden_monster', icon: '🌟', name: 'Golden Hunter', key: 'achievement.goldenMonster', desc: 'key', descKey: 'achievement.goldenMonsterDesc', condition: () => (goldenKills || 0) >= 5, condition_label: 'goldenKills >= 5' },
     { id: 'dps_100', icon: '📈', name: 'DPS 100', key: 'achievement.dps100', desc: 'key', descKey: 'achievement.dps100Desc', condition: () => totalCPS >= 100, condition_label: 'totalCPS >= 100' },
     { id: 'dungeon_master', icon: '🏰', name: 'Dungeon Master', key: 'achievement.dungeonMaster', desc: 'key', descKey: 'achievement.dungeonMasterDesc', condition: () => currentTier >= 10, condition_label: 'currentTier >= 10' },
+
+    // New retention achievements
+    { id: 'speed_clicker', icon: '💨', name: 'Speed Clicker', key: 'achievement.speedClicker', desc: 'key', descKey: 'achievement.speedClickerDesc', condition: () => (clickCombo || 0) >= 10, condition_label: 'clickCombo >= 10 (10 clicks/sec proxy)' },
+    { id: 'first_purchase', icon: '🛒', name: 'First Purchase', key: 'achievement.firstPurchase', desc: 'key', descKey: 'achievement.firstPurchaseDesc', condition: () => Object.keys(ownedEquipment || {}).length >= 1, condition_label: 'equipmentCount >= 1' },
+    { id: 'millionaire_hold', icon: '💎', name: 'Millionaire', key: 'achievement.millionaire', desc: 'key', descKey: 'achievement.millionaireDesc', condition: () => (typeof gold !== 'undefined' && gold >= 1000000), condition_label: 'gold >= 1000000' },
+    { id: 'combo_master', icon: '🔥', name: 'Combo Master', key: 'achievement.comboMaster', desc: 'key', descKey: 'achievement.comboMasterDesc', condition: () => (clickCombo || 0) >= 30, condition_label: 'clickCombo >= 30' },
+    { id: 'pet_owner', icon: '🐾', name: 'Pet Owner', key: 'achievement.petOwner', desc: 'key', descKey: 'achievement.petOwnerDesc', condition: () => Object.values(pets || {}).some(p => p && p.unlocked), condition_label: 'any pet unlocked' },
+];
+
+// === GOLD MILESTONES (currency celebration thresholds) ===
+const GOLD_MILESTONES = [
+    { amount: 1000, i18nKey: 'goldMilestone.g1k', icon: '💰', color: '#FFD700' },
+    { amount: 10000, i18nKey: 'goldMilestone.g10k', icon: '💰', color: '#FFD700' },
+    { amount: 100000, i18nKey: 'goldMilestone.g100k', icon: '💎', color: '#00BFFF' },
+    { amount: 1000000, i18nKey: 'goldMilestone.g1m', icon: '👑', color: '#FF6600' },
+    { amount: 10000000, i18nKey: 'goldMilestone.g10m', icon: '🏆', color: '#FF4500' },
+    { amount: 100000000, i18nKey: 'goldMilestone.g100m', icon: '⭐', color: '#8b5cf6' },
+    { amount: 1000000000, i18nKey: 'goldMilestone.g1b', icon: '🌟', color: '#FF00FF' }
 ];

@@ -1948,7 +1948,7 @@ button,a[href],input[type="button"],input[type="submit"],[role="button"]{min-wid
     }
 }
 
-/* Toast notification for achievements */
+/* Toast notification for achievements — enhanced with bounce-in */
 .achievement-toast {
     position: fixed;
     top: 20px;
@@ -1958,34 +1958,22 @@ button,a[href],input[type="button"],input[type="submit"],[role="button"]{min-wid
     color: #fff;
     padding: 14px 24px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
     font-weight: 600;
     font-size: 14px;
     z-index: 10000;
-    animation: toastSlideIn 0.4s ease-out, toastSlideOut 0.4s ease-out 2.6s forwards;
+    animation: achieveToastIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), achieveToastOut 0.4s ease-out 2.6s forwards;
     pointer-events: none;
 }
 
-@keyframes toastSlideIn {
-    from {
-        transform: translateX(-50%) translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
+@keyframes achieveToastIn {
+    0% { transform: translateX(-50%) translateY(-100%) scale(0.5); opacity: 0; }
+    100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
 }
 
-@keyframes toastSlideOut {
-    from {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-50%) translateY(-100%);
-        opacity: 0;
-    }
+@keyframes achieveToastOut {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(-100%); opacity: 0; }
 }
 
 /* === OFFLINE EARNINGS MODAL === */
@@ -4118,3 +4106,179 @@ body.season-winter .bg-orb-2 {
 [data-theme="light"] .related-tests { border-top-color: rgba(0,0,0,0.1); }
 [data-theme="light"] .related-card { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.08); color: #1a1a2e; }
 [data-theme="light"] .related-name { color: rgba(0,0,0,0.5); }
+
+/* === GOLD MILESTONE CELEBRATION === */
+.gold-milestone-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.gold-milestone-overlay.show { opacity: 1; }
+.gold-milestone-overlay.fade-out { opacity: 0; }
+
+.gold-milestone-content {
+    text-align: center;
+    animation: goldMilestonePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gold-milestone-icon {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 12px;
+    animation: goldMilestoneIconBounce 0.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+}
+
+.gold-milestone-text {
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 4px 8px rgba(0,0,0,0.5);
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 2px solid currentColor;
+}
+
+@keyframes goldMilestonePop {
+    0% { transform: scale(0.3) translateY(30px); opacity: 0; }
+    60% { transform: scale(1.15) translateY(-10px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes goldMilestoneIconBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.1); }
+}
+
+/* Milestone confetti particles */
+.milestone-confetti-particle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 10002;
+    animation: confettiFall var(--duration, 1.5s) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+    100% { transform: translate(var(--cx, 100px), var(--cy, 200px)) rotate(720deg) scale(0); opacity: 0; }
+}
+
+/* === PRESTIGE TEASE BANNER === */
+.prestige-tease-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    margin: 8px 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(168, 85, 247, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #a78bfa;
+    animation: prestigeTeaseSlideIn 0.5s ease-out;
+    cursor: default;
+}
+
+.prestige-tease-banner.prestige-ready {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(168, 85, 247, 0.2));
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.2);
+    animation: prestigeTeaseSlideIn 0.5s ease-out, prestigeTeaseGlow 2s ease-in-out infinite;
+}
+
+.prestige-tease-icon { font-size: 18px; }
+.prestige-tease-icon.pulse {
+    animation: prestigeIconPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes prestigeTeaseSlideIn {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes prestigeTeaseGlow {
+    0%, 100% { box-shadow: 0 0 16px rgba(139, 92, 246, 0.2); }
+    50% { box-shadow: 0 0 24px rgba(139, 92, 246, 0.4); }
+}
+
+@keyframes prestigeIconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+[data-theme="light"] .prestige-tease-banner {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.05));
+    color: #7c3aed;
+}
+
+/* === ENHANCED OFFLINE MODAL === */
+.offline-gold-counter, .offline-kills-counter {
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.counter-complete {
+    animation: counterFlash 0.4s ease;
+}
+
+@keyframes counterFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); color: var(--gold); }
+    100% { transform: scale(1); }
+}
+
+/* === ACHIEVEMENT BADGE ENHANCEMENTS === */
+.achievement-card.unlocked {
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-card.unlocked::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.05) 50%, transparent 70%);
+    animation: achievementShimmer 3s ease-in-out infinite;
+}
+
+@keyframes achievementShimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.achievement-checkmark {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
+}
+
+/* (achievement-toast styles defined above) */

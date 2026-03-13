@@ -1,873 +1,792 @@
 {
-  "achievement": {
-    "bossHunter": "Pemburu Bos",
-    "bossHunterDesc": "Kalahkan 10 bos",
-    "click10k": "Master Klik",
-    "click10kDesc": "Klik 10000 kali",
-    "click1k": "Raja Klik",
-    "click1kDesc": "Klik 1000 kali",
-    "dps100": "DPS 100",
-    "dps100Desc": "Capai 100 DPS otomatis",
-    "dungeonMaster": "Master Dungeon",
-    "dungeonMasterDesc": "Capai Tier 10",
-    "equipment10": "Master Peralatan",
-    "equipment10Desc": "Beli 10 peralatan",
-    "firstStep": "Langkah Pertama",
-    "firstStepDesc": "Kalahkan monster pertama Anda",
-    "goldenMonster": "Pemburu Emas",
-    "goldenMonsterDesc": "Kalahkan 5 monster emas",
-    "prestige5": "Kelahiran Kembali Berantai",
-    "prestige5Desc": "Prestis 5 kali",
-    "prestigeFirst": "Terlahir Kembali",
-    "prestigeFirstDesc": "Prestis pertama",
-    "skillMaster": "Master Keterampilan",
-    "skillMasterDesc": "5 keterampilan level 5",
-    "slayer100": "Jalan Prajurit",
-    "slayer1000": "Pembunuh",
-    "slayer1000Desc": "Kalahkan 1000 monster",
-    "slayer100Desc": "Kalahkan 100 monster",
-    "wealth10k": "Kaya",
-    "wealth10kDesc": "Dapatkan 10000 emas",
-    "wealth1m": "Miliarder",
-    "wealth1mDesc": "Dapatkan 1000000 emas"
-  },
-  "app": {
-    "description": "Kalahkan monster di dungeon dan lengkapi peralatan kuat! Petualangan RPG dimulai dengan satu klik. Permainan clicker idle gratis!",
-    "loading": "Loading...",
-    "title": "Dungeon Clicker - Permainan Clicker RPG Idle | DopaBrain"
-  },
-  "dailyMissions": {
-    "bonusGold": "Emas",
-    "bonusXP": "XP",
-    "boss_1": "Kalahkan 1 Bos",
-    "claim": "Klaim",
-    "claimed": "Diklaim",
-    "dailyBonus": "Bonus Penyelesaian Harian",
-    "gold_10k": "Dapatkan 10.000 Emas",
-    "kill_100": "Kalahkan 100 Monster",
-    "missionCompleted": "Misi Selesai!",
-    "resetsIn": "Ulang dalam",
-    "title": "📋 Misi Harian"
-  },
-  "dungeon": {
-    "abyss": "Jurang",
-    "chaos": "Kekacauan Primordial",
-    "divine": "Kerajaan Ilahi",
-    "dragon": "Sarang Naga",
-    "endworld": "Akhir Dunia",
-    "forest": "Dungeon Hutan",
-    "mythic": "Kerajaan Mitologi",
-    "rift": "Celah Dimensional",
-    "village": "Pinggiran Desa",
-    "volcano": "Dungeon Gunung Berapi"
-  },
-  "equipment": {
-    "absolute_blade": {
-      "desc": "Pedang yang menembus inti keberadaan",
-      "name": "Pedang Absolut"
-    },
-    "abyss_eye": {
-      "desc": "Mata yang melihat melampaui semua",
-      "name": "Mata Abyss"
-    },
-    "abyssal_scythe": {
-      "desc": "Sabit besar pemanen yang besar",
-      "name": "Sabit Abyss"
-    },
-    "acolyte_staff": {
-      "desc": "Tongkat yang digunakan untuk pelatihan sihir",
-      "name": "Tongkat Acolyte"
-    },
-    "ancient_relic": {
-      "desc": "Barang dengan kekuatan primordial yang tersegel",
-      "name": "Barang Purba"
-    },
-    "ares_shield": {
-      "desc": "Perisai dewa perang",
-      "name": "Perisai Ares"
-    },
-    "astral_blade": {
-      "desc": "Pedang suci yang merangkul cahaya bintang",
-      "name": "Pedang Astral"
-    },
-    "athena_aegis": {
-      "desc": "Armor sempurna dewi kebijaksanaan",
-      "name": "Aegis Athena"
-    },
-    "banshee_wail": {
-      "desc": "Bola sihir tangisan yang menembus",
-      "name": "Jeritan Banshee"
-    },
-    "blood_chalice": {
-      "desc": "Piala penguasa vampir",
-      "name": "Piala Darah"
-    },
-    "bone_dragon_bow": {
-      "desc": "Busur dari naga undead",
-      "name": "Busur Naga Tulang"
-    },
-    "celestial_armor": {
-      "desc": "Armor dengan cahaya surgawi",
-      "name": "Armor Celestial"
-    },
-    "chaos_blade": {
-      "desc": "Pedang tidak stabil yang lahir dari kekacauan",
-      "name": "Pedang Kekacauan"
-    },
-    "chaos_orb": {
-      "desc": "Bola kekacauan primordial yang terkondensasi",
-      "name": "Bola Kekacauan"
-    },
-    "chaos_origin": {
-      "desc": "Kekuatan awal dan akhir",
-      "name": "Asal Kekacauan"
-    },
-    "common": "Biasa",
-    "cosmic_tome": {
-      "desc": "Buku kebenaran universal",
-      "name": "Tome Kosmik"
-    },
-    "crystal_staff": {
-      "desc": "Tongkat dari kristal dimensional",
-      "name": "Tongkat Kristal"
-    },
-    "death_mantle": {
-      "desc": "Selimut penguasa kematian",
-      "name": "Selimut Penguasa Kematian"
-    },
-    "demon_horn": {
-      "desc": "Tanduk yang dirampas dari iblis",
-      "name": "Tanduk Iblis"
-    },
-    "destroyer_blade": {
-      "desc": "Pedang terhebat yang menghancurkan dimensi",
-      "name": "Pedang Penghancur"
-    },
-    "dimension_axe": {
-      "desc": "Kapak raksasa yang membelah dimensi",
-      "name": "Kapak Dimensi"
-    },
-    "divine_shield": {
-      "desc": "Perisai yang menghalangi serangan apapun",
-      "name": "Perisai Ilahi"
-    },
-    "dragon_fang": {
-      "desc": "Pedang yang dibuat dari gigi naga",
-      "name": "Taring Naga"
-    },
-    "dragon_heart": {
-      "desc": "Kristal jantung Penguasa Naga",
-      "name": "Jantung Naga"
-    },
-    "dragon_scale": {
-      "desc": "Armor yang dibuat dari sisik naga",
-      "name": "Armor Sisik Naga"
-    },
-    "dragonlord_crown": {
-      "desc": "Mahkota yang memerintah semua naga",
-      "name": "Mahkota Penguasa Naga"
-    },
-    "druid_robe": {
-      "desc": "Jubah yang berkomunikasi dengan alam",
-      "name": "Jubah Druid"
-    },
-    "element_gauntlet": {
-      "desc": "Gauntlet yang menggabungkan empat elemen",
-      "name": "Gauntlet Elemen"
-    },
-    "elven_boots": {
-      "desc": "Sepatu dengan kelincahan elf",
-      "name": "Sepatu Elf"
-    },
-    "emperor_scepter": {
-      "desc": "Scepter yang memerintah abyss",
-      "name": "Scepter Kaisar Abyss"
-    },
-    "epic": "Epik",
-    "eternal_eye": {
-      "desc": "Mata raksasa yang mengamati keabadian",
-      "name": "Mata Abadi"
-    },
-    "eternal_shield": {
-      "desc": "Perisai yang tidak pernah pecah",
-      "name": "Perisai Abadi"
-    },
-    "ether_armor": {
-      "desc": "Armor transparan yang ditenun dari eter",
-      "name": "Armor Eter"
-    },
-    "fate_scale": {
-      "desc": "Timbangan penghakiman yang menimbang takdir",
-      "name": "Timbangan Takdir"
-    },
-    "fenrir_claw": {
-      "desc": "Cakar serigala penelan dewa",
-      "name": "Cakar Fenrir"
-    },
-    "final_crown": {
-      "desc": "Apakah ini adalah akhir yang sesungguhnya...?",
-      "name": "Mahkota ???"
-    },
-    "fire_staff": {
-      "desc": "Tongkat yang diisi kekuatan gunung berapi",
-      "name": "Tongkat Api"
-    },
-    "flame_sword": {
-      "desc": "Pedang sihir yang membara dengan api",
-      "name": "Pedang Api"
-    },
-    "forest_crown": {
-      "desc": "Mahkota penguasa hutan",
-      "name": "Mahkota Raja Hutan"
-    },
-    "forest_staff": {
-      "desc": "Tongkat yang dipenuhi kekuatan alam",
-      "name": "Tongkat Hutan"
-    },
-    "gaia_blessing": {
-      "desc": "Kekuatan suci Ibu Bumi",
-      "name": "Berkah Gaia"
-    },
-    "god_blade": {
-      "desc": "Pedang yang diberkati oleh para dewa",
-      "name": "Pedang Dewa"
-    },
-    "hades_helm": {
-      "desc": "Helm ketidaklihatannya dari dunia bawah",
-      "name": "Helm Hades"
-    },
-    "hero_crown": {
-      "desc": "Mahkota penyelamat dunia",
-      "name": "Mahkota Pahlawan"
-    },
-    "hunters_bow": {
-      "desc": "Busur pemburu hutan berpengalaman",
-      "name": "Busur Pemburu"
-    },
-    "hydra_fang": {
-      "desc": "Senjata dari taring yang tumbuh kembali",
-      "name": "Taring Hydra"
-    },
-    "inferno_robe": {
-      "desc": "Jubah yang dihiasi dengan api neraka",
-      "name": "Jubah Api Neraka"
-    },
-    "infinity_orb": {
-      "desc": "Kristal bola sihir tak terbatas",
-      "name": "Bola Tak Terbatas"
-    },
-    "infinity_shield": {
-      "desc": "Perisai yang terus-menerus regenerasi",
-      "name": "Perisai Tak Terbatas"
-    },
-    "iron_armor": {
-      "desc": "Armor yang ditempa dari besi solid",
-      "name": "Armor Besi"
-    },
-    "iron_dagger": {
-      "desc": "Memungkinkan serangan beruntun cepat",
-      "name": "Belati Besi"
-    },
-    "iron_helm": {
-      "desc": "Helm besi untuk melindungi kepala",
-      "name": "Helm Besi"
-    },
-    "jormungandr_fang": {
-      "desc": "Taring ular yang melingkari dunia",
-      "name": "Taring Jörmungandr"
-    },
-    "judgment_hammer": {
-      "desc": "Senjata ilahi penghakiman",
-      "name": "Palu Penghakiman"
-    },
-    "kronos_scythe": {
-      "desc": "Sabit raksasa yang memotong waktu itu sendiri",
-      "name": "Sabit Kronos"
-    },
-    "lava_shield": {
-      "desc": "Perisai batu lava yang tidak mudah leleh",
-      "name": "Perisai Lava"
-    },
-    "leather_shield": {
-      "desc": "Memberikan pertahanan dasar",
-      "name": "Perisai Kulit"
-    },
-    "legendary": "Legendaris",
-    "magma_gauntlet": {
-      "desc": "Gauntlet yang ditempa dalam lava",
-      "name": "Gauntlet Magma"
-    },
-    "master_blade": {
-      "desc": "Masterpiece terbaik desa",
-      "name": "Pedang Master"
-    },
-    "necro_tome": {
-      "desc": "Buku terlarang nekromancy",
-      "name": "Tome Nekro"
-    },
-    "oak_shield": {
-      "desc": "Perisai terbuat dari potongan Pohon Dunia",
-      "name": "Perisai Besar Pohon Ek"
-    },
-    "obsidian_blade": {
-      "desc": "Tepi obsidian yang lahir dari gunung berapi",
-      "name": "Pedang Obsidian"
-    },
-    "odin_spear": {
-      "desc": "Tombak ilahi yang tidak pernah meleset",
-      "name": "Tombak Odin"
-    },
-    "phoenix_feather": {
-      "desc": "Bulu suci dari phoenix",
-      "name": "Bulu Phoenix"
-    },
-    "poison_blade": {
-      "desc": "Pedang tajam berlapis racun",
-      "name": "Pedang Beracun"
-    },
-    "poseidon_trident": {
-      "desc": "Trident yang memerintah lautan",
-      "name": "Trident Poseidon"
-    },
-    "primal_staff": {
-      "desc": "Tongkat dengan elemen primordial",
-      "name": "Tongkat Primordial"
-    },
-    "primordial_crown": {
-      "desc": "Mahkota makhluk primordial",
-      "name": "Mahkota Primordial"
-    },
-    "rare": "Sangat Jarang",
-    "recruit_bow": {
-      "desc": "Busur pemanah penjaga desa",
-      "name": "Busur Penjaga"
-    },
-    "rift_blade": {
-      "desc": "Pedang yang memotong dimensi",
-      "name": "Pedang Celah"
-    },
-    "rift_crown": {
-      "desc": "Mahkota penguasa dimensi",
-      "name": "Mahkota Raja Dimensi"
-    },
-    "salamander_mail": {
-      "desc": "Armor sisik tahan api",
-      "name": "Armor Salamander"
-    },
-    "seraphim_wings": {
-      "desc": "Ornamen sayap dari seraphim",
-      "name": "Sayap Seraphim"
-    },
-    "setBonus": "⭐ RANGKAIAN LENGKAP! DPS +20%",
-    "shadow_blade": {
-      "desc": "Pedang yang lahir dari kegelapan",
-      "name": "Pedang Bayangan"
-    },
-    "soul_gem": {
-      "desc": "Permata yang memperkuat kekuatan jiwa",
-      "name": "Permata Jiwa"
-    },
-    "spirit_bow": {
-      "desc": "Busur mistis yang diberkati roh",
-      "name": "Busur Roh"
-    },
-    "squire_plate": {
-      "desc": "Armor berat calon ksatria",
-      "name": "Pelat Squire"
-    },
-    "star_bow": {
-      "desc": "Busur yang menembak energi stellar",
-      "name": "Busur Bintang"
-    },
-    "star_giant_axe": {
-      "desc": "Kapak raksasa yang diukir dari bintang",
-      "name": "Kapak Raksasa Bintang"
-    },
-    "steel_sword": {
-      "desc": "Pedang baja yang diajarkan oleh master",
-      "name": "Pedang Panjang Baja"
-    },
-    "sun_staff": {
-      "desc": "Tongkat yang mengumpulkan kekuatan matahari",
-      "name": "Tongkat Matahari"
-    },
-    "surtr_flame": {
-      "desc": "Pedang raksasa yang membakar dunia",
-      "name": "Pedang Api Surtr"
-    },
-    "thor_hammer": {
-      "desc": "Palu ilahi petir",
-      "name": "Palu Thor"
-    },
-    "thorn_whip": {
-      "desc": "Cambuk sihir yang ditutupi duri",
-      "name": "Cambuk Duri"
-    },
-    "time_dagger": {
-      "desc": "Belati yang menghentikan waktu",
-      "name": "Belati Waktu"
-    },
-    "time_dragon_fang": {
-      "desc": "Taring naga yang melampaui waktu",
-      "name": "Taring Naga Waktu"
-    },
-    "time_end_blade": {
-      "desc": "Pedang dari tempat waktu berhenti",
-      "name": "Pedang Akhir Waktu"
-    },
-    "titan_hammer": {
-      "desc": "Palu besar yang pernah digunakan oleh titan",
-      "name": "Palu Titan"
-    },
-    "uncommon": "Jarang",
-    "universe_heart": {
-      "desc": "Kristal energi inti kosmos",
-      "name": "Jantung Alam Semesta"
-    },
-    "void_armor": {
-      "desc": "Armor dari kekosongan abyss",
-      "name": "Armor Kekosongan"
-    },
-    "void_gauntlet": {
-      "desc": "Gauntlet yang melepaskan kekuatan kekosongan",
-      "name": "Gauntlet Kekosongan"
-    },
-    "volcano_hammer": {
-      "desc": "Palu besar dari kemarahan gunung berapi",
-      "name": "Palu Gunung Berapi"
-    },
-    "volcano_heart": {
-      "desc": "Kristal inti dari dalam gunung berapi",
-      "name": "Jantung Gunung Berapi"
-    },
-    "wolf_cloak": {
-      "desc": "Jubah yang dibuat dari kulit serigala",
-      "name": "Jubah Kulit Serigala"
-    },
-    "wooden_sword": {
-      "desc": "Senjata pertamamu, awal dari petualangan",
-      "name": "Pedang Kayu"
-    },
-    "world_tree_bow": {
-      "desc": "Busur ilahi dari Pohon Dunia",
-      "name": "Busur Pohon Dunia"
-    },
-    "world_turtle": {
-      "desc": "Fragmen dari penyu dunia",
-      "name": "Cangkang Penyu"
-    },
-    "wyrmfire_staff": {
-      "desc": "Tongkat dengan napas naga",
-      "name": "Tongkat Wyrmfire"
-    },
-    "wyvern_lance": {
-      "desc": "Tombak yang dibuat dari tulang wyvern",
-      "name": "Tombak Wyvern"
-    },
-    "zeus_bolt": {
-      "desc": "Baut yang dilempar oleh raja langit",
-      "name": "Baut Zeus"
+    "achievement": {
+        "bossHunter": "Pemburu Bos",
+        "bossHunterDesc": "Kalahkan 10 bos",
+        "click10k": "Master Klik",
+        "click10kDesc": "Klik 10000 kali",
+        "click1k": "Raja Klik",
+        "click1kDesc": "Klik 1000 kali",
+        "dps100": "DPS 100",
+        "dps100Desc": "Capai 100 DPS otomatis",
+        "dungeonMaster": "Master Dungeon",
+        "dungeonMasterDesc": "Capai Tier 10",
+        "equipment10": "Master Peralatan",
+        "equipment10Desc": "Beli 10 peralatan",
+        "firstStep": "Langkah Pertama",
+        "firstStepDesc": "Kalahkan monster pertama Anda",
+        "goldenMonster": "Pemburu Emas",
+        "goldenMonsterDesc": "Kalahkan 5 monster emas",
+        "prestige5": "Kelahiran Kembali Berantai",
+        "prestige5Desc": "Prestis 5 kali",
+        "prestigeFirst": "Terlahir Kembali",
+        "prestigeFirstDesc": "Prestis pertama",
+        "skillMaster": "Master Keterampilan",
+        "skillMasterDesc": "5 keterampilan level 5",
+        "slayer100": "Jalan Prajurit",
+        "slayer1000": "Pembunuh",
+        "slayer1000Desc": "Kalahkan 1000 monster",
+        "slayer100Desc": "Kalahkan 100 monster",
+        "wealth10k": "Kaya",
+        "wealth10kDesc": "Dapatkan 10000 emas",
+        "wealth1m": "Miliarder",
+        "wealth1mDesc": "Dapatkan 1000000 emas",
+        "speedClicker": "Klik Cepat",
+        "speedClickerDesc": "Capai 10 klik per detik",
+        "firstPurchase": "Pembelian Pertama",
+        "firstPurchaseDesc": "Beli peralatan pertama",
+        "millionaire": "Jutawan",
+        "millionaireDesc": "Pegang 1.000.000 emas sekaligus",
+        "comboMaster": "Master Combo",
+        "comboMasterDesc": "Capai 30 kombo beruntun",
+        "petOwner": "Pemilik Hewan",
+        "petOwnerDesc": "Buka kunci hewan pertama"
+    },
+    "app": {
+        "description": "Kalahkan monster di dungeon dan lengkapi peralatan kuat! Petualangan RPG dimulai dengan satu klik. Permainan clicker idle gratis!",
+        "loading": "Loading...",
+        "title": "Dungeon Clicker - Permainan Clicker RPG Idle | DopaBrain"
+    },
+    "dailyMissions": {
+        "bonusGold": "Emas",
+        "bonusXP": "XP",
+        "boss_1": "Kalahkan 1 Bos",
+        "claim": "Klaim",
+        "claimed": "Diklaim",
+        "dailyBonus": "Bonus Penyelesaian Harian",
+        "gold_10k": "Dapatkan 10.000 Emas",
+        "kill_100": "Kalahkan 100 Monster",
+        "missionCompleted": "Misi Selesai!",
+        "resetsIn": "Ulang dalam",
+        "title": "📋 Misi Harian"
+    },
+    "dungeon": {
+        "abyss": "Jurang",
+        "chaos": "Kekacauan Primordial",
+        "divine": "Kerajaan Ilahi",
+        "dragon": "Sarang Naga",
+        "endworld": "Akhir Dunia",
+        "forest": "Dungeon Hutan",
+        "mythic": "Kerajaan Mitologi",
+        "rift": "Celah Dimensional",
+        "village": "Pinggiran Desa",
+        "volcano": "Dungeon Gunung Berapi"
+    },
+    "equipment": {
+        "absolute_blade": {
+            "desc": "Pedang yang menembus inti keberadaan",
+            "name": "Pedang Absolut"
+        },
+        "abyss_eye": {
+            "desc": "Mata yang melihat melampaui semua",
+            "name": "Mata Abyss"
+        },
+        "abyssal_scythe": {
+            "desc": "Sabit besar pemanen yang besar",
+            "name": "Sabit Abyss"
+        },
+        "acolyte_staff": {
+            "desc": "Tongkat yang digunakan untuk pelatihan sihir",
+            "name": "Tongkat Acolyte"
+        },
+        "ancient_relic": {
+            "desc": "Barang dengan kekuatan primordial yang tersegel",
+            "name": "Barang Purba"
+        },
+        "ares_shield": {
+            "desc": "Perisai dewa perang",
+            "name": "Perisai Ares"
+        },
+        "astral_blade": {
+            "desc": "Pedang suci yang merangkul cahaya bintang",
+            "name": "Pedang Astral"
+        },
+        "athena_aegis": {
+            "desc": "Armor sempurna dewi kebijaksanaan",
+            "name": "Aegis Athena"
+        },
+        "banshee_wail": {
+            "desc": "Bola sihir tangisan yang menembus",
+            "name": "Jeritan Banshee"
+        },
+        "blood_chalice": {
+            "desc": "Piala penguasa vampir",
+            "name": "Piala Darah"
+        },
+        "bone_dragon_bow": {
+            "desc": "Busur dari naga undead",
+            "name": "Busur Naga Tulang"
+        },
+        "celestial_armor": {
+            "desc": "Armor dengan cahaya surgawi",
+            "name": "Armor Celestial"
+        },
+        "chaos_blade": {
+            "desc": "Pedang tidak stabil yang lahir dari kekacauan",
+            "name": "Pedang Kekacauan"
+        },
+        "chaos_orb": {
+            "desc": "Bola kekacauan primordial yang terkondensasi",
+            "name": "Bola Kekacauan"
+        },
+        "chaos_origin": {
+            "desc": "Kekuatan awal dan akhir",
+            "name": "Asal Kekacauan"
+        },
+        "common": "Biasa",
+        "cosmic_tome": {
+            "desc": "Buku kebenaran universal",
+            "name": "Tome Kosmik"
+        },
+        "crystal_staff": {
+            "desc": "Tongkat dari kristal dimensional",
+            "name": "Tongkat Kristal"
+        },
+        "death_mantle": {
+            "desc": "Selimut penguasa kematian",
+            "name": "Selimut Penguasa Kematian"
+        },
+        "demon_horn": {
+            "desc": "Tanduk yang dirampas dari iblis",
+            "name": "Tanduk Iblis"
+        },
+        "destroyer_blade": {
+            "desc": "Pedang terhebat yang menghancurkan dimensi",
+            "name": "Pedang Penghancur"
+        },
+        "dimension_axe": {
+            "desc": "Kapak raksasa yang membelah dimensi",
+            "name": "Kapak Dimensi"
+        },
+        "divine_shield": {
+            "desc": "Perisai yang menghalangi serangan apapun",
+            "name": "Perisai Ilahi"
+        },
+        "dragon_fang": {
+            "desc": "Pedang yang dibuat dari gigi naga",
+            "name": "Taring Naga"
+        },
+        "dragon_heart": {
+            "desc": "Kristal jantung Penguasa Naga",
+            "name": "Jantung Naga"
+        },
+        "dragon_scale": {
+            "desc": "Armor yang dibuat dari sisik naga",
+            "name": "Armor Sisik Naga"
+        },
+        "dragonlord_crown": {
+            "desc": "Mahkota yang memerintah semua naga",
+            "name": "Mahkota Penguasa Naga"
+        },
+        "druid_robe": {
+            "desc": "Jubah yang berkomunikasi dengan alam",
+            "name": "Jubah Druid"
+        },
+        "element_gauntlet": {
+            "desc": "Gauntlet yang menggabungkan empat elemen",
+            "name": "Gauntlet Elemen"
+        },
+        "elven_boots": {
+            "desc": "Sepatu dengan kelincahan elf",
+            "name": "Sepatu Elf"
+        },
+        "emperor_scepter": {
+            "desc": "Scepter yang memerintah abyss",
+            "name": "Scepter Kaisar Abyss"
+        },
+        "epic": "Epik",
+        "eternal_eye": {
+            "desc": "Mata raksasa yang mengamati keabadian",
+            "name": "Mata Abadi"
+        },
+        "eternal_shield": {
+            "desc": "Perisai yang tidak pernah pecah",
+            "name": "Perisai Abadi"
+        },
+        "ether_armor": {
+            "desc": "Armor transparan yang ditenun dari eter",
+            "name": "Armor Eter"
+        },
+        "fate_scale": {
+            "desc": "Timbangan penghakiman yang menimbang takdir",
+            "name": "Timbangan Takdir"
+        },
+        "fenrir_claw": {
+            "desc": "Cakar serigala penelan dewa",
+            "name": "Cakar Fenrir"
+        },
+        "final_crown": {
+            "desc": "Apakah ini adalah akhir yang sesungguhnya...?",
+            "name": "Mahkota ???"
+        },
+        "fire_staff": {
+            "desc": "Tongkat yang diisi kekuatan gunung berapi",
+            "name": "Tongkat Api"
+        },
+        "flame_sword": {
+            "desc": "Pedang sihir yang membara dengan api",
+            "name": "Pedang Api"
+        },
+        "forest_crown": {
+            "desc": "Mahkota penguasa hutan",
+            "name": "Mahkota Raja Hutan"
+        },
+        "forest_staff": {
+            "desc": "Tongkat yang dipenuhi kekuatan alam",
+            "name": "Tongkat Hutan"
+        },
+        "gaia_blessing": {
+            "desc": "Kekuatan suci Ibu Bumi",
+            "name": "Berkah Gaia"
+        },
+        "god_blade": {
+            "desc": "Pedang yang diberkati oleh para dewa",
+            "name": "Pedang Dewa"
+        },
+        "hades_helm": {
+            "desc": "Helm ketidaklihatannya dari dunia bawah",
+            "name": "Helm Hades"
+        },
+        "hero_crown": {
+            "desc": "Mahkota penyelamat dunia",
+            "name": "Mahkota Pahlawan"
+        },
+        "hunters_bow": {
+            "desc": "Busur pemburu hutan berpengalaman",
+            "name": "Busur Pemburu"
+        },
+        "hydra_fang": {
+            "desc": "Senjata dari taring yang tumbuh kembali",
+            "name": "Taring Hydra"
+        },
+        "inferno_robe": {
+            "desc": "Jubah yang dihiasi dengan api neraka",
+            "name": "Jubah Api Neraka"
+        },
+        "infinity_orb": {
+            "desc": "Kristal bola sihir tak terbatas",
+            "name": "Bola Tak Terbatas"
+        },
+        "infinity_shield": {
+            "desc": "Perisai yang terus-menerus regenerasi",
+            "name": "Perisai Tak Terbatas"
+        },
+        "iron_armor": {
+            "desc": "Armor yang ditempa dari besi solid",
+            "name": "Armor Besi"
+        },
+        "iron_dagger": {
+            "desc": "Memungkinkan serangan beruntun cepat",
+            "name": "Belati Besi"
+        },
+        "iron_helm": {
+            "desc": "Helm besi untuk melindungi kepala",
+            "name": "Helm Besi"
+        },
+        "jormungandr_fang": {
+            "desc": "Taring ular yang melingkari dunia",
+            "name": "Taring Jörmungandr"
+        },
+        "judgment_hammer": {
+            "desc": "Senjata ilahi penghakiman",
+            "name": "Palu Penghakiman"
+        },
+        "kronos_scythe": {
+            "desc": "Sabit raksasa yang memotong waktu itu sendiri",
+            "name": "Sabit Kronos"
+        },
+        "lava_shield": {
+            "desc": "Perisai batu lava yang tidak mudah leleh",
+            "name": "Perisai Lava"
+        },
+        "leather_shield": {
+            "desc": "Memberikan pertahanan dasar",
+            "name": "Perisai Kulit"
+        },
+        "legendary": "Legendaris",
+        "magma_gauntlet": {
+            "desc": "Gauntlet yang ditempa dalam lava",
+            "name": "Gauntlet Magma"
+        },
+        "master_blade": {
+            "desc": "Masterpiece terbaik desa",
+            "name": "Pedang Master"
+        },
+        "necro_tome": {
+            "desc": "Buku terlarang nekromancy",
+            "name": "Tome Nekro"
+        },
+        "oak_shield": {
+            "desc": "Perisai terbuat dari potongan Pohon Dunia",
+            "name": "Perisai Besar Pohon Ek"
+        },
+        "obsidian_blade": {
+            "desc": "Tepi obsidian yang lahir dari gunung berapi",
+            "name": "Pedang Obsidian"
+        },
+        "odin_spear": {
+            "desc": "Tombak ilahi yang tidak pernah meleset",
+            "name": "Tombak Odin"
+        },
+        "phoenix_feather": {
+            "desc": "Bulu suci dari phoenix",
+            "name": "Bulu Phoenix"
+        },
+        "poison_blade": {
+            "desc": "Pedang tajam berlapis racun",
+            "name": "Pedang Beracun"
+        },
+        "poseidon_trident": {
+            "desc": "Trident yang memerintah lautan",
+            "name": "Trident Poseidon"
+        },
+        "primal_staff": {
+            "desc": "Tongkat dengan elemen primordial",
+            "name": "Tongkat Primordial"
+        },
+        "primordial_crown": {
+            "desc": "Mahkota makhluk primordial",
+            "name": "Mahkota Primordial"
+        },
+        "rare": "Sangat Jarang",
+        "recruit_bow": {
+            "desc": "Busur pemanah penjaga desa",
+            "name": "Busur Penjaga"
+        },
+        "rift_blade": {
+            "desc": "Pedang yang memotong dimensi",
+            "name": "Pedang Celah"
+        },
+        "rift_crown": {
+            "desc": "Mahkota penguasa dimensi",
+            "name": "Mahkota Raja Dimensi"
+        },
+        "salamander_mail": {
+            "desc": "Armor sisik tahan api",
+            "name": "Armor Salamander"
+        },
+        "seraphim_wings": {
+            "desc": "Ornamen sayap dari seraphim",
+            "name": "Sayap Seraphim"
+        },
+        "setBonus": "⭐ RANGKAIAN LENGKAP! DPS +20%",
+        "shadow_blade": {
+            "desc": "Pedang yang lahir dari kegelapan",
+            "name": "Pedang Bayangan"
+        },
+        "soul_gem": {
+            "desc": "Permata yang memperkuat kekuatan jiwa",
+            "name": "Permata Jiwa"
+        },
+        "spirit_bow": {
+            "desc": "Busur mistis yang diberkati roh",
+            "name": "Busur Roh"
+        },
+        "squire_plate": {
+            "desc": "Armor berat calon ksatria",
+            "name": "Pelat Squire"
+        },
+        "star_bow": {
+            "desc": "Busur yang menembak energi stellar",
+            "name": "Busur Bintang"
+        },
+        "star_giant_axe": {
+            "desc": "Kapak raksasa yang diukir dari bintang",
+            "name": "Kapak Raksasa Bintang"
+        },
+        "steel_sword": {
+            "desc": "Pedang baja yang diajarkan oleh master",
+            "name": "Pedang Panjang Baja"
+        },
+        "sun_staff": {
+            "desc": "Tongkat yang mengumpulkan kekuatan matahari",
+            "name": "Tongkat Matahari"
+        },
+        "surtr_flame": {
+            "desc": "Pedang raksasa yang membakar dunia",
+            "name": "Pedang Api Surtr"
+        },
+        "thor_hammer": {
+            "desc": "Palu ilahi petir",
+            "name": "Palu Thor"
+        },
+        "thorn_whip": {
+            "desc": "Cambuk sihir yang ditutupi duri",
+            "name": "Cambuk Duri"
+        },
+        "time_dagger": {
+            "desc": "Belati yang menghentikan waktu",
+            "name": "Belati Waktu"
+        },
+        "time_dragon_fang": {
+            "desc": "Taring naga yang melampaui waktu",
+            "name": "Taring Naga Waktu"
+        },
+        "time_end_blade": {
+            "desc": "Pedang dari tempat waktu berhenti",
+            "name": "Pedang Akhir Waktu"
+        },
+        "titan_hammer": {
+            "desc": "Palu besar yang pernah digunakan oleh titan",
+            "name": "Palu Titan"
+        },
+        "uncommon": "Jarang",
+        "universe_heart": {
+            "desc": "Kristal energi inti kosmos",
+            "name": "Jantung Alam Semesta"
+        },
+        "void_armor": {
+            "desc": "Armor dari kekosongan abyss",
+            "name": "Armor Kekosongan"
+        },
+        "void_gauntlet": {
+            "desc": "Gauntlet yang melepaskan kekuatan kekosongan",
+            "name": "Gauntlet Kekosongan"
+        },
+        "volcano_hammer": {
+            "desc": "Palu besar dari kemarahan gunung berapi",
+            "name": "Palu Gunung Berapi"
+        },
+        "volcano_heart": {
+            "desc": "Kristal inti dari dalam gunung berapi",
+            "name": "Jantung Gunung Berapi"
+        },
+        "wolf_cloak": {
+            "desc": "Jubah yang dibuat dari kulit serigala",
+            "name": "Jubah Kulit Serigala"
+        },
+        "wooden_sword": {
+            "desc": "Senjata pertamamu, awal dari petualangan",
+            "name": "Pedang Kayu"
+        },
+        "world_tree_bow": {
+            "desc": "Busur ilahi dari Pohon Dunia",
+            "name": "Busur Pohon Dunia"
+        },
+        "world_turtle": {
+            "desc": "Fragmen dari penyu dunia",
+            "name": "Cangkang Penyu"
+        },
+        "wyrmfire_staff": {
+            "desc": "Tongkat dengan napas naga",
+            "name": "Tongkat Wyrmfire"
+        },
+        "wyvern_lance": {
+            "desc": "Tombak yang dibuat dari tulang wyvern",
+            "name": "Tombak Wyvern"
+        },
+        "zeus_bolt": {
+            "desc": "Baut yang dilempar oleh raja langit",
+            "name": "Baut Zeus"
+        }
+    },
+    "event": {
+        "equipSale": "Penjualan Peralatan",
+        "equipSaleDesc": "Harga peralatan diskon 30% selama 30 detik!",
+        "expBoost": "Dorongan EXP",
+        "expBoostDesc": "Keterampilan EXP 2x selama 30 detik!",
+        "goldRush": "Demam Emas",
+        "goldRushDesc": "Penghasilan emas 2x selama 30 detik!",
+        "monsterFest": "Festival Monster",
+        "monsterFestDesc": "HP monster berkurang 50% selama 30 detik!"
+    },
+    "game": {
+        "achievement": "🏆 Pencapaian",
+        "achievementUnlocked": "Pencapaian Terbuka!",
+        "ad": "Iklan",
+        "allEquip": "Anda telah mengumpulkan semua peralatan! Naik level untuk menjadi lebih kuat!",
+        "analysisTitle": "Analisis",
+        "attackPower": "Kekuatan Serangan",
+        "autoDPS": "DPS Otomatis",
+        "autoIncome": "DPS Otomatis",
+        "back": "Beranda DopaBrain",
+        "battleAnalysis": "Analisis Pertempuran",
+        "bossDefeated": "Dikalahkan! +",
+        "bossLabel": "BOS",
+        "clickPower": "Kekuatan Serangan",
+        "close": "Tutup",
+        "confirmReset": "Apakah Anda yakin ingin mengatur ulang semua kemajuan?\nTindakan ini tidak dapat dibatalkan.",
+        "copyright": "© 2026 DopaBrain",
+        "currentOpponent": "Lawan Saat Ini",
+        "equipCount": "Jumlah Peralatan",
+        "equipment": "⚔️ Peralatan",
+        "goldEarned": "Emas!",
+        "goldEarned2": "Emas diperoleh!",
+        "goldenAppear": "Monster Emas Muncul",
+        "goldenEscape": "⭐ Monster Emas Kabur!",
+        "goldenHint": "Bunuh untuk 3x Emas!",
+        "bossEscaped": "Boss kabur!",
+        "bossRetry": "Tantang Boss",
+        "goldenMonster": "Monster Emas",
+        "growthGuide": "Panduan Pertumbuhan",
+        "halfway": "Setengah jalan!",
+        "kill": "Dikalahkan",
+        "linkCopied": "Tautan disalin!",
+        "maxRank": "Peringkat maksimum tercapai!",
+        "monsterKill": "monster dikalahkan,",
+        "monsterKilled": "Monster Dikalahkan",
+        "nextEquip": "Membuka peralatan berikutnya akan meningkatkan kekuatan pertempuran Anda secara drastis!",
+        "nextPrestige": "Poin yang diperoleh pada Prestis berikutnya",
+        "nextRank": "Emas hingga peringkat berikutnya:",
+        "noEquip": "Belum ada peralatan",
+        "offlineEarnings": "Offline",
+        "ownedEquip": "Peralatan yang Dimiliki",
+        "perSec": "/dtk",
+        "playMore": "Jelajahi dungeon terlebih dahulu!",
+        "prestige": "Prestis",
+        "prestigeBonus": "Bonus Permanen",
+        "prestigeConfirm": "Apakah Anda yakin ingin Prestis? Semua kemajuan akan direset!",
+        "prestigeCount": "Hitungan Prestis",
+        "prestigeDesc": "Atur ulang semua kemajuan dan dapatkan bonus permanen",
+        "prestigePoints": "Poin Prestis",
+        "prestigeRequire": "Tier 5 atau lebih tinggi untuk Prestis",
+        "prestigeTitle": "Informasi Prestis",
+        "rank": "Peringkat Dungeon",
+        "reset": "Setel Ulang",
+        "share": "Bagikan",
+        "skill": "🛡️ Keterampilan",
+        "stats": "📊 Statistik",
+        "subtitle": "Taklukkan dungeon dengan klik",
+        "tapHint": "KETUK UNTUK MENYERANG!",
+        "tierBossLabel": "BOS TINGKAT",
+        "tierCleared": "SELESAI",
+        "title": "Dungeon Clicker",
+        "topEquip": "Top 3 Peralatan",
+        "total": "Total",
+        "totalAttacks": "Total Serangan",
+        "totalClicks": "Total Serangan",
+        "totalEarned": "Total Emas",
+        "totalGoldEarned": "Total Emas Diperoleh",
+        "tryMore": "Coba Juga!",
+        "prestigeTease": "Prestige tersedia! Raih poin di Tier {tier}"
+    },
+    "milestones": {
+        "abyss": "Selesai Dungeon Jurang! Anda memiliki kualitas seorang ksatria.",
+        "darkness": "Kalahkan Penguasa Gelap!",
+        "divine": "Lewati Ujian Ilahi!",
+        "dragon": "Takluk Sarang Naga!",
+        "first": "Selesai dungeon pertama!",
+        "forest": "Takluk Dungeon Hutan! Tingkatkan peralatan Anda.",
+        "legend": "Selesai Dungeon Legendaris! Luar biasa!",
+        "volcano": "Tembus Dungeon Gunung Berapi! Kekuatan pertempuran Anda tumbuh."
+    },
+    "monsters": {
+        "flowerMonster": "Monsterbunga",
+        "iceMonster": "Monsteres Es",
+        "pumpkinMonster": "Monsterrunduk",
+        "snowmanMonster": "MonsterBonekaSalju"
+    },
+    "offline": {
+        "away": "Anda telah pergi selama {time}!",
+        "collect": "Kumpulkan",
+        "double": "Tonton Iklan untuk 2x Penghasilan",
+        "earned": "{gold} Emas",
+        "title": "Penghasilan Offline",
+        "monstersSlain": "monster terbunuh"
+    },
+    "pet": {
+        "active": "Aktif",
+        "activePet": "Pet Aktif",
+        "allStats": "Semua Status",
+        "attackPower": "Kekuatan Serangan",
+        "autoAttack": "Serangan Otomatis",
+        "cat": "Kucing",
+        "catDesc": "Serangan otomatis setiap detik",
+        "critChance": "Peluang Kritis",
+        "dog": "Anjing",
+        "dogDesc": "20% bonus emas",
+        "dragon": "Naga",
+        "dragonDesc": "30% peningkatan kekuatan serangan",
+        "eagle": "Elang",
+        "eagleDesc": "15% peningkatan peluang kritis",
+        "goldBonus": "Bonus Emas",
+        "insufficientGold": "Emas tidak cukup!",
+        "level": "Level",
+        "levelUp": "Naik Level",
+        "locked": "Terkunci",
+        "none": "Tidak Ada",
+        "select": "Pilih",
+        "selected": "Dipilih!",
+        "title": "Pet",
+        "unicorn": "Unicorn",
+        "unicornDesc": "10% peningkatan semua status",
+        "unlock": "Buka Kunci (50.000G)",
+        "unlocked": "Terbuka!"
+    },
+    "ranking": {
+        "highestDPS": "Highest DPS",
+        "highestTier": "Highest Tier",
+        "maxGoldHeld": "Max Gold Held",
+        "maxRank": "Max Rank Achieved!",
+        "maxSingleHit": "Max Single Hit",
+        "mostKills": "Most Kills",
+        "personalRecords": "Personal Records",
+        "rankBRONZE": "Bronze",
+        "rankDIAMOND": "Diamond",
+        "rankGOLD": "Gold",
+        "rankMASTER": "Master",
+        "rankPLATINUM": "Platinum",
+        "rankSILVER": "Silver",
+        "totalPrestige": "Total Prestiges"
+    },
+    "ranks": {
+        "adventurer": "Petualang",
+        "archmage": "Arsimagia",
+        "beginner": "Pemula Desa",
+        "dragonslayer": "Pembunuh Naga",
+        "godscall": "Delegasi Dewa",
+        "guardian": "Penjaga Dunia",
+        "hero": "Pahlawan",
+        "knight": "Ksatria",
+        "legend": "Pahlawan Legendaris",
+        "trainee": "Magang",
+        "warrior": "Prajurit"
+    },
+    "recommendations": {
+        "colorMemory": "Color Memory",
+        "colorMemoryDesc": "Memory challenge game",
+        "emojiMerge": "Emoji Merge",
+        "emojiMergeDesc": "Puzzle evolusi emoji",
+        "emotionTemp": "Termometer Emosi",
+        "emotionTempDesc": "Berapa suhu emosi Anda?",
+        "mbtiLove": "Kecocokan Cinta MBTI",
+        "mbtiLoveDesc": "Temukan pasangan sempurna Anda",
+        "quizApp": "Kuis Pengetahuan",
+        "quizAppDesc": "Kuis pengetahuan acak",
+        "stackTower": "Stack Tower",
+        "stackTowerDesc": "Permainan penumpukan blok",
+        "zigzagRunner": "Zigzag Runner",
+        "zigzagRunnerDesc": "Permainan lari zigzag"
+    },
+    "skill": {
+        "maxLevel": "Level Maksimal!"
+    },
+    "skills": {
+        "army": "Prajurit",
+        "army_desc": "Tingkatkan Banyak Serangan Otomatis",
+        "boss_hunter": "Pemburu Bos",
+        "boss_hunter_desc": "Bonus DPS pada Klik",
+        "critical": "Serangan Kritis",
+        "critical_desc": "Tingkatkan Kekuatan Serangan",
+        "haste": "Percepatan",
+        "haste_desc": "Tingkatkan Kecepatan Serangan",
+        "learned": "Dipelajari",
+        "legion": "Legion Legendaris",
+        "legion_desc": "Maksimalkan Serangan Otomatis",
+        "lightning": "Goresan Petir",
+        "lightning_desc": "Maksimalkan Kekuatan Serangan",
+        "maxLevel": "Level Maksimal!",
+        "power_slash": "Goresan Kuat",
+        "power_slash_desc": "Tingkatkan Banyak Kekuatan Serangan",
+        "summon": "Panggil Pahlawan",
+        "summon_desc": "Tingkatkan Serangan Otomatis"
+    },
+    "tutorial": {
+        "next": "SELANJUTNYA",
+        "skip": "LEWATI",
+        "step": "LANGKAH",
+        "step1": {
+            "text": "Ketuk monster untuk menyerang. Anda akan mendapatkan emas setiap kali mengklik!",
+            "title": "Klik Monster!"
+        },
+        "step2": {
+            "text": "Beli senjata dan perlengkapan dengan emas di tab Perlengkapan untuk meningkatkan kekuatan serang Anda!",
+            "title": "Beli Perlengkapan!"
+        },
+        "step3": {
+            "text": "Pelajari keterampilan kuat di tab Keterampilan untuk mendapatkan emas secara otomatis!",
+            "title": "Pelajari Keterampilan!"
+        },
+        "step4": {
+            "text": "Kalahkan bos di setiap tahap untuk maju ke dungeon berikutnya!",
+            "title": "Kalahkan Bos!"
+        },
+        "step5": {
+            "text": "Raih prestasi untuk melacak progres Anda dan menetapkan tujuan!",
+            "title": "Raih Prestasi!"
+        }
+    },
+    "seasons": {
+        "spring": "Musim Semi",
+        "summer": "Musim Panas",
+        "autumn": "Musim Gugur",
+        "winter": "Musim Dingin",
+        "seasonalMonster": "Monstermusiman",
+        "seasonalMonsterFlower": "Monsterbunga (Musim Semi)",
+        "seasonalMonsterIce": "Monsteres Es (Musim Panas)",
+        "seasonalMonsterPumpkin": "Monsterrunduk (Musim Gugur)",
+        "seasonalMonsterSnowman": "MonsterBonekaSalju (Musim Dingin)",
+        "bonusGold": "Emas +30%",
+        "bonusCooldown": "Pendinginan -15%",
+        "bonusExp": "Pengalaman +30%",
+        "bonusAll": "Semua Bonus +15%"
+    },
+    "guild": {
+        "title": "Guild",
+        "selectGuild": "Pilih Guild",
+        "selectGuildDesc": "Pilih satu guild untuk bergabung",
+        "flameGuild": "Guild Api",
+        "flameBuff": "Kekuatan Serangan +10%",
+        "frostGuild": "Guild Es",
+        "frostBuff": "Emas +10%",
+        "natureGuild": "Guild Alam",
+        "natureBuff": "Pemulihan Kesehatan +10%",
+        "stormGuild": "Guild Badai",
+        "stormBuff": "Kecepatan Serangan +10%",
+        "shadowGuild": "Guild Bayangan",
+        "shadowBuff": "Kritis +10%",
+        "level": "Tingkat",
+        "guildBonus": "Bonus Guild",
+        "experience": "Pengalaman Guild",
+        "expNote": "Dapatkan pengalaman guild dengan mengalahkan monster",
+        "levelUp": "Guild Naik Level!",
+        "weeklyMission": "Misi Mingguan",
+        "weeklyTarget": "Minggu Ini",
+        "monsters": "monster dikalahkan",
+        "missionReward": "Dapatkan bonus saat menyelesaikan",
+        "missionCompleted": "Selesai!",
+        "missionComplete": "Misi Mingguan Selesai!",
+        "leaveGuild": "Keluar Guild"
+    },
+    "minigame": {
+        "title": "Temukan Peti Harta Karun",
+        "play": "Mini Game!",
+        "attemptsLeft": "Usaha tersisa",
+        "confirm": "OK",
+        "treasureFound": "Anda menemukan harta karun!",
+        "treasureReward": "Hadiah emas diperoleh!",
+        "bombFound": "Bom meledak!",
+        "bombMessage": "Permainan berakhir.",
+        "noAttempts": "Tidak ada usaha tersisa.",
+        "cooldown": "Anda dapat bermain mini game setiap 10 menit"
+    },
+    "share": {
+        "twitter": "𝕏 Twitter",
+        "copyUrl": "📋 Salin tautan"
+    },
+    "error": {
+        "storage": "Beberapa fitur mungkin terbatas dalam mode privat.",
+        "data": "Kesalahan memuat data. Silakan muat ulang.",
+        "canvas": "Masalah rendering grafis. Silakan coba lagi.",
+        "audio": "Audio tidak tersedia. Anda dapat melanjutkan.",
+        "network": "Periksa koneksi Anda dan coba lagi.",
+        "general": "Terjadi kesalahan. Muat ulang atau coba lagi."
+    },
+    "result": {
+        "moreGames": "Game lainnya"
+    },
+    "related": {
+        "stackTower": "Menara Tumpuk",
+        "flappyBird": "Flappy Bird",
+        "emojiMerge": "Gabung Emoji",
+        "blockPuzzle": "Teka-teki Blok"
+    },
+    "goldMilestone": {
+        "g1k": "1.000 Emas tercapai!",
+        "g10k": "10.000 Emas diraih!",
+        "g100k": "100K Emas! Semakin kaya!",
+        "g1m": "1 Juta Emas! Jutawan!",
+        "g10m": "10 Juta Emas! Kekayaan legendaris!",
+        "g100m": "100 Juta Emas! Kekayaan mitis!",
+        "g1b": "1 Miliar Emas! Penguasa alam semesta!"
     }
-  },
-  "event": {
-    "equipSale": "Penjualan Peralatan",
-    "equipSaleDesc": "Harga peralatan diskon 30% selama 30 detik!",
-    "expBoost": "Dorongan EXP",
-    "expBoostDesc": "Keterampilan EXP 2x selama 30 detik!",
-    "goldRush": "Demam Emas",
-    "goldRushDesc": "Penghasilan emas 2x selama 30 detik!",
-    "monsterFest": "Festival Monster",
-    "monsterFestDesc": "HP monster berkurang 50% selama 30 detik!"
-  },
-  "game": {
-    "achievement": "🏆 Pencapaian",
-    "achievementUnlocked": "Pencapaian Terbuka!",
-    "ad": "Iklan",
-    "allEquip": "Anda telah mengumpulkan semua peralatan! Naik level untuk menjadi lebih kuat!",
-    "analysisTitle": "Analisis",
-    "attackPower": "Kekuatan Serangan",
-    "autoDPS": "DPS Otomatis",
-    "autoIncome": "DPS Otomatis",
-    "back": "Beranda DopaBrain",
-    "battleAnalysis": "Analisis Pertempuran",
-    "bossDefeated": "Dikalahkan! +",
-    "bossLabel": "BOS",
-    "clickPower": "Kekuatan Serangan",
-    "close": "Tutup",
-    "confirmReset": "Apakah Anda yakin ingin mengatur ulang semua kemajuan?\nTindakan ini tidak dapat dibatalkan.",
-    "copyright": "© 2026 DopaBrain",
-    "currentOpponent": "Lawan Saat Ini",
-    "equipCount": "Jumlah Peralatan",
-    "equipment": "⚔️ Peralatan",
-    "goldEarned": "Emas!",
-    "goldEarned2": "Emas diperoleh!",
-    "goldenAppear": "Monster Emas Muncul",
-    "goldenEscape": "⭐ Monster Emas Kabur!",
-    "goldenHint": "Bunuh untuk 3x Emas!",
-    "bossEscaped": "Boss kabur!",
-    "bossRetry": "Tantang Boss",
-    "goldenMonster": "Monster Emas",
-    "growthGuide": "Panduan Pertumbuhan",
-    "halfway": "Setengah jalan!",
-    "kill": "Dikalahkan",
-    "linkCopied": "Tautan disalin!",
-    "maxRank": "Peringkat maksimum tercapai!",
-    "monsterKill": "monster dikalahkan,",
-    "monsterKilled": "Monster Dikalahkan",
-    "nextEquip": "Membuka peralatan berikutnya akan meningkatkan kekuatan pertempuran Anda secara drastis!",
-    "nextPrestige": "Poin yang diperoleh pada Prestis berikutnya",
-    "nextRank": "Emas hingga peringkat berikutnya:",
-    "noEquip": "Belum ada peralatan",
-    "offlineEarnings": "Offline",
-    "ownedEquip": "Peralatan yang Dimiliki",
-    "perSec": "/dtk",
-    "playMore": "Jelajahi dungeon terlebih dahulu!",
-    "prestige": "Prestis",
-    "prestigeBonus": "Bonus Permanen",
-    "prestigeConfirm": "Apakah Anda yakin ingin Prestis? Semua kemajuan akan direset!",
-    "prestigeCount": "Hitungan Prestis",
-    "prestigeDesc": "Atur ulang semua kemajuan dan dapatkan bonus permanen",
-    "prestigePoints": "Poin Prestis",
-    "prestigeRequire": "Tier 5 atau lebih tinggi untuk Prestis",
-    "prestigeTitle": "Informasi Prestis",
-    "rank": "Peringkat Dungeon",
-    "reset": "Setel Ulang",
-    "share": "Bagikan",
-    "skill": "🛡️ Keterampilan",
-    "stats": "📊 Statistik",
-    "subtitle": "Taklukkan dungeon dengan klik",
-    "tapHint": "KETUK UNTUK MENYERANG!",
-    "tierBossLabel": "BOS TINGKAT",
-    "tierCleared": "SELESAI",
-    "title": "Dungeon Clicker",
-    "topEquip": "Top 3 Peralatan",
-    "total": "Total",
-    "totalAttacks": "Total Serangan",
-    "totalClicks": "Total Serangan",
-    "totalEarned": "Total Emas",
-    "totalGoldEarned": "Total Emas Diperoleh",
-    "tryMore": "Coba Juga!"
-  },
-  "milestones": {
-    "abyss": "Selesai Dungeon Jurang! Anda memiliki kualitas seorang ksatria.",
-    "darkness": "Kalahkan Penguasa Gelap!",
-    "divine": "Lewati Ujian Ilahi!",
-    "dragon": "Takluk Sarang Naga!",
-    "first": "Selesai dungeon pertama!",
-    "forest": "Takluk Dungeon Hutan! Tingkatkan peralatan Anda.",
-    "legend": "Selesai Dungeon Legendaris! Luar biasa!",
-    "volcano": "Tembus Dungeon Gunung Berapi! Kekuatan pertempuran Anda tumbuh."
-  },
-  "monsters": {
-    "absolute": "Makhluk Absolut",
-    "abyss_emperor": "Kaisar Jurang",
-    "ancient_dragon": "Naga Kuno",
-    "apocalypse_guardian": "Penjaga Kiamat",
-    "archangel": "Malaikat Agung",
-    "ares": "Ares",
-    "athena": "Athena",
-    "banshee": "Banshee",
-    "basilisk": "Basilisk",
-    "bat": "Kelelawar",
-    "bear": "Beruang",
-    "boar": "Babi Liar",
-    "bone_dragon": "Naga Tulang",
-    "carnivorous": "Tanaman Karnivora",
-    "chaos": "Kekacauan",
-    "chaos_incarnation": "Inkarnasi Kekacauan",
-    "chaos_knight": "Ksatria Kekacauan",
-    "cosmic_jellyfish": "Ubur-ubur Kosmik",
-    "crystal_giant": "Raksasa Kristal",
-    "cursed_knight": "Ksatria Terkutuk",
-    "dark_lord": "Penguasa Gelap",
-    "death_knight": "Ksatria Kematian",
-    "demon": "Iblis",
-    "dimension_breaker": "Pemecah Dimensional",
-    "dimension_demon": "Iblis Dimensional",
-    "dimension_destroyer": "Penghancur Dimensional",
-    "dimension_guardian": "Penjaga Dimensional",
-    "dragon": "Naga",
-    "dragon_guardian": "Penjaga Naga",
-    "dragon_lord": "Penguasa Naga",
-    "element_titan": "Titan Elemen",
-    "eternal_guardian": "Penjaga Abadi",
-    "eternal_watcher": "Pengawas Abadi",
-    "ether_dragon": "Naga Eter",
-    "fairy": "Peri Nakal",
-    "fate_judge": "Hakim Takdir",
-    "fenrir": "Fenrir",
-    "fire_lord": "Penguasa Api",
-    "flame_bat": "Kelelawar Api",
-    "flame_knight": "Ksatria Api",
-    "flame_spirit": "Roh Api",
-    "gaia": "Gaia",
-    "goblin": "Goblin",
-    "hades": "Hades",
-    "hydra": "Hydra",
-    "ice_dragon": "Naga Es",
-    "ifrit": "Ifrit",
-    "infinity_being": "Makhluk Tak Terbatas",
-    "jormungandr": "Jörmungandr",
-    "kobold": "Kobold",
-    "kraken": "Kraken",
-    "kronos": "Kronos",
-    "lava_golem": "Golem Lava",
-    "lava_slime": "Slime Lava",
-    "lich": "Lich",
-    "light_guardian": "Penjaga Cahaya",
-    "magma_worm": "Cacing Magma",
-    "mummy": "Mumi",
-    "mushroom": "Monster Jamur",
-    "necromancer": "Penyihir Mayat",
-    "odin": "Odin",
-    "orc": "Orc",
-    "phoenix": "Phoenix",
-    "poison_dragon": "Naga Racun",
-    "poseidon": "Poseidon",
-    "primordial_being": "Makhluk Primordial",
-    "primordial_chaos": "Kekacauan Primordial",
-    "primordial_flame": "Api Primordial",
-    "rat": "Tikus",
-    "scorpion": "Kalajengking",
-    "shadow_assassin": "Pembunuh Bayangan",
-    "skeleton": "Prajurit Kerangka",
-    "slime": "Slime",
-    "snake": "Ular",
-    "spider": "Laba-laba Beracun",
-    "star_giant": "Raksasa Bintang",
-    "star_predator": "Predator Bintang",
-    "sun_incarnation": "Inkarnasi Matahari",
-    "surtr": "Surtr",
-    "tentacle": "Tentakel Jurang",
-    "thief": "Pencuri",
-    "thor": "Thor",
-    "time_dragon": "Naga Waktu",
-    "time_end": "Akhir Waktu",
-    "time_keeper": "Penjaga Waktu",
-    "titan": "Titan",
-    "treent": "Roh Pohon",
-    "troll": "Troll",
-    "universe_heart": "Jantung Alam Semesta",
-    "unknown": "???",
-    "vampire": "Vampir",
-    "void_destroyer": "Penghancur Kekosongan",
-    "void_lord": "Penguasa Kekosongan",
-    "volcano_lizard": "Kadal Gunung Berapi",
-    "witch": "Penyihir Hutan",
-    "wolf": "Serigala",
-    "world_snake": "Ular Dunia",
-    "world_turtle": "Penyu Dunia",
-    "wyvern": "Wyvern",
-    "zeus": "Zeus"
-  },
-  "offline": {
-    "away": "Anda telah pergi selama {time}!",
-    "collect": "Kumpulkan",
-    "double": "Tonton Iklan untuk 2x Penghasilan",
-    "earned": "{gold} Emas",
-    "title": "Penghasilan Offline"
-  },
-  "pet": {
-    "active": "Aktif",
-    "activePet": "Pet Aktif",
-    "allStats": "Semua Status",
-    "attackPower": "Kekuatan Serangan",
-    "autoAttack": "Serangan Otomatis",
-    "cat": "Kucing",
-    "catDesc": "Serangan otomatis setiap detik",
-    "critChance": "Peluang Kritis",
-    "dog": "Anjing",
-    "dogDesc": "20% bonus emas",
-    "dragon": "Naga",
-    "dragonDesc": "30% peningkatan kekuatan serangan",
-    "eagle": "Elang",
-    "eagleDesc": "15% peningkatan peluang kritis",
-    "goldBonus": "Bonus Emas",
-    "insufficientGold": "Emas tidak cukup!",
-    "level": "Level",
-    "levelUp": "Naik Level",
-    "locked": "Terkunci",
-    "none": "Tidak Ada",
-    "select": "Pilih",
-    "selected": "Dipilih!",
-    "title": "Pet",
-    "unicorn": "Unicorn",
-    "unicornDesc": "10% peningkatan semua status",
-    "unlock": "Buka Kunci (50.000G)",
-    "unlocked": "Terbuka!"
-  },
-  "ranking": {
-    "highestDPS": "Highest DPS",
-    "highestTier": "Highest Tier",
-    "maxGoldHeld": "Max Gold Held",
-    "maxRank": "Max Rank Achieved!",
-    "maxSingleHit": "Max Single Hit",
-    "mostKills": "Most Kills",
-    "personalRecords": "Personal Records",
-    "rankBRONZE": "Bronze",
-    "rankDIAMOND": "Diamond",
-    "rankGOLD": "Gold",
-    "rankMASTER": "Master",
-    "rankPLATINUM": "Platinum",
-    "rankSILVER": "Silver",
-    "totalPrestige": "Total Prestiges"
-  },
-  "ranks": {
-    "adventurer": "Petualang",
-    "archmage": "Arsimagia",
-    "beginner": "Pemula Desa",
-    "dragonslayer": "Pembunuh Naga",
-    "godscall": "Delegasi Dewa",
-    "guardian": "Penjaga Dunia",
-    "hero": "Pahlawan",
-    "knight": "Ksatria",
-    "legend": "Pahlawan Legendaris",
-    "trainee": "Magang",
-    "warrior": "Prajurit"
-  },
-  "recommendations": {
-    "colorMemory": "Color Memory",
-    "colorMemoryDesc": "Memory challenge game",
-    "emojiMerge": "Emoji Merge",
-    "emojiMergeDesc": "Puzzle evolusi emoji",
-    "emotionTemp": "Termometer Emosi",
-    "emotionTempDesc": "Berapa suhu emosi Anda?",
-    "mbtiLove": "Kecocokan Cinta MBTI",
-    "mbtiLoveDesc": "Temukan pasangan sempurna Anda",
-    "quizApp": "Kuis Pengetahuan",
-    "quizAppDesc": "Kuis pengetahuan acak",
-    "stackTower": "Stack Tower",
-    "stackTowerDesc": "Permainan penumpukan blok",
-    "zigzagRunner": "Zigzag Runner",
-    "zigzagRunnerDesc": "Permainan lari zigzag"
-  },
-  "skill": {
-    "maxLevel": "Level Maksimal!"
-  },
-  "skills": {
-    "army": "Prajurit",
-    "army_desc": "Tingkatkan Banyak Serangan Otomatis",
-    "boss_hunter": "Pemburu Bos",
-    "boss_hunter_desc": "Bonus DPS pada Klik",
-    "critical": "Serangan Kritis",
-    "critical_desc": "Tingkatkan Kekuatan Serangan",
-    "haste": "Percepatan",
-    "haste_desc": "Tingkatkan Kecepatan Serangan",
-    "learned": "Dipelajari",
-    "legion": "Legion Legendaris",
-    "legion_desc": "Maksimalkan Serangan Otomatis",
-    "lightning": "Goresan Petir",
-    "lightning_desc": "Maksimalkan Kekuatan Serangan",
-    "maxLevel": "Level Maksimal!",
-    "power_slash": "Goresan Kuat",
-    "power_slash_desc": "Tingkatkan Banyak Kekuatan Serangan",
-    "summon": "Panggil Pahlawan",
-    "summon_desc": "Tingkatkan Serangan Otomatis"
-  },
-  "tutorial": {
-    "next": "SELANJUTNYA",
-    "skip": "LEWATI",
-    "step": "LANGKAH",
-    "step1": {
-      "text": "Ketuk monster untuk menyerang. Anda akan mendapatkan emas setiap kali mengklik!",
-      "title": "Klik Monster!"
-    },
-    "step2": {
-      "text": "Beli senjata dan perlengkapan dengan emas di tab Perlengkapan untuk meningkatkan kekuatan serang Anda!",
-      "title": "Beli Perlengkapan!"
-    },
-    "step3": {
-      "text": "Pelajari keterampilan kuat di tab Keterampilan untuk mendapatkan emas secara otomatis!",
-      "title": "Pelajari Keterampilan!"
-    },
-    "step4": {
-      "text": "Kalahkan bos di setiap tahap untuk maju ke dungeon berikutnya!",
-      "title": "Kalahkan Bos!"
-    },
-    "step5": {
-      "text": "Raih prestasi untuk melacak progres Anda dan menetapkan tujuan!",
-      "title": "Raih Prestasi!"
-    }
-  },
-  "monsters": {
-    "flowerMonster": "Monsterbunga",
-    "iceMonster": "Monsteres Es",
-    "pumpkinMonster": "Monsterrunduk",
-    "snowmanMonster": "MonsterBonekaSalju"
-  },
-  "seasons": {
-    "spring": "Musim Semi",
-    "summer": "Musim Panas",
-    "autumn": "Musim Gugur",
-    "winter": "Musim Dingin",
-    "seasonalMonster": "Monstermusiman",
-    "seasonalMonsterFlower": "Monsterbunga (Musim Semi)",
-    "seasonalMonsterIce": "Monsteres Es (Musim Panas)",
-    "seasonalMonsterPumpkin": "Monsterrunduk (Musim Gugur)",
-    "seasonalMonsterSnowman": "MonsterBonekaSalju (Musim Dingin)",
-    "bonusGold": "Emas +30%",
-    "bonusCooldown": "Pendinginan -15%",
-    "bonusExp": "Pengalaman +30%",
-    "bonusAll": "Semua Bonus +15%"
-  },
-  "guild": {
-    "title": "Guild",
-    "selectGuild": "Pilih Guild",
-    "selectGuildDesc": "Pilih satu guild untuk bergabung",
-    "flameGuild": "Guild Api",
-    "flameBuff": "Kekuatan Serangan +10%",
-    "frostGuild": "Guild Es",
-    "frostBuff": "Emas +10%",
-    "natureGuild": "Guild Alam",
-    "natureBuff": "Pemulihan Kesehatan +10%",
-    "stormGuild": "Guild Badai",
-    "stormBuff": "Kecepatan Serangan +10%",
-    "shadowGuild": "Guild Bayangan",
-    "shadowBuff": "Kritis +10%",
-    "level": "Tingkat",
-    "guildBonus": "Bonus Guild",
-    "experience": "Pengalaman Guild",
-    "expNote": "Dapatkan pengalaman guild dengan mengalahkan monster",
-    "levelUp": "Guild Naik Level!",
-    "weeklyMission": "Misi Mingguan",
-    "weeklyTarget": "Minggu Ini",
-    "monsters": "monster dikalahkan",
-    "missionReward": "Dapatkan bonus saat menyelesaikan",
-    "missionCompleted": "Selesai!",
-    "missionComplete": "Misi Mingguan Selesai!",
-    "leaveGuild": "Keluar Guild"
-  },
-  "minigame": {
-    "title": "Temukan Peti Harta Karun",
-    "play": "Mini Game!",
-    "attemptsLeft": "Usaha tersisa",
-    "confirm": "OK",
-    "treasureFound": "Anda menemukan harta karun!",
-    "treasureReward": "Hadiah emas diperoleh!",
-    "bombFound": "Bom meledak!",
-    "bombMessage": "Permainan berakhir.",
-    "noAttempts": "Tidak ada usaha tersisa.",
-    "cooldown": "Anda dapat bermain mini game setiap 10 menit"
-  },
-  "share": {
-    "twitter": "𝕏 Twitter",
-    "copyUrl": "📋 Salin tautan"
-  },
-  "error": {
-    "storage": "Beberapa fitur mungkin terbatas dalam mode privat.",
-    "data": "Kesalahan memuat data. Silakan muat ulang.",
-    "canvas": "Masalah rendering grafis. Silakan coba lagi.",
-    "audio": "Audio tidak tersedia. Anda dapat melanjutkan.",
-    "network": "Periksa koneksi Anda dan coba lagi.",
-    "general": "Terjadi kesalahan. Muat ulang atau coba lagi."
-  },
-  "result": {
-    "moreGames": "Game lainnya"
-  },
-  "related": {
-    "stackTower": "Menara Tumpuk",
-    "flappyBird": "Flappy Bird",
-    "emojiMerge": "Gabung Emoji",
-    "blockPuzzle": "Teka-teki Blok"
-  }
 }
