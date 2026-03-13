@@ -860,5 +860,14 @@
     "audio": "Ses kullanılamıyor. Devam edebilirsiniz.",
     "network": "Bağlantınızı kontrol edip tekrar deneyin.",
     "general": "Bir şeyler ters gitti. Yenileyip tekrar deneyin."
+  },
+  "result": {
+    "moreGames": "Daha fazla oyun"
+  },
+  "related": {
+    "stackTower": "Yığın Kule",
+    "flappyBird": "Flappy Bird",
+    "emojiMerge": "Emoji Birleştir",
+    "blockPuzzle": "Blok Bulmaca"
   }
 }

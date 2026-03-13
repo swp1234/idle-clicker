@@ -682,17 +682,28 @@
             </div>
         </div>
 
-        <!-- Related Games (SEO Internal Links) -->
-        <section class="related-games" style="margin:20px 0;padding:16px;background:rgba(255,255,255,0.05);border-radius:12px;">
-            <p style="font-size:13px;color:#aaa;margin:0 0 8px 0;font-weight:600;">More Free Games</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <a href="/snake-game/" style="padding:6px 12px;background:rgba(255,255,255,0.08);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;">🐍 Snake Game</a>
-                <a href="/puzzle-2048/" style="padding:6px 12px;background:rgba(255,255,255,0.08);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;">🔢 2048 Puzzle</a>
-                <a href="/stack-tower/" style="padding:6px 12px;background:rgba(255,255,255,0.08);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;">🏗️ Stack Tower</a>
-                <a href="/emoji-merge/" style="padding:6px 12px;background:rgba(255,255,255,0.08);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;">✨ Emoji Merge</a>
-                <a href="/flappy-bird/" style="padding:6px 12px;background:rgba(255,255,255,0.08);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;">🐦 Flappy Bird</a>
+        <!-- Related Games Cards -->
+        <div class="related-tests">
+            <h3 data-i18n="result.moreGames">More Games</h3>
+            <div class="related-grid">
+                <a href="/stack-tower/" class="related-card" style="--card-color: #e67e22">
+                    <span class="related-emoji">🏗️</span>
+                    <span class="related-name" data-i18n="related.stackTower">Stack Tower</span>
+                </a>
+                <a href="/flappy-bird/" class="related-card" style="--card-color: #f1c40f">
+                    <span class="related-emoji">🐤</span>
+                    <span class="related-name" data-i18n="related.flappyBird">Flappy Bird</span>
+                </a>
+                <a href="/emoji-merge/" class="related-card" style="--card-color: #e74c3c">
+                    <span class="related-emoji">😊</span>
+                    <span class="related-name" data-i18n="related.emojiMerge">Emoji Merge</span>
+                </a>
+                <a href="/block-puzzle/" class="related-card" style="--card-color: #3498db">
+                    <span class="related-emoji">🧩</span>
+                    <span class="related-name" data-i18n="related.blockPuzzle">Block Puzzle</span>
+                </a>
             </div>
-        </section>
+        </div>
 
         <!-- Recommendation -->
         <section class="rec-section">

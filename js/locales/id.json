@@ -860,5 +860,14 @@
     "audio": "Audio tidak tersedia. Anda dapat melanjutkan.",
     "network": "Periksa koneksi Anda dan coba lagi.",
     "general": "Terjadi kesalahan. Muat ulang atau coba lagi."
+  },
+  "result": {
+    "moreGames": "Game lainnya"
+  },
+  "related": {
+    "stackTower": "Menara Tumpuk",
+    "flappyBird": "Flappy Bird",
+    "emojiMerge": "Gabung Emoji",
+    "blockPuzzle": "Teka-teki Blok"
   }
 }

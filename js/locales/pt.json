@@ -860,5 +860,14 @@
     "audio": "Áudio indisponível. Você pode continuar.",
     "network": "Verifique sua conexão e tente novamente.",
     "general": "Algo deu errado. Atualize ou tente novamente."
+  },
+  "result": {
+    "moreGames": "Mais jogos"
+  },
+  "related": {
+    "stackTower": "Torre Empilhável",
+    "flappyBird": "Flappy Bird",
+    "emojiMerge": "Fusão Emoji",
+    "blockPuzzle": "Puzzle de Blocos"
   }
 }

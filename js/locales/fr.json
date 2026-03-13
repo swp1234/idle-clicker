@@ -860,5 +860,14 @@
     "audio": "Audio indisponible. Vous pouvez continuer.",
     "network": "Vérifiez votre connexion et réessayez.",
     "general": "Un problème est survenu. Rafraîchissez ou réessayez."
+  },
+  "result": {
+    "moreGames": "Plus de jeux"
+  },
+  "related": {
+    "stackTower": "Tour Empilable",
+    "flappyBird": "Flappy Bird",
+    "emojiMerge": "Fusion Emoji",
+    "blockPuzzle": "Puzzle de Blocs"
   }
 }

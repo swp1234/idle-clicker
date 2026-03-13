@@ -560,5 +560,14 @@
     "audio": "Audio unavailable. You can still continue.",
     "network": "Please check your connection and try again.",
     "general": "Something went wrong. Please refresh or try again."
+  },
+  "result": {
+    "moreGames": "More Games"
+  },
+  "related": {
+    "stackTower": "Stack Tower",
+    "flappyBird": "Flappy Bird",
+    "emojiMerge": "Emoji Merge",
+    "blockPuzzle": "Block Puzzle"
   }
 }
