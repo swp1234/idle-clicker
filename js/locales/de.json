@@ -492,7 +492,6 @@
     "game": {
         "achievement": "🏆 Errungenschaften",
         "achievementUnlocked": "Errungenschaft freigeschaltet!",
-        "ad": "Anzeige",
         "allEquip": "Du hast alle Ausrüstungen gesammelt! Lvl auf, um stärker zu werden!",
         "analysisTitle": "Analyse",
         "attackPower": "Angriffskraft",
@@ -578,7 +577,6 @@
     "offline": {
         "away": "Du warst {time} lang weg!",
         "collect": "Einlösen",
-        "double": "Anzeige ansehen für 2x Einkommen",
         "earned": "{gold} Gold",
         "title": "Offline-Einkommen",
         "monstersSlain": "Monster besiegt"

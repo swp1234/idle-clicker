@@ -492,7 +492,6 @@
     "game": {
         "achievement": "🏆 アチーブメント",
         "achievementUnlocked": "アチーブメント解除！",
-        "ad": "広告",
         "allEquip": "すべての装備を集めました！レベルを上げて強くなりましょう！",
         "analysisTitle": "分析",
         "attackPower": "攻撃力",
@@ -578,7 +577,6 @@
     "offline": {
         "away": "{time} の間、席を外していました！",
         "collect": "受け取る",
-        "double": "広告を見て2倍獲得",
         "earned": "{gold} ゴールド",
         "title": "オフライン収入",
         "monstersSlain": "体討伐"

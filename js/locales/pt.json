@@ -578,7 +578,6 @@
     "offline": {
         "away": "Você esteve longe por {time}!",
         "collect": "Coletar",
-        "double": "Assistir Anúncio para 2x Ganhos",
         "earned": "{gold} Ouro",
         "title": "Ganhos Offline",
         "monstersSlain": "monstros abatidos"

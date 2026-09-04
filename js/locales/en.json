@@ -83,7 +83,6 @@
         "away": "You were away for {time}!",
         "earned": "{gold} Gold",
         "collect": "Collect",
-        "double": "Watch Ad for 2x Earnings",
         "monstersSlain": "monsters slain"
     },
     "achievement": {

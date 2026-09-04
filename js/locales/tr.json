@@ -492,7 +492,6 @@
     "game": {
         "achievement": "🏆 Başarılar",
         "achievementUnlocked": "Başarı Açıldı!",
-        "ad": "Reklam",
         "allEquip": "Tüm ekipmanları topladınız! Daha güçlü olmak için seviye atın!",
         "analysisTitle": "Analiz",
         "attackPower": "Saldırı Gücü",
@@ -578,7 +577,6 @@
     "offline": {
         "away": "{time} boyunca uzakta oldunuz!",
         "collect": "Topla",
-        "double": "Reklam İzle ve 2x Kazanç Al",
         "earned": "{gold} Altın",
         "title": "Çevrimdışı Kazanç",
         "monstersSlain": "canavar olduruldu"

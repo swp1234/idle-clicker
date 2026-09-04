@@ -578,7 +578,6 @@
     "offline": {
         "away": "Vous avez été absent pendant {time}!",
         "collect": "Réclamer",
-        "double": "Regarder une Publicité pour 2x Gains",
         "earned": "{gold} Or",
         "title": "Gains Hors Ligne",
         "monstersSlain": "monstres tues"

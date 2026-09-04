@@ -578,7 +578,6 @@
     "offline": {
         "away": "¡Estuviste fuera durante {time}!",
         "collect": "Reclamar",
-        "double": "Ver Anuncio para 2x Ganancias",
         "earned": "{gold} Oro",
         "title": "Ganancias Offline",
         "monstersSlain": "monstruos eliminados"

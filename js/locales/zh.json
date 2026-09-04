@@ -492,7 +492,6 @@
     "game": {
         "achievement": "🏆 成就",
         "achievementUnlocked": "成就解锁！",
-        "ad": "广告",
         "allEquip": "您已收集所有装备！升级以变得更强！",
         "analysisTitle": "分析",
         "attackPower": "攻击力",
@@ -578,7 +577,6 @@
     "offline": {
         "away": "你已离线 {time}！",
         "collect": "领取",
-        "double": "看广告获得2倍收入",
         "earned": "{gold} 金币",
         "title": "离线收入",
         "monstersSlain": "怪物击杀"

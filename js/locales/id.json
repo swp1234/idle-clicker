@@ -492,7 +492,6 @@
     "game": {
         "achievement": "🏆 Pencapaian",
         "achievementUnlocked": "Pencapaian Terbuka!",
-        "ad": "Iklan",
         "allEquip": "Anda telah mengumpulkan semua peralatan! Naik level untuk menjadi lebih kuat!",
         "analysisTitle": "Analisis",
         "attackPower": "Kekuatan Serangan",
@@ -578,7 +577,6 @@
     "offline": {
         "away": "Anda telah pergi selama {time}!",
         "collect": "Kumpulkan",
-        "double": "Tonton Iklan untuk 2x Penghasilan",
         "earned": "{gold} Emas",
         "title": "Penghasilan Offline",
         "monstersSlain": "monster terbunuh"

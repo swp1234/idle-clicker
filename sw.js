@@ -3,7 +3,8 @@
  * Enables offline functionality with caching and improved performance
  */
 
-const CACHE_NAME = 'idle-clicker-v4';
+const CACHE_NAME = 'idle-clicker-v5';
+const APP_PATH = '/idle-clicker/';
 const ASSETS = [
     './',
     './index.html',
@@ -52,7 +53,7 @@ self.addEventListener('activate', (event) => {
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames
-                    .filter((name) => name !== CACHE_NAME)
+                    .filter((name) => name.startsWith('idle-clicker-') && name !== CACHE_NAME)
                     .map((name) => caches.delete(name))
             );
         })
@@ -64,17 +65,12 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') return;
 
-    // Skip external requests (ads, analytics, etc.)
-    if (event.request.url.includes('googletagmanager') ||
-        event.request.url.includes('googlesyndication') ||
-        event.request.url.includes('pagead2.google') ||
-        !event.request.url.startsWith(self.location.origin)) {
-        return;
-    }
+    const url = new URL(event.request.url);
+    if (url.origin !== self.location.origin || !url.pathname.startsWith(APP_PATH)) return;
 
     event.respondWith(
         fetch(event.request).then((response) => {
-            if (response && response.status === 200) {
+            if (response.ok) {
                 const responseToCache = response.clone();
                 caches.open(CACHE_NAME).then((cache) => {
                     cache.put(event.request, responseToCache);

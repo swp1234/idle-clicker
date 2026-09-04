@@ -45,6 +45,20 @@
     // Initialize Theme Toggle
     initTheme();
 
+    const trackedStages = new Set();
+
+    function trackStage(eventName, targetSlug = '') {
+        if (trackedStages.has(eventName)) return;
+        trackedStages.add(eventName);
+        if (typeof window.gtag !== 'function') return;
+        const params = targetSlug ? { target_slug: targetSlug } : {};
+        window.gtag('event', eventName, params);
+    }
+
+    function trackSuccessfulShare() {
+        trackStage('idle_share');
+    }
+
     // Game state
     let gold = 0;
     let totalEarned = 0;
@@ -1239,6 +1253,8 @@
     function handleClick(e) {
         if (monsterDying || monsterHP <= 0) return;
 
+        trackStage('idle_start');
+
         // Remove onboarding hint on first click
         if (totalClicks === 0) removeTapHint();
 
@@ -1703,6 +1719,7 @@
 
         gold -= cost;
         ownedEquipment[equipId] = (ownedEquipment[equipId] || 0) + 1;
+        trackStage('idle_progress');
         if (sfx) sfx.equipmentBuy();
 
         // Check set bonus before update
@@ -2223,9 +2240,6 @@
                     <button class="offline-btn offline-btn-collect" id="offline-collect-btn">
                         <span data-i18n="offline.collect">받기</span>
                     </button>
-                    <button class="offline-btn offline-btn-double" id="offline-double-btn" onclick="window._showOfflineAd && window._showOfflineAd()">
-                        <span data-i18n="offline.double">광고 보고 2배 받기</span>
-                    </button>
                 </div>
             </div>
         `;
@@ -2249,7 +2263,7 @@
         const collectBtn = document.getElementById('offline-collect-btn');
         if (collectBtn) {
             collectBtn.addEventListener('click', () => {
-                claimOfflineEarnings(false);
+                claimOfflineEarnings();
                 overlay.remove();
             });
         }
@@ -2278,17 +2292,13 @@
     }
 
     // Claim offline earnings
-    function claimOfflineEarnings(doubled = false) {
+    function claimOfflineEarnings() {
         const pending = localStorage.getItem('pendingOfflineEarnings');
         if (!pending) return;
 
         try {
             const data = JSON.parse(pending);
             let claimGold = data.gold;
-
-            if (doubled) {
-                claimGold *= 2;
-            }
 
             gold += claimGold;
             totalEarned += claimGold;
@@ -2306,8 +2316,7 @@
             const hours = Math.floor(data.seconds / 3600);
             const mins = Math.floor((data.seconds % 3600) / 60);
             const timeStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
-            const multiplier = doubled ? ' x2!' : '';
-            showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: +${formatGold(claimGold)} Gold${multiplier}`);
+            showMilestone(`${i18n.t('game.offlineEarnings')} ${timeStr}: +${formatGold(claimGold)} Gold`);
 
             // Show particle effect
             spawnOfflineGoldParticles(claimGold);
@@ -2489,14 +2498,8 @@
                 </div>
             `;
 
-            // Insert after the ad banner
-            const adBanner = document.querySelector('.ad-banner');
-            if (adBanner) {
-                adBanner.after(banner);
-            } else {
-                const container = document.querySelector('.container');
-                if (container) container.insertBefore(banner, container.firstChild);
-            }
+            const container = document.querySelector('.container');
+            if (container) container.insertBefore(banner, container.firstChild);
         }
 
         showEventEndBanner() {
@@ -2670,74 +2673,11 @@
         }
     }
 
-    // Interstitial
-    let _adInterval = null;
-    function showInterstitialAd() {
-        return new Promise(resolve => {
-            const overlay = document.getElementById('interstitial-overlay');
-            if (!overlay) { resolve(); return; }
-            overlay.classList.remove('hidden');
-
-            let count = 5;
-            const countdownEl = overlay.querySelector('.countdown-number');
-            const closeBtn = overlay.querySelector('.close-ad-btn');
-            if (countdownEl) countdownEl.textContent = count;
-            if (closeBtn) closeBtn.classList.add('hidden');
-
-            if (_adInterval) clearInterval(_adInterval);
-            _adInterval = setInterval(() => {
-                count--;
-                if (countdownEl) countdownEl.textContent = count;
-                if (count <= 0) {
-                    clearInterval(_adInterval);
-                    _adInterval = null;
-                    if (closeBtn) closeBtn.classList.remove('hidden');
-                }
-            }, 1000);
-
-            const close = () => {
-                if (_adInterval) { clearInterval(_adInterval); _adInterval = null; }
-                overlay.classList.add('hidden');
-                resolve();
-            };
-            if (closeBtn) closeBtn.onclick = close;
-        });
-    }
-
-    // Show offline ad and claim doubled earnings
-    async function showOfflineAdAndDouble() {
-        if (typeof GameAds !== 'undefined') {
-            GameAds.showRewarded({
-                onReward: () => {
-                    claimOfflineEarnings(true);
-                    const offlineModal = document.getElementById('offline-modal');
-                    if (offlineModal) offlineModal.remove();
-                },
-                onSkip: () => {
-                    claimOfflineEarnings(false);
-                    const offlineModal = document.getElementById('offline-modal');
-                    if (offlineModal) offlineModal.remove();
-                }
-            });
-        } else {
-            await showInterstitialAd();
-            claimOfflineEarnings(true);
-            const offlineModal = document.getElementById('offline-modal');
-            if (offlineModal) offlineModal.remove();
-        }
-    }
-
-    // Premium
-    async function showPremiumAnalysis() {
+    // Free in-game progress analysis.
+    function showPremiumAnalysis() {
         if (totalEarned === 0 && totalClicks === 0) {
             alert(i18n.t('game.playMore'));
             return;
-        }
-
-        if (typeof GameAds !== 'undefined') {
-            await new Promise(resolve => GameAds.showInterstitial({ onComplete: resolve }));
-        } else {
-            await showInterstitialAd();
         }
 
         const rank = getRankForGold(totalEarned);
@@ -2875,20 +2815,44 @@
         const resetBtn = document.getElementById('btn-reset');
         if (resetBtn) resetBtn.addEventListener('click', resetGame);
 
+        const gameTitle = i18n.t('game.title');
+        const shareText = `${gameTitle} on DopaBrain`;
+        const shareUrl = 'https://dopabrain.com/idle-clicker/';
         const shareBtn = document.getElementById('btn-share');
-        if (shareBtn) {
-            shareBtn.addEventListener('click', () => {
-                const gameTitle = i18n.t('game.title');
-                const text = `${gameTitle}: ${killCount}${i18n.t('game.monsterKill')} ${formatGold(totalEarned)} ${i18n.t('game.goldEarned2')}`;
-                if (navigator.share) {
-                    navigator.share({ title: gameTitle, text, url: location.href }).catch(() => {});
-                } else {
-                    navigator.clipboard.writeText(text + ' ' + location.href).then(() => {
-                        showMilestone(i18n.t('game.linkCopied'));
-                    }).catch(() => {});
+        if (shareBtn) shareBtn.addEventListener('click', async () => {
+            try {
+                if (navigator.share) await navigator.share({ title: gameTitle, text: shareText, url: shareUrl });
+                else {
+                    await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+                    showMilestone(i18n.t('game.linkCopied'));
                 }
-            });
-        }
+                trackSuccessfulShare();
+            } catch (_) {
+                // Cancellation and clipboard failures are not successful shares.
+            }
+        });
+
+        document.getElementById('shareTwitterBtn')?.addEventListener('click', () => {
+            const opened = window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${shareText} ${shareUrl}`)}`, '_blank', 'noopener');
+            if (opened) trackSuccessfulShare();
+        });
+
+        document.getElementById('shareUrlBtn')?.addEventListener('click', async function() {
+            try {
+                await navigator.clipboard.writeText(shareUrl);
+                const original = this.innerHTML;
+                this.textContent = '✅ Copied!';
+                setTimeout(() => { this.innerHTML = original; }, 2000);
+                trackSuccessfulShare();
+            } catch (_) {
+                // Clipboard failures are not successful shares.
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('[data-related-slug]');
+            if (link) trackStage('idle_related_click', link.dataset.relatedSlug);
+        });
 
         const prestigeBtn = document.getElementById('btn-prestige');
         if (prestigeBtn) {
@@ -2899,7 +2863,6 @@
         window._buySkill = buySkill;
         window._showPremium = showPremiumAnalysis;
         window._prestige = performPrestige;
-        window._showOfflineAd = showOfflineAdAndDouble;
         window._claimMissionReward = claimMissionReward;
         window._buyPet = buyPet;
         window._selectPet = selectPet;
@@ -3760,12 +3723,10 @@
     }
 
     // Ensure all init happens after DOM is loaded
-    // Initialize game ads
-    if (typeof GameAds !== 'undefined') GameAds.init();
-
     function safeInit() {
         try {
             init();
+            trackStage('idle_view');
         } catch (e) {
             console.error('Initialization error:', e);
         }
