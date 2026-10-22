@@ -2191,10 +2191,12 @@ button,a[href],input[type="button"],input[type="submit"],[role="button"]{min-wid
     transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    min-height: 40px;
+    min-height: 44px;
+    min-width: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
+    touch-action: manipulation;
 }
 
 .tutorial-skip-btn {
